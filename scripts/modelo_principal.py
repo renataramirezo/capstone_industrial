@@ -1,47 +1,44 @@
+# /scripts/modelo_principal.py
+
 import gurobipy as gp
 from gurobipy import GRB
-from funciones_auxiliares import cargar_datos  
+from data.datos import N, A, K, T, D, P, rodales
 
 def main():
-    # --- Cargar datos ---
-    rodales, hectareas, costos = cargar_datos("data/")
+    try:
+        modelo = gp.Model("Cosecha_Forestal")
 
-    # --- Crear modelo ---
-    modelo = gp.Model("Cosecha_Forestal")
+        # Variables: mu[j, k, t] = 1 si se instala maquinaria k en hectárea j en mes t
+        mu = modelo.addVars(N, K, T, vtype=GRB.BINARY, name="mu")
 
-    # --- Definir variables ---
-    mu = {}  # Ejemplo: μ_jkt
-    for j in hectareas:
-        for k in ["skidder", "torre"]:
-            for t in range(1, 25):  # 24 meses
-                mu[j, k, t] = modelo.addVar(vtype=GRB.BINARY, name=f"mu_{j}_{k}_{t}")
+        # Restricción: No más de una faena instalada por hectárea en cada mes
+        for j in N:
+            for t in T:
+                modelo.addConstr(
+                    gp.quicksum(mu[j, k, t] for k in K) <= 1,
+                    name=f"una_faena_por_hectarea_{j}_{t}"
+                )
 
-    # --- Restricciones ---
-    # Ejemplo: No instalar más de una faena por hectárea (Restricción 8)
-    for j in hectareas:
-        for t in range(1, 25):
-            modelo.addConstr(
-                gp.quicksum(mu[j, k, t] for k in ["skidder", "torre"]) <= 1,
-                name=f"max_una_faena_{j}_{t}"
-            )
+        # Función objetivo simplificada: sumar ingresos por τdt (a definir luego)
+        modelo.setObjective(
+            gp.quicksum(P * 1 for _ in D for _ in T),  # reemplazar por sum(P * tau_dt)
+            GRB.MAXIMIZE
+        )
 
-    # --- Función objetivo ---
-    # Ejemplo simplificado (adaptar según PDF)
-    modelo.setObjective(
-        gp.quicksum(P * tau_dt for d in destinos for t in meses) 
-        - gp.quicksum(cif_ki * mu[j, k, t] for ...),
-        sense=GRB.MAXIMIZE
-    )
+        modelo.optimize()
 
-    # --- Optimizar ---
-    modelo.optimize()
+        # Guardar resultados
+        if modelo.status == GRB.OPTIMAL:
+            with open("results/soluciones/solucion.txt", "w") as f:
+                for v in modelo.getVars():
+                    if v.X > 0.5:
+                        f.write(f"{v.VarName}: {v.X}\n")
+            print("Optimización completada y resultados guardados.")
+        else:
+            print("No se encontró solución óptima.")
 
-    # --- Guardar resultados ---
-    if modelo.status == GRB.OPTIMAL:
-        with open("results/soluciones/solucion.txt", "w") as f:
-            for v in modelo.getVars():
-                if v.X > 0.5:  # Para variables binarias
-                    f.write(f"{v.VarName}: {v.X}\n")
+    except Exception as e:
+        print(f"Error durante la ejecución del modelo: {str(e)}")
 
 if __name__ == "__main__":
     main()
