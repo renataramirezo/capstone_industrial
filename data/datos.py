@@ -42,8 +42,8 @@ A = [(1, 2), (1, 5), (2, 46), (2, 6), (3, 4), (3, 7), (4, 5), (4, 8), (5, 6), (7
 # Tipos de Faena
 K = ["skidder", "torre"]
 
-# Períodos de tiempo (meses)
-T = list(range(1, 25))
+# Períodos de tiempo en meses de cosecha
+T = [1, 2, 3, 4, 5, 6, 13, 14, 15, 16, 17, 18]
 
 # Nodos de destino
 D = [147, 169]  
@@ -69,7 +69,6 @@ rodales = {
     17: {"hectareas": [170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187]},
     18: {"hectareas": [188, 189, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199]},
     19: {"hectareas": [200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210]},
-    #...
 }
 
 # Subconjunto de nodos (hectáreas) donde se puede instalar faena tipo k.
@@ -80,17 +79,6 @@ nodos_torres = [50, 52, 58, 62, 63, 27, 65, 66, 36, 77, 78, 39, 42]
 #Radio cosecha por Nodo
 df = pd.read_csv('prediocsv.csv', sep=';')
 R_jk = alcance(df,nodos_skidders,nodos_torres)
-
-'''
-Queda de la forma:
-
-R_jk = {
-    (1, "skidder"): [1, 2, 3, 4],
-    (2, "torre"): [14, 15],
-
-    # ...
-}
-'''
 
 # Rodales adyacentes que no se pueden cosechar en la misma temporada.
 
