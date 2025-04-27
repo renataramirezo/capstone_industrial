@@ -61,3 +61,5 @@ def alcance(df,lista_s,lista_t):
                     alcance[(int(df.iloc[i,j]),'torre')] = lista
     return alcance
 
+'''A este mismo archivo le agregaría para cada posibilidad el costo 
+variable de cosecha y que todo quede en formato diccionario'''

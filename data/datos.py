@@ -1,8 +1,12 @@
 import pandas as pd
 from alcance import alcance
 # Datos del modelo
+P = 35000 #precio madera por metro cúbico
+C = 200 #costo construír 100m de camino (1 camino)
+ctm = 2.6 #costo transporte de cada metro cúbico por 1 camino 100m
 
 # Nodos
+#esto es innecesario si lo trataramos con diccionario como se sugiere más abajo
 N = list(range(1, 211))
 
 # Arcos
@@ -40,9 +44,12 @@ A = [(1, 2), (1, 5), (2, 46), (2, 6), (3, 4), (3, 7), (4, 5), (4, 8), (5, 6), (7
     (204,205), (204,208), (205,206), (205,209),(206,207), (206,210), (208,209),(209,210)]
 
 # Tipos de Faena
-K = ["skidder", "torre"]
+#incluso más que diccionario podría convenir named tupple
+K = {"skidder":{"mcc":4000}, "torre":{"mcc":5500}}
 
 # Períodos de tiempo en meses de cosecha
+#corresponde a los meses 
+#T = ["dic 23","e24", "f24", "mar24", "ab24", "may24", "dic24", "e25", "f25","mar25","ab25","may25"]
 T = [1, 2, 3, 4, 5, 6, 13, 14, 15, 16, 17, 18]
 
 # Nodos de destino
@@ -72,6 +79,17 @@ rodales = {
 }
 
 # Subconjunto de nodos (hectáreas) donde se puede instalar faena tipo k.
+#v= volumen maximo madera disponible en hectarea
+#cf=costo fijo instalación faena k en hectárea i
+'''creo que conviene que guardemos los nodos en un diccionario de este tipo,
+nodos={"nodos_skiders": {1:{"v":3, "cf":5},
+             2:{"v":3, "cf":5}}, 
+             4:{"v":3, "cf":5}},
+              etc},
+        "nodos_torres:{50:{"v":2,"cf": 5},
+            52:{"v":2,"cf": 5},
+            58:{"v":2,"cf": 5},
+            etc}}'''
 nodos_skidders = [1, 2, 4, 7, 8, 11, 12, 14, 15, 16, 18, 19, 22, 23, 25, 28, 31, 34, 37, 40, 89, 90, 46, 47, 84, 91, 92, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 108, 109, 110, 112, 114, 115, 117, 118, 120, 121, 123, 124, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210]
 nodos_torres = [50, 52, 58, 62, 63, 27, 65, 66, 36, 77, 78, 39, 42]
 
