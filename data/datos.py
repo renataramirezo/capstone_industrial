@@ -1,5 +1,14 @@
 import pandas as pd
+import os
 from alcance import alcance
+from arcos import arcos
+
+#ruta al csv
+csv_path = os.path.join(os.path.dirname(__file__), 'prediocsv.csv')
+
+# lectura dataframe
+df = pd.read_csv(csv_path, sep=';')  
+
 # Datos del modelo
 P = 35000 #precio madera por metro cúbico
 C = 200 #costo construír 100m de camino (1 camino)
@@ -10,6 +19,10 @@ ctm = 2.6 #costo transporte de cada metro cúbico por 1 camino 100m
 N = list(range(1, 211))
 
 # Arcos
+nodos_sin_arcos = [9,10,13,54,17,55,48,49,51,107,57,113,20,21,60,116,24,61,64,119,26,29,30,69,70,71,32,33,73,74,35,81,82,83,87,88]
+A1 = arcos(df, nodos_sin_arcos)
+
+
 A = [(1, 2), (1, 5), (2, 46), (2, 6), (3, 4), (3, 7), (4, 5), (4, 8), (5, 6), (7,8), (7,11), (8,12), (11,12),
     (11,15), (12, 16),(14, 15),(14,18), (15, 16), (15, 19),(18,19),(18,22), (19,23),(22,23),
     (22,25), (25,28),(28,31), (27, 65), (31,34), (34,37), (37,38), (37,40),(38,39), (38,41),
@@ -42,6 +55,8 @@ A = [(1, 2), (1, 5), (2, 46), (2, 6), (3, 4), (3, 7), (4, 5), (4, 8), (5, 6), (7
     (194,195),(194,198), (195,199), (196,197),(196,201), (197,198),(197,202), (198,199),
     (198,203), (200,201), (200,204), (201,202),(201,205), (202,203),(202,206), (203,207),
     (204,205), (204,208), (205,206), (205,209),(206,207), (206,210), (208,209),(209,210)]
+
+print(f'lista func a mano {len(A)}')
 
 # Tipos de Faena
 #incluso más que diccionario podría convenir named tupple
@@ -95,7 +110,6 @@ nodos_torres = [50, 52, 58, 62, 63, 27, 65, 66, 36, 77, 78, 39, 42]
 
 
 #Radio cosecha por Nodo
-df = pd.read_csv('prediocsv.csv', sep=';')
 R_jk = alcance(df,nodos_skidders,nodos_torres)
 
 # Rodales adyacentes que no se pueden cosechar en la misma temporada.
