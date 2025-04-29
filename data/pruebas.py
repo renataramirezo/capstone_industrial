@@ -1,9 +1,14 @@
-set = {frozenset({1,2}),frozenset({2,1}),frozenset({3,4})}
-print({2,1} in set)
-print(set)
+from datos import A, A1 
 
-for j in set:
-    if 2 in j:
-        print('estoy')
-    else:
-        print('noestoy')
+A1_tuplas = {tuple(sorted(arco)) for arco in A1}
+A_normalizado = {tuple(sorted(arco)) for arco in A}
+
+
+#Arcos en A1 que no están en A (sobrantes)
+sobrantes = A1_tuplas - A_normalizado
+
+# Arcos en A que no están en A1 (faltantes)
+faltantes = A_normalizado - A1_tuplas
+
+print(f"Arcos sobrantes en tu versión (total: {len(sobrantes)}):")
+print(sobrantes)
