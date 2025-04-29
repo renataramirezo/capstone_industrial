@@ -2,6 +2,7 @@ import pandas as pd
 import os
 from alcance import alcance
 from arcos import arcos
+import costosymadera
 
 #ruta al csv
 csv_path = os.path.join(os.path.dirname(__file__), 'prediocsv.csv')
