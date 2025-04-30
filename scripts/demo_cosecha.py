@@ -71,13 +71,19 @@ for i in range(rows):
 
 # print(edges_dict) 
 
+# Fijar la semilla
+random.seed(42)  # Puede ser cualquier número
+
+# Crear el diccionario de nodos válidos con valores entre 120 y 670
 wood_resources = {}
 
 for i in range(len(grid_7x7)):
     for j in range(len(grid_7x7[i])):
         node = grid_7x7[i][j]
         if node and node not in blocked_nodes: 
-            wood_resources[node] = random.randint(120, 670)
+            wood_resources[node] = random.randint(120, 770)
 
-# for node, value in wood_resources.items():
-    # print(f"Nodo {node} tiene {value} metros cúbicos de madera.")
+# Ver resultados
+for node, value in wood_resources.items():
+    print(f"Nodo {node} tiene {value} metros cúbicos de madera.")
+
