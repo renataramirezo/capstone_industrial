@@ -13,7 +13,6 @@ grid_7x7 = [
     [None,     None,     (6, 2),  (6, 3),  (6, 4),  None,     None]
 ]
 
-exit_nodes = [(6, 4), (2, 6)]  # Definir nodos de salida
 blocked_nodes = [(2, 1), (4, 4)]  # Definir nodos bloqueados
 
 # Crear diccionario de nodos conectados (adyacentes)
@@ -51,10 +50,6 @@ for i in range(len(grid_7x7)):
         if node and node not in blocked_nodes:
             wood_resources[node] = random.randint(120, 770)
 
-# Imprimir recursos de madera por nodo
-for node, value in wood_resources.items():
-    print(f"Nodo {node} tiene {value} metros cúbicos de madera.")
-
 # === Asignar costos de instalación ===
 installation_costs = {}
 for i in range(len(grid_7x7)):
@@ -71,10 +66,6 @@ for i in range(len(grid_7x7)):
                         break
             installation_costs[node] = 50 if is_near_blocked else 10
 
-# Imprimir costos de instalación
-for node, cost in installation_costs.items():
-    print(f"Nodo {node}: costo de instalación = {cost}")
-
 # === Asignar rodales ===
 rodales = {}
 for i in range(7):  # filas
@@ -87,17 +78,6 @@ for i in range(7):  # filas
         else:  # Parte inferior
             rodales[node] = 3 if j <= 3 else 4  # Rodal 3 o 4
 
-# Imprimir rodales
-for i in range(7):
-    row_display = []
-    for j in range(7):
-        node = grid_7x7[i][j]
-        if node and node in rodales:
-            row_display.append(f" {rodales[node]} ")
-        else:
-            row_display.append(" - ")
-    print("".join(row_display))
-
 # === Asignar tipos de máquinas ===
 machine_type = {}
 for node, cost in installation_costs.items():
@@ -106,40 +86,59 @@ for node, cost in installation_costs.items():
     elif cost == 10:
         machine_type[node] = 'skidder'
 
-# Imprimir tipos de máquinas
-for i in range(7):
-    row_display = []
-    for j in range(7):
-        node = grid_7x7[i][j]
-        if node in machine_type:
-            tipo = machine_type[node]
-            row_display.append(f"{tipo[:3]}")  # Mostrar 'tor' o 'ski'
-        else:
-            row_display.append(" - ")
-    print(" ".join(row_display))
-
 # === Parámetros de máquinas y costos ===
 wood_price = 35000
 capacity = {'skidder': 4000, 'tower': 5500}
 skidder_cost = {'up_to_100m': 10000, 'more_than_100m': 14000}
 tower_cost = 16000
 
-# === Cobertura de las máquinas ===
+# === Cobertura de las máquinas (modificado para skidder con cobertura Manhattan) ===
 skidder_coverage = {}  # Cobertura de skidder
 tower_coverage = {}    # Cobertura de torre
 
-# Definir las coberturas de las máquinas
+# === Función para calcular vecinos en forma de diamante (distancia Manhattan) ===
+def manhattan_coverage(center, max_distance, grid, blocked_set):
+    rows, cols = len(grid), len(grid[0])
+    coverage = []
+    x0, y0 = center
+    for dx in range(-max_distance, max_distance + 1):
+        for dy in range(-max_distance, max_distance + 1):
+            if abs(dx) + abs(dy) in range(1, max_distance + 1):  # Distancias 1 hasta max_distance
+                nx, ny = x0 + dx, y0 + dy
+                if 0 <= nx < rows and 0 <= ny < cols:
+                    neighbor = grid[nx][ny]
+                    if neighbor is not None and neighbor not in blocked_set:
+                        coverage.append(neighbor)
+    return coverage
+
+# === Función para calcular cobertura agrupada por distancia Manhattan ===
+def layered_manhattan_coverage(center, max_distance, grid, blocked_set):
+    rows, cols = len(grid), len(grid[0])
+    coverage = {d: [] for d in range(1, max_distance + 1)}
+    x0, y0 = center
+
+    for dx in range(-max_distance, max_distance + 1):
+        for dy in range(-max_distance, max_distance + 1):
+            d = abs(dx) + abs(dy)
+            if 1 <= d <= max_distance:
+                nx, ny = x0 + dx, y0 + dy
+                if 0 <= nx < rows and 0 <= ny < cols:
+                    neighbor = grid[nx][ny]
+                    if neighbor is not None and neighbor not in blocked_set:
+                        coverage[d].append(neighbor)
+    return coverage
+
+# === Cobertura con niveles de distancia para skidder y tower ===
+skidder_coverage = {}
+tower_coverage = {}
+
 for node, type_machine in machine_type.items():
     if type_machine == "skidder":
-        # Cobertura en un rango de 3 unidades alrededor
-        skidder_coverage[node] = [(node[0] + dx, node[1] + dy) for dx in range(-1, 2) for dy in range(-1, 2)
-                                   if 0 <= node[0] + dx < rows and 0 <= node[1] + dy < cols and
-                                   (node[0] + dx, node[1] + dy) != node]
+        skidder_coverage[node] = layered_manhattan_coverage(node, 3, grid_7x7, blocked_set)
     elif type_machine == "tower":
-        # Cobertura en forma de diamante (4 unidades en Manhattan)
-        tower_coverage[node] = [(node[0] + dx, node[1] + dy) for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]
-                                 if 0 <= node[0] + dx < rows and 0 <= node[1] + dy < cols and
-                                 (node[0] + dx, node[1] + dy) != node]
+        tower_coverage[node] = layered_manhattan_coverage(node, 4, grid_7x7, blocked_set)
+
+print(tower_coverage)
 
 # === Crear modelo de optimización ===
 model = gp.Model("max_profit_month1")
@@ -198,6 +197,48 @@ model.optimize()
 # === Resultados ===
 if model.status == GRB.OPTIMAL:
     print("\n=== Resultados óptimos ===")
+    
+    # Crear representación visual del grid
+    result_grid = [[" " for _ in range(7)] for _ in range(7)]
+    
+    # Marcar nodos bloqueados
+    for node in blocked_nodes:
+        i, j = node
+        result_grid[i][j] = "B"
+    
+    # Marcar nodos None
+    for i in range(7):
+        for j in range(7):
+            if grid_7x7[i][j] is None:
+                result_grid[i][j] = "X"
+    
+    # Marcar bases instaladas
+    for base in z:
+        if z[base].X > 0.5:
+            i, j = base
+            result_grid[i][j] = "T" if machine_type[base] == "tower" else "S"
+    
+    # Marcar nodos cosechados
+    for node in x:
+        if x[node].X > 0.5:
+            i, j = node
+            result_grid[i][j] = "C"
+    
+    # Imprimir el grid de resultados
+    print("\nMapa de operaciones (7x7):")
+    print("  " + " ".join(str(i) for i in range(7)))
+    for i in range(7):
+        print(f"{i} " + " ".join(result_grid[i][j] for j in range(7)))
+    
+    print("\nLeyenda:")
+    print("X: Nodo no disponible (None)")
+    print("B: Nodo bloqueado")
+    print("S: Base Skidder instalada")
+    print("T: Base Tower instalada")
+    print("C: Nodo cosechado")
+    
+    # Mostrar detalles adicionales
+    print("\nDetalles de operación:")
     for node in x:
         if x[node].X > 0.5:
             print(f"Nodo cosechado {node} con {wood_resources[node]} m³")
@@ -206,6 +247,6 @@ if model.status == GRB.OPTIMAL:
         if z[base].X > 0.5:
             print(f"Base instalada {machine_type[base]} en {base}")
     
-    print(f"Utilidad total: ${model.ObjVal:,.0f}")
+    print(f"\nUtilidad total: ${model.ObjVal:,.0f}")
 else:
     print("No se encontró una solución óptima.")
