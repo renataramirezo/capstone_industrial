@@ -1,6 +1,14 @@
 import pandas as pd
 
+'''Alcance define el radio de alcance y el costo variable 
+según la distancia a la que se encuentre la hectarea j de
+ la base faena i (skider 10000 para la base 14000 para el resto
+ torre 16000)'''
+
 def alcance(df,lista_s,lista_t):
+    '''arroja un diccionario del siguiente tipo:
+{(id_nodo_i, "tipo_faena_i", costo variable 100m): [(id_nodoj, cvij), (id_nodoj, cvij),.....], 
+(3,"skidder", 10000): [(1, 14000) , (4, 14000), (6, 14000)], etc}'''
     # pasar todas las entradas del df que sean ' ' o NaN a 0
     df.fillna(0, inplace=True)
     df.replace(' ', 0, inplace=True)
@@ -33,9 +41,9 @@ def alcance(df,lista_s,lista_t):
                                 continue
                             # Agregar valor a la lista
                             if df.iloc[i + dx, j + dy] != 0:
-                                lista.append(int(df.iloc[i + dx, j + dy]))
+                                lista.append((int(df.iloc[i + dx, j + dy]), 14000))
 
-                    alcance[(int(df.iloc[i,j]),'skidder')] = lista
+                    alcance[(int(df.iloc[i,j]),'skidder',10000)] = lista
 
                 elif df.iloc[i,j] in lista_t:
                     lista = []
@@ -57,9 +65,6 @@ def alcance(df,lista_s,lista_t):
                             if (x, y) in excluir:
                                 continue
                             if df.iloc[i + dx, j + dy] != 0:
-                                lista.append(int(df.iloc[x, y]))
-                    alcance[(int(df.iloc[i,j]),'torre')] = lista
+                                lista.append((int(df.iloc[x, y]), 16000))
+                    alcance[(int(df.iloc[i,j]),'torre', 16000)] = lista
     return alcance
-
-'''A este mismo archivo le agregaría para cada posibilidad el costo 
-variable de cosecha y que todo quede en formato diccionario'''
