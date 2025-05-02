@@ -2,6 +2,7 @@ import pandas as pd
 import os
 from alcance import alcance
 from arcos import arcos
+from costosymadera import dic_nodos
 
 csv_path = os.path.join(os.path.dirname(__file__), 'prediocsv.csv')
 df = pd.read_csv(csv_path, sep=';')  
@@ -53,10 +54,18 @@ sobrantes = A1_tuplas - A_normalizado
 # Arcos en A que no están en A1 (faltantes)
 faltantes = A_normalizado - A1_tuplas
 
-print(f"Arcos sobrantes en tu versión (total: {len(sobrantes)}):")
+'''print(f"Arcos sobrantes en tu versión (total: {len(sobrantes)}):")
 print(sobrantes)
 print(faltantes)
 
 print(len(A1))
 print(len(A))
-print(len(sobrantes))
+print(len(sobrantes))'''
+
+N = dic_nodos
+v_i = {fila: valores['v'] for fila, valores in N.items()}
+
+cf_ik = {fila: {'K': valores['K'], 'cf': valores['cf']} for fila, valores in N.items()}
+
+print(cf_ik[4]['cf'])
+
