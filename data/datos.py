@@ -111,8 +111,9 @@ rodales = {
 }
 
 
-#Radio cosecha por Nodo
+#Radio cosecha por Nodo y costo variable
 R_jk = alcance(df,nodos_skidders,nodos_torres)
+#{(id_nodo_1, "tipo_faena", cv):[(id_nodoj1,cv),(id_nodoj2,cv)... ]}
 
 # Rodales adyacentes que no se pueden cosechar en la misma temporada.
 
