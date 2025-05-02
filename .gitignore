@@ -1,6 +1,7 @@
 *.pyc
 *.pdf
 *.probando_sofi
+alcance_copia.py
 probando_sofi.py
 desktop.ini
 costovariable.py
