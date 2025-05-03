@@ -1,14 +1,11 @@
 import pandas as pd
 
-'''Alcance define el radio de alcance y el costo variable 
-según la distancia a la que se encuentre la hectarea j de
- la base faena i (skider 10000 para la base 14000 para el resto
- torre 16000)'''
+'''Alcance define el radio de alcance'''
 
 def alcance(df,lista_s,lista_t):
     '''arroja un diccionario del siguiente tipo:
-{(id_nodo_i, "tipo_faena_i", costo variable 100m): [(id_nodoj, cvij), (id_nodoj, cvij),.....], 
-(3,"skidder", 10000): [(1, 14000) , (4, 14000), (6, 14000)], etc}'''
+{(id_nodo_i, "tipo_faena_i"): [id_nodoj, id_nodoj,.....], 
+(3,"skidder"): [1 , 4, 6], etc}'''
     # pasar todas las entradas del df que sean ' ' o NaN a 0
     df.fillna(0, inplace=True)
     df.replace(' ', 0, inplace=True)
@@ -41,9 +38,12 @@ def alcance(df,lista_s,lista_t):
                                 continue
                             # Agregar valor a la lista
                             if df.iloc[i + dx, j + dy] != 0:
-                                lista.append((int(df.iloc[i + dx, j + dy]), 14000))
+#                                lista.append((int(df.iloc[i + dx, j + dy]), 14000))
 
-                    alcance[(int(df.iloc[i,j]),'skidder',10000)] = lista
+ #                   alcance[(int(df.iloc[i,j]),'skidder',10000)] = lista
+                                lista.append(int(df.iloc[i + dx, j + dy]))
+
+                    alcance[(int(df.iloc[i,j]),'skidder')] = {"radio": lista, "cv_rad":14000, "id":int(df.iloc[i,j]), "cv_base":10000}
 
                 elif df.iloc[i,j] in lista_t:
                     lista = []
@@ -65,6 +65,8 @@ def alcance(df,lista_s,lista_t):
                             if (x, y) in excluir:
                                 continue
                             if df.iloc[i + dx, j + dy] != 0:
-                                lista.append((int(df.iloc[x, y]), 16000))
-                    alcance[(int(df.iloc[i,j]),'torre', 16000)] = lista
+#                                lista.append((int(df.iloc[x, y]), 16000))
+#                    alcance[(int(df.iloc[i,j]),'torre', 16000)] = lista
+                                lista.append(int(df.iloc[x, y]))
+                    alcance[(int(df.iloc[i,j]),'torre')] = {"radio":lista, "cv_rad":16000, "id":int(df.iloc[i,j]), "cv_base":16000}
     return alcance
