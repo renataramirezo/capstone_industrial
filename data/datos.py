@@ -4,9 +4,10 @@ from alcance import alcance
 from arcos import arcos
 import costosymadera
 
-#ruta al csv
-csv_path = os.path.join(os.path.dirname(__file__), 'prediocsv.csv')
+# EN ESTE ARCHIVO ESTARÁN TODOS LOS CONJUNTOS Y PARAMETROS
 
+#ruta al csv con los nodos
+csv_nodos = os.path.join(os.path.dirname(__file__), 'prediocsv.csv')
 # lectura dataframe
 df = pd.read_csv(csv_path, sep=';')  
 
@@ -33,7 +34,7 @@ por ejemplo:
 nodos_skidders = [1, 2, 4, 7, 8, 11, 12, 14, 15, 16, 18, 19, 22, 23, 25, 28, 31, 34, 37, 40, 89, 90, 46, 47, 84, 91, 92, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 108, 109, 110, 112, 114, 115, 117, 118, 120, 121, 123, 124, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210]
 nodos_torres = [50, 52, 58, 62, 63, 27, 65, 66, 36, 77, 78, 39, 42]
 
-# Arcos
+# AUXILIARES
 nodos_sin_arcos = [9,10,13,54,17,55,48,49,51,107,57,113,20,21,60,116,24,61,64,119,26,29,30,69,70,71,32,33,73,74,35,81,82,83,87,88]
 A1 = arcos(df, nodos_sin_arcos)
 
