@@ -18,22 +18,20 @@ blocked_nodes = [(2, 1), (4, 4)]  # Nodos bloqueados
 blocked_set = set(blocked_nodes)
 
 # === Parámetros económicos ===
-wood_price = 35000  # Precio por m3
-skidder_install_cost = 10000  # Costo instalación skidder
-tower_install_cost = 50000    # Costo instalación torre
-
-# Costos de cosecha diferenciados
-skidder_cost = {
-    'same_cell': 10000,    # Misma celda
-    'adjacent': 10000,     # Arriba, abajo, izquierda, derecha (distancia 1)
-    'square': 10000,       # Diagonales (distancia sqrt(2))
-    'beyond': 14000        # Más allá del cuadrado 3x3
+P = 35000  # Precio por m3 (antes wood_price)
+cf = {
+    1: 10000,  # Costo instalación skidder (k=1)
+    2: 50000   # Costo instalación torre (k=2)
 }
-tower_cost = 16000  # Costo fijo por m3 para torres
+
+# Costos variables de cosecha (cv) - ahora como diccionario de tuplas (i,j,k)
+cv = {}
 
 # Capacidades de cosecha
-skidder_capacity = 4000  # m3 por faena
-tower_capacity = 5500    # m3 por faena
+mcc = {
+    1: 4000,  # Capacidad skidder (m3 por faena)
+    2: 5500   # Capacidad torre (m3 por faena)
+}
 
 # === Generar recursos madereros ===
 random.seed(42)
@@ -47,251 +45,166 @@ for i in range(7):
 # === Función para calcular áreas cosechables ===
 def calculate_harvest_areas(machine_type, max_distance):
     areas = {}
-    directions = [(-1,0),(1,0),(0,-1),(0,1)]
-    
     for node in wood_resources:
-        queue = [(node, 0)]
-        visited = set([node])
         harvestable = set()
-        
-        while queue:
-            current, dist = queue.pop(0)
-            harvestable.add(current)
-            
-            if dist >= max_distance:
-                continue
-                
-            for dx, dy in directions:
-                ni, nj = current[0]+dx, current[1]+dy
-                if 0 <= ni <7 and 0<= nj <7:
-                    neighbor = grid_7x7[ni][nj]
-                    if (neighbor and neighbor not in blocked_set and 
-                        neighbor not in visited):
-                        visited.add(neighbor)
-                        queue.append((neighbor, dist+1))
-        
+        x, y = node
+        # Explorar todos los nodos dentro de la distancia Manhattan <= max_distance
+        for i in range(7):
+            for j in range(7):
+                if grid_7x7[i][j] and grid_7x7[i][j] not in blocked_set:
+                    if abs(i - x) + abs(j - y) <= max_distance:
+                        harvestable.add(grid_7x7[i][j])
         areas[node] = harvestable
     return areas
 
-
 # Áreas para cada tipo de máquina
 skidder_areas = calculate_harvest_areas('skidder', 3)
-tower_areas = calculate_harvest_areas('tower', 4)  
+tower_areas = calculate_harvest_areas('tower', 4)
 
-print(skidder_areas)
-
-# === Función para calcular costos de cosecha por skidder ===
-def calculate_skidder_cost(faena, node):
-    di = abs(faena[0] - node[0])
-    dj = abs(faena[1] - node[1])
-    distance = max(di, dj)  # Distancia de Chebyshev (para cuadrado)
+# === Función para calcular costos de cosecha ===
+def calculate_cv():
+    cv_dict = {}
+    # Costos para skidder (k=1)
+    for faena in wood_resources:
+        for node in skidder_areas[faena]:
+            di = abs(faena[0] - node[0])
+            dj = abs(faena[1] - node[1])
+            distance = max(di, dj)  # Distancia de Chebyshev
+            
+            if distance == 0:
+                cost = 10000  # same_cell
+            elif distance == 1:
+                cost = 10000  # adjacent
+            else:
+                cost = 14000  # beyond
+            
+            cv_dict[(faena, node, 1)] = cost
     
-    if distance == 0:
-        return skidder_cost['same_cell']
-    elif distance == 1:
-        return skidder_cost['adjacent']
-    elif distance == 2:
-        return skidder_cost['square']
-    else:
-        return skidder_cost['beyond']
+    # Costos para torre (k=2) - costo fijo
+    for faena in wood_resources:
+        for node in tower_areas[faena]:
+            cv_dict[(faena, node, 2)] = 16000
+    
+    return cv_dict
+
+# Calcular todos los costos variables
+cv = calculate_cv()
 
 # === Crear modelo de optimización ===
-model = gp.Model("CosechaOptima")
+model = gp.Model("CosechaOptimaUnMes")
 
 # === Variables de decisión ===
-z_skidder = {}  # 1 si se instala skidder en el nodo
-z_tower = {}    # 1 si se instala torre en el nodo
-x = {}          # 1 si el nodo es cosechado
-y = {}          # Faena que cosecha el nodo (para exclusividad)
+mu = {}  # 1 si se instala maquinaria tipo k en el nodo i (costos de instalación)
+f = {}   # 1 si existe maquinaria tipo k en el nodo i (para costos de operación)
+x = {}   # 1 si el nodo j es cosechado por maquinaria k instalada en el nodo i
+w = {}   # Cantidad de madera cosechada en nodo j por maquinaria k instalada en i
 
-for node in wood_resources:
-    z_skidder[node] = model.addVar(vtype=GRB.BINARY, name=f"skidder_{node[0]}_{node[1]}")
-    z_tower[node] = model.addVar(vtype=GRB.BINARY, name=f"tower_{node[0]}_{node[1]}")
-    x[node] = model.addVar(vtype=GRB.BINARY, name=f"cosecha_{node[0]}_{node[1]}")
+for i in wood_resources:
+    # Variables de instalación y estado para skidder (k=1)
+    mu[(i, 1)] = model.addVar(vtype=GRB.BINARY, name=f"mu_skidder_{i[0]}_{i[1]}")
+    f[(i, 1)] = model.addVar(vtype=GRB.BINARY, name=f"f_skidder_{i[0]}_{i[1]}")
     
-    # Variable para controlar qué faena cosecha cada nodo
-    possible_faenas = []
-    for faena in wood_resources:
-        if node in skidder_areas[faena]:
-            possible_faenas.append((faena, 'skidder'))
-        if node in tower_areas[faena]:
-            possible_faenas.append((faena, 'tower'))
+    # Variables de instalación y estado para torre (k=2)
+    mu[(i, 2)] = model.addVar(vtype=GRB.BINARY, name=f"mu_torre_{i[0]}_{i[1]}")
+    f[(i, 2)] = model.addVar(vtype=GRB.BINARY, name=f"f_torre_{i[0]}_{i[1]}")
     
-    y[node] = {
-        (faena, tipo): model.addVar(vtype=GRB.BINARY, 
-                                   name=f"asign_{node[0]}_{node[1]}_to_{faena}_{tipo}")
-        for (faena, tipo) in possible_faenas
-    }
+    # Variables de asignación y cosecha para nodos dentro del radio de operación
+    for j in skidder_areas[i]:  # Para skidder
+        x[(i, j, 1)] = model.addVar(vtype=GRB.BINARY, name=f"x_skidder_{i[0]}_{i[1]}_cosecha_{j[0]}_{j[1]}")
+        w[(i, j, 1)] = model.addVar(vtype=GRB.CONTINUOUS, name=f"w_skidder_{i[0]}_{i[1]}_cosecha_{j[0]}_{j[1]}")
+    
+    for j in tower_areas[i]:  # Para torre
+        x[(i, j, 2)] = model.addVar(vtype=GRB.BINARY, name=f"x_torre_{i[0]}_{i[1]}_cosecha_{j[0]}_{j[1]}")
+        w[(i, j, 2)] = model.addVar(vtype=GRB.CONTINUOUS, name=f"w_torre_{i[0]}_{i[1]}_cosecha_{j[0]}_{j[1]}")
 
 model.update()
 
 # === Restricciones ===
 
-# 1. Cada nodo puede tener como máximo un tipo de faena
-for node in wood_resources:
-    model.addConstr(z_skidder[node] + z_tower[node] <= 1)
+# 1. Relación entre instalación y estado de la maquinaria
+for i in wood_resources:
+    for k in [1, 2]:  # 1=skidder, 2=torre
+        model.addConstr(f[(i, k)] == mu[(i, k)], name=f"instalacion_estado_{i}_{k}")
 
-# 2. Un nodo solo puede ser cosechado si está asignado a una faena activa
-for node in wood_resources:
-    model.addConstr(x[node] == gp.quicksum(
-        y[node].get((faena, tipo), 0)
-        for faena in wood_resources
-        for tipo in ['skidder', 'tower']
-        if (faena, tipo) in y[node]
-    ))
+# 2. Máximo una maquinaria por nodo
+for i in wood_resources:
+    model.addConstr(f[(i, 1)] + f[(i, 2)] <= 1, name=f"una_maquinaria_{i}")
 
-# 3. Solo se puede asignar a faenas instaladas
-for node in wood_resources:
-    for (faena, tipo), var in y[node].items():
-        if tipo == 'skidder':
-            model.addConstr(var <= z_skidder[faena])
-        else:
-            model.addConstr(var <= z_tower[faena])
+# 3. Asignación de cosecha solo si existe la maquinaria
+for i in wood_resources:
+    for j in skidder_areas[i]:
+        model.addConstr(x[(i, j, 1)] <= f[(i, 1)], name=f"asign_skidder_{i}_{j}")
+    for j in tower_areas[i]:
+        model.addConstr(x[(i, j, 2)] <= f[(i, 2)], name=f"asign_torre_{i}_{j}")
 
-# 4. Cada nodo solo puede ser cosechado por una faena
-for node in wood_resources:
-    model.addConstr(gp.quicksum(
-        y[node].get((faena, tipo), 0)
-        for faena in wood_resources
-        for tipo in ['skidder', 'tower']
-        if (faena, tipo) in y[node]
-    ) <= 1)
-
-# 5. Restricciones de capacidad
-for faena in wood_resources:
-    # Capacidad skidder
-    skidder_total = gp.quicksum(
-        wood_resources[node] * y[node].get((faena, 'skidder'), 0)
-        for node in wood_resources
-        if (faena, 'skidder') in y[node]
-    )
-    model.addConstr(skidder_total <= skidder_capacity * z_skidder[faena])
+# 4. Cada nodo cosechado solo por una maquinaria
+for j in wood_resources:
+    # Encontrar todas las posibles faenas que pueden cosechar j
+    asignaciones = []
+    for i in wood_resources:
+        if j in skidder_areas[i]:
+            asignaciones.append((i, 1))
+        if j in tower_areas[i]:
+            asignaciones.append((i, 2))
     
-    # Capacidad torre
-    tower_total = gp.quicksum(
-        wood_resources[node] * y[node].get((faena, 'tower'), 0)
-        for node in wood_resources
-        if (faena, 'tower') in y[node]
-    )
-    model.addConstr(tower_total <= tower_capacity * z_tower[faena])
+    if asignaciones:  # Solo si hay posibles asignaciones
+        model.addConstr(gp.quicksum(x[(i, j, k)] for (i, k) in asignaciones) <= 1, 
+                       name=f"unica_asignacion_{j}")
 
-# === Función objetivo ===
-revenue = gp.quicksum(
-    wood_resources[node] * wood_price * x[node]
-    for node in wood_resources
-)
+# 5. Límite de volumen cosechado por nodo
+for j in wood_resources:
+    model.addConstr(gp.quicksum(w[(i, j, k)] for i in wood_resources for k in [1, 2] 
+                   if (i, j, k) in w) <= wood_resources[j], name=f"volumen_max_{j}")
 
-harvest_expenses = gp.LinExpr()
-for node in wood_resources:
-    for faena in wood_resources:
-        # Si es skidder y cubre este nodo
-        if (faena, 'skidder') in y[node]:
-            cost = calculate_skidder_cost(faena, node)
-            harvest_expenses += wood_resources[node] * cost * y[node][(faena, 'skidder')]
-        
-        # Si es torre y cubre este nodo
-        if (faena, 'tower') in y[node]:
-            harvest_expenses += wood_resources[node] * tower_cost * y[node][(faena, 'tower')]
+# 6. Capacidad máxima de cosecha por maquinaria
+for i in wood_resources:
+    # Para skidder (k=1)
+    if any((i, j, 1) in w for j in skidder_areas[i]):
+        model.addConstr(gp.quicksum(w[(i, j, 1)] for j in skidder_areas[i] if (i, j, 1) in w) <= mcc[1], 
+                      name=f"capacidad_skidder_{i}")
+    
+    # Para torre (k=2)
+    if any((i, j, 2) in w for j in tower_areas[i]):
+        model.addConstr(gp.quicksum(w[(i, j, 2)] for j in tower_areas[i] if (i, j, 2) in w) <= mcc[2], 
+                      name=f"capacidad_torre_{i}")
 
-installation_expenses = gp.quicksum(
-    skidder_install_cost * z_skidder[node] + tower_install_cost * z_tower[node]
-    for node in wood_resources
-)
+# === Función Objetivo ===
+# Maximizar ingresos por venta menos costos de instalación y cosecha
 
-model.setObjective(revenue - harvest_expenses - installation_expenses, GRB.MAXIMIZE)
+# Ingresos (precio * volumen total cosechado)
+ingresos = P * gp.quicksum(w[key] for key in w)
 
-# === Resolver el modelo ===
+# Costos fijos de instalación
+costos_fijos = gp.quicksum(cf[1] * mu[(i, 1)] for i in wood_resources) + \
+               gp.quicksum(cf[2] * mu[(i, 2)] for i in wood_resources)
+
+# Costos variables de cosecha (versión corregida)
+costos_variables = gp.quicksum(cv[key] * w[key] for key in w if key[2] == 1) + \
+                  gp.quicksum(cv[key] * w[key] for key in w if key[2] == 2)
+
+model.setObjective(ingresos - costos_fijos - costos_variables, GRB.MAXIMIZE)
+
+# === Optimizar ===
 model.optimize()
 
-# === Resultados ===
+# === Mostrar resultados ===
 if model.status == GRB.OPTIMAL:
-    print("\n=== RESULTADOS ÓPTIMOS ===")
+    print("\nSolución óptima encontrada")
+    print(f"Valor objetivo: ${model.objVal:,.2f}")
     
-    # Crear grid de visualización
-    visual_grid = [["·" for _ in range(7)] for _ in range(7)]
-    faena_grid = [[" " for _ in range(7)] for _ in range(7)]
+    # Mostrar instalaciones
+    print("\nInstalaciones de maquinaria:")
+    for i in wood_resources:
+        for k in [1, 2]:
+            if mu[(i, k)].X > 0.5:
+                tipo = "Skidder" if k == 1 else "Torre"
+                print(f"{tipo} instalado en nodo {i}")
     
-    # Marcar nodos no disponibles
-    for i in range(7):
-        for j in range(7):
-            if grid_7x7[i][j] is None:
-                visual_grid[i][j] = " "
-                faena_grid[i][j] = " "
-            elif (i,j) in blocked_set:
-                visual_grid[i][j] = "█"
-                faena_grid[i][j] = "█"
-    
-    # Procesar faenas instaladas
-    faenas_instaladas = []
-    for node in wood_resources:
-        if z_skidder[node].X > 0.5:
-            visual_grid[node[0]][node[1]] = "S"
-            faena_grid[node[0]][node[1]] = "S"
-            faenas_instaladas.append((node, 'skidder'))
-        elif z_tower[node].X > 0.5:
-            visual_grid[node[0]][node[1]] = "T"
-            faena_grid[node[0]][node[1]] = "T"
-            faenas_instaladas.append((node, 'tower'))
-    
-    # Procesar nodos cosechados y sus asignaciones
-    asignaciones = defaultdict(list)
-    costos_por_faena = defaultdict(float)
-    
-    for node in wood_resources:
-        if x[node].X > 0.5:
-            visual_grid[node[0]][node[1]] = "C"
-            
-            # Encontrar qué faena lo cosechó
-            for (faena, tipo), var in y[node].items():
-                if var.X > 0.5:
-                    asignaciones[faena].append(node)
-                    if tipo == 'skidder':
-                        costo = calculate_skidder_cost(faena, node)
-                    else:
-                        costo = tower_cost
-                    costos_por_faena[faena] += wood_resources[node] * costo
-                    break
-    
-    # Imprimir mapas
-    print("\nMapa de Faenas (S=Skidder, T=Torre, █=Bloqueado):")
-    print("  0 1 2 3 4 5 6")
-    for i in range(7):
-        print(f"{i} " + " ".join(faena_grid[i]))
-    
-    print("\nMapa de Cosecha (C=Cosechado, S/T=Faena, █=Bloqueado):")
-    print("  0 1 2 3 4 5 6")
-    for i in range(7):
-        print(f"{i} " + " ".join(visual_grid[i]))
-    
-    # Información detallada
-    print("\nDetalles de operación:")
-    for faena, tipo in faenas_instaladas:
-        nodos_cosechados = asignaciones[faena]
-        m3_total = sum(wood_resources[n] for n in nodos_cosechados)
-        costo_total = costos_por_faena[faena]
-        print(f"\n{tipo.upper()} en {faena}:")
-        print(f"- Nodos cosechados: {len(nodos_cosechados)}")
-        print(f"- Volumen total: {m3_total} m³")
-        print(f"- Costo cosecha: ${costo_total:,.0f}")
-        print(f"- Ingresos: ${m3_total * wood_price:,.0f}")
-        
-        # Detalle de costos por distancia (solo para skidders)
-        if tipo == 'skidder':
-            costos_por_distancia = defaultdict(list)
-            for node in nodos_cosechados:
-                distancia = max(abs(faena[0]-node[0]), abs(faena[1]-node[1]))
-                costos_por_distancia[distancia].append(node)
-            
-            print("\n  Detalle por distancia:")
-            for distancia, nodos in sorted(costos_por_distancia.items()):
-                costo = calculate_skidder_cost(faena, nodos[0])
-                print(f"  - Distancia {distancia}: {len(nodos)} nodos a ${costo}/m³")
-    
-    print(f"\nUtilidad total: ${model.ObjVal:,.0f}")
-    print(f"Detalle financiero:")
-    print(f"- Ingresos totales: ${revenue.getValue():,.0f}")
-    print(f"- Costos cosecha: ${harvest_expenses.getValue():,.0f}")
-    print(f"- Costos instalación: ${installation_expenses.getValue():,.0f}")
-
+    # Mostrar cosechas significativas
+    print("\nCosechas importantes:")
+    for (i, j, k) in w:
+        if w[(i, j, k)].X > 0:
+            tipo = "Skidder" if k == 1 else "Torre"
+            print(f"{tipo} en {i} cosechó {w[(i, j, k)].X:.2f} m3 de {j}")
 else:
     print("No se encontró solución óptima")
