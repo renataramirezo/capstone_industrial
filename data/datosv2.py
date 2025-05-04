@@ -65,6 +65,8 @@ XA = [(27, 65), (36, 77), (36, 39), (39, 38), (39, 42), (50,52), (52,53), (52,56
       (125, 126), (125, 129), (129, 130), (129, 133), (133, 134), (133, 137), (137, 138), (137, 140),
       (140, 141), (140, 143)]
 
+alcances = alcance(df_nodos,N_s,N_t) #auxiliar para R_ki
+
 R_ki = {clave: valor['radio'] for clave, valor in alcances.items()}
 
 
@@ -79,7 +81,7 @@ C = 200 #costo construír 100m de camino (1 camino)
 v_i = {fila: valores['v'] for fila, valores in N.items()} #para acceder al volumen del nodo i -> v_i[i]
 mcc_k = {"skidder":{"mcc":4000}, "torre":{"mcc":5500}}
 cf_ik = {fila: {'K': valores['K'], 'cf': valores['cf']} for fila, valores in N.items()} #al acceder a un nodo i -> cf_ik[i] se obtiene diccionario -> ejemplo {'K': 'skidder', 'cf': 35}
-#cv_ijk = FALTA HACERLO
+cv_ijk = alcances
 
 ### Relacionados a transporte y caminos
 ct = 2.6 #costo transporte de cada metro cúbico por 1 camino 100m
