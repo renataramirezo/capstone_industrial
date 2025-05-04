@@ -14,6 +14,8 @@ df_nodos = pd.read_csv(csv_nodos, sep=';')
 # AUXILIARES
 nodos_sin_arcos = [9,10,13,54,17,55,48,49,51,107,57,113,20,21,60,116,24,61,64,119,26,29,30,69,70,71,32,33,73,74,35,81,82,83,87,88]
 N=costosymadera.dic_nodos
+alcances = alcance(df,N_s,N_t)
+
 
 
 # CONJUNTOS
@@ -63,7 +65,7 @@ XA = [(27, 65), (36, 77), (36, 39), (39, 38), (39, 42), (50,52), (52,53), (52,56
       (125, 126), (125, 129), (129, 130), (129, 133), (133, 134), (133, 137), (137, 138), (137, 140),
       (140, 141), (140, 143)]
 
-R_ki = alcance(df_nodos,N_s,N_t) #Radio cosecha por Nodo
+R_ki = {clave: valor['radio'] for clave, valor in alcances.items()}
 
 
 # PARAMETROS
