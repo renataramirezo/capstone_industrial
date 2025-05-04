@@ -81,3 +81,5 @@ cf_ik = {fila: {'K': valores['K'], 'cf': valores['cf']} for fila, valores in N.i
 
 ### Relacionados a transporte y caminos
 ct = 2.6 #costo transporte de cada metro cúbico por 1 camino 100m
+
+print(R_ki)
