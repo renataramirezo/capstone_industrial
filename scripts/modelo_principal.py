@@ -1,5 +1,3 @@
-# /scripts/modelo_principal.py
-
 import sys
 from gurobipy import *
 from data.datos import *
@@ -82,7 +80,7 @@ def main():
 
         # ========== RESTRICCIONES ==========
 
-        # Definir Inventario
+        # Definir inventario
         # 1.
         modelo.addConstr((p[i,0] == 0 for i in N), name='restriccion 1')
 
@@ -106,9 +104,20 @@ def main():
         # 6.
         modelo.addConstr((f[i,k,t] == f[i,k,(t-1)] + mu[i,k,t] for i in N for k in K for t in T if t not in [1, 13]), name='restriccion 5')
 
-
+        # Asignacion de cosecha desde una hectarea faena a una hectarea no-faena
+        # 7.
+        for (i, k), datos_faena in R_jk.items():
+            for j in datos_faena['radio']:
+                for t in T:
+                    modelo.addConstr(x[i,j,k,t] <= f[j,k,t], name=f"restriccion_7_{i}_{j}_{k}_{t}")
         
-
+        # 8.
+        for (i, k), datos_faena in R_jk.items():
+            for t in T:
+                modelo.addConstr(
+                    quicksum(x[i,j,k,t] for j in datos_faena['radio']) <= 1,
+                    name=f"restriccion_8_{i}_{k}_{t}"
+                )
 
 
 
