@@ -1,6 +1,7 @@
 *.pyc
 *.pdf
 *.probando_sofi
+.vscode\
 alcance_copia.py
 probando_sofi.py
 desktop.ini
