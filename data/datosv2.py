@@ -2,7 +2,7 @@ import pandas as pd
 import os
 from alcance import alcance
 from arcos import arcos
-import costosymadera
+from costosymadera import dic_nodos
 
 # EN ESTE ARCHIVO ESTARÁN TODOS LOS CONJUNTOS Y PARAMETROS
 
@@ -13,8 +13,7 @@ df_nodos = pd.read_csv(csv_nodos, sep=';')
 
 # AUXILIARES
 nodos_sin_arcos = [9,10,13,54,17,55,48,49,51,107,57,113,20,21,60,116,24,61,64,119,26,29,30,69,70,71,32,33,73,74,35,81,82,83,87,88]
-N=costosymadera.dic_nodos
-alcances = alcance(df,N_s,N_t)
+NN=dic_nodos
 
 
 
@@ -78,12 +77,12 @@ M = 99999999999999999999999999 # N° muy grande
 C = 200 #costo construír 100m de camino (1 camino)
 
 ### Relacionados a cosecha
-v_i = {fila: valores['v'] for fila, valores in N.items()} #para acceder al volumen del nodo i -> v_i[i]
+v_i = {fila: valores['v'] for fila, valores in NN.items()} #para acceder al volumen del nodo i -> v_i[i]
 mcc_k = {"skidder":{"mcc":4000}, "torre":{"mcc":5500}}
-cf_ik = {fila: {'K': valores['K'], 'cf': valores['cf']} for fila, valores in N.items()} #al acceder a un nodo i -> cf_ik[i] se obtiene diccionario -> ejemplo {'K': 'skidder', 'cf': 35}
+cf_ik = {fila: {'K': valores['K'], 'cf': valores['cf']} for fila, valores in NN.items()} #al acceder a un nodo i -> cf_ik[i] se obtiene diccionario -> ejemplo {'K': 'skidder', 'cf': 35}
 cv_ijk = alcances
 
 ### Relacionados a transporte y caminos
 ct = 2.6 #costo transporte de cada metro cúbico por 1 camino 100m
 
-print(R_ki)
+print(v_i[4])
