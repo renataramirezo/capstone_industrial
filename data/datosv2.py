@@ -18,6 +18,8 @@ NN=dic_nodos
 
 
 
+
+
 # CONJUNTOS
 R = list(range(1,20))
 T = [1, 2, 3, 4, 5, 6, 13, 14, 15, 16, 17, 18] #corresponde a los meses T = ["dic 23","e24", "f24", "mar24", "ab24", "may24", "dic24", "e25", "f25","mar25","ab25","may25"]

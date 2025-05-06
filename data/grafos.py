@@ -73,7 +73,6 @@ node_colors_rod = [rodal_color_map.get(G.nodes[n].get("r"), "gray") for n in G.n
 
 Orden= list(G.nodes())
 Posicion147 = Orden.index(147)
-
 Posicion169 = Orden.index(169)
 
 node_colors_rod[Posicion169] = "yellow"
@@ -98,7 +97,7 @@ ax1.set_title("Grafo rodales")
 #nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels)
 
 
-nx.draw(G, pos, ax = ax2, with_labels=True, edge_color=edge_colors, node_color=node_colors_faen, node_size=200, font_weight='bold', font_size=8)
-ax2.set_title("Grafo faenas")
-plt.tight_layout()
+#nx.draw(G, pos, ax = ax2, with_labels=True, edge_color=edge_colors, node_color=node_colors_faen, node_size=200, font_weight='bold', font_size=8)
+#ax2.set_title("Grafo faenas")
+#plt.tight_layout()
 #plt.show()
