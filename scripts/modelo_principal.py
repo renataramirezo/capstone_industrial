@@ -119,6 +119,17 @@ def main():
                     name=f"restriccion_8_{i}_{k}_{t}"
                 )
 
+        # 9.
+        for i in N:
+            modelo.addConstr(
+                quicksum(w[i,j,k,t] for k in K 
+                                    for t in T 
+                                    for (i_k, datos_faena) in R_jk.items() if i_k == (i,k)
+                                    for j in datos_faena['radio']
+                        ) <= v[i],
+                name=f"restriccion_9_{i}"
+            )
+
 
 
     except Exception as e:

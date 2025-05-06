@@ -3,7 +3,7 @@ from gurobipy import GRB
 import random
 from collections import defaultdict
 
-# === Configuración inicial ===
+# === Configuración inicial === (solo para mirar, dps es dict)
 grid_7x7 = [
     [None,     None,     (0, 2),  (0, 3),  (0, 4),  None,     None],
     [None,     (1, 1),   (1, 2),  (1, 3),  (1, 4),  (1, 5),   None],

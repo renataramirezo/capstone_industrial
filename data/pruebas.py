@@ -21,3 +21,5 @@ cf_ik = {fila: {'K': valores['K'], 'cf': valores['cf']} for fila, valores in N.i
 
 print(v_i[4])
 
+
+
