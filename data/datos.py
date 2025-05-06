@@ -6,7 +6,7 @@ import costosymadera
 
 # EN ESTE ARCHIVO ESTARÁN TODOS LOS CONJUNTOS Y PARAMETROS
 
-#ruta al csv con los nodos
+# ruta al csv con los nodos
 csv_nodos = os.path.join(os.path.dirname(__file__), 'prediocsv.csv')
 # lectura dataframe
 df = pd.read_csv(csv_nodos, sep=';')  
