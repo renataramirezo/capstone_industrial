@@ -1,5 +1,7 @@
 *.pyc
 *.pdf
+.pyc/
+.vscode/
 *.probando_sofi
 .vscode\
 alcance_copia.py
