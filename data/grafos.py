@@ -1,7 +1,10 @@
 import sys
+import random
 import networkx as nx
 import datos
 import matplotlib.pyplot as plt
+import matplotlib.cm as cm
+import matplotlib.colors as mcolors
 import costosymadera
 # Crear un grafo vacío
 
@@ -56,19 +59,21 @@ for u, v in G.edges:
 pos = nx.get_node_attributes(G, 'pos')
 #pos = nx.spring_layout(G)  # Puedes probar también nx.kamada_kawai_layout(G) o nx.planar_layout(G)
 # Diccionario de colores por tipo de maquinaria
-color_map = {
-    "skidder": "red",
-    "torre": "blue"}
+bordes_faenas = {
+    "skidder": "maroon",
+    "torre": "crimson"}
 # Asignar color según atributo 'K'
-node_colors_faen = [color_map.get(G.nodes[n].get("K", "default"), "gray") for n in G.nodes()]
+nodo_bordes_faen = [bordes_faenas.get(G.nodes[n].get("K", "default"), "lightgreen") for n in G.nodes()]
 
 
 # Lista única de bosques
 rodales = list(range(1, 20))  # del 1 al 19
-colors = plt.cm.tab20.colors  # paleta con hasta 20 colores distintos
+random.shuffle(rodales)
+#colors = plt.cm.tab20.colors  # paleta con hasta 20 colores distintos
+colors = cm.get_cmap("viridis_r", 20)  # paleta con hasta 20 colores distintos
 # Asignar un color distinto a cada bosque
-rodal_color_map = {r: colors[i % len(colors)] for i, r in enumerate(rodales)}
-
+#rodal_color_map = {r: colors[i % len(colors)] for i, r in enumerate(rodales)}
+rodal_color_map = {r: colors(i) for i, r in enumerate(rodales)}
 node_colors_rod = [rodal_color_map.get(G.nodes[n].get("r"), "gray") for n in G.nodes()]
 
 Orden= list(G.nodes())
@@ -77,18 +82,23 @@ Posicion169 = Orden.index(169)
 
 node_colors_rod[Posicion169] = "yellow"
 node_colors_rod[Posicion147] = "yellow"
-node_colors_faen[Posicion147] = "yellow"
-node_colors_faen[Posicion169] = "yellow"
+#node_colors_faen[Posicion147] = "yellow"
+#node_colors_faen[Posicion169] = "yellow"
 
 edge_colors = [
     "red" if G.edges[u, v].get("XA") else "green"
     for u, v in G.edges()
 ]
-
+node_colors_rod[Posicion169] = "yellow"
+node_colors_rod[Posicion147] = "yellow"
+#node_colors_faen[Posicion147] = "yellow"
+#node_colors_faen[Posicion169] = "yellow"
 
 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 5))
 # Dibujar nodos y aristas
-nx.draw(G, pos, ax=ax1, with_labels=True, edge_color=edge_colors, node_color=node_colors_rod, node_size=200, font_weight='bold', font_size=8)
+nx.draw(G, pos, ax=ax1, with_labels=True, edge_color=edge_colors,
+         node_color=node_colors_rod, edgecolors= nodo_bordes_faen, linewidths= 1,
+         node_size=150, font_weight='bold', font_size=5)
 ax1.set_title("Grafo rodales")
 # Mostrar los atributos de los arcos como etiquetas
 #edge_labels = nx.get_edge_attributes(G, 'XA')
