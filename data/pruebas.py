@@ -23,7 +23,7 @@ R_ki = {
 }
 
 
-print(type(R_ki))
-print(R_ki[(1,'skidder')])
+#print(type(R_ki))
+#print(R_ki[(1,'skidder')])
 
 
