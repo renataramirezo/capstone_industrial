@@ -130,6 +130,37 @@ def main():
                 name=f"restriccion_9_{i}"
             )
 
+        # Restricción (13): Actualización del estado del camino para períodos normales
+        for (i,j) in A:
+            for t in T:
+                if t != 1 and t != 13:  # T \ {1, 13}
+                    modelo.addConstr(
+                        l[i,j,t] == l[i,j,t-1] + y[i,j,t],
+                        name=f"restriccion_13_{i}_{j}_{t}"
+                    )
+
+        # Restricción (14): Actualización del estado del camino para período 13 (excluyendo XA)
+        for (i,j) in A:
+            if (i,j) not in XA:  # A \ XA
+                modelo.addConstr(
+                    l[i,j,13] == l[i,j,6] + y[i,j,13],
+                    name=f"restriccion_14_{i}_{j}"
+                )
+
+        # Restricción (15): Inicialización del camino en período 1
+        for (i,j) in A:
+            modelo.addConstr(
+                y[i,j,1] == l[i,j,1],
+                name=f"restriccion_15_{i}_{j}"
+            )
+
+        # Restricción (16): Camino en período 13 para arcos en XA
+        for (i,j) in XA:
+            modelo.addConstr(
+                y[i,j,13] == l[i,j,13],
+                name=f"restriccion_16_{i}_{j}"
+            )
+
 
 
     except Exception as e:
