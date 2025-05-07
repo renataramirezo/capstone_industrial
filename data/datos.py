@@ -144,6 +144,6 @@ RA_r= {1:[],
        18:[14],
        19:[]}
 
-print(R_jk)
-print(N)
+#print(R_jk)
+#print(N)
 
