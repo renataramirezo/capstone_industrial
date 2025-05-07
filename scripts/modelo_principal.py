@@ -124,11 +124,53 @@ def main():
             modelo.addConstr(
                 quicksum(w[i,j,k,t] for k in K 
                                     for t in T 
-                                    for (i_k, datos_faena) in R_jk.items() if i_k == (i,k)
+                                    for (i_k, datos_faena) in R_jk.items()
                                     for j in datos_faena['radio']
-                        ) <= v[i],
+                        ) <= N[j]['v'],
                 name=f"restriccion_9_{i}"
             )
+
+        # No cosechar mas de la capacidad de cada faena
+        # 10.
+        for k in K:
+            for i in N:
+                for t in T:
+                    modelo.addConstr(
+                        quicksum(w[i,j,k,t] for (i_k, datos_faena) in R_jk.items() 
+                                for j in datos_faena['radio']) <= N[j]['mcc'],
+                        name=f"restriccion_10_{i}_{k}_{t}"
+                    )
+
+        # Restricción (11): Control de cosecha en rodales con restricción de adyacencia
+        for r in rodales:
+            for u in U:
+                # Obtener los periodos de la temporada u (asumiendo 6 meses por temporada)
+                T_u = T[(u-1)*6 : u*6] if u == 1 else T[6:]  # T1: meses 1-6, T2: meses 13-18
+                
+                # |N_r| es el número de nodos en el rodal r
+                N_r = len(rodales[r])
+                
+                # Factor M grande (|N_r|² * |T| * |K|)
+                M = (N_r ** 2) * len(T) * len(K)
+                
+                # Suma de todas las asignaciones de cosecha en el rodal r durante la temporada u
+                modelo.addConstr(
+                    quicksum(x[i,j,k,t] for k in K
+                                    for i in rodales[r]
+                                    for j in rodales[r]
+                                    for t in T_u
+                                    if (i,k) in R_jk and j in R_jk[(i,k)]['radio']) <= M * s[r,u],
+                    name=f"restriccion_11_{r}_{u}"
+                )
+
+        # Restricción (12): Rodales adyacentes no pueden cosecharse en la misma temporada
+        for r in RA_r:  # RA_r contiene los rodales con restricciones de adyacencia
+            for q in RA_r[r]:  # q son los rodales adyacentes a r
+                for u in U:
+                    modelo.addConstr(
+                        s[r,u] + s[q,u] <= 1,
+                        name=f"restriccion_12_{r}_{q}_{u}"
+                    )
 
         # Restricción (13): Actualización del estado del camino para períodos normales
         for (i,j) in A:
