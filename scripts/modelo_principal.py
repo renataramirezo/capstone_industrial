@@ -161,6 +161,38 @@ def main():
                 name=f"restriccion_16_{i}_{j}"
             )
 
+        # Relacion entre asignacion de cosecha y modelo de red
+        # 17.
+        for i in N:
+            if i not in D:  # Para todos los nodos excepto los de destino
+                for t in T:
+                    modelo.addConstr(
+                        (quicksum(z[i,j,t] for (a,b) in A if a == i) 
+                         - quicksum(z[j,i,t] for (a,b) in A if b == i)) == -p[i,t],
+                        name=f"restriccion_17_{i}_{t}"
+                    )
+
+        # 18.
+        for d in D:
+            for t in T:
+                modelo.addConstr(
+                    (quicksum(z[d,j,t] for (a,b) in A if a == d) 
+                     - quicksum(z[i,d,t] for (a,b) in A if b == d)) == q[d,t],
+                    name=f"restriccion_18_{d}_{t}"
+                )
+
+        # Flujo de madera requiere camino construido, definimos M grande
+        # 19.
+        M = sum(N[j]['v'] for j in N if 'v' in N[j])
+
+        for (i,j) in A:
+            for t in T:
+                modelo.addConstr(
+                    z[i,j,t] <= M * y[i,j,t],  # Usamos l[i,j,t] que es la variable de existencia del camino
+                    name=f"restriccion_19_{i}_{j}_{t}"
+                )
+
+
 
 
     except Exception as e:
