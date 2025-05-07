@@ -88,4 +88,4 @@ cv_ijk = alcances
 ### Relacionados a transporte y caminos
 ct = 2.6 #costo transporte de cada metro cúbico por 1 camino 100m
 
-print(v_i[4])
+#print(v_i[4])

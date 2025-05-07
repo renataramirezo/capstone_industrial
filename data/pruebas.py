@@ -19,7 +19,7 @@ v_i = {fila: valores['v'] for fila, valores in N.items()}
 
 cf_ik = {fila: {'K': valores['K'], 'cf': valores['cf']} for fila, valores in N.items()}
 
-print(v_i[4])
+#print(v_i[4])
 
 
 
