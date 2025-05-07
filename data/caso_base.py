@@ -178,3 +178,40 @@ nx.draw_networkx_edges(
 # 4. Mostrar el plot
 plt.title("Ruta más corta sobre grafo original")
 plt.show()
+
+'''Ahora empezamos a ver la temporada dos, 
+por eso vaciamos de contenido los rodales cosechados 
+y volvemos a ver dónde conviene instalar las bases faenas.
+Atención si hay caminos que se destruyen, deben ser eliminados'''
+for nodo in nodos_a_cosechar_sk+nodos_a_cosechar_t+bases_faena_s+bases_faena_t:
+    gf.G.nodes[nodo]["v"] = 0
+for rodal in range(1, 20):
+    volumen_rodal = 0
+    for hect in dt.rodales[rodal]:
+        volumen_rodal += gf.G.nodes[hect]["v"]
+        cap_rodales[rodal] = volumen_rodal
+#print(cap_rodales)
+ordenado = sorted(cap_rodales.items(), key=lambda x: x[1], reverse=True)
+#print(ordenado)
+'''orden de prioridad rodales temporada 2: 
+16,14,8,11,9,6,18,10,12,1,19,13,3,2,17,5,15,4,7
+'''
+Orden= list(gf.G.nodes())
+for nodo in nodos_a_cosechar_sk:
+    gf.node_colors_rod[Orden.index(nodo)] = "white"
+for nodo in nodos_a_cosechar_t:
+    gf.node_colors_rod[Orden.index(nodo)] = "white"
+for nodo in bases_faena_s + bases_faena_t:
+    gf.node_colors_rod[Orden.index(nodo)] = "white"
+
+nx.draw(gf.G, gf.pos, with_labels=True, edge_color=gf.edge_colors,
+         node_color=gf.node_colors_rod, edgecolors= gf.nodo_bordes_faen, 
+         linewidths= 1.5,node_size=150, font_weight='bold', font_size=5)
+nx.draw_networkx_edges(
+    gf.G,
+    gf.pos,
+    edgelist=ruta_arcos,
+    edge_color="black",    # o el color que desees
+    width=10             # más grueso para que destaque
+)
+plt.show()
