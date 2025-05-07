@@ -89,21 +89,31 @@ def main():
                           quicksum(w[i,j,k,t] for k in K for (base, faena), datos_faena in R_jk.items() for j in datos_faena['radio'])
                           - z[i,j] for i in N for (i,j) in A for t in T), name='restriccion 2')
         
-        # Cosechar hectareas solo del radio de cosecha
-        # 3.
-        modelo.addConstr((w[i,j,k,t] <= x[i,j,k,t] for (i,k), datos_faena in R_jk.items() for j in datos_faena['radio'] for t in T), name='restriccion 3')
+        # 3. Cosechar hectáreas solo del radio de cosecha
+        for (i, k), datos_faena in R_jk.items():
+            for j in datos_faena['radio']:
+                for t in T:
+                    modelo.addConstr(w[i, j, k, t] <= x[i, j, k, t], name='restriccion_3')
 
-        # Que no exista mas de una faena por hectarea
-        # 4.
-        modelo.addConstr((quicksum(f[i,k,t] for k in K) for i in N for t in T), name='restriccion 4')
+        # 4. Que no exista más de una faena por hectárea
+        for i in N:
+            for t in T:
+                modelo.addConstr(quicksum(f[i, k, t] for k in K), name='restriccion_4')
 
-        # Relacion entre faena y faena instalada
-        # 5.
-        modelo.addConstr((mu[i,k,t] == f[i,k,t] for i in N for k in K for t in T if t not in [1, 13]), name='restriccion 5')
+        # 5. Relación entre faena y faena instalada
+        for i in N:
+            for k in K:
+                for t in T:
+                    if t not in [1, 13]:
+                        modelo.addConstr(mu[i, k, t] == f[i, k, t], name='restriccion_5a')
 
-        # 6.
-        modelo.addConstr((f[i,k,t] == f[i,k,(t-1)] + mu[i,k,t] for i in N for k in K for t in T if t not in [1, 13]), name='restriccion 5')
-
+        # 6. Continuidad de la faena
+        for i in N:
+            for k in K:
+                for t in T:
+                    if t not in [1, 13]:
+                        modelo.addConstr(f[i, k, t] == f[i, k, t - 1] + mu[i, k, t], name='restriccion_5b')
+        
         # Asignacion de cosecha desde una hectarea faena a una hectarea no-faena
         # 7.
         for (i, k), datos_faena in R_jk.items():
