@@ -16,7 +16,10 @@ cada nodo se llama por su id y contiene los siguientes atributos:
     cf = float costo fijo instalación faena
     mcc = capacidad maxima cosecha faena k
     D = bool si es nodo de salida o no
-    r = int el id del rodal al que pertenece'''
+    r = int el id del rodal al que pertenece
+    R_jk = lista de nodos en su radio
+    cv_rad = costo variable de nodos en su radio
+    cv_base = costo variable de la base'''
 
 for nodo_id, atributos in datos.N.items():
     G.add_node(nodo_id,**atributos)
@@ -97,7 +100,7 @@ node_colors_rod[Posicion147] = "yellow"
 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 5))
 # Dibujar nodos y aristas
 nx.draw(G, pos, ax=ax1, with_labels=True, edge_color=edge_colors,
-         node_color=node_colors_rod, edgecolors= nodo_bordes_faen, linewidths= 1,
+         node_color=node_colors_rod, edgecolors= nodo_bordes_faen, linewidths= 1.5,
          node_size=150, font_weight='bold', font_size=5)
 ax1.set_title("Grafo rodales")
 # Mostrar los atributos de los arcos como etiquetas
