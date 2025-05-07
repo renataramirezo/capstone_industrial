@@ -85,34 +85,51 @@ def main():
         modelo.addConstr((p[i,0] == 0 for i in N), name='restriccion 1')
 
         # 2.
-        modelo.addConstr((p[i,t] == p[i, (t-1)] + 
-                          quicksum(w[i,j,k,t] for k in K for (base, faena), datos_faena in R_jk.items() for j in datos_faena['radio'])
-                          - z[i,j] for i in N for (i,j) in A for t in T), name='restriccion 2')
+        for i in N:
+            for t in T:
+                suma_cosecha = quicksum(
+                    w[i,j,k,t] 
+                    for k in K 
+                    if (i,k) in R_jk  
+                    for j in R_jk[(i,k)]['radio'] 
+                )
+                
+                # Suma de TODOS los flujos salientes del nodo i en el periodo t
+                flujo_saliente = quicksum(
+                    z[i,j,t] 
+                    for (a,b) in A 
+                    if a == i  # Todos los arcos que salen de i
+                )
+                
+                modelo.addConstr(
+                    p[i,t] == p[i,t-1] + suma_cosecha - flujo_saliente,
+                    name=f"restriccion_2_{i}_{t}"
+                )
         
         # 3. Cosechar hectáreas solo del radio de cosecha
         for (i, k), datos_faena in R_jk.items():
             for j in datos_faena['radio']:
                 for t in T:
-                    modelo.addConstr(w[i, j, k, t] <= x[i, j, k, t], name='restriccion_3')
+                    modelo.addConstr(w[i, j, k, t] <= x[i, j, k, t], name=f'restriccion_3_{i}_{j}_{k}_{t}')
 
         # 4. Que no exista más de una faena por hectárea
         for i in N:
             for t in T:
-                modelo.addConstr(quicksum(f[i, k, t] for k in K), name='restriccion_4')
+                modelo.addConstr(quicksum(f[i, k, t] for k in K), name=f"restriccion_4_{i}_{j}_{k}")
 
         # 5. Relación entre faena y faena instalada
         for i in N:
             for k in K:
                 for t in T:
-                    if t not in [1, 13]:
-                        modelo.addConstr(mu[i, k, t] == f[i, k, t], name='restriccion_5a')
+                    if t in [1, 13]:
+                        modelo.addConstr(mu[i, k, t] == f[i, k, t], name=f"restriccion_5_{i}_{j}_{k}")
 
         # 6. Continuidad de la faena
         for i in N:
             for k in K:
                 for t in T:
                     if t not in [1, 13]:
-                        modelo.addConstr(f[i, k, t] == f[i, k, t - 1] + mu[i, k, t], name='restriccion_5b')
+                        modelo.addConstr(f[i, k, t] == f[i, k, t - 1] + mu[i, k, t], name=f'restriccion_6_{i}_{j}_{k}')
         
         # Asignacion de cosecha desde una hectarea faena a una hectarea no-faena
         # 7.
@@ -132,24 +149,26 @@ def main():
         # 9.
         for i in N:
             modelo.addConstr(
-                quicksum(w[i,j,k,t] for k in K 
-                                    for t in T 
-                                    for (i_k, datos_faena) in R_jk.items()
-                                    for j in datos_faena['radio']
+                quicksum(w[i,j,k,t] for t in T 
+                                    for k in K 
+                                    if (i,k) in R_jk  
+                                    for j in R_jk[(i,k)]['radio']
                         ) <= N[j]['v'],
                 name=f"restriccion_9_{i}"
             )
+
 
         # No cosechar mas de la capacidad de cada faena
         # 10.
         for k in K:
             for i in N:
                 for t in T:
-                    modelo.addConstr(
-                        quicksum(w[i,j,k,t] for (i_k, datos_faena) in R_jk.items() 
-                                for j in datos_faena['radio']) <= N[j]['mcc'],
-                        name=f"restriccion_10_{i}_{k}_{t}"
-                    )
+                    if (i,k) in R_jk: # Con esta condicion lo hice mas eficiente, pero revisa solo en los que se puede cosechar,
+                                      # creo que no necesita revisar todas las posibles combinaciones, asi lo resuelve mas rapido.
+                        modelo.addConstr(
+                            quicksum(w[i,j,k,t] for j in R_jk[(i,k)]['radio']) <= K[k]['mcc'],
+                            name=f"restriccion_10_{i}__{j}_{k}_{t}"
+                        )
 
         # Restricción (11): Control de cosecha en rodales con restricción de adyacencia
         for r in rodales:
@@ -216,11 +235,11 @@ def main():
         # Relacion entre asignacion de cosecha y modelo de red
         # 17.
         for i in N:
-            if i not in D:  # Para todos los nodos excepto los de destino
+            if i not in D:  # excluyo los nodos destino, espero no genere problema por ser N una biblioteca y D una lista
                 for t in T:
                     modelo.addConstr(
-                        (quicksum(z[i,j,t] for (a,b) in A if a == i) 
-                         - quicksum(z[j,i,t] for (a,b) in A if b == i)) == -p[i,t],
+                        (quicksum(z[i,j,t] for (a,b) in A if b == i)  # tengo mis dudas con el orden, revisar porfavor
+                         - quicksum(z[j,i,t] for (a,b) in A if a == i)) == -p[i,t],
                         name=f"restriccion_17_{i}_{t}"
                     )
 
