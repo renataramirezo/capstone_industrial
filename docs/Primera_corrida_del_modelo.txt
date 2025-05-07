@@ -1,0 +1,69 @@
+Set parameter Username
+Academic license - for non-commercial use only - expires 2025-05-23
+Gurobi Optimizer version 11.0.3 build v11.0.3rc0 (win64 - Windows 11.0 (22631.2))
+
+CPU model: AMD Ryzen 3 5300U with Radeon Graphics, instruction set [SSE2|AVX|AVX2]
+Thread count: 4 physical cores, 8 logical processors, using up to 8 threads
+
+Optimize a model with 1517 rows, 2684 columns and 6570 nonzeros
+Model fingerprint: 0x304d1075
+Variable types: 1272 continuous, 1412 integer (1412 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+04, 5e+04]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 6e+03]
+Found heuristic solution: objective 2.828380e+08
+Presolve removed 1517 rows and 2684 columns
+Presolve time: 0.02s
+Presolve: All rows and columns removed
+
+Explored 0 nodes (0 simplex iterations) in 0.03 seconds (0.00 work units)
+Thread count was 1 (of 8 available processors)
+
+Solution count 2: 3.524e+08 2.82838e+08
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 3.524000000000e+08, best bound 3.524000000000e+08, gap 0.0000%
+
+Solución óptima encontrada
+Valor objetivo: $352,400,000.00
+
+Instalaciones de maquinaria:
+
+Cosechas importantes:
+Skidder en (0, 2) cosechó 348.00 m3 de (1, 2)
+Skidder en (0, 2) cosechó 370.00 m3 de (1, 1)
+Skidder en (0, 2) cosechó 145.00 m3 de (0, 3)
+Skidder en (0, 2) cosechó 234.00 m3 de (0, 2)
+Skidder en (0, 4) cosechó 401.00 m3 de (0, 4)
+Skidder en (0, 4) cosechó 678.00 m3 de (1, 5)
+Skidder en (0, 4) cosechó 224.00 m3 de (1, 4)
+Skidder en (0, 4) cosechó 262.00 m3 de (1, 3)
+Skidder en (1, 2) cosechó 724.00 m3 de (2, 2)
+Skidder en (1, 3) cosechó 552.00 m3 de (2, 3)
+Skidder en (1, 5) cosechó 152.00 m3 de (2, 4)
+Skidder en (1, 5) cosechó 215.00 m3 de (2, 6)
+Skidder en (1, 5) cosechó 150.00 m3 de (2, 5)
+Skidder en (2, 2) cosechó 637.00 m3 de (3, 2)
+Skidder en (2, 4) cosechó 736.00 m3 de (3, 3)
+Skidder en (2, 5) cosechó 147.00 m3 de (3, 4)
+Skidder en (3, 0) cosechó 678.00 m3 de (4, 0)
+Skidder en (3, 0) cosechó 358.00 m3 de (3, 1)
+Skidder en (3, 0) cosechó 209.00 m3 de (2, 0)
+Skidder en (3, 6) cosechó 404.00 m3 de (4, 6)
+Skidder en (3, 6) cosechó 694.00 m3 de (3, 5)
+Skidder en (4, 0) cosechó 126.00 m3 de (5, 1)
+Skidder en (4, 0) cosechó 343.00 m3 de (3, 0)
+Skidder en (4, 0) cosechó 549.00 m3 de (4, 1)
+Skidder en (4, 3) cosechó 468.00 m3 de (5, 4)
+Skidder en (4, 6) cosechó 404.00 m3 de (5, 5)
+Skidder en (4, 6) cosechó 723.00 m3 de (4, 5)
+Skidder en (4, 6) cosechó 323.00 m3 de (3, 6)
+Skidder en (5, 3) cosechó 579.00 m3 de (4, 3)
+Skidder en (5, 3) cosechó 345.00 m3 de (4, 2)
+Skidder en (5, 4) cosechó 464.00 m3 de (6, 4)
+Skidder en (6, 2) cosechó 279.00 m3 de (6, 2)
+Skidder en (6, 2) cosechó 552.00 m3 de (5, 3)
+Skidder en (6, 2) cosechó 340.00 m3 de (6, 3)
+Skidder en (6, 2) cosechó 283.00 m3 de (5, 2)
