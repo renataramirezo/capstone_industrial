@@ -233,10 +233,11 @@ def main():
 
         # Restricción (16): Camino en período 13 para arcos en XA
         for (i,j) in XA:
-            modelo.addConstr(
-                y[i,j,13] == l[i,j,13],
-                name=f"restriccion_16_{i}_{j}"
-            )
+            #if (i,j) != (100,104):
+                modelo.addConstr(
+                    y[i,j,13] == l[i,j,13],
+                    name=f"restriccion_16_{i}_{j}"
+                )
 
         # Relacion entre asignacion de cosecha y modelo de red
         # 17.
@@ -260,7 +261,7 @@ def main():
 
         # Flujo de madera requiere camino construido, definimos M grande
         # 19.
-        M = sum(N[j]['v'] for j in N if 'v' in N[j])
+        M = sum(N[j]["v"] for j in N if 'v' in N[j])
 
         for (i,j) in A:
             for t in T:
@@ -293,11 +294,16 @@ def main():
 
     except Exception as e:
         print(f"Error durante la ejecución del modelo: {str(e)}")
+        modelo.computeIIS()
+        
         raise
 
 
     # === Optimizar ===
     modelo.optimize()
-
+    for v in modelo.getVars():
+        if v.X != 0:
+            print(f"{v.VarName} = {v.X}")
+    modelo.computeIIS()
 if __name__ == "__main__":
     main()
