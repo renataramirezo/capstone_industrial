@@ -1,4 +1,3 @@
-import sys
 from gurobipy import *
 from datos import *
 
@@ -41,6 +40,7 @@ def main():
         p = modelo.addVars(N, T, vtype=GRB.CONTINUOUS, name="p")
         z = modelo.addVars(A, T, vtype=GRB.CONTINUOUS, name="z")
         q = modelo.addVars(D, T, vtype=GRB.CONTINUOUS, name="q")
+        
 
         modelo.update()
 
@@ -48,6 +48,7 @@ def main():
 
         # Agrego variables auxiliares que pidio el profe
         ingreso_venta = quicksum(P * q[d,t] for d in D for t in T)
+
 
         costos_cosechar = quicksum(
             datos_faena['cv_rad'] * w[i,j,k,t]  # Falta mejorar aca logica costos variables skkider
@@ -70,11 +71,11 @@ def main():
 
         # FUNCION OBJETIVO
 
-        modelo.setObjective(  ingreso_venta 
+        modelo.setObjective(-(ingreso_venta 
                             - costos_cosechar 
                             - costos_instalacion 
                             - costo_construccion_caminos
-                            - costo_transporte_madera)
+                            - costo_transporte_madera))
         
 
         # ========== RESTRICCIONES ==========
@@ -82,6 +83,7 @@ def main():
         # Definir inventario
         # 1.
 #        modelo.addConstr((p[i,0] == 0 for i in N), name='restriccion 1')
+
 
         # 2.
         for i in N:
@@ -197,11 +199,11 @@ def main():
 
         # Restricción (12): Rodales adyacentes no pueden cosecharse en la misma temporada
         for r in RA_r:  # RA_r contiene los rodales con restricciones de adyacencia
-            for q in RA_r[r]:  # q son los rodales adyacentes a r
+            for a in RA_r[r]:  # q son los rodales adyacentes a r
                 for u in U:
                     modelo.addConstr(
-                        s[r,u] + s[q,u] <= 1,
-                        name=f"restriccion_12_{r}_{q}_{u}"
+                        s[r,u] + s[a,u] <= 1,
+                        name=f"restriccion_12_{r}_{a}_{u}"
                     )
 
         # Restricción (13): Actualización del estado del camino para períodos normales
@@ -241,8 +243,8 @@ def main():
             if i not in D:  # excluyo los nodos destino, espero no genere problema por ser N una biblioteca y D una lista
                 for t in T:
                     modelo.addConstr(
-                        (quicksum(z[i,j,t] for (a,b) in A if b == i)  # tengo mis dudas con el orden, revisar porfavor
-                         - quicksum(z[j,i,t] for (a,b) in A if a == i)) == -p[i,t],
+                        (quicksum(z[a,i,t] for (a,b) in A if b == i)  # tengo mis dudas con el orden, revisar porfavor
+                         - quicksum(z[i,b,t] for (a,b) in A if a == i)) == -p[i,t],
                         name=f"restriccion_17_{i}_{t}"
                     )
 
@@ -250,8 +252,8 @@ def main():
         for d in D:
             for t in T:
                 modelo.addConstr(
-                    (quicksum(z[d,j,t] for (a,b) in A if a == d) 
-                     - quicksum(z[i,d,t] for (a,b) in A if b == d)) == q[d,t],
+                    (quicksum(z[d,b,t] for (a,b) in A if a == d) 
+                     - quicksum(z[a,d,t] for (a,b) in A if b == d)) == q[d,t],
                     name=f"restriccion_18_{d}_{t}"
                 )
 
@@ -266,8 +268,27 @@ def main():
                     name=f"restriccion_19_{i}_{j}_{t}"
                 )
 
+        modelo.optimize()
 
-
+        # Verificar el estado del modelo
+        estado = modelo.Status
+        if estado == GRB.Status.OPTIMAL:
+            print("Solución óptima encontrada.")
+            print("Valor objetivo:", modelo.ObjVal)
+            print("")
+            print("ingresos:", ingreso_venta.getValue())
+            print("costo cosechar:", costos_cosechar.getValue())
+            print("costo instalacion:", costos_instalacion.getValue())
+            print("consto transporte", costo_transporte_madera.getValue())
+            print("costo construccion camino:", costo_construccion_caminos.getValue())
+        elif estado == GRB.Status.INFEASIBLE:
+            print("El modelo es infactible.")
+            modelo.computeIIS()
+            modelo.write("modelo_infactible.ilp")  # Esto te genera un archivo con las restricciones conflictivas
+        elif estado == GRB.Status.UNBOUNDED:
+            print("El modelo no tiene cota inferior (es no acotado).")
+        else:
+            print(f"Estado del modelo: {estado}")
 
     except Exception as e:
         print(f"Error durante la ejecución del modelo: {str(e)}")
