@@ -41,6 +41,7 @@ def main():
         p = modelo.addVars(N, T, vtype=GRB.CONTINUOUS, name="p")
         z = modelo.addVars(G.edges(), T, vtype=GRB.CONTINUOUS, name="z")
         q = modelo.addVars(D, T, vtype=GRB.CONTINUOUS, name="q")
+
         
 
         modelo.update()
@@ -66,9 +67,9 @@ def main():
             if (i,k,t) in mu and isinstance(N[i]["cf"], (int, float))
         )
 
-        #costo_construccion_caminos = quicksum(C * y[i,j,t] for i, j in G.edges() for t in T)
+        costo_construccion_caminos = quicksum(C * y[i,j,t] for i, j in G.edges() for t in T)
 
-        #costo_transporte_madera = quicksum(ct * z[i,j,t] for i, j in G.edges() for t in T)
+        costo_transporte_madera = quicksum(ct * z[i,j,t] for i, j in G.edges() for t in T)
 
         # FUNCION OBJETIVO
 
@@ -76,8 +77,8 @@ def main():
         modelo.setObjective(-(ingreso_venta 
                             - costos_cosechar 
                             - costos_instalacion 
-                            #- costo_construccion_caminos
-                            #- costo_transporte_madera
+                            - costo_construccion_caminos
+                            - costo_transporte_madera
                             ))
         
 
@@ -159,11 +160,20 @@ def main():
                     #
         
         # 8.
-        for (i, k), datos_faena in R_jk.items():#i es base
+        #for (i, k), datos_faena in R_jk.items():#i es base
+        #    for t in T:
+        #        modelo.addConstr(
+        #            quicksum(x[j,i,k,t] for j in datos_faena['radio']) <= 1,#sumo en radio j
+        #            name=f"restriccion_8_{i}_{k}_{t}"
+        #        )
+
+        for j in N:
             for t in T:
-                modelo.addConstr(
-                    quicksum(x[j,i,k,t] for j in datos_faena['radio']) <= 1,#sumo en radio j
-                    name=f"restriccion_8_{i}_{k}_{t}"
+                for k in K:
+                    modelo.addConstr(
+                    quicksum(x[i,j,k,t] for (i,b), datos_faena in R_jk.items()
+                                        if j in datos_faena['radio'] and b == k) <= 1,#sumo en radio j
+                    name=f"restriccion_8_{j}_{k}_{t}"
                 )
         '''lo que queremos es que si instalamos una faena en 131 y esta cosecha en su radio
         otra faena instalada en 192 no coseche en el mismo nodo
@@ -236,7 +246,7 @@ def main():
                     )
 
         # Restricción (13): Actualización del estado del camino para períodos normales
-        '''for (i,j) in G.edges():
+        for (i,j) in G.edges():
             for t in T:
                 if t != 1 and t != 13:  # T \ {1, 13}
                     modelo.addConstr(
@@ -275,19 +285,26 @@ def main():
             if i not in D:  # excluyo los nodos destino, espero no genere problema por ser N una biblioteca y D una lista
                 for t in T:
                     modelo.addConstr(
-                        (quicksum(z[a,i,t] for a,b in G.edges() if b == i)  # tengo mis dudas con el orden, revisar porfavor
-                         - quicksum(z[i,b,t] for a,b in G.edges() if a == i)) == -p[i,t],
+                        (quicksum(z[i,b,t] for a,b in G.edges() if a == i)  # tengo mis dudas con el orden, revisar porfavor
+                         - quicksum(z[a,i,t] for a,b in G.edges() if b == i)) == p[i,t],
                         name=f"restriccion_17_{i}_{t}"
                     )
 
         # 18.
+        print(f" D {D}")
         for d in D:
+            print(f"nodo {d}")
+            print([(a,b) for a,b in G.edges() if a == d] )
+            print([(a,b) for a,b in G.edges() if b == d] )
             for t in T:
                 modelo.addConstr(
                     (quicksum(z[d,b,t] for a,b in G.edges() if a == d) 
-                     - quicksum(z[a,d,t] for a,b in G.edges() if b == d)) == q[d,t],
+                     - quicksum(z[a,d,t] for a,b in G.edges() if b == d)) == -q[d,t],
                     name=f"restriccion_18_{d}_{t}"
                 )
+
+        # REstriccion para forzar salida
+        modelo.addConstr(quicksum(q[d,t] for d in D for t in T) >= 1)
 
         # Flujo de madera requiere camino construido, definimos M grande
         # 19.
@@ -298,7 +315,7 @@ def main():
                 modelo.addConstr(
                     z[i,j,t] <= M * y[i,j,t],  # Usamos l[i,j,t] que es la variable de existencia del camino
                     name=f"restriccion_19_{i}_{j}_{t}"
-                )'''
+                )
         modelo.optimize()
 
         # Verificar el estado del modelo
@@ -310,8 +327,18 @@ def main():
             print("ingresos:", ingreso_venta.getValue())
             print("costo cosechar:", costos_cosechar.getValue())
             print("costo instalacion:", costos_instalacion.getValue())
-            '''print("consto transporte", costo_transporte_madera.getValue())
-            print("costo construccion camino:", costo_construccion_caminos.getValue())'''
+            print("consto transporte", costo_transporte_madera.getValue())
+            print("costo construccion camino:", costo_construccion_caminos.getValue())
+            for i in N:
+                for t in T:
+                    if p[i,t].X > 0:
+                        print(f"p de {i},{t}: {p[i,t].X}")
+
+            for d in D:
+                for t in T:
+                    if q[d,t].X > 0:
+                        print(f"q de {d},{t}: {q[d,t].X}")
+
         elif estado == GRB.Status.INFEASIBLE:
             print("El modelo es infactible.")
             modelo.computeIIS()
