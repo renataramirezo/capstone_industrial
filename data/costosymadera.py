@@ -48,5 +48,5 @@ for nodo_id, atributos in dic_nodos.items():
 
 
 
-print(dic_nodos[130]["mcc"])
+#print(dic_nodos[130]["mcc"])
 
