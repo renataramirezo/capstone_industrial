@@ -71,6 +71,7 @@ def main():
 
         # FUNCION OBJETIVO
 
+
         modelo.setObjective(-(ingreso_venta 
                             - costos_cosechar 
                             - costos_instalacion 
@@ -293,6 +294,10 @@ def main():
     except Exception as e:
         print(f"Error durante la ejecución del modelo: {str(e)}")
         raise
+
+
+    # === Optimizar ===
+    modelo.optimize()
 
 if __name__ == "__main__":
     main()
