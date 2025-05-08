@@ -147,7 +147,7 @@ for base in bases_faena_s + bases_faena_t:
 
     if mejor_ruta:
         mejores_rutas[base] = {"ruta": mejor_ruta, "costo": menor_costo}
-print(mejores_rutas)
+#print(mejores_rutas)
 #############------------------------
 # 2. Obtener los arcos de la ruta como pares (u, v)
 ruta_arcos = set()
