@@ -82,7 +82,7 @@ def main():
 
         # Definir inventario
         # 1.
-        modelo.addConstr((p[i,0] == 0 for i in N), name='restriccion 1')
+#        modelo.addConstr((p[i,0] == 0 for i in N), name='restriccion 1')
 
         # 2.
         for i in N:
@@ -95,16 +95,21 @@ def main():
                 )
                 
                 # Suma de TODOS los flujos salientes del nodo i en el periodo t
-                flujo_saliente = quicksum(
-                    z[i,j,t] 
-                    for (a,b) in A 
-                    if a == i  # Todos los arcos que salen de i
-                )
+#                flujo_saliente = quicksum(
+#                    z[i,j,t] 
+#                    for (a,b) in A 
+#                    if a == i  # Todos los arcos que salen de i
+#                )
                 
                 modelo.addConstr(
-                    p[i,t] == p[i,t-1] + suma_cosecha - flujo_saliente,
+                    p[i,t] ==  suma_cosecha,
                     name=f"restriccion_2_{i}_{t}"
                 )
+
+#                modelo.addConstr(
+#                    p[i,t] == p[i,t-1] + suma_cosecha - flujo_saliente,
+#                    name=f"restriccion_2_{i}_{t}"
+#                )
         
         # 3. Cosechar hectáreas solo del radio de cosecha
         for (i, k), datos_faena in R_jk.items():
