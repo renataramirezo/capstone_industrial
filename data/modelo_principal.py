@@ -14,10 +14,9 @@ def main():
         f = {}
         for k in K:
             for i in N:
-                if (k == "skidder" and i in nodos_skidders) or (k == "torre" and i in nodos_torres):
-                    for t in T:
-                        mu[i,k,t] = modelo.addVar(vtype=GRB.BINARY, name=f"mu_{i}_{k}_{t}")
-                        f[i,k,t] = modelo.addVar(vtype=GRB.BINARY, name=f"f_{i}_{k}_{t}")
+                for t in T:
+                    mu[i,k,t] = modelo.addVar(vtype=GRB.BINARY, name=f"mu_{i}_{k}_{t}")
+                    f[i,k,t] = modelo.addVar(vtype=GRB.BINARY, name=f"f_{i}_{k}_{t}")
         
         # Variables asignacion de cosecha y cantidad de madera
         # Estas variables son las que mas me generan dudas 
@@ -39,7 +38,7 @@ def main():
         l = modelo.addVars(A, T, vtype=GRB.BINARY, name="l")
 
         # Variables de transporte e inventario
-        p = modelo.addVars(nodos_faena, T, vtype=GRB.CONTINUOUS, name="p")
+        p = modelo.addVars(N, T, vtype=GRB.CONTINUOUS, name="p")
         z = modelo.addVars(A, T, vtype=GRB.CONTINUOUS, name="z")
         q = modelo.addVars(D, T, vtype=GRB.CONTINUOUS, name="q")
 
@@ -62,7 +61,7 @@ def main():
             for k in K 
             for i in N 
             for t in T 
-            if (i,k,t) in mu 
+            if (i,k,t) in mu and isinstance(N[i]["cf"], (int, float))
         )
 
         costo_construccion_caminos = quicksum(C * y[i,j,t] for (i,j) in A for t in T)
@@ -120,7 +119,7 @@ def main():
         # 4. Que no exista más de una faena por hectárea
         for i in N:
             for t in T:
-                modelo.addConstr(quicksum(f[i, k, t] for k in K), name=f"restriccion_4_{i}_{j}_{k}")
+                modelo.addConstr(quicksum(f[i, k, t] for k in K) <= 1, name=f"restriccion_4_{i}_{j}_{k}")
 
         # 5. Relación entre faena y faena instalada
         for i in N:
@@ -152,12 +151,11 @@ def main():
                 )
 
         # 9.
-        for i in N:
+        for j in N:
             modelo.addConstr(
-                quicksum(w[i,j,k,t] for t in T 
-                                    for k in K 
-                                    if (i,k) in R_jk  
-                                    for j in R_jk[(i,k)]['radio']
+                quicksum(w[i,j,k,t] for (i,k), datos_faena in R_jk.items()
+                                    for t in T
+                                    if j in datos_faena['radio']
                         ) <= N[j]['v'],
                 name=f"restriccion_9_{i}"
             )
@@ -273,6 +271,7 @@ def main():
 
     except Exception as e:
         print(f"Error durante la ejecución del modelo: {str(e)}")
+        raise
 
 if __name__ == "__main__":
     main()
