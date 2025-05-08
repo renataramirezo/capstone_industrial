@@ -5,7 +5,7 @@ from grafos import *
 def main():
     try:
         modelo = Model("Cosecha_Forestal")
-        modelo.ModelSense = GRB.MAXIMIZE
+        #modelo.ModelSense = GRB.MAXIMIZE
 
         #======= DEFINICION DE VARIABLES ==========
         
@@ -74,12 +74,13 @@ def main():
         # FUNCION OBJETIVO
 
 
-        modelo.setObjective(-(ingreso_venta 
+        modelo.setObjective( ingreso_venta 
                             - costos_cosechar 
                             - costos_instalacion 
                             - costo_construccion_caminos
                             - costo_transporte_madera
-                            ))
+                            ,sense=GRB.MAXIMIZE
+                            )
         
 
         # ========== RESTRICCIONES ==========
