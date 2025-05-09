@@ -12,9 +12,9 @@ csv_nodos = os.path.join(os.path.dirname(__file__), 'prediocsv.csv')
 df = pd.read_csv(csv_nodos, sep=';')  
 
 # Datos del modelo
-P = 35000 #precio madera por metro cúbico
+P = 35 #precio madera por metro cúbico
 C = 200 #costo construír 100m de camino (1 camino)
-ct = 2.6 #costo transporte de cada metro cúbico por 1 camino 100m
+ct = 6.2 #costo transporte de cada metro cúbico por 1 camino 100m
 
 # Nodos
 N=costosymadera.dic_nodos
@@ -120,6 +120,5 @@ RA_r= {1:[],
        18:[14],
        19:[]}
 
-#print(R_jk)
 #print(N)
 
