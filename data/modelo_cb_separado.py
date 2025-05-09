@@ -52,7 +52,7 @@ def main():
         # ========== FUNCIÓN OBJETIVO ==========
 
         # Agrego variables auxiliares que pidio el profe
-        ingreso_venta = quicksum(P * p[i,t] for n in N for t in T) #Modificado para modelo_1
+        ingreso_venta = quicksum(P * p[n,t] for n in N for t in T) #Modificado para modelo_1
 
 
         costos_cosechar = quicksum(
@@ -113,6 +113,7 @@ def main():
         # 2. Cosechar hectáreas solo del radio de cosecha
         for (i, k), datos_faena in R_jk.items():
             for j in datos_faena['radio']:
+                M_jk = min(N[j]['v'], K[k]['mcc'])
                 for t in T:
                     modelo_1.addConstr(w[i, j, k, t] <= x[i, j, k, t], name=f'restriccion_3_{i}_{j}_{k}_{t}')
 
@@ -184,10 +185,28 @@ def main():
                 T_u = T[(u-1)*6 : u*6] if u == 1 else T[6:]  # T1: meses 1-6, T2: meses 13-18
                 
                 # |N_r| es el número de nodos en el rodal r
+                N_R = datos.rodales[r]
                 N_r = len(datos.rodales[r])
                 
                 # Factor M grande (|N_r|² * |T| * |K|)
                 M = (N_r ** 2) * len(T) * len(K)
+                M_r = 0
+                for k in K:
+                    for i in N_R:
+                        if k == 'skidder':
+                            lista_nodos = nodos_skidders
+                        else:
+                            lista_nodos = nodos_torres
+                        if i in lista_nodos:
+                            lista_auxiliar = []
+                            rango = R_jk[(i,k)]['radio']
+                            for j in rango:
+                                if j in N_R:
+                                    lista_auxiliar.append(j)
+                            M_r += len(lista_auxiliar)
+                
+                M_r = M_r * len(T_u)
+
                 
                 # Suma de todas las asignaciones de cosecha en el rodal r durante la temporada u
                 modelo_1.addConstr(
@@ -195,8 +214,8 @@ def main():
                                     for i in datos.rodales[r]
                                     for j in datos.rodales[r]
                                     for t in T_u
-                                    if (i,k) in R_jk and j in R_jk[(i,k)]['radio']) <= M * s[r,u],
-                    name=f"restriccion_11_{r}_{u}"
+                                    if (i,k) in R_jk and j in R_jk[(i,k)]['radio']) <= M_r * s[r,u],
+                    name=f"restriccion_10_{r}_{u}"
                 )
 
         # Rodales adyacentes no pueden cosecharse en la misma temporada
@@ -206,7 +225,7 @@ def main():
                 for u in U:
                     modelo_1.addConstr(
                         s[r,u] + s[a,u] <= 1,
-                        name=f"restriccion_12_{r}_{a}_{u}"
+                        name=f"restriccion_11_{r}_{a}_{u}"
                     )
 
         # Actualización del estado del camino para períodos normales
@@ -290,9 +309,10 @@ def main():
         M = sum(N[j]["v"] for j in N if 'v' in N[j])
 
         for i,j in G.edges():
+            M_ij = min(M,sum(4000 for i in nodos_skidders) + sum(5000 for i in nodos_torres))
             for t in T:
                 modelo_2.addConstr(
-                    z[i,j,t] <= M * l[i,j,t],  # Usamos l[i,j,t] que es la variable de existencia del camino
+                    z[i,j,t] <= M_ij * l[i,j,t],  # Usamos l[i,j,t] que es la variable de existencia del camino
                     name=f"restriccion_19_{i}_{j}_{t}"
                 )
         modelo_1.optimize()
@@ -336,7 +356,8 @@ def main():
 
         ingreso_total = ingreso_venta - costos_cosechar - costos_instalacion - costo_construccion_caminos- costo_transporte_madera
 
-        print(" Valor Funcion Objetivo:", ingreso_total)
+        print(" Valor Funcion Objetivo:", ingreso_total.getValue())
+        print(f"P : {P}")
 
         # Verificar el estado del modelo
         estado = modelo_1.Status

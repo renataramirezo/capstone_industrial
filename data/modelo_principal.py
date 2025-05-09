@@ -67,7 +67,13 @@ def main():
             if (i,k,t) in mu and isinstance(N[i]["cf"], (int, float))
         )
 
-        costo_construccion_caminos = quicksum(C * y[i,j,t] for i, j in G.edges() for t in T)
+
+        lista_recorrido = []
+        for i,j in G.edges():
+            if (j,i) not in lista_recorrido:
+                lista_recorrido.append((i,j))
+
+        costo_construccion_caminos = quicksum(C * y[i,j,t] for i, j in lista_recorrido for t in T)
 
         costo_transporte_madera = quicksum(ct * z[i,j,t] for i, j in G.edges() for t in T)
 
@@ -85,12 +91,7 @@ def main():
 
         # ========== RESTRICCIONES ==========
 
-        # Definir inventario
         # 1.
-#        modelo.addConstr((p[i,0] == 0 for i in N), name='restriccion 1')
-
-
-        # 2.
         for i in N:
             for t in T:
                 modelo.addConstr(
@@ -100,72 +101,65 @@ def main():
                     if (i,k) in R_jk  
                     for j in R_jk[(i,k)]['radio'] 
                 ),
-                    name=f"restriccion_2_{i}_{t}"
+                    name=f"restriccion_1_{i}_{t}"
                 )
         
-        # 3. Cosechar hectáreas solo del radio de cosecha
+        # 2. Cosechar hectáreas solo del radio de cosecha
         for (i, k), datos_faena in R_jk.items():
             for j in datos_faena['radio']:
                 for t in T:
-                    modelo.addConstr(w[i, j, k, t] <= x[i, j, k, t], name=f'restriccion_3_{i}_{j}_{k}_{t}')
+                    modelo.addConstr(w[i, j, k, t] <= x[i, j, k, t], name=f'restriccion_2_{i}_{j}_{k}_{t}')
 
-        # 4. Que no exista más de una faena por hectárea
+        # 3. Que no exista más de una faena por hectárea
         for i in N:
             for t in T:
-                modelo.addConstr(quicksum(f[i, k, t] for k in K) <= 1, name=f"restriccion_4_{i}_{j}_{k}")
+                modelo.addConstr(quicksum(f[i, k, t] for k in K) <= 1, name=f"restriccion_3_{i}_{j}_{k}")
 
-        # 5. Relación entre faena y faena instalada
+        # 4. Relación entre faena y faena instalada
         for i in N:
             for k in K:
                 for t in T:
                     if t in [1, 13]:
-                        modelo.addConstr(mu[i, k, t] == f[i, k, t], name=f"restriccion_5_{i}_{j}_{k}")
+                        modelo.addConstr(mu[i, k, t] == f[i, k, t], name=f"restriccion_4_{i}_{j}_{k}")
 
-        # 6. Continuidad de la faena
+        # 5. Continuidad de la faena
         for i in N:
             for k in K:
                 for t in T:
                     if t not in [1, 13]:
-                        modelo.addConstr(f[i, k, t] == f[i, k, t - 1] + mu[i, k, t], name=f'restriccion_6_{i}_{j}_{k}')
+                        modelo.addConstr(f[i, k, t] == f[i, k, t - 1] + mu[i, k, t], name=f'restriccion_5_{i}_{j}_{k}')
         
         # Asignacion de cosecha desde una hectarea faena a una hectarea no-faena
-        # 7.
+        # 6.
         for (i, k), datos_faena in R_jk.items(): #i es base
             for j in datos_faena['radio']:#j es radio
                 for t in T:
-                    modelo.addConstr(x[i,j,k,t] <= f[i,k,t], name=f"restriccion_7_{i}_{j}_{k}_{t}")
+                    modelo.addConstr(x[i,j,k,t] <= f[i,k,t], name=f"restriccion_6_{i}_{j}_{k}_{t}")
                     #
         
-        # 8.
-        #for (i, k), datos_faena in R_jk.items():#i es base
-        #    for t in T:
-        #        modelo.addConstr(
-        #            quicksum(x[j,i,k,t] for j in datos_faena['radio']) <= 1,#sumo en radio j
-        #            name=f"restriccion_8_{i}_{k}_{t}"
-        #        )
-
+        # 7.
         for j in N:
             for t in T:
                 for k in K:
                     modelo.addConstr(
                     quicksum(x[i,j,k,t] for (i,b), datos_faena in R_jk.items()
                                         if j in datos_faena['radio'] and b == k) <= 1,#sumo en radio j
-                    name=f"restriccion_8_{j}_{k}_{t}"
+                    name=f"restriccion_7_{j}_{k}_{t}"
                 )
 
-        # 9.
+        # 8.
         for j in N:
             modelo.addConstr(
                 quicksum(w[i,j,k,t] for (i,k), datos_faena in R_jk.items()
                                     for t in T
                                     if j in datos_faena['radio']
                         ) <= N[j]['v'],
-                name=f"restriccion_9_{i}"
+                name=f"restriccion_8_{i}"
             )
 
 
         # No cosechar mas de la capacidad de cada faena
-        # 10.
+        # 9.
         for k in K:
             for i in N:
                 for t in T:
@@ -173,7 +167,7 @@ def main():
                                       # creo que no necesita revisar todas las posibles combinaciones, asi lo resuelve mas rapido.
                         modelo.addConstr(
                             quicksum(w[i,j,k,t] for j in R_jk[(i,k)]['radio']) <= K[k]['mcc'],
-                            name=f"restriccion_10_{i}__{j}_{k}_{t}"
+                            name=f"restriccion_9_{i}__{j}_{k}_{t}"
                         )
 
         # Restricción (11): Control de cosecha en rodales con restricción de adyacencia
@@ -244,28 +238,32 @@ def main():
 
         # Relacion entre asignacion de cosecha y modelo de red
         # 17.
-        for i in N:
-            if i not in D:  # excluyo los nodos destino, espero no genere problema por ser N una biblioteca y D una lista
-                for t in T:
-                    modelo.addConstr(
-                        (quicksum(z[i,b,t] for a,b in G.edges() if a == i)  # tengo mis dudas con el orden, revisar porfavor
-                         - quicksum(z[a,i,t] for a,b in G.edges() if b == i)) == p[i,t],
-                        name=f"restriccion_17_{i}_{t}"
-                    )
-
-        # 18.
-        print(f" D {D}")
         for d in D:
-            print(f"nodo {d}")
-            print([(a,b) for a,b in G.edges() if a == d] )
-            print([(a,b) for a,b in G.edges() if b == d] )
             for t in T:
+                flow = 0
+                for i,j in G.edges():
+                    if d == i:
+                        flow += z[i,j,t]
+                    elif d == j:
+                        flow -= z[i,j,t]
                 modelo.addConstr(
-                    (quicksum(z[d,b,t] for a,b in G.edges() if a == d) 
-                     - quicksum(z[a,d,t] for a,b in G.edges() if b == d)) == -q[d,t],
-                    name=f"restriccion_18_{d}_{t}"
+                    flow == -q[d,t],
+                    name=f"restriccion_17_{d}_{t}"
                 )
-
+        # 18.
+        for n in N:
+            if n not in D:
+                for t in T:
+                    flow = 0
+                    for i,j in G.edges():
+                        if n == i:
+                            flow += z[i,j,t]
+                        elif n == j:
+                            flow -= z[i,j,t]
+                    modelo.addConstr(
+                        flow == p[n,t],
+                        name=f"restriccion_18_{n}_{t}"
+                    )
         # Flujo de madera requiere camino construido, definimos M grande
         # 19.
         M = sum(N[j]["v"] for j in N if 'v' in N[j])
@@ -276,7 +274,39 @@ def main():
                     z[i,j,t] <= M * l[i,j,t],  
                     name=f"restriccion_19_{i}_{j}_{t}"
                 )
+
+        
+
+        # R auxiliar
+        for i,j in G.edges():
+            for t in T:
+                modelo.addConstr(
+                    y[i,j,t] == y[j,i,t],
+                    name="Restriccion_direccion_caminos"
+                )
+            
+        modelo.addConstr(quicksum(q[d,t] for d in D for t in T)>= 1)
+
+
         modelo.optimize()
+
+        print("consto transporte", costo_transporte_madera.getValue())
+        print("costo construccion camino:", costo_construccion_caminos.getValue())
+
+        ingreso_total = ingreso_venta - costos_cosechar - costos_instalacion - costo_construccion_caminos- costo_transporte_madera
+
+        print(" Valor Funcion Objetivo:", ingreso_total.getValue())
+        print(f"P : {P}")
+
+        for i in N:
+                for t in T:
+                    if p[i,t].X > 0:
+                        print(f"p de {i},{t}: {p[i,t].X}")
+
+        for d in D:
+            for t in T:
+                if q[d,t].X > 0:
+                    print(f"q de {d},{t}: {q[d,t].X}")
 
         # Verificar el estado del modelo
         estado = modelo.Status
