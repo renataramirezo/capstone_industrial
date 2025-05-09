@@ -43,7 +43,7 @@ def alcance(df,lista_s,lista_t):
  #                   alcance[(int(df.iloc[i,j]),'skidder',10000)] = lista
                                 lista.append(int(df.iloc[i + dx, j + dy]))
 
-                    alcance[(int(df.iloc[i,j]),'skidder')] = {"radio": lista, "cv_rad":14000, "id":int(df.iloc[i,j]), "cv_base":10000}
+                    alcance[(int(df.iloc[i,j]),'skidder')] = {"radio": lista, "cv_rad":14, "id":int(df.iloc[i,j]), "cv_base":10}
 
                 elif df.iloc[i,j] in lista_t:
                     lista = []
@@ -68,5 +68,5 @@ def alcance(df,lista_s,lista_t):
 #                                lista.append((int(df.iloc[x, y]), 16000))
 #                    alcance[(int(df.iloc[i,j]),'torre', 16000)] = lista
                                 lista.append(int(df.iloc[x, y]))
-                    alcance[(int(df.iloc[i,j]),'torre')] = {"radio":lista, "cv_rad":16000, "id":int(df.iloc[i,j]), "cv_base":16000}
+                    alcance[(int(df.iloc[i,j]),'torre')] = {"radio":lista, "cv_rad":16, "id":int(df.iloc[i,j]), "cv_base":16}
     return alcance

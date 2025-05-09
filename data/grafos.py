@@ -8,7 +8,7 @@ import matplotlib.colors as mcolors
 import costosymadera
 # Crear un grafo vacío
 
-G = nx.Graph()
+G = nx.DiGraph()
 '''Definición de los nodos
 cada nodo se llama por su id y contiene los siguientes atributos:
     K= string tipo de maquinaria, 
@@ -49,11 +49,12 @@ cada arco se llama por el id de los nodos que une y contiene los siguientes atri
     '''
 for origen, destino in datos.A:
     G.add_edge(origen,destino)
+    G.add_edge(destino,origen)
 for u, v in G.edges:
     G[u][v]["C"] = 200
     G[u][v]["ct"] = 2.6 
     if (u,v) in datos.XA or (v, u) in datos.XA:
-        G[u][v]["XA"] = True
+        G[u][v]["XA"] = True      
     else:
         G[u][v]["XA"] = False
 

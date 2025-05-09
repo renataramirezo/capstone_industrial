@@ -102,30 +102,6 @@ def main():
                 ),
                     name=f"restriccion_2_{i}_{t}"
                 )
-
-                '''suma_cosecha = quicksum(
-                    w[i,j,k,t] 
-                    for k in K 
-                    if (i,k) in R_jk  
-                    for j in R_jk[(i,k)]['radio'] 
-                )
-                
-                # Suma de TODOS los flujos salientes del nodo i en el periodo t
-#                flujo_saliente = quicksum(
-#                    z[i,j,t] 
-#                    for (a,b) in A 
-#                    if a == i  # Todos los arcos que salen de i
-#                )
-                
-                modelo.addConstr(
-                    p[i,t] ==  suma_cosecha,
-                    name=f"restriccion_2_{i}_{t}"
-                )'''
-
-#                modelo.addConstr(
-#                    p[i,t] == p[i,t-1] + suma_cosecha - flujo_saliente,
-#                    name=f"restriccion_2_{i}_{t}"
-#                )
         
         # 3. Cosechar hectáreas solo del radio de cosecha
         for (i, k), datos_faena in R_jk.items():
@@ -176,20 +152,6 @@ def main():
                                         if j in datos_faena['radio'] and b == k) <= 1,#sumo en radio j
                     name=f"restriccion_8_{j}_{k}_{t}"
                 )
-        '''lo que queremos es que si instalamos una faena en 131 y esta cosecha en su radio
-        otra faena instalada en 192 no coseche en el mismo nodo
-        for (i, k), datos_faena in R_jk.items():#i es base
-            for t in T:
-                modelo.addConstr(
-                    quicksum(x[i,j,k,t] for j in N) <= 1,#sumo en radio j
-                    name=f"restriccion_8_{i}_{k}_{t}"
-                )'''
-        '''for (i, k) in R_jk.items(): #i es base
-            for t in T:
-                modelo.addConstr(
-                    quicksum(x[i,j,k,t] for i in N) + quicksum(x[ii,j,k,t] for ii in N if ii != i) <= 1,#sumo en radio j
-                    name=f"restriccion_8_{i}_{k}_{t}"
-                )'''
 
         # 9.
         for j in N:
@@ -304,9 +266,6 @@ def main():
                     name=f"restriccion_18_{d}_{t}"
                 )
 
-        # REstriccion para forzar salida
-        modelo.addConstr(quicksum(q[d,t] for d in D for t in T) >= 1)
-
         # Flujo de madera requiere camino construido, definimos M grande
         # 19.
         M = sum(N[j]["v"] for j in N if 'v' in N[j])
@@ -314,7 +273,7 @@ def main():
         for i,j in G.edges():
             for t in T:
                 modelo.addConstr(
-                    z[i,j,t] <= M * y[i,j,t],  # Usamos l[i,j,t] que es la variable de existencia del camino
+                    z[i,j,t] <= M * l[i,j,t],  
                     name=f"restriccion_19_{i}_{j}_{t}"
                 )
         modelo.optimize()
