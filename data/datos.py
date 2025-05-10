@@ -14,7 +14,7 @@ df = pd.read_csv(csv_nodos, sep=';')
 # Datos del modelo
 P = 35 #precio madera por metro cúbico
 C = 200 #costo construír 100m de camino (1 camino)
-ct = 6.2 #costo transporte de cada metro cúbico por 1 camino 100m
+ct = 0.007 #costo transporte de cada metro cúbico por 1 camino 100m
 
 # Nodos
 N=costosymadera.dic_nodos
