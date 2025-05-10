@@ -327,7 +327,7 @@ def main():
         modelo_2.setParam('MIPGap', 0.05)
         modelo_2.optimize()
 
-        print("consto transporte", costo_transporte_madera.getValue())
+        print("costo transporte", costo_transporte_madera.getValue())
         print("costo construccion camino:", costo_construccion_caminos.getValue())
 
         ingreso_total = ingreso_venta - costos_cosechar - costos_instalacion - costo_construccion_caminos- costo_transporte_madera
@@ -341,7 +341,7 @@ def main():
             print("ingresos:", ingreso_venta.getValue())
             print("costo cosechar:", costos_cosechar.getValue())
             print("costo instalacion:", costos_instalacion.getValue())
-            print("consto transporte", costo_transporte_madera.getValue())
+            print("costo transporte", costo_transporte_madera.getValue())
             print("costo construccion camino:", costo_construccion_caminos.getValue())
         
              # Diccionario con todos los resultados
