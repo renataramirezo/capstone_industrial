@@ -356,27 +356,23 @@ def main():
                     'construccion_caminos': costo_construccion_caminos.getValue(),
                 },
                 'variables': {
-                    'p': {(i, t): p[i, t].X for i in N for t in T if p[i, t].X > 0},
+                    'p': {(i, t): p[i, t].X for i in N for t in T},
                     'w': {(i, j, k, t): w[i, j, k, t].X 
                         for (i, k), datos_faena in R_jk.items() 
                         for j in datos_faena['radio'] 
-                        for t in T 
-                        if w[i, j, k, t].X > 0},
+                        for t in T },
                     'x': {(i, j, k, t): x[i, j, k, t].X 
                         for (i, k), datos_faena in R_jk.items() 
                         for j in datos_faena['radio'] 
-                        for t in T 
-                        if x[i, j, k, t].X == 1},
+                        for t in T },
                     'mu': {(i, k, t): mu[i, k, t].X 
-                        for i in N for k in K for t in T 
-                        if mu[i, k, t].X == 1},
+                        for i in N for k in K for t in T},
                     'f': {(i, k, t): f[i, k, t].X 
-                        for i in N for k in K for t in T 
-                        if f[i, k, t].X == 1},
-                    'q': {(d, t): q[d, t].X for d in D for t in T if q[d, t].X > 0},
-                    'y': {(i,j,t): y[i,j,t].X for (i,j) in G.edges() for t in T if y[i, j, t].X == 1},
-                    'l': {(i,j,t): l[i,j,t].X for (i,j) in G.edges() for t in T if l[i, j, t].X == 1},
-                    'z': {(i,j,t): z[i,j,t].X for (i,j) in G.edges() for t in T if z[i, j, t].X > 0},
+                        for i in N for k in K for t in T},
+                    'q': {(d, t): q[d, t].X for d in D for t in T},
+                    'y': {(i,j,t): y[i,j,t].X for (i,j) in G.edges() for t in T},
+                    'l': {(i,j,t): l[i,j,t].X for (i,j) in G.edges() for t in T},
+                    'z': {(i,j,t): z[i,j,t].X for (i,j) in G.edges() for t in T},
 
                 }
             }
