@@ -34,9 +34,3 @@ for nodo_id, atributos in dic_nodos.items():
     for k, v in atributos.items():
         if isinstance(v, float):
             atributos[k] = round(v, 3)
-
-
-
-
-#print(dic_nodos[130]["mcc"])
-
