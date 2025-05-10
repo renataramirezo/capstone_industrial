@@ -113,9 +113,9 @@ def main():
         # 2. Cosechar hectáreas solo del radio de cosecha
         for (i, k), datos_faena in R_jk.items():
             for j in datos_faena['radio']:
-                M_jk = min(N[j]['v'], K[k]['mcc'])
+                #M_jk = min(N[j]['v'], K[k]['mcc'])
                 for t in T:
-                    modelo_1.addConstr(w[i, j, k, t] <= x[i, j, k, t], name=f'restriccion_3_{i}_{j}_{k}_{t}')
+                    modelo_1.addConstr(w[i, j, k, t] <= N[j]['v'] * x[i, j, k, t], name=f'restriccion_3_{i}_{j}_{k}_{t}')
 
         # 3. Que no exista más de una faena por hectárea
         for i in N:
@@ -162,7 +162,18 @@ def main():
                         ) <= N[j]['v'],
                 name=f"restriccion_9_{i}"
             )
+        
+        
+        """for (i,k), datos_faena in R_jk.items():
+                for j in datos_faena['radio']:
+                    modelo_1.addConstr(quicksum(w[i,j,k,t] for t in T) <= N[j]['v'],
+                    name=f"restriccion_9_{i}")"""
 
+        """for t in T:
+            for (i,k), datos_faena in R_jk.items():
+                for j in datos_faena['radio']:
+                    modelo_1.addConstr(w[i,j,k,t] >= 2,
+                    name="Fuerzo_w>1")"""
 
         # No cosechar mas de la capacidad de cada faena
         # 9.
@@ -326,15 +337,6 @@ def main():
         print("costo cosechar:", costos_cosechar.getValue())
         print("costo instalacion:", costos_instalacion.getValue())
 
-        """for i in N:
-            if i not in D:  # excluyo los nodos destino, espero no genere problema por ser N una biblioteca y D una lista
-                for t in T:
-                    modelo_2.addConstr(
-                        (quicksum(z[i,b,t] for a,b in G.edges() if a == i or b == i)  
-                         - quicksum(z[a,i,t] for a,b in G.edges() if b == i)) == dic_pit[i,t],
-                        name=f"restriccion_17_{i}_{t}"
-                    )"""
-
         for n in N:
             if n not in D:
                 for t in T:
@@ -370,10 +372,23 @@ def main():
             print("costo instalacion:", costos_instalacion.getValue())
             print("consto transporte", costo_transporte_madera.getValue())
             print("costo construccion camino:", costo_construccion_caminos.getValue())
+        
             for i in N:
                 for t in T:
                     if p[i,t].X > 0:
                         print(f"p de {i},{t}: {p[i,t].X}")
+
+            for t in T:
+                for (i,k), datos_faena in R_jk.items():
+                    for j in datos_faena['radio']:
+                        if w[i,j,k,t].X > 0:
+                            print(f"w de faena {i}, hetaria{j} en {t}: {w[i,j,k,t].X}")
+            
+            for i in N:
+                for k in K:
+                    for t in T:
+                        if mu[i,k,t].X == 1:
+                            print(f"mu de {i} en {t}: {mu[i,k,t].X}")
 
             for d in D:
                 for t in T:
@@ -382,8 +397,8 @@ def main():
 
         elif estado == GRB.Status.INFEASIBLE:
             print("El modelo es infactible.")
-            modelo_2.computeIIS()
-            modelo_2.write("modelo_cb_infactible.ilp")  # Esto te genera un archivo con las restricciones conflictivas
+            modelo_1.computeIIS()
+            modelo_1.write("modelo_cb_infactible.ilp")  # Esto te genera un archivo con las restricciones conflictivas
         elif estado == GRB.Status.UNBOUNDED:
             print("El modelo no tiene cota inferior (es no acotado).")
         else:
@@ -391,8 +406,8 @@ def main():
 
     except Exception as e:
         print(f"Error durante la ejecución del modelo: {str(e)}")
-        modelo_2.computeIIS()
-        modelo_2.write("modelo_cb_infactible.ilp")
+        modelo_1.computeIIS()
+        modelo_1.write("modelo_cb_infactible.ilp")
         raise
 
 if __name__ == "__main__":
