@@ -108,7 +108,7 @@ def main():
         for (i, k), datos_faena in R_jk.items():
             for j in datos_faena['radio']:
                 for t in T:
-                    modelo.addConstr(w[i, j, k, t] <= x[i, j, k, t], name=f'restriccion_2_{i}_{j}_{k}_{t}')
+                    modelo.addConstr(w[i, j, k, t] <= N[j]['v'] * x[i, j, k, t], name=f'restriccion_2_{i}_{j}_{k}_{t}')
 
         # 3. Que no exista más de una faena por hectárea
         for i in N:
@@ -131,11 +131,10 @@ def main():
         
         # Asignacion de cosecha desde una hectarea faena a una hectarea no-faena
         # 6.
-        for (i, k), datos_faena in R_jk.items(): #i es base
-            for j in datos_faena['radio']:#j es radio
+        for (i, k), datos_faena in R_jk.items(): 
+            for j in datos_faena['radio']:
                 for t in T:
                     modelo.addConstr(x[i,j,k,t] <= f[i,k,t], name=f"restriccion_6_{i}_{j}_{k}_{t}")
-                    #
         
         # 7.
         for j in N:
@@ -143,7 +142,7 @@ def main():
                 for k in K:
                     modelo.addConstr(
                     quicksum(x[i,j,k,t] for (i,b), datos_faena in R_jk.items()
-                                        if j in datos_faena['radio'] and b == k) <= 1,#sumo en radio j
+                                        if j in datos_faena['radio'] and b == k) <= 1,
                     name=f"restriccion_7_{j}_{k}_{t}"
                 )
 
@@ -170,18 +169,32 @@ def main():
                             name=f"restriccion_9_{i}__{j}_{k}_{t}"
                         )
 
-        # Restricción (11): Control de cosecha en rodales con restricción de adyacencia
+        # Control de cosecha en rodales con restricción de adyacencia
+        # 10.
         for r in range(1,20):
             
             for u in U:
                 # Obtener los periodos de la temporada u (asumiendo 6 meses por temporada)
                 T_u = T[(u-1)*6 : u*6] if u == 1 else T[6:]  # T1: meses 1-6, T2: meses 13-18
                 
-                # |N_r| es el número de nodos en el rodal r
-                N_r = len(datos.rodales[r])
+                N_R = datos.rodales[r]
                 
-                # Factor M grande (|N_r|² * |T| * |K|)
-                M = (N_r ** 2) * len(T) * len(K)
+                M_r = 0
+                for k in K:
+                    for i in N_R:
+                        if k == 'skidder':
+                            lista_nodos = nodos_skidders
+                        else:
+                            lista_nodos = nodos_torres
+                        if i in lista_nodos:
+                            lista_auxiliar = []
+                            rango = R_jk[(i,k)]['radio']
+                            for j in rango:
+                                if j in N_R:
+                                    lista_auxiliar.append(j)
+                            M_r += len(lista_auxiliar)
+                
+                M_r = M_r * len(T_u)
                 
                 # Suma de todas las asignaciones de cosecha en el rodal r durante la temporada u
                 modelo.addConstr(
@@ -189,55 +202,59 @@ def main():
                                     for i in datos.rodales[r]
                                     for j in datos.rodales[r]
                                     for t in T_u
-                                    if (i,k) in R_jk and j in R_jk[(i,k)]['radio']) <= M * s[r,u],
-                    name=f"restriccion_11_{r}_{u}"
+                                    if (i,k) in R_jk and j in R_jk[(i,k)]['radio']) <= M_r * s[r,u],
+                    name=f"restriccion_10_{r}_{u}"
                 )
 
-        # Restricción (12): Rodales adyacentes no pueden cosecharse en la misma temporada
+        # Rodales adyacentes no pueden cosecharse en la misma temporada
+        # 11.
         for r in RA_r:  # RA_r contiene los rodales con restricciones de adyacencia
-            for a in RA_r[r]:  # q son los rodales adyacentes a r
+            for a in RA_r[r]: 
                 for u in U:
                     modelo.addConstr(
                         s[r,u] + s[a,u] <= 1,
-                        name=f"restriccion_12_{r}_{a}_{u}"
+                        name=f"restriccion_11_{r}_{a}_{u}"
                     )
 
-        # Restricción (13): Actualización del estado del camino para períodos normales
+        # Actualización del estado del camino para períodos normales
+        # 12.
         for (i,j) in G.edges():
             for t in T:
                 if t != 1 and t != 13:  # T \ {1, 13}
                     modelo.addConstr(
                         l[i,j,t] == l[i,j,t-1] + y[i,j,t],
-                        name=f"restriccion_13_{i}_{j}_{t}"
+                        name=f"restriccion_12_{i}_{j}_{t}"
                     )
 
-        # Restricción (14): Actualización del estado del camino para período 13 (excluyendo XA)
+        # Actualización del estado del camino para período 13 (excluyendo XA)
+        # 13.
         for i, j in G.edges():
             if G[i][j]["XA"] == False:  # A \ XA    
                 modelo.addConstr(
                     l[i,j,13] == l[i,j,6] + y[i,j,13],
-                    name=f"restriccion_14_{i}_{j}"
+                    name=f"restriccion_13_{i}_{j}"
                 )
 
-        # Restricción (15): Inicialización del camino en período 1
+        # Inicialización del camino en período 1
+        # 14.
         for i, j in G.edges():
             modelo.addConstr(
                 y[i,j,1] == l[i,j,1],
-                name=f"restriccion_15_{i}_{j}"
+                name=f"restriccion_14_{i}_{j}"
             )
 
-        # Restricción (16): Camino en período 13 para arcos en XA
-        #for (i,j) in XA:
+        # Camino en período 13 para arcos en XA
+        # 15.
         for i, j in G.edges():
             if G[i][j]["XA"] == True:  # XA    
             #if (i,j) != (100,104):
                 modelo.addConstr(
                     y[i,j,13] == l[i,j,13],
-                    name=f"restriccion_16_{i}_{j}"
+                    name=f"restriccion_15_{i}_{j}"
                 )
 
         # Relacion entre asignacion de cosecha y modelo de red
-        # 17.
+        # 16.
         for d in D:
             for t in T:
                 flow = 0
@@ -248,9 +265,9 @@ def main():
                         flow -= z[i,j,t]
                 modelo.addConstr(
                     flow == -q[d,t],
-                    name=f"restriccion_17_{d}_{t}"
+                    name=f"restriccion_16_{d}_{t}"
                 )
-        # 18.
+        # 17.
         for n in N:
             if n not in D:
                 for t in T:
@@ -262,20 +279,18 @@ def main():
                             flow -= z[i,j,t]
                     modelo.addConstr(
                         flow == p[n,t],
-                        name=f"restriccion_18_{n}_{t}"
+                        name=f"restriccion_17_{n}_{t}"
                     )
         # Flujo de madera requiere camino construido, definimos M grande
-        # 19.
+        # 18.
         M = sum(N[j]["v"] for j in N if 'v' in N[j])
-
         for i,j in G.edges():
+            M_ij = min(M,sum(4000 for i in nodos_skidders) + sum(5000 for i in nodos_torres))
             for t in T:
                 modelo.addConstr(
-                    z[i,j,t] <= M * l[i,j,t],  
-                    name=f"restriccion_19_{i}_{j}_{t}"
+                    z[i,j,t] <= M_ij * l[i,j,t],  
+                    name=f"restriccion_18_{i}_{j}_{t}"
                 )
-
-        
 
         # R auxiliar
         for i,j in G.edges():
@@ -284,8 +299,6 @@ def main():
                     y[i,j,t] == y[j,i,t],
                     name="Restriccion_direccion_caminos"
                 )
-            
-        modelo.addConstr(quicksum(q[d,t] for d in D for t in T)>= 1)
 
 
         modelo.optimize()
@@ -341,19 +354,20 @@ def main():
     except Exception as e:
         print(f"Error durante la ejecución del modelo: {str(e)}")
         modelo.computeIIS()
+        modelo.write("modelo_infactible.ilp")
 
         raise
 
 
     # === Optimizar ===
-    modelo.optimize()
+    """modelo.optimize()
     with open("output.txt", "w") as f:
         for v in modelo.getVars():
             f.write(f"{v.VarName} = {v.X}\n")
     '''for v in modelo.getVars():
         if v.X != 0:
             print(f"{v.VarName} = {v.X}")'''
-    modelo.write("modelo.lp")
+    modelo.write("modelo.lp")"""
     #modelo.computeIIS()
 if __name__ == "__main__":
     main()

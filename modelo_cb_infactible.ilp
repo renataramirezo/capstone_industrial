@@ -1,47 +1,279 @@
-\ Model Camino_flujo_cosecha_copy
+\ Model Asignacion_cosecha_copy
 \ LP format - for model browsing. Use MPS format to capture full model detail.
-\ Signature: 0x1f439f7557573596
+\ Signature: 0x36747853dadf3483
 Maximize
  
 Subject To
- restriccion_13_149_208_4: - y[149,208,4] - l[149,208,3] + l[149,208,4]
-   = 0
- restriccion_13_149_208_5: - y[149,208,5] - l[149,208,4] + l[149,208,5]
-   = 0
- restriccion_13_149_208_6: - y[149,208,6] - l[149,208,5] + l[149,208,6]
-   = 0
- restriccion_13_149_148_4: - y[149,148,4] - l[149,148,3] + l[149,148,4]
-   = 0
- restriccion_13_149_148_5: - y[149,148,5] - l[149,148,4] + l[149,148,5]
-   = 0
- restriccion_13_149_148_6: - y[149,148,6] - l[149,148,5] + l[149,148,6]
-   = 0
- restriccion_14_149_208: - y[149,208,13] - l[149,208,6] + l[149,208,13]
-   = 0
- restriccion_14_149_148: - y[149,148,13] - l[149,148,6] + l[149,148,13]
-   = 0
- restriccion_19_149_208_4: - 107629.72 y[149,208,4] + z[149,208,4] <= 0
- restriccion_19_149_208_5: - 107629.72 y[149,208,5] + z[149,208,5] <= 0
- restriccion_19_149_208_13: - 107629.72 y[149,208,13] + z[149,208,13] <= 0
- restriccion_19_149_148_4: - 107629.72 y[149,148,4] + z[149,148,4] <= 0
- restriccion_19_149_148_5: - 107629.72 y[149,148,5] + z[149,148,5] <= 0
- restriccion_19_149_148_13: - 107629.72 y[149,148,13] + z[149,148,13] <= 0
- restriccion_20_149_4: - z[148,149,4] + z[149,208,4] + z[149,148,4]
-   - z[208,149,4] = 10
- restriccion_20_149_5: - z[148,149,5] + z[149,208,5] + z[149,148,5]
-   - z[208,149,5] = 10
- restriccion_20_149_13: - z[148,149,13] + z[149,208,13] + z[149,148,13]
-   - z[208,149,13] = 10
+ restriccion_9_149: w_190_199_skidder_1 + w_190_199_skidder_2
+   + w_190_199_skidder_3 + w_190_199_skidder_4 + w_190_199_skidder_5
+   + w_190_199_skidder_6 + w_190_199_skidder_13 + w_190_199_skidder_14
+   + w_190_199_skidder_15 + w_190_199_skidder_16 + w_190_199_skidder_17
+   + w_190_199_skidder_18 + w_191_199_skidder_1 + w_191_199_skidder_2
+   + w_191_199_skidder_3 + w_191_199_skidder_4 + w_191_199_skidder_5
+   + w_191_199_skidder_6 + w_191_199_skidder_13 + w_191_199_skidder_14
+   + w_191_199_skidder_15 + w_191_199_skidder_16 + w_191_199_skidder_17
+   + w_191_199_skidder_18 + w_193_199_skidder_1 + w_193_199_skidder_2
+   + w_193_199_skidder_3 + w_193_199_skidder_4 + w_193_199_skidder_5
+   + w_193_199_skidder_6 + w_193_199_skidder_13 + w_193_199_skidder_14
+   + w_193_199_skidder_15 + w_193_199_skidder_16 + w_193_199_skidder_17
+   + w_193_199_skidder_18 + w_194_199_skidder_1 + w_194_199_skidder_2
+   + w_194_199_skidder_3 + w_194_199_skidder_4 + w_194_199_skidder_5
+   + w_194_199_skidder_6 + w_194_199_skidder_13 + w_194_199_skidder_14
+   + w_194_199_skidder_15 + w_194_199_skidder_16 + w_194_199_skidder_17
+   + w_194_199_skidder_18 + w_195_199_skidder_1 + w_195_199_skidder_2
+   + w_195_199_skidder_3 + w_195_199_skidder_4 + w_195_199_skidder_5
+   + w_195_199_skidder_6 + w_195_199_skidder_13 + w_195_199_skidder_14
+   + w_195_199_skidder_15 + w_195_199_skidder_16 + w_195_199_skidder_17
+   + w_195_199_skidder_18 + w_197_199_skidder_1 + w_197_199_skidder_2
+   + w_197_199_skidder_3 + w_197_199_skidder_4 + w_197_199_skidder_5
+   + w_197_199_skidder_6 + w_197_199_skidder_13 + w_197_199_skidder_14
+   + w_197_199_skidder_15 + w_197_199_skidder_16 + w_197_199_skidder_17
+   + w_197_199_skidder_18 + w_198_199_skidder_1 + w_198_199_skidder_2
+   + w_198_199_skidder_3 + w_198_199_skidder_4 + w_198_199_skidder_5
+   + w_198_199_skidder_6 + w_198_199_skidder_13 + w_198_199_skidder_14
+   + w_198_199_skidder_15 + w_198_199_skidder_16 + w_198_199_skidder_17
+   + w_198_199_skidder_18 + w_202_199_skidder_1 + w_202_199_skidder_2
+   + w_202_199_skidder_3 + w_202_199_skidder_4 + w_202_199_skidder_5
+   + w_202_199_skidder_6 + w_202_199_skidder_13 + w_202_199_skidder_14
+   + w_202_199_skidder_15 + w_202_199_skidder_16 + w_202_199_skidder_17
+   + w_202_199_skidder_18 + w_203_199_skidder_1 + w_203_199_skidder_2
+   + w_203_199_skidder_3 + w_203_199_skidder_4 + w_203_199_skidder_5
+   + w_203_199_skidder_6 + w_203_199_skidder_13 + w_203_199_skidder_14
+   + w_203_199_skidder_15 + w_203_199_skidder_16 + w_203_199_skidder_17
+   + w_203_199_skidder_18 + w_207_199_skidder_1 + w_207_199_skidder_2
+   + w_207_199_skidder_3 + w_207_199_skidder_4 + w_207_199_skidder_5
+   + w_207_199_skidder_6 + w_207_199_skidder_13 + w_207_199_skidder_14
+   + w_207_199_skidder_15 + w_207_199_skidder_16 + w_207_199_skidder_17
+   + w_207_199_skidder_18 <= 179.55
+ Fuerzo_w>1: w_190_199_skidder_1 >= 2
+ Fuerzo_w>1: w_191_199_skidder_1 >= 2
+ Fuerzo_w>1: w_193_199_skidder_1 >= 2
+ Fuerzo_w>1: w_194_199_skidder_1 >= 2
+ Fuerzo_w>1: w_195_199_skidder_1 >= 2
+ Fuerzo_w>1: w_197_199_skidder_1 >= 2
+ Fuerzo_w>1: w_198_199_skidder_1 >= 2
+ Fuerzo_w>1: w_202_199_skidder_1 >= 2
+ Fuerzo_w>1: w_203_199_skidder_1 >= 2
+ Fuerzo_w>1: w_207_199_skidder_1 >= 2
+ Fuerzo_w>1: w_197_199_skidder_2 >= 2
+ Fuerzo_w>1: w_198_199_skidder_2 >= 2
+ Fuerzo_w>1: w_202_199_skidder_2 >= 2
+ Fuerzo_w>1: w_203_199_skidder_2 >= 2
+ Fuerzo_w>1: w_207_199_skidder_2 >= 2
+ Fuerzo_w>1: w_190_199_skidder_3 >= 2
+ Fuerzo_w>1: w_191_199_skidder_3 >= 2
+ Fuerzo_w>1: w_193_199_skidder_3 >= 2
+ Fuerzo_w>1: w_194_199_skidder_3 >= 2
+ Fuerzo_w>1: w_195_199_skidder_3 >= 2
+ Fuerzo_w>1: w_197_199_skidder_3 >= 2
+ Fuerzo_w>1: w_198_199_skidder_3 >= 2
+ Fuerzo_w>1: w_202_199_skidder_3 >= 2
+ Fuerzo_w>1: w_203_199_skidder_3 >= 2
+ Fuerzo_w>1: w_207_199_skidder_3 >= 2
+ Fuerzo_w>1: w_190_199_skidder_4 >= 2
+ Fuerzo_w>1: w_191_199_skidder_4 >= 2
+ Fuerzo_w>1: w_193_199_skidder_4 >= 2
+ Fuerzo_w>1: w_194_199_skidder_4 >= 2
+ Fuerzo_w>1: w_195_199_skidder_4 >= 2
+ Fuerzo_w>1: w_197_199_skidder_4 >= 2
+ Fuerzo_w>1: w_198_199_skidder_4 >= 2
+ Fuerzo_w>1: w_202_199_skidder_4 >= 2
+ Fuerzo_w>1: w_203_199_skidder_4 >= 2
+ Fuerzo_w>1: w_207_199_skidder_4 >= 2
+ Fuerzo_w>1: w_190_199_skidder_5 >= 2
+ Fuerzo_w>1: w_191_199_skidder_5 >= 2
+ Fuerzo_w>1: w_193_199_skidder_5 >= 2
+ Fuerzo_w>1: w_194_199_skidder_5 >= 2
+ Fuerzo_w>1: w_195_199_skidder_5 >= 2
+ Fuerzo_w>1: w_197_199_skidder_5 >= 2
+ Fuerzo_w>1: w_198_199_skidder_5 >= 2
+ Fuerzo_w>1: w_202_199_skidder_5 >= 2
+ Fuerzo_w>1: w_203_199_skidder_5 >= 2
+ Fuerzo_w>1: w_207_199_skidder_5 >= 2
+ Fuerzo_w>1: w_190_199_skidder_6 >= 2
+ Fuerzo_w>1: w_191_199_skidder_6 >= 2
+ Fuerzo_w>1: w_193_199_skidder_6 >= 2
+ Fuerzo_w>1: w_194_199_skidder_6 >= 2
+ Fuerzo_w>1: w_195_199_skidder_6 >= 2
+ Fuerzo_w>1: w_197_199_skidder_6 >= 2
+ Fuerzo_w>1: w_198_199_skidder_6 >= 2
+ Fuerzo_w>1: w_202_199_skidder_6 >= 2
+ Fuerzo_w>1: w_203_199_skidder_6 >= 2
+ Fuerzo_w>1: w_207_199_skidder_6 >= 2
+ Fuerzo_w>1: w_190_199_skidder_13 >= 2
+ Fuerzo_w>1: w_191_199_skidder_13 >= 2
+ Fuerzo_w>1: w_193_199_skidder_13 >= 2
+ Fuerzo_w>1: w_194_199_skidder_13 >= 2
+ Fuerzo_w>1: w_195_199_skidder_13 >= 2
+ Fuerzo_w>1: w_197_199_skidder_13 >= 2
+ Fuerzo_w>1: w_198_199_skidder_13 >= 2
+ Fuerzo_w>1: w_202_199_skidder_13 >= 2
+ Fuerzo_w>1: w_203_199_skidder_13 >= 2
+ Fuerzo_w>1: w_207_199_skidder_13 >= 2
+ Fuerzo_w>1: w_190_199_skidder_14 >= 2
+ Fuerzo_w>1: w_191_199_skidder_14 >= 2
+ Fuerzo_w>1: w_193_199_skidder_14 >= 2
+ Fuerzo_w>1: w_194_199_skidder_14 >= 2
+ Fuerzo_w>1: w_195_199_skidder_14 >= 2
+ Fuerzo_w>1: w_197_199_skidder_14 >= 2
+ Fuerzo_w>1: w_198_199_skidder_14 >= 2
+ Fuerzo_w>1: w_202_199_skidder_14 >= 2
+ Fuerzo_w>1: w_203_199_skidder_14 >= 2
+ Fuerzo_w>1: w_207_199_skidder_14 >= 2
+ Fuerzo_w>1: w_190_199_skidder_15 >= 2
+ Fuerzo_w>1: w_191_199_skidder_15 >= 2
+ Fuerzo_w>1: w_193_199_skidder_15 >= 2
+ Fuerzo_w>1: w_194_199_skidder_15 >= 2
+ Fuerzo_w>1: w_195_199_skidder_15 >= 2
+ Fuerzo_w>1: w_197_199_skidder_15 >= 2
+ Fuerzo_w>1: w_198_199_skidder_15 >= 2
+ Fuerzo_w>1: w_202_199_skidder_15 >= 2
+ Fuerzo_w>1: w_203_199_skidder_15 >= 2
+ Fuerzo_w>1: w_207_199_skidder_15 >= 2
+ Fuerzo_w>1: w_190_199_skidder_16 >= 2
+ Fuerzo_w>1: w_191_199_skidder_16 >= 2
+ Fuerzo_w>1: w_193_199_skidder_16 >= 2
+ Fuerzo_w>1: w_194_199_skidder_16 >= 2
+ Fuerzo_w>1: w_195_199_skidder_16 >= 2
+ Fuerzo_w>1: w_197_199_skidder_16 >= 2
+ Fuerzo_w>1: w_198_199_skidder_16 >= 2
+ Fuerzo_w>1: w_202_199_skidder_16 >= 2
+ Fuerzo_w>1: w_203_199_skidder_16 >= 2
+ Fuerzo_w>1: w_207_199_skidder_16 >= 2
+ Fuerzo_w>1: w_190_199_skidder_17 >= 2
+ Fuerzo_w>1: w_191_199_skidder_17 >= 2
+ Fuerzo_w>1: w_193_199_skidder_17 >= 2
+ Fuerzo_w>1: w_194_199_skidder_17 >= 2
+ Fuerzo_w>1: w_195_199_skidder_17 >= 2
+ Fuerzo_w>1: w_197_199_skidder_17 >= 2
+ Fuerzo_w>1: w_198_199_skidder_17 >= 2
+ Fuerzo_w>1: w_202_199_skidder_17 >= 2
+ Fuerzo_w>1: w_203_199_skidder_17 >= 2
+ Fuerzo_w>1: w_207_199_skidder_17 >= 2
+ Fuerzo_w>1: w_190_199_skidder_18 >= 2
+ Fuerzo_w>1: w_191_199_skidder_18 >= 2
+ Fuerzo_w>1: w_193_199_skidder_18 >= 2
+ Fuerzo_w>1: w_194_199_skidder_18 >= 2
+ Fuerzo_w>1: w_195_199_skidder_18 >= 2
+ Fuerzo_w>1: w_197_199_skidder_18 >= 2
+ Fuerzo_w>1: w_198_199_skidder_18 >= 2
+ Fuerzo_w>1: w_202_199_skidder_18 >= 2
+ Fuerzo_w>1: w_203_199_skidder_18 >= 2
+ Fuerzo_w>1: w_207_199_skidder_18 >= 2
 Bounds
- z[149,208,4] free
- z[149,208,5] free
- z[149,208,13] free
- z[149,148,4] free
- z[149,148,5] free
- z[149,148,13] free
-Binaries
- y[149,208,4] y[149,208,5] y[149,208,6] y[149,208,13] y[149,148,4]
- y[149,148,5] y[149,148,6] y[149,148,13] l[149,208,3] l[149,208,4]
- l[149,208,5] l[149,208,6] l[149,208,13] l[149,148,3] l[149,148,4]
- l[149,148,5] l[149,148,6] l[149,148,13]
+ w_190_199_skidder_1 free
+ w_190_199_skidder_3 free
+ w_190_199_skidder_4 free
+ w_190_199_skidder_5 free
+ w_190_199_skidder_6 free
+ w_190_199_skidder_13 free
+ w_190_199_skidder_14 free
+ w_190_199_skidder_15 free
+ w_190_199_skidder_16 free
+ w_190_199_skidder_17 free
+ w_190_199_skidder_18 free
+ w_191_199_skidder_1 free
+ w_191_199_skidder_3 free
+ w_191_199_skidder_4 free
+ w_191_199_skidder_5 free
+ w_191_199_skidder_6 free
+ w_191_199_skidder_13 free
+ w_191_199_skidder_14 free
+ w_191_199_skidder_15 free
+ w_191_199_skidder_16 free
+ w_191_199_skidder_17 free
+ w_191_199_skidder_18 free
+ w_193_199_skidder_1 free
+ w_193_199_skidder_3 free
+ w_193_199_skidder_4 free
+ w_193_199_skidder_5 free
+ w_193_199_skidder_6 free
+ w_193_199_skidder_13 free
+ w_193_199_skidder_14 free
+ w_193_199_skidder_15 free
+ w_193_199_skidder_16 free
+ w_193_199_skidder_17 free
+ w_193_199_skidder_18 free
+ w_194_199_skidder_1 free
+ w_194_199_skidder_3 free
+ w_194_199_skidder_4 free
+ w_194_199_skidder_5 free
+ w_194_199_skidder_6 free
+ w_194_199_skidder_13 free
+ w_194_199_skidder_14 free
+ w_194_199_skidder_15 free
+ w_194_199_skidder_16 free
+ w_194_199_skidder_17 free
+ w_194_199_skidder_18 free
+ w_195_199_skidder_1 free
+ w_195_199_skidder_3 free
+ w_195_199_skidder_4 free
+ w_195_199_skidder_5 free
+ w_195_199_skidder_6 free
+ w_195_199_skidder_13 free
+ w_195_199_skidder_14 free
+ w_195_199_skidder_15 free
+ w_195_199_skidder_16 free
+ w_195_199_skidder_17 free
+ w_195_199_skidder_18 free
+ w_197_199_skidder_1 free
+ w_197_199_skidder_2 free
+ w_197_199_skidder_3 free
+ w_197_199_skidder_4 free
+ w_197_199_skidder_5 free
+ w_197_199_skidder_6 free
+ w_197_199_skidder_13 free
+ w_197_199_skidder_14 free
+ w_197_199_skidder_15 free
+ w_197_199_skidder_16 free
+ w_197_199_skidder_17 free
+ w_197_199_skidder_18 free
+ w_198_199_skidder_1 free
+ w_198_199_skidder_2 free
+ w_198_199_skidder_3 free
+ w_198_199_skidder_4 free
+ w_198_199_skidder_5 free
+ w_198_199_skidder_6 free
+ w_198_199_skidder_13 free
+ w_198_199_skidder_14 free
+ w_198_199_skidder_15 free
+ w_198_199_skidder_16 free
+ w_198_199_skidder_17 free
+ w_198_199_skidder_18 free
+ w_202_199_skidder_1 free
+ w_202_199_skidder_2 free
+ w_202_199_skidder_3 free
+ w_202_199_skidder_4 free
+ w_202_199_skidder_5 free
+ w_202_199_skidder_6 free
+ w_202_199_skidder_13 free
+ w_202_199_skidder_14 free
+ w_202_199_skidder_15 free
+ w_202_199_skidder_16 free
+ w_202_199_skidder_17 free
+ w_202_199_skidder_18 free
+ w_203_199_skidder_1 free
+ w_203_199_skidder_2 free
+ w_203_199_skidder_3 free
+ w_203_199_skidder_4 free
+ w_203_199_skidder_5 free
+ w_203_199_skidder_6 free
+ w_203_199_skidder_13 free
+ w_203_199_skidder_14 free
+ w_203_199_skidder_15 free
+ w_203_199_skidder_16 free
+ w_203_199_skidder_17 free
+ w_203_199_skidder_18 free
+ w_207_199_skidder_1 free
+ w_207_199_skidder_2 free
+ w_207_199_skidder_3 free
+ w_207_199_skidder_4 free
+ w_207_199_skidder_5 free
+ w_207_199_skidder_6 free
+ w_207_199_skidder_13 free
+ w_207_199_skidder_14 free
+ w_207_199_skidder_15 free
+ w_207_199_skidder_16 free
+ w_207_199_skidder_17 free
+ w_207_199_skidder_18 free
 End

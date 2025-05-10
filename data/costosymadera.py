@@ -29,16 +29,6 @@ df.set_index('idnodo', inplace=True)
 #print(tr)
 # Convertir a diccionario
 dic_nodos = df.to_dict(orient="index")
-for id in dic_nodos:
-    maquina = dic_nodos[id]["K"]
-
-    if maquina == sk:
-        costo = 4000
-    elif maquina == tr:
-        costo = 5500
-    else:
-        costo = "NAN"
-    dic_nodos[id]["mcc"]=costo
 
 for nodo_id, atributos in dic_nodos.items():
     for k, v in atributos.items():
