@@ -373,6 +373,7 @@ def main():
                     'y': {(i,j,t): y[i,j,t].X for (i,j) in G.edges() for t in T},
                     'l': {(i,j,t): l[i,j,t].X for (i,j) in G.edges() for t in T},
                     'z': {(i,j,t): z[i,j,t].X for (i,j) in G.edges() for t in T},
+                    's': {(r, u): s[r,u].X for r in range(1,20) for u in U}
 
                 }
             }
