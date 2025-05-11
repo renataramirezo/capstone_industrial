@@ -5,6 +5,8 @@ import matplotlib.pyplot as plt
 import grafos as gf
 import datos as dt
 
+plt.title("Rodales")
+plt.show()
 cap_rodales = {}
 
 for rodal in range(1, 20):
@@ -15,7 +17,7 @@ for rodal in range(1, 20):
 #print(cap_rodales)
 ordenado = sorted(cap_rodales.items(), key=lambda x: x[1], reverse=True)
 '''dado este orden, y las restricciones de adyacencia decidimos
- instalar las faenas skider en los nodos: 37 142	180
+ instalar las faenas skider en los nodos: 37, 142, 180
  y las faenas torres en: 58'''
 
 
@@ -71,7 +73,7 @@ node_colors_gris[gf.Posicion147] = "yellow"
 nx.draw(gf.G, gf.pos, with_labels=True, edge_color=gf.edge_colors,
          node_color=node_colors_gris, edgecolors= gf.nodo_bordes_faen, 
          linewidths= 1.5,node_size=150, font_weight='bold', font_size=5)
-gf.ax2.set_title("Grafo asignación cosecha primera temporada")
+#gf.ax2.set_title("Grafo asignación cosecha primera temporada")
 #plt.show()
 
 #sumar cantidad de madera en nodos a cosechar por faena
@@ -153,7 +155,7 @@ for base in bases_faena_s + bases_faena_t:
 # 2. Obtener los arcos de la ruta como pares (u, v)
 ruta_arcos = set()
 for base in mejores_rutas:
-    print(base)
+    #print(base)
     inicio = mejores_rutas[base]["ruta"][:-1]
     fin= mejores_rutas[base]["ruta"][1:]
     camino = set(zip(inicio,fin))
@@ -180,7 +182,7 @@ nx.draw_networkx_edges(
 )
 
 # 4. Mostrar el plot
-plt.title("Ruta más corta sobre grafo original")
+plt.title("Primera temporada")
 plt.show()
 
 '''Ahora empezamos a ver la TEMPORADA DOS dos, 
@@ -277,7 +279,7 @@ node_colors_rod_t2[gf.Posicion147] = "yellow"
 nx.draw(gf.G, gf.pos, with_labels=True, edge_color=gf.edge_colors,
          node_color=node_colors_rod_t2, edgecolors= gf.nodo_bordes_faen, 
          linewidths= 1.5,node_size=150, font_weight='bold', font_size=5)
-gf.ax2.set_title("Grafo asignación cosecha segunda temporada")
+#gf.ax2.set_title("Grafo asignación cosecha segunda temporada")
 #plt.show()
 
 #sumar cantidad de madera en nodos a cosechar por faena
@@ -364,7 +366,7 @@ for base in mejores_rutas_t2:
     fin_t2= mejores_rutas_t2[base]["ruta"][1:]
     camino_t2 = set(zip(inicio_t2,fin_t2))
     ruta_arcos_t2.update(camino_t2)
-ruta_arcos_t2.update({(38,39)})
+ruta_arcos_t2.update({(39,38)})
 elementos_a_eliminar = {(160,161), (161,165), (165,168), (39,42), (42,85), (85,86), (86,93), (93,94), (94,95), (95,96)}
 
 ruta_arcos_t2.difference_update(elementos_a_eliminar)
@@ -391,7 +393,6 @@ nx.draw_networkx_edges(
 
 # 4. Mostrar el plot
 plt.title("Ruta más corta sobre grafo original")
-plt.show()
 plt.show()
 print(f"arcos que construye la primera temporada: {ruta_arcos}")
 print(f"arcos que construye la segunda temporada: {ruta_arcos_t2}")

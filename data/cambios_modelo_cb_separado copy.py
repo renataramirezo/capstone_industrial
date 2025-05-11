@@ -15,9 +15,10 @@ def main():
         # Variable Binaria Instalacion y existencia de maquinaria
         mu = {}
         f = {}
-        for k in K:
-            for i in N:
-                for t in T:
+        for t in T:
+            for k in K:
+                for i in N:
+                
                     mu[i,k,t] = modelo_1.addVar(vtype=GRB.BINARY, name=f"mu_{i}_{k}_{t}")
                     f[i,k,t] = modelo_1.addVar(vtype=GRB.BINARY, name=f"f_{i}_{k}_{t}")
         
@@ -25,11 +26,14 @@ def main():
         # Estas variables son las que mas me generan dudas 
         x = {}
         w = {}
-        for (i, k), datos_faena in R_jk.items():
-            for j in datos_faena['radio']:
-                for t in T:
+        for t in T:
+            for (i, k), datos_faena in R_jk.items():
+                for j in datos_faena['radio']:                
                     x[i,j,k,t] = modelo_1.addVar(vtype=GRB.BINARY, name=f"x_{i}_{j}_{k}_{t}")
-                    w[i,j,k,t] = modelo_1.addVar(vtype=GRB.CONTINUOUS, name=f"w_{i}_{j}_{k}_{t}")
+            for k in K:
+                for i in N:
+                    for j in N:#aquí hay que tener ojo porque igual queremos cosechar en la base faena entonces i puede ser =j
+                        w[i,j,k,t] = modelo_1.addVar(vtype=GRB.CONTINUOUS, name=f"w_{i}_{j}_{k}_{t}")
 
         # Variables de rodales cosechados por temporada
         s = modelo_1.addVars(list(range(1,20)), U, vtype=GRB.BINARY, name="s")
@@ -58,16 +62,17 @@ def main():
 
         costos_cosechar = quicksum(
             datos_faena['cv_rad'] * w[i,j,k,t]  # Falta mejorar aca logica costos variables skkider
+            for t in T 
             for (i, k), datos_faena in R_jk.items()  
             for j in datos_faena['radio']  
-            for t in T  
+            
         )
 
         costos_instalacion = quicksum(
             N[i]["cf"] * mu[i,k,t] 
+            for t in T 
             for k in K 
             for i in N 
-            for t in T 
             if (i,k,t) in mu and isinstance(N[i]["cf"], (int, float))
         )
 
@@ -99,8 +104,8 @@ def main():
         # ========== RESTRICCIONES ==========
 
         # 1.
-        for i in N:
-            for t in T:
+        for t in T:
+            for i in N:
                 modelo_1.addConstr(
                     p[i,t] ==  quicksum(
                     w[i,j,k,t] 
@@ -112,42 +117,48 @@ def main():
                 )
         
         # 2. Cosechar hectáreas solo del radio de cosecha
-        for (i, k), datos_faena in R_jk.items():
-            for j in datos_faena['radio']:
+        for t in T:
+            for (i, k), datos_faena in R_jk.items():
+                for j in datos_faena['radio']:
                 #M_jk = min(N[j]['v'], K[k]['mcc'])
-                for t in T:
+                
                     modelo_1.addConstr(w[i, j, k, t] <= N[j]['v'] * x[i, j, k, t], name=f'restriccion_2_{i}_{j}_{k}_{t}')
 
         # 3. Que no exista más de una faena por hectárea
-        for i in N:
-            for t in T:
+        for t in T:
+            for i in N:
+            
                 modelo_1.addConstr(quicksum(f[i, k, t] for k in K) <= 1, name=f"restriccion_3_{i}_{j}_{k}")
 
         # 4. Relación entre faena y faena instalada
-        for i in N:
-            for k in K:
-                for t in T:
-                    if t in [1, 13]:
+        for t in T:
+            if t in [1, 13]:
+                for i in N:
+                    for k in K:
+                
                         modelo_1.addConstr(mu[i, k, t] == f[i, k, t], name=f"restriccion_4_{i}_{j}_{k}")
 
         # 5. Continuidad de la faena
-        for i in N:
-            for k in K:
-                for t in T:
-                    if t not in [1, 13]:
+        for t in T:
+            if t not in [1, 13]:
+                for i in N:
+                    for k in K:
+                
                         modelo_1.addConstr(f[i, k, t] == f[i, k, t - 1] + mu[i, k, t], name=f'restriccion_5_{i}_{j}_{k}')
         
         # Asignacion de cosecha desde una hectarea faena a una hectarea no-faena
         # 6.
-        for (i, k), datos_faena in R_jk.items(): #i es base
-            for j in datos_faena['radio']:#j es radio
-                for t in T:
+        for t in T:
+            for (i, k), datos_faena in R_jk.items(): #i es base
+                for j in datos_faena['radio']:#j es radio
+                
                     modelo_1.addConstr(x[i,j,k,t] <= f[i,k,t], name=f"restriccion_6_{i}_{j}_{k}_{t}")
         
         # 7.
-        for j in N:
-            for t in T:
-                for k in K:
+        for t in T:
+            for k in K:
+                for j in N:
+            
                     modelo_1.addConstr(
                     quicksum(x[i,j,k,t] for (i,b), datos_faena in R_jk.items()
                                         if j in datos_faena['radio'] and b == k) <= 1,#sumo en radio j
@@ -166,9 +177,10 @@ def main():
 
         # No cosechar mas de la capacidad de cada faena
         # 9.
-        for k in K:
-            for i in N:
-                for t in T:
+        for t in T:
+            for k in K:
+                for i in N:
+                
                     if (i,k) in R_jk: # Con esta condicion lo hice mas eficiente, pero revisa solo en los que se puede cosechar,
                                       # creo que no necesita revisar todas las posibles combinaciones, asi lo resuelve mas rapido.
                         modelo_1.addConstr(
@@ -226,9 +238,10 @@ def main():
 
         # Actualización del estado del camino para períodos normales
         # 12.
-        for (i,j) in G.edges():
-            for t in T:
-                if t != 1 and t != 13:  # T \ {1, 13}
+        for t in T:
+            if t != 1 and t != 13:  # T \ {1, 13}
+                for (i,j) in G.edges():
+            
                     modelo_2.addConstr(
                         l[i,j,t] == l[i,j,t-1] + y[i,j,t],
                         name=f"restriccion_12_{i}_{j}_{t}"
@@ -263,8 +276,9 @@ def main():
 
 
         # R auxiliar
-        for i,j in G.edges():
-            for t in T:
+        for t in T:
+            for i,j in G.edges():
+            
                 modelo_2.addConstr(
                     y[i,j,t] == y[j,i,t],
                     name="Restriccion_direccion_caminos"
@@ -272,6 +286,7 @@ def main():
 
 
         # 17.
+
         for d in D:
             for t in T:
                 flow = 0
@@ -300,7 +315,7 @@ def main():
         
         modelo_1.setParam('MIPGap', 0.05)
         modelo_1.optimize()
-        sol_bases_faenas = dict()
+        '''sol_bases_faenas = dict()
         sol_hectareas_cosechadas = dict()
         for t in T:
             sol_bases_faenas[t] = []
@@ -322,7 +337,7 @@ def main():
             for v in modelo_1.getVars():
                 if v.X != 0:
                     print(f"{v.VarName} = {v.X}")
-        modelo_1.write("modelo_1.lp")
+        modelo_1.write("modelo_1.lp")'''
 
         dic_pit = {}
         for i in N:
@@ -349,23 +364,23 @@ def main():
         
         modelo_2.setParam('MIPGap', 0.05)
         modelo_2.optimize()
-        sol_aristas_seleccionadas = dict()
+        '''sol_aristas_seleccionadas = dict()
         for t in T:
             sol_aristas_seleccionadas[t] = []
         for t in T:
             for i, j in G.edges():
                 if (i, j, t) in l and l[i, j, t].X > 0.5:
-                    sol_aristas_seleccionadas.append((i,j))
+                    sol_aristas_seleccionadas.append((i,j))'''
                                
 
 
-        with open("output_2.txt", "w") as f:
+        '''with open("output_2.txt", "w") as f:
             for v in modelo_2.getVars():
                 f.write(f"{v.VarName} = {v.X}\n")
             for v in modelo_2.getVars():
                 if v.X != 0:
                     print(f"{v.VarName} = {v.X}")
-        modelo_2.write("modelo_2.lp")
+        modelo_2.write("modelo_2.lp")'''
 
         print("costo transporte", costo_transporte_madera.getValue())
         print("costo construccion camino:", costo_construccion_caminos.getValue())
