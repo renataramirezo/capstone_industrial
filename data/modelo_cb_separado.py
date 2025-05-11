@@ -297,8 +297,21 @@ def main():
                     z[i,j,t] <= M_ij * l[i,j,t],  # Usamos l[i,j,t] que es la variable de existencia del camino
                     name=f"restriccion_17_{i}_{j}_{t}"
                 )
+
+        # RESTRICCION de prueba para evitar que hectareas 
+        # que no son faenas cosechen
+        MMM = 10000
+
+        for (i, k), datos_faena in R_jk.items():
+            for j in datos_faena['radio']:
+                for t in T:
+                    modelo_1.addConstr(
+                        w[i,j,k,t] <= f[i,k,t] * MMM,
+                        name=f"restriccion_w_f_{i}_{j}_{k}_{t}"
+                    )
         
-        modelo_1.setParam('MIPGap', 0.05)
+        
+        modelo_1.setParam('MIPGap', 0.1)
         modelo_1.optimize()
 
         dic_pit = {}
@@ -324,7 +337,7 @@ def main():
                         name=f"restriccion_18_{n}_{t}"
                     )
         
-        modelo_2.setParam('MIPGap', 0.05)
+        modelo_2.setParam('MIPGap', 0.2)
         modelo_2.optimize()
 
         print("costo transporte", costo_transporte_madera.getValue())
@@ -435,7 +448,7 @@ def visualizar_resultados(archivo_pkl='resultados_modelo.pkl', archivo_txt='resu
             txt_file.write("\n  🔸 Madera Cosechada (x):\n")
             for (i, j, k, t), cantidad in datos['variables']['w'].items():
                 if cantidad > 0:
-                    txt_file.write(f"    - Faena {i} → Rodal {j}, máquina {k}, período {t}, cosecha: {cantidad:.2f} m3\n")
+                    txt_file.write(f"    - Faena {i} → Hectarea {j}, máquina {k}, período {t}, cosecha: {cantidad:.2f} m3\n")
             
             # Instalaciones (mu)
             txt_file.write("\n  🔸 Faenas Instaladas (mu):\n")
@@ -450,7 +463,7 @@ def visualizar_resultados(archivo_pkl='resultados_modelo.pkl', archivo_txt='resu
             for (i, j, t), valor in datos['variables']['y'].items():
                 if valor == 1:
                     txt_file.write(f"    - Construido: {i} ↔ {j} en período {t}\n")
-            
+             
             txt_file.write("\n  🔸 Caminos existentes (l):\n")
             for (i, j, t), valor in datos['variables']['l'].items():
                 if valor == 1:
