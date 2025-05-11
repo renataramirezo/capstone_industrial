@@ -313,7 +313,7 @@ def main():
 
         # RESTRICCION de prueba para evitar que hectareas 
         # que no son faenas cosechen
-        MMM = 10000
+        """MMM = 10000
 
         for (i, k), datos_faena in R_jk.items():
             for j in datos_faena['radio']:
@@ -321,10 +321,10 @@ def main():
                     modelo_1.addConstr(
                         w[i,j,k,t] <= f[i,k,t] * MMM,
                         name=f"restriccion_w_f_{i}_{j}_{k}_{t}"
-                    )
+                    )"""
         
         
-        modelo_1.setParam('MIPGap', 0.1)
+        modelo_1.setParam('MIPGap', 0.05)
         modelo_1.optimize()
 
         dic_pit = {}
@@ -350,7 +350,7 @@ def main():
                         name=f"restriccion_18_{n}_{t}"
                     )
         
-        modelo_2.setParam('MIPGap', 0.2)
+        modelo_2.setParam('MIPGap', 0.05)
         modelo_2.optimize()
 
         print("costo transporte", costo_transporte_madera.getValue())
