@@ -71,13 +71,13 @@ nodo_bordes_faen = [bordes_faenas.get(G.nodes[n].get("K", "default"), "lightgree
 
 
 # Lista única de bosques
-rodales = list(range(1, 20))  # del 1 al 19
-random.shuffle(rodales)
+Rodales = list(range(1, 20))  # del 1 al 19
+random.shuffle(Rodales)
 #colors = plt.cm.tab20.colors  # paleta con hasta 20 colores distintos
 colors = cm.get_cmap("viridis_r", 20)  # paleta con hasta 20 colores distintos
 # Asignar un color distinto a cada bosque
 #rodal_color_map = {r: colors[i % len(colors)] for i, r in enumerate(rodales)}
-rodal_color_map = {r: colors(i) for i, r in enumerate(rodales)}
+rodal_color_map = {r: colors(i) for i, r in enumerate(Rodales)}
 node_colors_rod = [rodal_color_map.get(G.nodes[n].get("r"), "gray") for n in G.nodes()]
 
 Orden= list(G.nodes())

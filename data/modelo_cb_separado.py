@@ -191,13 +191,13 @@ def main():
 
         # Control de cosecha en rodales con restricción de adyacencia
         # 10.
-        for r in range(1,20):
+        for r in rodales:
             
             for u in U:
                 # Obtener los periodos de la temporada u (asumiendo 6 meses por temporada)
                 T_u = T[(u-1)*6 : u*6] if u == 1 else T[6:]  # T1: meses 1-6, T2: meses 13-18
                 
-                N_R = datos.rodales[r]
+                N_R = rodales[r]
                 M_r = 0
 
                 for k in K:
@@ -220,12 +220,27 @@ def main():
                 # Suma de todas las asignaciones de cosecha en el rodal r durante la temporada u
                 modelo_1.addConstr(
                     quicksum(x[i,j,k,t] for k in K
-                                    for i in datos.rodales[r]
-                                    for j in datos.rodales[r]
+                                    for i in N_R
+                                    for j in N_R
                                     for t in T_u
                                     if (i,k) in R_jk and j in R_jk[(i,k)]['radio']) <= M_r * s[r,u],
                     name=f"restriccion_10_{r}_{u}"
                 )
+
+        """for r in rodales:
+            N_R = rodales[r]
+            for u in U:
+                T_u = T[(u-1)*6 : u*6] if u == 1 else T[6:]
+                for k in K:
+                    for i in N_R:
+                        if (i,k) in R_jk:
+                            for j in R_jk[(i,k)]['radio']:
+                                if j in N_R:
+                                    for t in T_u:
+                                        modelo_1.addConstr(
+                                            x[i,j,k,t] <= s[r,u],
+                                            name=f"restriccion_10_{i}_{j}_{k}_{t}_r{r}_u{u}"
+                                        )"""
 
         # Rodales adyacentes no pueden cosecharse en la misma temporada
         # 11.
@@ -324,7 +339,7 @@ def main():
                     )"""
         
         
-        modelo_1.setParam('MIPGap', 0.05)
+        modelo_1.setParam('MIPGap', 0.10)
         modelo_1.optimize()
 
         dic_pit = {}
@@ -350,7 +365,7 @@ def main():
                         name=f"restriccion_18_{n}_{t}"
                     )
         
-        modelo_2.setParam('MIPGap', 0.05)
+        modelo_2.setParam('MIPGap', 0.20)
         modelo_2.optimize()
 
         print("costo transporte", costo_transporte_madera.getValue())
