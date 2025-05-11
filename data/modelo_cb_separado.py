@@ -23,13 +23,24 @@ def main():
         
         # Variables asignacion de cosecha y cantidad de madera
         # Estas variables son las que mas me generan dudas 
-        x = {}
+        """x = {}
         w = {}
         for (i, k), datos_faena in R_jk.items():
             for j in datos_faena['radio']:
                 for t in T:
                     x[i,j,k,t] = modelo_1.addVar(vtype=GRB.BINARY, name=f"x_{i}_{j}_{k}_{t}")
-                    w[i,j,k,t] = modelo_1.addVar(vtype=GRB.CONTINUOUS, name=f"w_{i}_{j}_{k}_{t}")
+                    w[i,j,k,t] = modelo_1.addVar(vtype=GRB.CONTINUOUS, name=f"w_{i}_{j}_{k}_{t}")"""
+        
+        x = {}
+        w = {}
+        for t in T:
+            for (i, k), datos_faena in R_jk.items():
+                for j in datos_faena['radio']:                
+                    x[i,j,k,t] = modelo_1.addVar(vtype=GRB.BINARY, name=f"x_{i}_{j}_{k}_{t}")
+            for k in K:
+                for i in N:
+                    for j in N:#aquí hay que tener ojo porque igual queremos cosechar en la base faena entonces i puede ser =j
+                        w[i,j,k,t] = modelo_1.addVar(vtype=GRB.CONTINUOUS, name=f"w_{i}_{j}_{k}_{t}")
 
         # Variables de rodales cosechados por temporada
         s = modelo_1.addVars(list(range(1,20)), U, vtype=GRB.BINARY, name="s")
@@ -139,10 +150,12 @@ def main():
         
         # Asignacion de cosecha desde una hectarea faena a una hectarea no-faena
         # 6.
-        for (i, k), datos_faena in R_jk.items(): #i es base
-            for j in datos_faena['radio']:#j es radio
-                for t in T:
-                    modelo_1.addConstr(x[i,j,k,t] <= f[i,k,t], name=f"restriccion_6_{i}_{j}_{k}_{t}")
+        for i in N:
+            for k in K:
+                    for t in T:
+                        if (i,k) in R_jk:
+                            for j in R_jk[(i,k)]['radio']:
+                                modelo_1.addConstr(x[i,j,k,t] <= f[i,k,t], name=f"restriccion_6_{i}_{j}_{k}_{t}")
         
         # 7.
         for j in N:
@@ -150,7 +163,7 @@ def main():
                 for k in K:
                     modelo_1.addConstr(
                     quicksum(x[i,j,k,t] for (i,b), datos_faena in R_jk.items()
-                                        if j in datos_faena['radio'] and b == k) <= 1,#sumo en radio j
+                                        if j in datos_faena['radio'] and b == k) <= 1,
                     name=f"restriccion_7_{j}_{k}_{t}"
                 )
 
@@ -446,13 +459,18 @@ def visualizar_resultados(archivo_pkl='resultados_modelo.pkl', archivo_txt='resu
             
             # Asignaciones de cosecha (w)
             txt_file.write("\n  🔸 Madera Cosechada (x):\n")
-            for (i, j, k, t), cantidad in datos['variables']['w'].items():
+            for (i, j, k, t), cantidad in datos['variables']['x'].items():
                 if cantidad > 0:
                     txt_file.write(f"    - Faena {i} → Hectarea {j}, máquina {k}, período {t}, cosecha: {cantidad:.2f} m3\n")
             
             # Instalaciones (mu)
             txt_file.write("\n  🔸 Faenas Instaladas (mu):\n")
             for (i, k, t), valor in datos['variables']['mu'].items():
+                if valor == 1:
+                    txt_file.write(f"    - Nodo {i}, máquina {k}, período {t}\n")
+
+            txt_file.write("\n  🔸 Faenas Existentes (f):\n")
+            for (i, k, t), valor in datos['variables']['f'].items():
                 if valor == 1:
                     txt_file.write(f"    - Nodo {i}, máquina {k}, período {t}\n")
 
