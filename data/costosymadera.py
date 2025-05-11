@@ -1,35 +1,35 @@
 import pandas as pd
-'''este archivo es para poner los costos de instalación de faena 
+
+'''Este archivo es para poner los costos de instalación de faena 
 y la cantidad de madera por rodal'''
+
+# Archivo de Excel que contiene datos sobre nodos
 excel = pd.read_excel("data\costos_y_madera_nodos.xlsx")
 
-#['idnodo', 'eje vertical', 'eje horizontal', 'tipo de feane', 
-# 'costo inst', 'cant madera']
-# Seleccionar solo las columnas necesarias
+# Renombrar columnas
 excel2 = excel.rename(columns={
-    'tipo de feane': 'K',
+    'tipo de faena': 'K',
     'costo inst': 'cf',
     'cant madera': "v",
     'eje vertical': "y",
     'eje horizontal': "x"
 })
-#excel2['y'] = excel2['y'] * -1
 
+# Crear una columna con la posición (x, y)
 excel2['pos'] = list(zip(excel2['x'], excel2['y']))
+
+# Seleccionar columnas importantes y limpiar
 columnas_deseadas = ['idnodo', 'K', 'cf', 'v', 'pos']
 df = excel2[columnas_deseadas]
 df = df.dropna(subset=['idnodo'])
 
-#print(df)
-sk =df.loc[2, "K"]
-tr= df.loc[50,"K"]
-
 # Establecer 'idnodo' como índice
 df.set_index('idnodo', inplace=True)
-#print(tr)
+
 # Convertir a diccionario
 dic_nodos = df.to_dict(orient="index")
 
+# Redondear los valores flotantes de cantidad de madera
 for nodo_id, atributos in dic_nodos.items():
     for k, v in atributos.items():
         if isinstance(v, float):
