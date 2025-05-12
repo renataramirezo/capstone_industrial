@@ -1,6 +1,7 @@
 from gurobipy import *
 from datos import *
 from grafos import *
+from guardar_sol import *
 import pickle
 
 
@@ -307,7 +308,7 @@ def main():
                     )"""
         
         
-        modelo_1.setParam('MIPGap', 0.001)
+        modelo_1.setParam('MIPGap', 0.16)
         modelo_1.optimize()
 
         dic_pit = {}
@@ -333,7 +334,7 @@ def main():
                         name=f"restriccion_18_{n}_{t}"
                     )
         
-        modelo_2.setParam('MIPGap', 0.001)
+        modelo_2.setParam('MIPGap', 0.1)
         modelo_2.optimize()
 
         print("costo transporte", costo_transporte_madera.getValue())
@@ -389,9 +390,12 @@ def main():
 
             with open('resultados_modelo.pkl', 'wb') as archivo:
                 pickle.dump(resultados, archivo)
+            
+            #guardar solucion en solucion_inicial.sol
+            guardar_solucion_inicial(resultados)
 
-            print("Resultados guardados en 'resultados_modelo.pkl'")
-            visualizar_resultados()
+            '''print("Resultados guardados en 'resultados_modelo.pkl'")
+            visualizar_resultados()'''
 
         elif estado_1 == GRB.Status.INFEASIBLE:
             print("El modelo 1 es infactible.")

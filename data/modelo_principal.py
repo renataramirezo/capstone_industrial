@@ -1,6 +1,7 @@
 from gurobipy import *
 from datos import *
 from grafos import *
+from guardar_sol import *
 import pickle
 
 def main():
@@ -145,12 +146,12 @@ def main():
         # 7.
         for j in N:
             for t in T:
-                for k in K:
-                    modelo.addConstr(
-                    quicksum(x[i,j,k,t] for (i,b), datos_faena in R_jk.items()
-                                        if j in datos_faena['radio'] and b == k) <= 1,
-                    name=f"restriccion_7_{j}_{k}_{t}"
-                )
+                modelo.addConstr(
+                quicksum(x[i,j,k,t] for (i,b), datos_faena in R_jk.items() 
+                                    for k in K                    
+                                    if j in datos_faena['radio'] and b == k) <= 1,
+                name=f"restriccion_7_{j}_{t}"
+            )
 
         # 8.
         for j in N:
@@ -288,9 +289,11 @@ def main():
                     name=f"restriccion_18_{i}_{j}_{t}"
                 )
 
+        #cargar solucion de caso base
+        cargar_solucion_inicial(modelo)
         
 
-        modelo.setParam('MIPGap', 4)
+        modelo.setParam('MIPGap', 0.1)
         modelo.optimize()
 
         print("consto transporte", costo_transporte_madera.getValue())
