@@ -8,7 +8,7 @@ excel = pd.read_excel("data\costos_y_madera_nodos.xlsx")
 
 # Renombrar columnas
 excel2 = excel.rename(columns={
-    'tipo de faena': 'K',
+    'tipo de feane': 'K',
     'costo inst': 'cf',
     'cant madera': "v",
     'eje vertical': "y",
