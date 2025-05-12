@@ -199,23 +199,6 @@ def main():
                 
                 N_R = rodales[r]
                 M_r = 2 * (len(N)) * (len(N_R)) *  (len(T_u))
-
-                """for k in K:
-                    for i in N_R:
-                        if k == 'skidder':
-                            lista_nodos = nodos_skidders
-                        else:
-                            lista_nodos = nodos_torres
-                        if i in lista_nodos:
-                            lista_auxiliar = []
-                            rango = R_jk[(i,k)]['radio']
-                            for j in rango:
-                                if j in N_R:
-                                    lista_auxiliar.append(j)
-                            M_r += len(lista_auxiliar)
-                
-                M_r = M_r * len(T_u)"""
-
                 
                 # Suma de todas las asignaciones de cosecha en el rodal r durante la temporada u
                 modelo_1.addConstr(
@@ -227,29 +210,11 @@ def main():
                     name=f"restriccion_10_{r}_{u}"
                 )
 
-        """for r in rodales:
-            N_R = rodales[r]
-            for u in U:
-                T_u = T[(u-1)*6 : u*6] if u == 1 else T[6:]
-                for k in K:
-                    for i in N_R:
-                        if (i,k) in R_jk:
-                            for j in R_jk[(i,k)]['radio']:
-                                if j in N_R:
-                                    for t in T_u:
-                                        modelo_1.addConstr(
-                                            x[i,j,k,t] <= s[r,u],
-                                            name=f"restriccion_10_{i}_{j}_{k}_{t}_r{r}_u{u}"
-                                        )"""
-
         # Rodales adyacentes no pueden cosecharse en la misma temporada
         # 11.
-        for r in RA_r:  # RA_r contiene los rodales con restricciones de adyacencia
-            print(f"r: {r}")
-            for a in RA_r[r]:  # q son los rodales adyacentes a r
-                print(f"a: {a}")
+        for r in RA_r:  
+            for a in RA_r[r]: 
                 for u in U:
-                    print(f"u: {u}")
                     modelo_1.addConstr(
                         s[r,u] + s[a,u] <= 1,
                         name=f"restriccion_11_{r}_{a}_{u}"

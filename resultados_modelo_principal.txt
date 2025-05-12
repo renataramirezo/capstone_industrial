@@ -1,0 +1,1795 @@
+
+============================================================
+📊 VISUALIZACIÓN DE RESULTADOS DEL MODELO
+============================================================
+
+🔵 Estado del modelo: OPTIMAL
+💰 Valor objetivo (ganancia neta): $486,160.14
+
+📈 DESGLOSE ECONÓMICO:
+  - Ingresos por venta: $997,039.93
+  - Costo de cosecha: $408,445.77
+  - Costo de instalacion: $90,000.00
+  - Costo de transporte: $1,434.01
+  - Costo de construccion_caminos: $11,000.00
+
+🔧 VARIABLES RELEVANTES:
+
+  🔸 Madera transportada (p):
+    - Nodo 47, período 1: 637.60 m3
+    - Nodo 47, período 3: 2967.40 m3
+    - Nodo 63, período 13: 554.40 m3
+    - Nodo 63, período 14: 1137.50 m3
+    - Nodo 63, período 17: 1930.10 m3
+    - Nodo 63, período 18: 1192.90 m3
+    - Nodo 117, período 14: 575.70 m3
+    - Nodo 117, período 15: 670.10 m3
+    - Nodo 158, período 15: 2494.30 m3
+    - Nodo 158, período 16: 1727.20 m3
+    - Nodo 158, período 17: 2284.94 m3
+    - Nodo 158, período 18: 1808.46 m3
+    - Nodo 161, período 14: 2325.69 m3
+    - Nodo 161, período 15: 597.30 m3
+    - Nodo 161, período 16: 1049.12 m3
+    - Nodo 161, período 17: 1714.74 m3
+    - Nodo 161, período 18: 192.90 m3
+    - Nodo 183, período 14: 1696.70 m3
+    - Nodo 183, período 15: 593.70 m3
+    - Nodo 183, período 16: 1212.10 m3
+    - Nodo 183, período 17: 1124.00 m3
+
+  🔸 Madera Cosechada (x):
+    - Faena 47 → Hectarea 47, máquina skidder, período 1, cosecha: 1.00 m3
+    - Faena 47 → Hectarea 47, máquina skidder, período 2, cosecha: 1.00 m3
+    - Faena 47 → Hectarea 47, máquina skidder, período 3, cosecha: 1.00 m3
+    - Faena 47 → Hectarea 47, máquina skidder, período 4, cosecha: 1.00 m3
+    - Faena 47 → Hectarea 47, máquina skidder, período 5, cosecha: 1.00 m3
+    - Faena 47 → Hectarea 47, máquina skidder, período 6, cosecha: 1.00 m3
+    - Faena 47 → Hectarea 2, máquina skidder, período 1, cosecha: 1.00 m3
+    - Faena 47 → Hectarea 2, máquina skidder, período 2, cosecha: 1.00 m3
+    - Faena 47 → Hectarea 2, máquina skidder, período 3, cosecha: 1.00 m3
+    - Faena 47 → Hectarea 2, máquina skidder, período 4, cosecha: 1.00 m3
+    - Faena 47 → Hectarea 2, máquina skidder, período 5, cosecha: 1.00 m3
+    - Faena 47 → Hectarea 2, máquina skidder, período 6, cosecha: 1.00 m3
+    - Faena 47 → Hectarea 46, máquina skidder, período 1, cosecha: 1.00 m3
+    - Faena 47 → Hectarea 46, máquina skidder, período 2, cosecha: 1.00 m3
+    - Faena 47 → Hectarea 46, máquina skidder, período 3, cosecha: 1.00 m3
+    - Faena 47 → Hectarea 46, máquina skidder, período 4, cosecha: 1.00 m3
+    - Faena 47 → Hectarea 46, máquina skidder, período 5, cosecha: 1.00 m3
+    - Faena 47 → Hectarea 46, máquina skidder, período 6, cosecha: 1.00 m3
+    - Faena 47 → Hectarea 6, máquina skidder, período 1, cosecha: 1.00 m3
+    - Faena 47 → Hectarea 6, máquina skidder, período 2, cosecha: 1.00 m3
+    - Faena 47 → Hectarea 6, máquina skidder, período 3, cosecha: 1.00 m3
+    - Faena 47 → Hectarea 6, máquina skidder, período 4, cosecha: 1.00 m3
+    - Faena 47 → Hectarea 6, máquina skidder, período 5, cosecha: 1.00 m3
+    - Faena 47 → Hectarea 6, máquina skidder, período 6, cosecha: 1.00 m3
+    - Faena 47 → Hectarea 48, máquina skidder, período 1, cosecha: 1.00 m3
+    - Faena 47 → Hectarea 48, máquina skidder, período 2, cosecha: 1.00 m3
+    - Faena 47 → Hectarea 48, máquina skidder, período 3, cosecha: 1.00 m3
+    - Faena 47 → Hectarea 48, máquina skidder, período 4, cosecha: 1.00 m3
+    - Faena 47 → Hectarea 48, máquina skidder, período 5, cosecha: 1.00 m3
+    - Faena 47 → Hectarea 48, máquina skidder, período 6, cosecha: 1.00 m3
+    - Faena 47 → Hectarea 50, máquina skidder, período 1, cosecha: 1.00 m3
+    - Faena 47 → Hectarea 50, máquina skidder, período 2, cosecha: 1.00 m3
+    - Faena 47 → Hectarea 50, máquina skidder, período 3, cosecha: 1.00 m3
+    - Faena 47 → Hectarea 50, máquina skidder, período 4, cosecha: 1.00 m3
+    - Faena 47 → Hectarea 50, máquina skidder, período 5, cosecha: 1.00 m3
+    - Faena 47 → Hectarea 50, máquina skidder, período 6, cosecha: 1.00 m3
+    - Faena 47 → Hectarea 51, máquina skidder, período 1, cosecha: 1.00 m3
+    - Faena 158 → Hectarea 158, máquina skidder, período 16, cosecha: 1.00 m3
+    - Faena 158 → Hectarea 101, máquina skidder, período 18, cosecha: 1.00 m3
+    - Faena 158 → Hectarea 102, máquina skidder, período 17, cosecha: 1.00 m3
+    - Faena 158 → Hectarea 150, máquina skidder, período 18, cosecha: 1.00 m3
+    - Faena 158 → Hectarea 104, máquina skidder, período 17, cosecha: 1.00 m3
+    - Faena 158 → Hectarea 105, máquina skidder, período 17, cosecha: 1.00 m3
+    - Faena 158 → Hectarea 106, máquina skidder, período 17, cosecha: 1.00 m3
+    - Faena 158 → Hectarea 154, máquina skidder, período 18, cosecha: 1.00 m3
+    - Faena 158 → Hectarea 155, máquina skidder, período 15, cosecha: 1.00 m3
+    - Faena 158 → Hectarea 155, máquina skidder, período 18, cosecha: 1.00 m3
+    - Faena 158 → Hectarea 108, máquina skidder, período 15, cosecha: 1.00 m3
+    - Faena 158 → Hectarea 109, máquina skidder, período 18, cosecha: 1.00 m3
+    - Faena 158 → Hectarea 159, máquina skidder, período 18, cosecha: 1.00 m3
+    - Faena 158 → Hectarea 160, máquina skidder, período 16, cosecha: 1.00 m3
+    - Faena 158 → Hectarea 110, máquina skidder, período 15, cosecha: 1.00 m3
+    - Faena 158 → Hectarea 163, máquina skidder, período 15, cosecha: 1.00 m3
+    - Faena 158 → Hectarea 163, máquina skidder, período 16, cosecha: 1.00 m3
+    - Faena 158 → Hectarea 164, máquina skidder, período 16, cosecha: 1.00 m3
+    - Faena 161 → Hectarea 161, máquina skidder, período 14, cosecha: 1.00 m3
+    - Faena 161 → Hectarea 161, máquina skidder, período 18, cosecha: 1.00 m3
+    - Faena 161 → Hectarea 151, máquina skidder, período 14, cosecha: 1.00 m3
+    - Faena 161 → Hectarea 151, máquina skidder, período 16, cosecha: 1.00 m3
+    - Faena 161 → Hectarea 152, máquina skidder, período 16, cosecha: 1.00 m3
+    - Faena 161 → Hectarea 152, máquina skidder, período 18, cosecha: 1.00 m3
+    - Faena 161 → Hectarea 153, máquina skidder, período 15, cosecha: 1.00 m3
+    - Faena 161 → Hectarea 153, máquina skidder, período 17, cosecha: 1.00 m3
+    - Faena 161 → Hectarea 153, máquina skidder, período 18, cosecha: 1.00 m3
+    - Faena 161 → Hectarea 154, máquina skidder, período 14, cosecha: 1.00 m3
+    - Faena 161 → Hectarea 156, máquina skidder, período 14, cosecha: 1.00 m3
+    - Faena 161 → Hectarea 157, máquina skidder, período 15, cosecha: 1.00 m3
+    - Faena 161 → Hectarea 157, máquina skidder, período 16, cosecha: 1.00 m3
+    - Faena 161 → Hectarea 162, máquina skidder, período 14, cosecha: 1.00 m3
+    - Faena 161 → Hectarea 162, máquina skidder, período 15, cosecha: 1.00 m3
+    - Faena 161 → Hectarea 165, máquina skidder, período 15, cosecha: 1.00 m3
+    - Faena 161 → Hectarea 165, máquina skidder, período 16, cosecha: 1.00 m3
+    - Faena 161 → Hectarea 166, máquina skidder, período 15, cosecha: 1.00 m3
+    - Faena 161 → Hectarea 166, máquina skidder, período 17, cosecha: 1.00 m3
+    - Faena 161 → Hectarea 167, máquina skidder, período 17, cosecha: 1.00 m3
+    - Faena 161 → Hectarea 168, máquina skidder, período 16, cosecha: 1.00 m3
+    - Faena 161 → Hectarea 169, máquina skidder, período 17, cosecha: 1.00 m3
+    - Faena 117 → Hectarea 110, máquina skidder, período 16, cosecha: 1.00 m3
+    - Faena 117 → Hectarea 110, máquina skidder, período 18, cosecha: 1.00 m3
+    - Faena 117 → Hectarea 119, máquina skidder, período 13, cosecha: 1.00 m3
+    - Faena 117 → Hectarea 119, máquina skidder, período 14, cosecha: 1.00 m3
+    - Faena 117 → Hectarea 119, máquina skidder, período 15, cosecha: 1.00 m3
+    - Faena 117 → Hectarea 119, máquina skidder, período 16, cosecha: 1.00 m3
+    - Faena 117 → Hectarea 119, máquina skidder, período 17, cosecha: 1.00 m3
+    - Faena 117 → Hectarea 120, máquina skidder, período 18, cosecha: 1.00 m3
+    - Faena 117 → Hectarea 124, máquina skidder, período 14, cosecha: 1.00 m3
+    - Faena 63 → Hectarea 52, máquina torre, período 17, cosecha: 1.00 m3
+    - Faena 63 → Hectarea 52, máquina torre, período 18, cosecha: 1.00 m3
+    - Faena 63 → Hectarea 53, máquina torre, período 14, cosecha: 1.00 m3
+    - Faena 63 → Hectarea 53, máquina torre, período 16, cosecha: 1.00 m3
+    - Faena 63 → Hectarea 53, máquina torre, período 17, cosecha: 1.00 m3
+    - Faena 63 → Hectarea 53, máquina torre, período 18, cosecha: 1.00 m3
+    - Faena 63 → Hectarea 65, máquina torre, período 13, cosecha: 1.00 m3
+    - Faena 63 → Hectarea 65, máquina torre, período 14, cosecha: 1.00 m3
+    - Faena 63 → Hectarea 65, máquina torre, período 15, cosecha: 1.00 m3
+    - Faena 63 → Hectarea 65, máquina torre, período 17, cosecha: 1.00 m3
+    - Faena 63 → Hectarea 65, máquina torre, período 18, cosecha: 1.00 m3
+    - Faena 63 → Hectarea 66, máquina torre, período 13, cosecha: 1.00 m3
+    - Faena 63 → Hectarea 66, máquina torre, período 16, cosecha: 1.00 m3
+    - Faena 63 → Hectarea 66, máquina torre, período 17, cosecha: 1.00 m3
+    - Faena 63 → Hectarea 66, máquina torre, período 18, cosecha: 1.00 m3
+    - Faena 63 → Hectarea 67, máquina torre, período 13, cosecha: 1.00 m3
+    - Faena 63 → Hectarea 67, máquina torre, período 17, cosecha: 1.00 m3
+    - Faena 63 → Hectarea 67, máquina torre, período 18, cosecha: 1.00 m3
+    - Faena 63 → Hectarea 69, máquina torre, período 13, cosecha: 1.00 m3
+    - Faena 63 → Hectarea 69, máquina torre, período 16, cosecha: 1.00 m3
+    - Faena 63 → Hectarea 69, máquina torre, período 18, cosecha: 1.00 m3
+    - Faena 63 → Hectarea 70, máquina torre, período 13, cosecha: 1.00 m3
+    - Faena 63 → Hectarea 70, máquina torre, período 17, cosecha: 1.00 m3
+    - Faena 63 → Hectarea 70, máquina torre, período 18, cosecha: 1.00 m3
+    - Faena 63 → Hectarea 74, máquina torre, período 13, cosecha: 1.00 m3
+    - Faena 63 → Hectarea 74, máquina torre, período 14, cosecha: 1.00 m3
+    - Faena 63 → Hectarea 74, máquina torre, período 16, cosecha: 1.00 m3
+    - Faena 63 → Hectarea 74, máquina torre, período 18, cosecha: 1.00 m3
+    - Faena 183 → Hectarea 120, máquina skidder, período 14, cosecha: 1.00 m3
+    - Faena 183 → Hectarea 121, máquina skidder, período 17, cosecha: 1.00 m3
+    - Faena 183 → Hectarea 121, máquina skidder, período 18, cosecha: 1.00 m3
+    - Faena 183 → Hectarea 123, máquina skidder, período 14, cosecha: 1.00 m3
+    - Faena 183 → Hectarea 124, máquina skidder, período 15, cosecha: 1.00 m3
+    - Faena 183 → Hectarea 124, máquina skidder, período 17, cosecha: 1.00 m3
+    - Faena 183 → Hectarea 126, máquina skidder, período 14, cosecha: 1.00 m3
+    - Faena 183 → Hectarea 126, máquina skidder, período 15, cosecha: 1.00 m3
+    - Faena 183 → Hectarea 126, máquina skidder, período 16, cosecha: 1.00 m3
+    - Faena 183 → Hectarea 126, máquina skidder, período 17, cosecha: 1.00 m3
+    - Faena 183 → Hectarea 126, máquina skidder, período 18, cosecha: 1.00 m3
+    - Faena 183 → Hectarea 127, máquina skidder, período 14, cosecha: 1.00 m3
+    - Faena 183 → Hectarea 127, máquina skidder, período 16, cosecha: 1.00 m3
+    - Faena 183 → Hectarea 128, máquina skidder, período 15, cosecha: 1.00 m3
+    - Faena 183 → Hectarea 131, máquina skidder, período 14, cosecha: 1.00 m3
+    - Faena 183 → Hectarea 131, máquina skidder, período 15, cosecha: 1.00 m3
+    - Faena 183 → Hectarea 131, máquina skidder, período 16, cosecha: 1.00 m3
+    - Faena 183 → Hectarea 131, máquina skidder, período 17, cosecha: 1.00 m3
+    - Faena 183 → Hectarea 131, máquina skidder, período 18, cosecha: 1.00 m3
+    - Faena 183 → Hectarea 132, máquina skidder, período 14, cosecha: 1.00 m3
+
+  🔸 Faenas Instaladas (mu):
+    - Nodo 47, máquina skidder, período 1
+    - Nodo 63, máquina torre, período 13
+    - Nodo 117, máquina skidder, período 13
+    - Nodo 158, máquina skidder, período 13
+    - Nodo 161, máquina skidder, período 13
+    - Nodo 183, máquina skidder, período 13
+
+  🔸 Faenas Existentes (f):
+    - Nodo 47, máquina skidder, período 1
+    - Nodo 47, máquina skidder, período 2
+    - Nodo 47, máquina skidder, período 3
+    - Nodo 47, máquina skidder, período 4
+    - Nodo 47, máquina skidder, período 5
+    - Nodo 47, máquina skidder, período 6
+    - Nodo 63, máquina torre, período 13
+    - Nodo 63, máquina torre, período 14
+    - Nodo 63, máquina torre, período 15
+    - Nodo 63, máquina torre, período 16
+    - Nodo 63, máquina torre, período 17
+    - Nodo 63, máquina torre, período 18
+    - Nodo 117, máquina skidder, período 13
+    - Nodo 117, máquina skidder, período 14
+    - Nodo 117, máquina skidder, período 15
+    - Nodo 117, máquina skidder, período 16
+    - Nodo 117, máquina skidder, período 17
+    - Nodo 117, máquina skidder, período 18
+    - Nodo 158, máquina skidder, período 13
+    - Nodo 158, máquina skidder, período 14
+    - Nodo 158, máquina skidder, período 15
+    - Nodo 158, máquina skidder, período 16
+    - Nodo 158, máquina skidder, período 17
+    - Nodo 158, máquina skidder, período 18
+    - Nodo 161, máquina skidder, período 13
+    - Nodo 161, máquina skidder, período 14
+    - Nodo 161, máquina skidder, período 15
+    - Nodo 161, máquina skidder, período 16
+    - Nodo 161, máquina skidder, período 17
+    - Nodo 161, máquina skidder, período 18
+    - Nodo 183, máquina skidder, período 13
+    - Nodo 183, máquina skidder, período 14
+    - Nodo 183, máquina skidder, período 15
+    - Nodo 183, máquina skidder, período 16
+    - Nodo 183, máquina skidder, período 17
+    - Nodo 183, máquina skidder, período 18
+
+🛣️ INFRAESTRUCTURA DE CAMINOS:
+
+  🔸 Construcción de caminos (y):
+    - Construido: 2 ↔ 46 en período 1
+    - Construido: 46 ↔ 47 en período 1
+    - Construido: 46 ↔ 2 en período 1
+    - Construido: 47 ↔ 99 en período 1
+    - Construido: 47 ↔ 46 en período 1
+    - Construido: 52 ↔ 56 en período 1
+    - Construido: 56 ↔ 59 en período 1
+    - Construido: 56 ↔ 52 en período 1
+    - Construido: 59 ↔ 56 en período 1
+    - Construido: 59 ↔ 63 en período 1
+    - Construido: 62 ↔ 63 en período 1
+    - Construido: 63 ↔ 59 en período 1
+    - Construido: 63 ↔ 62 en período 1
+    - Construido: 63 ↔ 67 en período 1
+    - Construido: 67 ↔ 68 en período 1
+    - Construido: 67 ↔ 63 en período 1
+    - Construido: 68 ↔ 67 en período 1
+    - Construido: 68 ↔ 122 en período 1
+    - Construido: 99 ↔ 47 en período 1
+    - Construido: 99 ↔ 100 en período 1
+    - Construido: 100 ↔ 99 en período 1
+    - Construido: 100 ↔ 101 en período 1
+    - Construido: 100 ↔ 104 en período 1
+    - Construido: 101 ↔ 100 en período 1
+    - Construido: 101 ↔ 102 en período 1
+    - Construido: 102 ↔ 101 en período 1
+    - Construido: 102 ↔ 106 en período 1
+    - Construido: 104 ↔ 100 en período 1
+    - Construido: 104 ↔ 108 en período 1
+    - Construido: 104 ↔ 105 en período 1
+    - Construido: 105 ↔ 106 en período 1
+    - Construido: 105 ↔ 104 en período 1
+    - Construido: 106 ↔ 158 en período 1
+    - Construido: 106 ↔ 105 en período 1
+    - Construido: 106 ↔ 102 en período 1
+    - Construido: 108 ↔ 109 en período 1
+    - Construido: 108 ↔ 104 en período 1
+    - Construido: 109 ↔ 108 en período 1
+    - Construido: 109 ↔ 158 en período 1
+    - Construido: 114 ↔ 115 en período 1
+    - Construido: 114 ↔ 117 en período 1
+    - Construido: 115 ↔ 114 en período 1
+    - Construido: 115 ↔ 171 en período 1
+    - Construido: 117 ↔ 114 en período 1
+    - Construido: 122 ↔ 68 en período 1
+    - Construido: 122 ↔ 123 en período 1
+    - Construido: 123 ↔ 126 en período 1
+    - Construido: 123 ↔ 122 en período 1
+    - Construido: 126 ↔ 123 en período 1
+    - Construido: 126 ↔ 130 en período 1
+    - Construido: 130 ↔ 134 en período 1
+    - Construido: 130 ↔ 126 en período 1
+    - Construido: 134 ↔ 130 en período 1
+    - Construido: 134 ↔ 138 en período 1
+    - Construido: 138 ↔ 141 en período 1
+    - Construido: 138 ↔ 134 en período 1
+    - Construido: 141 ↔ 138 en período 1
+    - Construido: 141 ↔ 144 en período 1
+    - Construido: 144 ↔ 147 en período 1
+    - Construido: 144 ↔ 141 en período 1
+    - Construido: 147 ↔ 144 en período 1
+    - Construido: 156 ↔ 161 en período 1
+    - Construido: 158 ↔ 106 en período 1
+    - Construido: 158 ↔ 109 en período 1
+    - Construido: 158 ↔ 159 en período 1
+    - Construido: 158 ↔ 170 en período 1
+    - Construido: 159 ↔ 158 en período 1
+    - Construido: 159 ↔ 160 en período 1
+    - Construido: 160 ↔ 161 en período 1
+    - Construido: 160 ↔ 159 en período 1
+    - Construido: 161 ↔ 156 en período 1
+    - Construido: 161 ↔ 160 en período 1
+    - Construido: 161 ↔ 162 en período 1
+    - Construido: 161 ↔ 165 en período 1
+    - Construido: 162 ↔ 166 en período 1
+    - Construido: 162 ↔ 161 en período 1
+    - Construido: 163 ↔ 172 en período 1
+    - Construido: 163 ↔ 170 en período 1
+    - Construido: 165 ↔ 166 en período 1
+    - Construido: 165 ↔ 161 en período 1
+    - Construido: 166 ↔ 165 en período 1
+    - Construido: 166 ↔ 162 en período 1
+    - Construido: 166 ↔ 169 en período 1
+    - Construido: 167 ↔ 168 en período 1
+    - Construido: 167 ↔ 172 en período 1
+    - Construido: 168 ↔ 167 en período 1
+    - Construido: 168 ↔ 169 en período 1
+    - Construido: 169 ↔ 168 en período 1
+    - Construido: 169 ↔ 166 en período 1
+    - Construido: 170 ↔ 163 en período 1
+    - Construido: 170 ↔ 171 en período 1
+    - Construido: 170 ↔ 158 en período 1
+    - Construido: 171 ↔ 170 en período 1
+    - Construido: 171 ↔ 172 en período 1
+    - Construido: 171 ↔ 115 en período 1
+    - Construido: 172 ↔ 167 en período 1
+    - Construido: 172 ↔ 163 en período 1
+    - Construido: 172 ↔ 174 en período 1
+    - Construido: 172 ↔ 171 en período 1
+    - Construido: 174 ↔ 179 en período 1
+    - Construido: 174 ↔ 172 en período 1
+    - Construido: 178 ↔ 179 en período 1
+    - Construido: 178 ↔ 183 en período 1
+    - Construido: 179 ↔ 184 en período 1
+    - Construido: 179 ↔ 178 en período 1
+    - Construido: 179 ↔ 174 en período 1
+    - Construido: 183 ↔ 184 en período 1
+    - Construido: 183 ↔ 178 en período 1
+    - Construido: 184 ↔ 183 en período 1
+    - Construido: 184 ↔ 179 en período 1
+
+  🔸 Caminos existentes (l):
+    - Disponible: 2 ↔ 46 en período 1
+    - Disponible: 2 ↔ 46 en período 2
+    - Disponible: 2 ↔ 46 en período 3
+    - Disponible: 2 ↔ 46 en período 4
+    - Disponible: 2 ↔ 46 en período 5
+    - Disponible: 2 ↔ 46 en período 6
+    - Disponible: 2 ↔ 46 en período 13
+    - Disponible: 2 ↔ 46 en período 14
+    - Disponible: 2 ↔ 46 en período 15
+    - Disponible: 2 ↔ 46 en período 16
+    - Disponible: 2 ↔ 46 en período 17
+    - Disponible: 2 ↔ 46 en período 18
+    - Disponible: 46 ↔ 47 en período 1
+    - Disponible: 46 ↔ 47 en período 2
+    - Disponible: 46 ↔ 47 en período 3
+    - Disponible: 46 ↔ 47 en período 4
+    - Disponible: 46 ↔ 47 en período 5
+    - Disponible: 46 ↔ 47 en período 6
+    - Disponible: 46 ↔ 47 en período 13
+    - Disponible: 46 ↔ 47 en período 14
+    - Disponible: 46 ↔ 47 en período 15
+    - Disponible: 46 ↔ 47 en período 16
+    - Disponible: 46 ↔ 47 en período 17
+    - Disponible: 46 ↔ 47 en período 18
+    - Disponible: 46 ↔ 2 en período 1
+    - Disponible: 46 ↔ 2 en período 2
+    - Disponible: 46 ↔ 2 en período 3
+    - Disponible: 46 ↔ 2 en período 4
+    - Disponible: 46 ↔ 2 en período 5
+    - Disponible: 46 ↔ 2 en período 6
+    - Disponible: 46 ↔ 2 en período 13
+    - Disponible: 46 ↔ 2 en período 14
+    - Disponible: 46 ↔ 2 en período 15
+    - Disponible: 46 ↔ 2 en período 16
+    - Disponible: 46 ↔ 2 en período 17
+    - Disponible: 46 ↔ 2 en período 18
+    - Disponible: 47 ↔ 99 en período 1
+    - Disponible: 47 ↔ 99 en período 2
+    - Disponible: 47 ↔ 99 en período 3
+    - Disponible: 47 ↔ 99 en período 4
+    - Disponible: 47 ↔ 99 en período 5
+    - Disponible: 47 ↔ 99 en período 6
+    - Disponible: 47 ↔ 99 en período 13
+    - Disponible: 47 ↔ 99 en período 14
+    - Disponible: 47 ↔ 99 en período 15
+    - Disponible: 47 ↔ 99 en período 16
+    - Disponible: 47 ↔ 99 en período 17
+    - Disponible: 47 ↔ 99 en período 18
+    - Disponible: 47 ↔ 46 en período 1
+    - Disponible: 47 ↔ 46 en período 2
+    - Disponible: 47 ↔ 46 en período 3
+    - Disponible: 47 ↔ 46 en período 4
+    - Disponible: 47 ↔ 46 en período 5
+    - Disponible: 47 ↔ 46 en período 6
+    - Disponible: 47 ↔ 46 en período 13
+    - Disponible: 47 ↔ 46 en período 14
+    - Disponible: 47 ↔ 46 en período 15
+    - Disponible: 47 ↔ 46 en período 16
+    - Disponible: 47 ↔ 46 en período 17
+    - Disponible: 47 ↔ 46 en período 18
+    - Disponible: 52 ↔ 56 en período 1
+    - Disponible: 52 ↔ 56 en período 2
+    - Disponible: 52 ↔ 56 en período 3
+    - Disponible: 52 ↔ 56 en período 4
+    - Disponible: 52 ↔ 56 en período 5
+    - Disponible: 52 ↔ 56 en período 6
+    - Disponible: 52 ↔ 56 en período 13
+    - Disponible: 52 ↔ 56 en período 14
+    - Disponible: 52 ↔ 56 en período 15
+    - Disponible: 52 ↔ 56 en período 16
+    - Disponible: 52 ↔ 56 en período 17
+    - Disponible: 52 ↔ 56 en período 18
+    - Disponible: 56 ↔ 59 en período 1
+    - Disponible: 56 ↔ 59 en período 2
+    - Disponible: 56 ↔ 59 en período 3
+    - Disponible: 56 ↔ 59 en período 4
+    - Disponible: 56 ↔ 59 en período 5
+    - Disponible: 56 ↔ 59 en período 6
+    - Disponible: 56 ↔ 59 en período 13
+    - Disponible: 56 ↔ 59 en período 14
+    - Disponible: 56 ↔ 59 en período 15
+    - Disponible: 56 ↔ 59 en período 16
+    - Disponible: 56 ↔ 59 en período 17
+    - Disponible: 56 ↔ 59 en período 18
+    - Disponible: 56 ↔ 52 en período 1
+    - Disponible: 56 ↔ 52 en período 2
+    - Disponible: 56 ↔ 52 en período 3
+    - Disponible: 56 ↔ 52 en período 4
+    - Disponible: 56 ↔ 52 en período 5
+    - Disponible: 56 ↔ 52 en período 6
+    - Disponible: 56 ↔ 52 en período 13
+    - Disponible: 56 ↔ 52 en período 14
+    - Disponible: 56 ↔ 52 en período 15
+    - Disponible: 56 ↔ 52 en período 16
+    - Disponible: 56 ↔ 52 en período 17
+    - Disponible: 56 ↔ 52 en período 18
+    - Disponible: 59 ↔ 56 en período 1
+    - Disponible: 59 ↔ 56 en período 2
+    - Disponible: 59 ↔ 56 en período 3
+    - Disponible: 59 ↔ 56 en período 4
+    - Disponible: 59 ↔ 56 en período 5
+    - Disponible: 59 ↔ 56 en período 6
+    - Disponible: 59 ↔ 56 en período 13
+    - Disponible: 59 ↔ 56 en período 14
+    - Disponible: 59 ↔ 56 en período 15
+    - Disponible: 59 ↔ 56 en período 16
+    - Disponible: 59 ↔ 56 en período 17
+    - Disponible: 59 ↔ 56 en período 18
+    - Disponible: 59 ↔ 63 en período 1
+    - Disponible: 59 ↔ 63 en período 2
+    - Disponible: 59 ↔ 63 en período 3
+    - Disponible: 59 ↔ 63 en período 4
+    - Disponible: 59 ↔ 63 en período 5
+    - Disponible: 59 ↔ 63 en período 6
+    - Disponible: 59 ↔ 63 en período 13
+    - Disponible: 59 ↔ 63 en período 14
+    - Disponible: 59 ↔ 63 en período 15
+    - Disponible: 59 ↔ 63 en período 16
+    - Disponible: 59 ↔ 63 en período 17
+    - Disponible: 59 ↔ 63 en período 18
+    - Disponible: 62 ↔ 63 en período 1
+    - Disponible: 62 ↔ 63 en período 2
+    - Disponible: 62 ↔ 63 en período 3
+    - Disponible: 62 ↔ 63 en período 4
+    - Disponible: 62 ↔ 63 en período 5
+    - Disponible: 62 ↔ 63 en período 6
+    - Disponible: 62 ↔ 63 en período 13
+    - Disponible: 62 ↔ 63 en período 14
+    - Disponible: 62 ↔ 63 en período 15
+    - Disponible: 62 ↔ 63 en período 16
+    - Disponible: 62 ↔ 63 en período 17
+    - Disponible: 62 ↔ 63 en período 18
+    - Disponible: 63 ↔ 59 en período 1
+    - Disponible: 63 ↔ 59 en período 2
+    - Disponible: 63 ↔ 59 en período 3
+    - Disponible: 63 ↔ 59 en período 4
+    - Disponible: 63 ↔ 59 en período 5
+    - Disponible: 63 ↔ 59 en período 6
+    - Disponible: 63 ↔ 59 en período 13
+    - Disponible: 63 ↔ 59 en período 14
+    - Disponible: 63 ↔ 59 en período 15
+    - Disponible: 63 ↔ 59 en período 16
+    - Disponible: 63 ↔ 59 en período 17
+    - Disponible: 63 ↔ 59 en período 18
+    - Disponible: 63 ↔ 62 en período 1
+    - Disponible: 63 ↔ 62 en período 2
+    - Disponible: 63 ↔ 62 en período 3
+    - Disponible: 63 ↔ 62 en período 4
+    - Disponible: 63 ↔ 62 en período 5
+    - Disponible: 63 ↔ 62 en período 6
+    - Disponible: 63 ↔ 62 en período 13
+    - Disponible: 63 ↔ 62 en período 14
+    - Disponible: 63 ↔ 62 en período 15
+    - Disponible: 63 ↔ 62 en período 16
+    - Disponible: 63 ↔ 62 en período 17
+    - Disponible: 63 ↔ 62 en período 18
+    - Disponible: 63 ↔ 67 en período 1
+    - Disponible: 63 ↔ 67 en período 2
+    - Disponible: 63 ↔ 67 en período 3
+    - Disponible: 63 ↔ 67 en período 4
+    - Disponible: 63 ↔ 67 en período 5
+    - Disponible: 63 ↔ 67 en período 6
+    - Disponible: 63 ↔ 67 en período 13
+    - Disponible: 63 ↔ 67 en período 14
+    - Disponible: 63 ↔ 67 en período 15
+    - Disponible: 63 ↔ 67 en período 16
+    - Disponible: 63 ↔ 67 en período 17
+    - Disponible: 63 ↔ 67 en período 18
+    - Disponible: 67 ↔ 68 en período 1
+    - Disponible: 67 ↔ 68 en período 2
+    - Disponible: 67 ↔ 68 en período 3
+    - Disponible: 67 ↔ 68 en período 4
+    - Disponible: 67 ↔ 68 en período 5
+    - Disponible: 67 ↔ 68 en período 6
+    - Disponible: 67 ↔ 68 en período 13
+    - Disponible: 67 ↔ 68 en período 14
+    - Disponible: 67 ↔ 68 en período 15
+    - Disponible: 67 ↔ 68 en período 16
+    - Disponible: 67 ↔ 68 en período 17
+    - Disponible: 67 ↔ 68 en período 18
+    - Disponible: 67 ↔ 63 en período 1
+    - Disponible: 67 ↔ 63 en período 2
+    - Disponible: 67 ↔ 63 en período 3
+    - Disponible: 67 ↔ 63 en período 4
+    - Disponible: 67 ↔ 63 en período 5
+    - Disponible: 67 ↔ 63 en período 6
+    - Disponible: 67 ↔ 63 en período 13
+    - Disponible: 67 ↔ 63 en período 14
+    - Disponible: 67 ↔ 63 en período 15
+    - Disponible: 67 ↔ 63 en período 16
+    - Disponible: 67 ↔ 63 en período 17
+    - Disponible: 67 ↔ 63 en período 18
+    - Disponible: 68 ↔ 67 en período 1
+    - Disponible: 68 ↔ 67 en período 2
+    - Disponible: 68 ↔ 67 en período 3
+    - Disponible: 68 ↔ 67 en período 4
+    - Disponible: 68 ↔ 67 en período 5
+    - Disponible: 68 ↔ 67 en período 6
+    - Disponible: 68 ↔ 67 en período 13
+    - Disponible: 68 ↔ 67 en período 14
+    - Disponible: 68 ↔ 67 en período 15
+    - Disponible: 68 ↔ 67 en período 16
+    - Disponible: 68 ↔ 67 en período 17
+    - Disponible: 68 ↔ 67 en período 18
+    - Disponible: 68 ↔ 122 en período 1
+    - Disponible: 68 ↔ 122 en período 2
+    - Disponible: 68 ↔ 122 en período 3
+    - Disponible: 68 ↔ 122 en período 4
+    - Disponible: 68 ↔ 122 en período 5
+    - Disponible: 68 ↔ 122 en período 6
+    - Disponible: 68 ↔ 122 en período 13
+    - Disponible: 68 ↔ 122 en período 14
+    - Disponible: 68 ↔ 122 en período 15
+    - Disponible: 68 ↔ 122 en período 16
+    - Disponible: 68 ↔ 122 en período 17
+    - Disponible: 68 ↔ 122 en período 18
+    - Disponible: 99 ↔ 47 en período 1
+    - Disponible: 99 ↔ 47 en período 2
+    - Disponible: 99 ↔ 47 en período 3
+    - Disponible: 99 ↔ 47 en período 4
+    - Disponible: 99 ↔ 47 en período 5
+    - Disponible: 99 ↔ 47 en período 6
+    - Disponible: 99 ↔ 47 en período 13
+    - Disponible: 99 ↔ 47 en período 14
+    - Disponible: 99 ↔ 47 en período 15
+    - Disponible: 99 ↔ 47 en período 16
+    - Disponible: 99 ↔ 47 en período 17
+    - Disponible: 99 ↔ 47 en período 18
+    - Disponible: 99 ↔ 100 en período 1
+    - Disponible: 99 ↔ 100 en período 2
+    - Disponible: 99 ↔ 100 en período 3
+    - Disponible: 99 ↔ 100 en período 4
+    - Disponible: 99 ↔ 100 en período 5
+    - Disponible: 99 ↔ 100 en período 6
+    - Disponible: 99 ↔ 100 en período 13
+    - Disponible: 99 ↔ 100 en período 14
+    - Disponible: 99 ↔ 100 en período 15
+    - Disponible: 99 ↔ 100 en período 16
+    - Disponible: 99 ↔ 100 en período 17
+    - Disponible: 99 ↔ 100 en período 18
+    - Disponible: 100 ↔ 99 en período 1
+    - Disponible: 100 ↔ 99 en período 2
+    - Disponible: 100 ↔ 99 en período 3
+    - Disponible: 100 ↔ 99 en período 4
+    - Disponible: 100 ↔ 99 en período 5
+    - Disponible: 100 ↔ 99 en período 6
+    - Disponible: 100 ↔ 99 en período 13
+    - Disponible: 100 ↔ 99 en período 14
+    - Disponible: 100 ↔ 99 en período 15
+    - Disponible: 100 ↔ 99 en período 16
+    - Disponible: 100 ↔ 99 en período 17
+    - Disponible: 100 ↔ 99 en período 18
+    - Disponible: 100 ↔ 101 en período 1
+    - Disponible: 100 ↔ 101 en período 2
+    - Disponible: 100 ↔ 101 en período 3
+    - Disponible: 100 ↔ 101 en período 4
+    - Disponible: 100 ↔ 101 en período 5
+    - Disponible: 100 ↔ 101 en período 6
+    - Disponible: 100 ↔ 101 en período 13
+    - Disponible: 100 ↔ 101 en período 14
+    - Disponible: 100 ↔ 101 en período 15
+    - Disponible: 100 ↔ 101 en período 16
+    - Disponible: 100 ↔ 101 en período 17
+    - Disponible: 100 ↔ 101 en período 18
+    - Disponible: 100 ↔ 104 en período 1
+    - Disponible: 100 ↔ 104 en período 2
+    - Disponible: 100 ↔ 104 en período 3
+    - Disponible: 100 ↔ 104 en período 4
+    - Disponible: 100 ↔ 104 en período 5
+    - Disponible: 100 ↔ 104 en período 6
+    - Disponible: 100 ↔ 104 en período 13
+    - Disponible: 100 ↔ 104 en período 14
+    - Disponible: 100 ↔ 104 en período 15
+    - Disponible: 100 ↔ 104 en período 16
+    - Disponible: 100 ↔ 104 en período 17
+    - Disponible: 100 ↔ 104 en período 18
+    - Disponible: 101 ↔ 100 en período 1
+    - Disponible: 101 ↔ 100 en período 2
+    - Disponible: 101 ↔ 100 en período 3
+    - Disponible: 101 ↔ 100 en período 4
+    - Disponible: 101 ↔ 100 en período 5
+    - Disponible: 101 ↔ 100 en período 6
+    - Disponible: 101 ↔ 100 en período 13
+    - Disponible: 101 ↔ 100 en período 14
+    - Disponible: 101 ↔ 100 en período 15
+    - Disponible: 101 ↔ 100 en período 16
+    - Disponible: 101 ↔ 100 en período 17
+    - Disponible: 101 ↔ 100 en período 18
+    - Disponible: 101 ↔ 102 en período 1
+    - Disponible: 101 ↔ 102 en período 2
+    - Disponible: 101 ↔ 102 en período 3
+    - Disponible: 101 ↔ 102 en período 4
+    - Disponible: 101 ↔ 102 en período 5
+    - Disponible: 101 ↔ 102 en período 6
+    - Disponible: 101 ↔ 102 en período 13
+    - Disponible: 101 ↔ 102 en período 14
+    - Disponible: 101 ↔ 102 en período 15
+    - Disponible: 101 ↔ 102 en período 16
+    - Disponible: 101 ↔ 102 en período 17
+    - Disponible: 101 ↔ 102 en período 18
+    - Disponible: 102 ↔ 101 en período 1
+    - Disponible: 102 ↔ 101 en período 2
+    - Disponible: 102 ↔ 101 en período 3
+    - Disponible: 102 ↔ 101 en período 4
+    - Disponible: 102 ↔ 101 en período 5
+    - Disponible: 102 ↔ 101 en período 6
+    - Disponible: 102 ↔ 101 en período 13
+    - Disponible: 102 ↔ 101 en período 14
+    - Disponible: 102 ↔ 101 en período 15
+    - Disponible: 102 ↔ 101 en período 16
+    - Disponible: 102 ↔ 101 en período 17
+    - Disponible: 102 ↔ 101 en período 18
+    - Disponible: 102 ↔ 106 en período 1
+    - Disponible: 102 ↔ 106 en período 2
+    - Disponible: 102 ↔ 106 en período 3
+    - Disponible: 102 ↔ 106 en período 4
+    - Disponible: 102 ↔ 106 en período 5
+    - Disponible: 102 ↔ 106 en período 6
+    - Disponible: 102 ↔ 106 en período 13
+    - Disponible: 102 ↔ 106 en período 14
+    - Disponible: 102 ↔ 106 en período 15
+    - Disponible: 102 ↔ 106 en período 16
+    - Disponible: 102 ↔ 106 en período 17
+    - Disponible: 102 ↔ 106 en período 18
+    - Disponible: 104 ↔ 100 en período 1
+    - Disponible: 104 ↔ 100 en período 2
+    - Disponible: 104 ↔ 100 en período 3
+    - Disponible: 104 ↔ 100 en período 4
+    - Disponible: 104 ↔ 100 en período 5
+    - Disponible: 104 ↔ 100 en período 6
+    - Disponible: 104 ↔ 100 en período 13
+    - Disponible: 104 ↔ 100 en período 14
+    - Disponible: 104 ↔ 100 en período 15
+    - Disponible: 104 ↔ 100 en período 16
+    - Disponible: 104 ↔ 100 en período 17
+    - Disponible: 104 ↔ 100 en período 18
+    - Disponible: 104 ↔ 108 en período 1
+    - Disponible: 104 ↔ 108 en período 2
+    - Disponible: 104 ↔ 108 en período 3
+    - Disponible: 104 ↔ 108 en período 4
+    - Disponible: 104 ↔ 108 en período 5
+    - Disponible: 104 ↔ 108 en período 6
+    - Disponible: 104 ↔ 108 en período 13
+    - Disponible: 104 ↔ 108 en período 14
+    - Disponible: 104 ↔ 108 en período 15
+    - Disponible: 104 ↔ 108 en período 16
+    - Disponible: 104 ↔ 108 en período 17
+    - Disponible: 104 ↔ 108 en período 18
+    - Disponible: 104 ↔ 105 en período 1
+    - Disponible: 104 ↔ 105 en período 2
+    - Disponible: 104 ↔ 105 en período 3
+    - Disponible: 104 ↔ 105 en período 4
+    - Disponible: 104 ↔ 105 en período 5
+    - Disponible: 104 ↔ 105 en período 6
+    - Disponible: 104 ↔ 105 en período 13
+    - Disponible: 104 ↔ 105 en período 14
+    - Disponible: 104 ↔ 105 en período 15
+    - Disponible: 104 ↔ 105 en período 16
+    - Disponible: 104 ↔ 105 en período 17
+    - Disponible: 104 ↔ 105 en período 18
+    - Disponible: 105 ↔ 106 en período 1
+    - Disponible: 105 ↔ 106 en período 2
+    - Disponible: 105 ↔ 106 en período 3
+    - Disponible: 105 ↔ 106 en período 4
+    - Disponible: 105 ↔ 106 en período 5
+    - Disponible: 105 ↔ 106 en período 6
+    - Disponible: 105 ↔ 106 en período 13
+    - Disponible: 105 ↔ 106 en período 14
+    - Disponible: 105 ↔ 106 en período 15
+    - Disponible: 105 ↔ 106 en período 16
+    - Disponible: 105 ↔ 106 en período 17
+    - Disponible: 105 ↔ 106 en período 18
+    - Disponible: 105 ↔ 104 en período 1
+    - Disponible: 105 ↔ 104 en período 2
+    - Disponible: 105 ↔ 104 en período 3
+    - Disponible: 105 ↔ 104 en período 4
+    - Disponible: 105 ↔ 104 en período 5
+    - Disponible: 105 ↔ 104 en período 6
+    - Disponible: 105 ↔ 104 en período 13
+    - Disponible: 105 ↔ 104 en período 14
+    - Disponible: 105 ↔ 104 en período 15
+    - Disponible: 105 ↔ 104 en período 16
+    - Disponible: 105 ↔ 104 en período 17
+    - Disponible: 105 ↔ 104 en período 18
+    - Disponible: 106 ↔ 158 en período 1
+    - Disponible: 106 ↔ 158 en período 2
+    - Disponible: 106 ↔ 158 en período 3
+    - Disponible: 106 ↔ 158 en período 4
+    - Disponible: 106 ↔ 158 en período 5
+    - Disponible: 106 ↔ 158 en período 6
+    - Disponible: 106 ↔ 158 en período 13
+    - Disponible: 106 ↔ 158 en período 14
+    - Disponible: 106 ↔ 158 en período 15
+    - Disponible: 106 ↔ 158 en período 16
+    - Disponible: 106 ↔ 158 en período 17
+    - Disponible: 106 ↔ 158 en período 18
+    - Disponible: 106 ↔ 105 en período 1
+    - Disponible: 106 ↔ 105 en período 2
+    - Disponible: 106 ↔ 105 en período 3
+    - Disponible: 106 ↔ 105 en período 4
+    - Disponible: 106 ↔ 105 en período 5
+    - Disponible: 106 ↔ 105 en período 6
+    - Disponible: 106 ↔ 105 en período 13
+    - Disponible: 106 ↔ 105 en período 14
+    - Disponible: 106 ↔ 105 en período 15
+    - Disponible: 106 ↔ 105 en período 16
+    - Disponible: 106 ↔ 105 en período 17
+    - Disponible: 106 ↔ 105 en período 18
+    - Disponible: 106 ↔ 102 en período 1
+    - Disponible: 106 ↔ 102 en período 2
+    - Disponible: 106 ↔ 102 en período 3
+    - Disponible: 106 ↔ 102 en período 4
+    - Disponible: 106 ↔ 102 en período 5
+    - Disponible: 106 ↔ 102 en período 6
+    - Disponible: 106 ↔ 102 en período 13
+    - Disponible: 106 ↔ 102 en período 14
+    - Disponible: 106 ↔ 102 en período 15
+    - Disponible: 106 ↔ 102 en período 16
+    - Disponible: 106 ↔ 102 en período 17
+    - Disponible: 106 ↔ 102 en período 18
+    - Disponible: 108 ↔ 109 en período 1
+    - Disponible: 108 ↔ 109 en período 2
+    - Disponible: 108 ↔ 109 en período 3
+    - Disponible: 108 ↔ 109 en período 4
+    - Disponible: 108 ↔ 109 en período 5
+    - Disponible: 108 ↔ 109 en período 6
+    - Disponible: 108 ↔ 109 en período 13
+    - Disponible: 108 ↔ 109 en período 14
+    - Disponible: 108 ↔ 109 en período 15
+    - Disponible: 108 ↔ 109 en período 16
+    - Disponible: 108 ↔ 109 en período 17
+    - Disponible: 108 ↔ 109 en período 18
+    - Disponible: 108 ↔ 104 en período 1
+    - Disponible: 108 ↔ 104 en período 2
+    - Disponible: 108 ↔ 104 en período 3
+    - Disponible: 108 ↔ 104 en período 4
+    - Disponible: 108 ↔ 104 en período 5
+    - Disponible: 108 ↔ 104 en período 6
+    - Disponible: 108 ↔ 104 en período 13
+    - Disponible: 108 ↔ 104 en período 14
+    - Disponible: 108 ↔ 104 en período 15
+    - Disponible: 108 ↔ 104 en período 16
+    - Disponible: 108 ↔ 104 en período 17
+    - Disponible: 108 ↔ 104 en período 18
+    - Disponible: 109 ↔ 108 en período 1
+    - Disponible: 109 ↔ 108 en período 2
+    - Disponible: 109 ↔ 108 en período 3
+    - Disponible: 109 ↔ 108 en período 4
+    - Disponible: 109 ↔ 108 en período 5
+    - Disponible: 109 ↔ 108 en período 6
+    - Disponible: 109 ↔ 108 en período 13
+    - Disponible: 109 ↔ 108 en período 14
+    - Disponible: 109 ↔ 108 en período 15
+    - Disponible: 109 ↔ 108 en período 16
+    - Disponible: 109 ↔ 108 en período 17
+    - Disponible: 109 ↔ 108 en período 18
+    - Disponible: 109 ↔ 158 en período 1
+    - Disponible: 109 ↔ 158 en período 2
+    - Disponible: 109 ↔ 158 en período 3
+    - Disponible: 109 ↔ 158 en período 4
+    - Disponible: 109 ↔ 158 en período 5
+    - Disponible: 109 ↔ 158 en período 6
+    - Disponible: 109 ↔ 158 en período 13
+    - Disponible: 109 ↔ 158 en período 14
+    - Disponible: 109 ↔ 158 en período 15
+    - Disponible: 109 ↔ 158 en período 16
+    - Disponible: 109 ↔ 158 en período 17
+    - Disponible: 109 ↔ 158 en período 18
+    - Disponible: 114 ↔ 115 en período 1
+    - Disponible: 114 ↔ 115 en período 2
+    - Disponible: 114 ↔ 115 en período 3
+    - Disponible: 114 ↔ 115 en período 4
+    - Disponible: 114 ↔ 115 en período 5
+    - Disponible: 114 ↔ 115 en período 6
+    - Disponible: 114 ↔ 115 en período 13
+    - Disponible: 114 ↔ 115 en período 14
+    - Disponible: 114 ↔ 115 en período 15
+    - Disponible: 114 ↔ 115 en período 16
+    - Disponible: 114 ↔ 115 en período 17
+    - Disponible: 114 ↔ 115 en período 18
+    - Disponible: 114 ↔ 117 en período 1
+    - Disponible: 114 ↔ 117 en período 2
+    - Disponible: 114 ↔ 117 en período 3
+    - Disponible: 114 ↔ 117 en período 4
+    - Disponible: 114 ↔ 117 en período 5
+    - Disponible: 114 ↔ 117 en período 6
+    - Disponible: 114 ↔ 117 en período 13
+    - Disponible: 114 ↔ 117 en período 14
+    - Disponible: 114 ↔ 117 en período 15
+    - Disponible: 114 ↔ 117 en período 16
+    - Disponible: 114 ↔ 117 en período 17
+    - Disponible: 114 ↔ 117 en período 18
+    - Disponible: 115 ↔ 114 en período 1
+    - Disponible: 115 ↔ 114 en período 2
+    - Disponible: 115 ↔ 114 en período 3
+    - Disponible: 115 ↔ 114 en período 4
+    - Disponible: 115 ↔ 114 en período 5
+    - Disponible: 115 ↔ 114 en período 6
+    - Disponible: 115 ↔ 114 en período 13
+    - Disponible: 115 ↔ 114 en período 14
+    - Disponible: 115 ↔ 114 en período 15
+    - Disponible: 115 ↔ 114 en período 16
+    - Disponible: 115 ↔ 114 en período 17
+    - Disponible: 115 ↔ 114 en período 18
+    - Disponible: 115 ↔ 171 en período 1
+    - Disponible: 115 ↔ 171 en período 2
+    - Disponible: 115 ↔ 171 en período 3
+    - Disponible: 115 ↔ 171 en período 4
+    - Disponible: 115 ↔ 171 en período 5
+    - Disponible: 115 ↔ 171 en período 6
+    - Disponible: 115 ↔ 171 en período 13
+    - Disponible: 115 ↔ 171 en período 14
+    - Disponible: 115 ↔ 171 en período 15
+    - Disponible: 115 ↔ 171 en período 16
+    - Disponible: 115 ↔ 171 en período 17
+    - Disponible: 115 ↔ 171 en período 18
+    - Disponible: 117 ↔ 114 en período 1
+    - Disponible: 117 ↔ 114 en período 2
+    - Disponible: 117 ↔ 114 en período 3
+    - Disponible: 117 ↔ 114 en período 4
+    - Disponible: 117 ↔ 114 en período 5
+    - Disponible: 117 ↔ 114 en período 6
+    - Disponible: 117 ↔ 114 en período 13
+    - Disponible: 117 ↔ 114 en período 14
+    - Disponible: 117 ↔ 114 en período 15
+    - Disponible: 117 ↔ 114 en período 16
+    - Disponible: 117 ↔ 114 en período 17
+    - Disponible: 117 ↔ 114 en período 18
+    - Disponible: 122 ↔ 68 en período 1
+    - Disponible: 122 ↔ 68 en período 2
+    - Disponible: 122 ↔ 68 en período 3
+    - Disponible: 122 ↔ 68 en período 4
+    - Disponible: 122 ↔ 68 en período 5
+    - Disponible: 122 ↔ 68 en período 6
+    - Disponible: 122 ↔ 68 en período 13
+    - Disponible: 122 ↔ 68 en período 14
+    - Disponible: 122 ↔ 68 en período 15
+    - Disponible: 122 ↔ 68 en período 16
+    - Disponible: 122 ↔ 68 en período 17
+    - Disponible: 122 ↔ 68 en período 18
+    - Disponible: 122 ↔ 123 en período 1
+    - Disponible: 122 ↔ 123 en período 2
+    - Disponible: 122 ↔ 123 en período 3
+    - Disponible: 122 ↔ 123 en período 4
+    - Disponible: 122 ↔ 123 en período 5
+    - Disponible: 122 ↔ 123 en período 6
+    - Disponible: 122 ↔ 123 en período 13
+    - Disponible: 122 ↔ 123 en período 14
+    - Disponible: 122 ↔ 123 en período 15
+    - Disponible: 122 ↔ 123 en período 16
+    - Disponible: 122 ↔ 123 en período 17
+    - Disponible: 122 ↔ 123 en período 18
+    - Disponible: 123 ↔ 126 en período 1
+    - Disponible: 123 ↔ 126 en período 2
+    - Disponible: 123 ↔ 126 en período 3
+    - Disponible: 123 ↔ 126 en período 4
+    - Disponible: 123 ↔ 126 en período 5
+    - Disponible: 123 ↔ 126 en período 6
+    - Disponible: 123 ↔ 126 en período 13
+    - Disponible: 123 ↔ 126 en período 14
+    - Disponible: 123 ↔ 126 en período 15
+    - Disponible: 123 ↔ 126 en período 16
+    - Disponible: 123 ↔ 126 en período 17
+    - Disponible: 123 ↔ 126 en período 18
+    - Disponible: 123 ↔ 122 en período 1
+    - Disponible: 123 ↔ 122 en período 2
+    - Disponible: 123 ↔ 122 en período 3
+    - Disponible: 123 ↔ 122 en período 4
+    - Disponible: 123 ↔ 122 en período 5
+    - Disponible: 123 ↔ 122 en período 6
+    - Disponible: 123 ↔ 122 en período 13
+    - Disponible: 123 ↔ 122 en período 14
+    - Disponible: 123 ↔ 122 en período 15
+    - Disponible: 123 ↔ 122 en período 16
+    - Disponible: 123 ↔ 122 en período 17
+    - Disponible: 123 ↔ 122 en período 18
+    - Disponible: 126 ↔ 123 en período 1
+    - Disponible: 126 ↔ 123 en período 2
+    - Disponible: 126 ↔ 123 en período 3
+    - Disponible: 126 ↔ 123 en período 4
+    - Disponible: 126 ↔ 123 en período 5
+    - Disponible: 126 ↔ 123 en período 6
+    - Disponible: 126 ↔ 123 en período 13
+    - Disponible: 126 ↔ 123 en período 14
+    - Disponible: 126 ↔ 123 en período 15
+    - Disponible: 126 ↔ 123 en período 16
+    - Disponible: 126 ↔ 123 en período 17
+    - Disponible: 126 ↔ 123 en período 18
+    - Disponible: 126 ↔ 130 en período 1
+    - Disponible: 126 ↔ 130 en período 2
+    - Disponible: 126 ↔ 130 en período 3
+    - Disponible: 126 ↔ 130 en período 4
+    - Disponible: 126 ↔ 130 en período 5
+    - Disponible: 126 ↔ 130 en período 6
+    - Disponible: 126 ↔ 130 en período 13
+    - Disponible: 126 ↔ 130 en período 14
+    - Disponible: 126 ↔ 130 en período 15
+    - Disponible: 126 ↔ 130 en período 16
+    - Disponible: 126 ↔ 130 en período 17
+    - Disponible: 126 ↔ 130 en período 18
+    - Disponible: 130 ↔ 134 en período 1
+    - Disponible: 130 ↔ 134 en período 2
+    - Disponible: 130 ↔ 134 en período 3
+    - Disponible: 130 ↔ 134 en período 4
+    - Disponible: 130 ↔ 134 en período 5
+    - Disponible: 130 ↔ 134 en período 6
+    - Disponible: 130 ↔ 134 en período 13
+    - Disponible: 130 ↔ 134 en período 14
+    - Disponible: 130 ↔ 134 en período 15
+    - Disponible: 130 ↔ 134 en período 16
+    - Disponible: 130 ↔ 134 en período 17
+    - Disponible: 130 ↔ 134 en período 18
+    - Disponible: 130 ↔ 126 en período 1
+    - Disponible: 130 ↔ 126 en período 2
+    - Disponible: 130 ↔ 126 en período 3
+    - Disponible: 130 ↔ 126 en período 4
+    - Disponible: 130 ↔ 126 en período 5
+    - Disponible: 130 ↔ 126 en período 6
+    - Disponible: 130 ↔ 126 en período 13
+    - Disponible: 130 ↔ 126 en período 14
+    - Disponible: 130 ↔ 126 en período 15
+    - Disponible: 130 ↔ 126 en período 16
+    - Disponible: 130 ↔ 126 en período 17
+    - Disponible: 130 ↔ 126 en período 18
+    - Disponible: 134 ↔ 130 en período 1
+    - Disponible: 134 ↔ 130 en período 2
+    - Disponible: 134 ↔ 130 en período 3
+    - Disponible: 134 ↔ 130 en período 4
+    - Disponible: 134 ↔ 130 en período 5
+    - Disponible: 134 ↔ 130 en período 6
+    - Disponible: 134 ↔ 130 en período 13
+    - Disponible: 134 ↔ 130 en período 14
+    - Disponible: 134 ↔ 130 en período 15
+    - Disponible: 134 ↔ 130 en período 16
+    - Disponible: 134 ↔ 130 en período 17
+    - Disponible: 134 ↔ 130 en período 18
+    - Disponible: 134 ↔ 138 en período 1
+    - Disponible: 134 ↔ 138 en período 2
+    - Disponible: 134 ↔ 138 en período 3
+    - Disponible: 134 ↔ 138 en período 4
+    - Disponible: 134 ↔ 138 en período 5
+    - Disponible: 134 ↔ 138 en período 6
+    - Disponible: 134 ↔ 138 en período 13
+    - Disponible: 134 ↔ 138 en período 14
+    - Disponible: 134 ↔ 138 en período 15
+    - Disponible: 134 ↔ 138 en período 16
+    - Disponible: 134 ↔ 138 en período 17
+    - Disponible: 134 ↔ 138 en período 18
+    - Disponible: 138 ↔ 141 en período 1
+    - Disponible: 138 ↔ 141 en período 2
+    - Disponible: 138 ↔ 141 en período 3
+    - Disponible: 138 ↔ 141 en período 4
+    - Disponible: 138 ↔ 141 en período 5
+    - Disponible: 138 ↔ 141 en período 6
+    - Disponible: 138 ↔ 141 en período 13
+    - Disponible: 138 ↔ 141 en período 14
+    - Disponible: 138 ↔ 141 en período 15
+    - Disponible: 138 ↔ 141 en período 16
+    - Disponible: 138 ↔ 141 en período 17
+    - Disponible: 138 ↔ 141 en período 18
+    - Disponible: 138 ↔ 134 en período 1
+    - Disponible: 138 ↔ 134 en período 2
+    - Disponible: 138 ↔ 134 en período 3
+    - Disponible: 138 ↔ 134 en período 4
+    - Disponible: 138 ↔ 134 en período 5
+    - Disponible: 138 ↔ 134 en período 6
+    - Disponible: 138 ↔ 134 en período 13
+    - Disponible: 138 ↔ 134 en período 14
+    - Disponible: 138 ↔ 134 en período 15
+    - Disponible: 138 ↔ 134 en período 16
+    - Disponible: 138 ↔ 134 en período 17
+    - Disponible: 138 ↔ 134 en período 18
+    - Disponible: 141 ↔ 138 en período 1
+    - Disponible: 141 ↔ 138 en período 2
+    - Disponible: 141 ↔ 138 en período 3
+    - Disponible: 141 ↔ 138 en período 4
+    - Disponible: 141 ↔ 138 en período 5
+    - Disponible: 141 ↔ 138 en período 6
+    - Disponible: 141 ↔ 138 en período 13
+    - Disponible: 141 ↔ 138 en período 14
+    - Disponible: 141 ↔ 138 en período 15
+    - Disponible: 141 ↔ 138 en período 16
+    - Disponible: 141 ↔ 138 en período 17
+    - Disponible: 141 ↔ 138 en período 18
+    - Disponible: 141 ↔ 144 en período 1
+    - Disponible: 141 ↔ 144 en período 2
+    - Disponible: 141 ↔ 144 en período 3
+    - Disponible: 141 ↔ 144 en período 4
+    - Disponible: 141 ↔ 144 en período 5
+    - Disponible: 141 ↔ 144 en período 6
+    - Disponible: 141 ↔ 144 en período 13
+    - Disponible: 141 ↔ 144 en período 14
+    - Disponible: 141 ↔ 144 en período 15
+    - Disponible: 141 ↔ 144 en período 16
+    - Disponible: 141 ↔ 144 en período 17
+    - Disponible: 141 ↔ 144 en período 18
+    - Disponible: 144 ↔ 147 en período 1
+    - Disponible: 144 ↔ 147 en período 2
+    - Disponible: 144 ↔ 147 en período 3
+    - Disponible: 144 ↔ 147 en período 4
+    - Disponible: 144 ↔ 147 en período 5
+    - Disponible: 144 ↔ 147 en período 6
+    - Disponible: 144 ↔ 147 en período 13
+    - Disponible: 144 ↔ 147 en período 14
+    - Disponible: 144 ↔ 147 en período 15
+    - Disponible: 144 ↔ 147 en período 16
+    - Disponible: 144 ↔ 147 en período 17
+    - Disponible: 144 ↔ 147 en período 18
+    - Disponible: 144 ↔ 141 en período 1
+    - Disponible: 144 ↔ 141 en período 2
+    - Disponible: 144 ↔ 141 en período 3
+    - Disponible: 144 ↔ 141 en período 4
+    - Disponible: 144 ↔ 141 en período 5
+    - Disponible: 144 ↔ 141 en período 6
+    - Disponible: 144 ↔ 141 en período 13
+    - Disponible: 144 ↔ 141 en período 14
+    - Disponible: 144 ↔ 141 en período 15
+    - Disponible: 144 ↔ 141 en período 16
+    - Disponible: 144 ↔ 141 en período 17
+    - Disponible: 144 ↔ 141 en período 18
+    - Disponible: 147 ↔ 144 en período 1
+    - Disponible: 147 ↔ 144 en período 2
+    - Disponible: 147 ↔ 144 en período 3
+    - Disponible: 147 ↔ 144 en período 4
+    - Disponible: 147 ↔ 144 en período 5
+    - Disponible: 147 ↔ 144 en período 6
+    - Disponible: 147 ↔ 144 en período 13
+    - Disponible: 147 ↔ 144 en período 14
+    - Disponible: 147 ↔ 144 en período 15
+    - Disponible: 147 ↔ 144 en período 16
+    - Disponible: 147 ↔ 144 en período 17
+    - Disponible: 147 ↔ 144 en período 18
+    - Disponible: 156 ↔ 161 en período 1
+    - Disponible: 156 ↔ 161 en período 2
+    - Disponible: 156 ↔ 161 en período 3
+    - Disponible: 156 ↔ 161 en período 4
+    - Disponible: 156 ↔ 161 en período 5
+    - Disponible: 156 ↔ 161 en período 6
+    - Disponible: 156 ↔ 161 en período 13
+    - Disponible: 156 ↔ 161 en período 14
+    - Disponible: 156 ↔ 161 en período 15
+    - Disponible: 156 ↔ 161 en período 16
+    - Disponible: 156 ↔ 161 en período 17
+    - Disponible: 156 ↔ 161 en período 18
+    - Disponible: 158 ↔ 106 en período 1
+    - Disponible: 158 ↔ 106 en período 2
+    - Disponible: 158 ↔ 106 en período 3
+    - Disponible: 158 ↔ 106 en período 4
+    - Disponible: 158 ↔ 106 en período 5
+    - Disponible: 158 ↔ 106 en período 6
+    - Disponible: 158 ↔ 106 en período 13
+    - Disponible: 158 ↔ 106 en período 14
+    - Disponible: 158 ↔ 106 en período 15
+    - Disponible: 158 ↔ 106 en período 16
+    - Disponible: 158 ↔ 106 en período 17
+    - Disponible: 158 ↔ 106 en período 18
+    - Disponible: 158 ↔ 109 en período 1
+    - Disponible: 158 ↔ 109 en período 2
+    - Disponible: 158 ↔ 109 en período 3
+    - Disponible: 158 ↔ 109 en período 4
+    - Disponible: 158 ↔ 109 en período 5
+    - Disponible: 158 ↔ 109 en período 6
+    - Disponible: 158 ↔ 109 en período 13
+    - Disponible: 158 ↔ 109 en período 14
+    - Disponible: 158 ↔ 109 en período 15
+    - Disponible: 158 ↔ 109 en período 16
+    - Disponible: 158 ↔ 109 en período 17
+    - Disponible: 158 ↔ 109 en período 18
+    - Disponible: 158 ↔ 159 en período 1
+    - Disponible: 158 ↔ 159 en período 2
+    - Disponible: 158 ↔ 159 en período 3
+    - Disponible: 158 ↔ 159 en período 4
+    - Disponible: 158 ↔ 159 en período 5
+    - Disponible: 158 ↔ 159 en período 6
+    - Disponible: 158 ↔ 159 en período 13
+    - Disponible: 158 ↔ 159 en período 14
+    - Disponible: 158 ↔ 159 en período 15
+    - Disponible: 158 ↔ 159 en período 16
+    - Disponible: 158 ↔ 159 en período 17
+    - Disponible: 158 ↔ 159 en período 18
+    - Disponible: 158 ↔ 170 en período 1
+    - Disponible: 158 ↔ 170 en período 2
+    - Disponible: 158 ↔ 170 en período 3
+    - Disponible: 158 ↔ 170 en período 4
+    - Disponible: 158 ↔ 170 en período 5
+    - Disponible: 158 ↔ 170 en período 6
+    - Disponible: 158 ↔ 170 en período 13
+    - Disponible: 158 ↔ 170 en período 14
+    - Disponible: 158 ↔ 170 en período 15
+    - Disponible: 158 ↔ 170 en período 16
+    - Disponible: 158 ↔ 170 en período 17
+    - Disponible: 158 ↔ 170 en período 18
+    - Disponible: 159 ↔ 158 en período 1
+    - Disponible: 159 ↔ 158 en período 2
+    - Disponible: 159 ↔ 158 en período 3
+    - Disponible: 159 ↔ 158 en período 4
+    - Disponible: 159 ↔ 158 en período 5
+    - Disponible: 159 ↔ 158 en período 6
+    - Disponible: 159 ↔ 158 en período 13
+    - Disponible: 159 ↔ 158 en período 14
+    - Disponible: 159 ↔ 158 en período 15
+    - Disponible: 159 ↔ 158 en período 16
+    - Disponible: 159 ↔ 158 en período 17
+    - Disponible: 159 ↔ 158 en período 18
+    - Disponible: 159 ↔ 160 en período 1
+    - Disponible: 159 ↔ 160 en período 2
+    - Disponible: 159 ↔ 160 en período 3
+    - Disponible: 159 ↔ 160 en período 4
+    - Disponible: 159 ↔ 160 en período 5
+    - Disponible: 159 ↔ 160 en período 6
+    - Disponible: 159 ↔ 160 en período 13
+    - Disponible: 159 ↔ 160 en período 14
+    - Disponible: 159 ↔ 160 en período 15
+    - Disponible: 159 ↔ 160 en período 16
+    - Disponible: 159 ↔ 160 en período 17
+    - Disponible: 159 ↔ 160 en período 18
+    - Disponible: 160 ↔ 161 en período 1
+    - Disponible: 160 ↔ 161 en período 2
+    - Disponible: 160 ↔ 161 en período 3
+    - Disponible: 160 ↔ 161 en período 4
+    - Disponible: 160 ↔ 161 en período 5
+    - Disponible: 160 ↔ 161 en período 6
+    - Disponible: 160 ↔ 161 en período 13
+    - Disponible: 160 ↔ 161 en período 14
+    - Disponible: 160 ↔ 161 en período 15
+    - Disponible: 160 ↔ 161 en período 16
+    - Disponible: 160 ↔ 161 en período 17
+    - Disponible: 160 ↔ 161 en período 18
+    - Disponible: 160 ↔ 159 en período 1
+    - Disponible: 160 ↔ 159 en período 2
+    - Disponible: 160 ↔ 159 en período 3
+    - Disponible: 160 ↔ 159 en período 4
+    - Disponible: 160 ↔ 159 en período 5
+    - Disponible: 160 ↔ 159 en período 6
+    - Disponible: 160 ↔ 159 en período 13
+    - Disponible: 160 ↔ 159 en período 14
+    - Disponible: 160 ↔ 159 en período 15
+    - Disponible: 160 ↔ 159 en período 16
+    - Disponible: 160 ↔ 159 en período 17
+    - Disponible: 160 ↔ 159 en período 18
+    - Disponible: 161 ↔ 156 en período 1
+    - Disponible: 161 ↔ 156 en período 2
+    - Disponible: 161 ↔ 156 en período 3
+    - Disponible: 161 ↔ 156 en período 4
+    - Disponible: 161 ↔ 156 en período 5
+    - Disponible: 161 ↔ 156 en período 6
+    - Disponible: 161 ↔ 156 en período 13
+    - Disponible: 161 ↔ 156 en período 14
+    - Disponible: 161 ↔ 156 en período 15
+    - Disponible: 161 ↔ 156 en período 16
+    - Disponible: 161 ↔ 156 en período 17
+    - Disponible: 161 ↔ 156 en período 18
+    - Disponible: 161 ↔ 160 en período 1
+    - Disponible: 161 ↔ 160 en período 2
+    - Disponible: 161 ↔ 160 en período 3
+    - Disponible: 161 ↔ 160 en período 4
+    - Disponible: 161 ↔ 160 en período 5
+    - Disponible: 161 ↔ 160 en período 6
+    - Disponible: 161 ↔ 160 en período 13
+    - Disponible: 161 ↔ 160 en período 14
+    - Disponible: 161 ↔ 160 en período 15
+    - Disponible: 161 ↔ 160 en período 16
+    - Disponible: 161 ↔ 160 en período 17
+    - Disponible: 161 ↔ 160 en período 18
+    - Disponible: 161 ↔ 162 en período 1
+    - Disponible: 161 ↔ 162 en período 2
+    - Disponible: 161 ↔ 162 en período 3
+    - Disponible: 161 ↔ 162 en período 4
+    - Disponible: 161 ↔ 162 en período 5
+    - Disponible: 161 ↔ 162 en período 6
+    - Disponible: 161 ↔ 162 en período 13
+    - Disponible: 161 ↔ 162 en período 14
+    - Disponible: 161 ↔ 162 en período 15
+    - Disponible: 161 ↔ 162 en período 16
+    - Disponible: 161 ↔ 162 en período 17
+    - Disponible: 161 ↔ 162 en período 18
+    - Disponible: 161 ↔ 165 en período 1
+    - Disponible: 161 ↔ 165 en período 2
+    - Disponible: 161 ↔ 165 en período 3
+    - Disponible: 161 ↔ 165 en período 4
+    - Disponible: 161 ↔ 165 en período 5
+    - Disponible: 161 ↔ 165 en período 6
+    - Disponible: 161 ↔ 165 en período 13
+    - Disponible: 161 ↔ 165 en período 14
+    - Disponible: 161 ↔ 165 en período 15
+    - Disponible: 161 ↔ 165 en período 16
+    - Disponible: 161 ↔ 165 en período 17
+    - Disponible: 161 ↔ 165 en período 18
+    - Disponible: 162 ↔ 166 en período 1
+    - Disponible: 162 ↔ 166 en período 2
+    - Disponible: 162 ↔ 166 en período 3
+    - Disponible: 162 ↔ 166 en período 4
+    - Disponible: 162 ↔ 166 en período 5
+    - Disponible: 162 ↔ 166 en período 6
+    - Disponible: 162 ↔ 166 en período 13
+    - Disponible: 162 ↔ 166 en período 14
+    - Disponible: 162 ↔ 166 en período 15
+    - Disponible: 162 ↔ 166 en período 16
+    - Disponible: 162 ↔ 166 en período 17
+    - Disponible: 162 ↔ 166 en período 18
+    - Disponible: 162 ↔ 161 en período 1
+    - Disponible: 162 ↔ 161 en período 2
+    - Disponible: 162 ↔ 161 en período 3
+    - Disponible: 162 ↔ 161 en período 4
+    - Disponible: 162 ↔ 161 en período 5
+    - Disponible: 162 ↔ 161 en período 6
+    - Disponible: 162 ↔ 161 en período 13
+    - Disponible: 162 ↔ 161 en período 14
+    - Disponible: 162 ↔ 161 en período 15
+    - Disponible: 162 ↔ 161 en período 16
+    - Disponible: 162 ↔ 161 en período 17
+    - Disponible: 162 ↔ 161 en período 18
+    - Disponible: 163 ↔ 172 en período 1
+    - Disponible: 163 ↔ 172 en período 2
+    - Disponible: 163 ↔ 172 en período 3
+    - Disponible: 163 ↔ 172 en período 4
+    - Disponible: 163 ↔ 172 en período 5
+    - Disponible: 163 ↔ 172 en período 6
+    - Disponible: 163 ↔ 172 en período 13
+    - Disponible: 163 ↔ 172 en período 14
+    - Disponible: 163 ↔ 172 en período 15
+    - Disponible: 163 ↔ 172 en período 16
+    - Disponible: 163 ↔ 172 en período 17
+    - Disponible: 163 ↔ 172 en período 18
+    - Disponible: 163 ↔ 170 en período 1
+    - Disponible: 163 ↔ 170 en período 2
+    - Disponible: 163 ↔ 170 en período 3
+    - Disponible: 163 ↔ 170 en período 4
+    - Disponible: 163 ↔ 170 en período 5
+    - Disponible: 163 ↔ 170 en período 6
+    - Disponible: 163 ↔ 170 en período 13
+    - Disponible: 163 ↔ 170 en período 14
+    - Disponible: 163 ↔ 170 en período 15
+    - Disponible: 163 ↔ 170 en período 16
+    - Disponible: 163 ↔ 170 en período 17
+    - Disponible: 163 ↔ 170 en período 18
+    - Disponible: 165 ↔ 166 en período 1
+    - Disponible: 165 ↔ 166 en período 2
+    - Disponible: 165 ↔ 166 en período 3
+    - Disponible: 165 ↔ 166 en período 4
+    - Disponible: 165 ↔ 166 en período 5
+    - Disponible: 165 ↔ 166 en período 6
+    - Disponible: 165 ↔ 166 en período 13
+    - Disponible: 165 ↔ 166 en período 14
+    - Disponible: 165 ↔ 166 en período 15
+    - Disponible: 165 ↔ 166 en período 16
+    - Disponible: 165 ↔ 166 en período 17
+    - Disponible: 165 ↔ 166 en período 18
+    - Disponible: 165 ↔ 161 en período 1
+    - Disponible: 165 ↔ 161 en período 2
+    - Disponible: 165 ↔ 161 en período 3
+    - Disponible: 165 ↔ 161 en período 4
+    - Disponible: 165 ↔ 161 en período 5
+    - Disponible: 165 ↔ 161 en período 6
+    - Disponible: 165 ↔ 161 en período 13
+    - Disponible: 165 ↔ 161 en período 14
+    - Disponible: 165 ↔ 161 en período 15
+    - Disponible: 165 ↔ 161 en período 16
+    - Disponible: 165 ↔ 161 en período 17
+    - Disponible: 165 ↔ 161 en período 18
+    - Disponible: 166 ↔ 165 en período 1
+    - Disponible: 166 ↔ 165 en período 2
+    - Disponible: 166 ↔ 165 en período 3
+    - Disponible: 166 ↔ 165 en período 4
+    - Disponible: 166 ↔ 165 en período 5
+    - Disponible: 166 ↔ 165 en período 6
+    - Disponible: 166 ↔ 165 en período 13
+    - Disponible: 166 ↔ 165 en período 14
+    - Disponible: 166 ↔ 165 en período 15
+    - Disponible: 166 ↔ 165 en período 16
+    - Disponible: 166 ↔ 165 en período 17
+    - Disponible: 166 ↔ 165 en período 18
+    - Disponible: 166 ↔ 162 en período 1
+    - Disponible: 166 ↔ 162 en período 2
+    - Disponible: 166 ↔ 162 en período 3
+    - Disponible: 166 ↔ 162 en período 4
+    - Disponible: 166 ↔ 162 en período 5
+    - Disponible: 166 ↔ 162 en período 6
+    - Disponible: 166 ↔ 162 en período 13
+    - Disponible: 166 ↔ 162 en período 14
+    - Disponible: 166 ↔ 162 en período 15
+    - Disponible: 166 ↔ 162 en período 16
+    - Disponible: 166 ↔ 162 en período 17
+    - Disponible: 166 ↔ 162 en período 18
+    - Disponible: 166 ↔ 169 en período 1
+    - Disponible: 166 ↔ 169 en período 2
+    - Disponible: 166 ↔ 169 en período 3
+    - Disponible: 166 ↔ 169 en período 4
+    - Disponible: 166 ↔ 169 en período 5
+    - Disponible: 166 ↔ 169 en período 6
+    - Disponible: 166 ↔ 169 en período 13
+    - Disponible: 166 ↔ 169 en período 14
+    - Disponible: 166 ↔ 169 en período 15
+    - Disponible: 166 ↔ 169 en período 16
+    - Disponible: 166 ↔ 169 en período 17
+    - Disponible: 166 ↔ 169 en período 18
+    - Disponible: 167 ↔ 168 en período 1
+    - Disponible: 167 ↔ 168 en período 2
+    - Disponible: 167 ↔ 168 en período 3
+    - Disponible: 167 ↔ 168 en período 4
+    - Disponible: 167 ↔ 168 en período 5
+    - Disponible: 167 ↔ 168 en período 6
+    - Disponible: 167 ↔ 168 en período 13
+    - Disponible: 167 ↔ 168 en período 14
+    - Disponible: 167 ↔ 168 en período 15
+    - Disponible: 167 ↔ 168 en período 16
+    - Disponible: 167 ↔ 168 en período 17
+    - Disponible: 167 ↔ 168 en período 18
+    - Disponible: 167 ↔ 172 en período 1
+    - Disponible: 167 ↔ 172 en período 2
+    - Disponible: 167 ↔ 172 en período 3
+    - Disponible: 167 ↔ 172 en período 4
+    - Disponible: 167 ↔ 172 en período 5
+    - Disponible: 167 ↔ 172 en período 6
+    - Disponible: 167 ↔ 172 en período 13
+    - Disponible: 167 ↔ 172 en período 14
+    - Disponible: 167 ↔ 172 en período 15
+    - Disponible: 167 ↔ 172 en período 16
+    - Disponible: 167 ↔ 172 en período 17
+    - Disponible: 167 ↔ 172 en período 18
+    - Disponible: 168 ↔ 167 en período 1
+    - Disponible: 168 ↔ 167 en período 2
+    - Disponible: 168 ↔ 167 en período 3
+    - Disponible: 168 ↔ 167 en período 4
+    - Disponible: 168 ↔ 167 en período 5
+    - Disponible: 168 ↔ 167 en período 6
+    - Disponible: 168 ↔ 167 en período 13
+    - Disponible: 168 ↔ 167 en período 14
+    - Disponible: 168 ↔ 167 en período 15
+    - Disponible: 168 ↔ 167 en período 16
+    - Disponible: 168 ↔ 167 en período 17
+    - Disponible: 168 ↔ 167 en período 18
+    - Disponible: 168 ↔ 169 en período 1
+    - Disponible: 168 ↔ 169 en período 2
+    - Disponible: 168 ↔ 169 en período 3
+    - Disponible: 168 ↔ 169 en período 4
+    - Disponible: 168 ↔ 169 en período 5
+    - Disponible: 168 ↔ 169 en período 6
+    - Disponible: 168 ↔ 169 en período 13
+    - Disponible: 168 ↔ 169 en período 14
+    - Disponible: 168 ↔ 169 en período 15
+    - Disponible: 168 ↔ 169 en período 16
+    - Disponible: 168 ↔ 169 en período 17
+    - Disponible: 168 ↔ 169 en período 18
+    - Disponible: 169 ↔ 168 en período 1
+    - Disponible: 169 ↔ 168 en período 2
+    - Disponible: 169 ↔ 168 en período 3
+    - Disponible: 169 ↔ 168 en período 4
+    - Disponible: 169 ↔ 168 en período 5
+    - Disponible: 169 ↔ 168 en período 6
+    - Disponible: 169 ↔ 168 en período 13
+    - Disponible: 169 ↔ 168 en período 14
+    - Disponible: 169 ↔ 168 en período 15
+    - Disponible: 169 ↔ 168 en período 16
+    - Disponible: 169 ↔ 168 en período 17
+    - Disponible: 169 ↔ 168 en período 18
+    - Disponible: 169 ↔ 166 en período 1
+    - Disponible: 169 ↔ 166 en período 2
+    - Disponible: 169 ↔ 166 en período 3
+    - Disponible: 169 ↔ 166 en período 4
+    - Disponible: 169 ↔ 166 en período 5
+    - Disponible: 169 ↔ 166 en período 6
+    - Disponible: 169 ↔ 166 en período 13
+    - Disponible: 169 ↔ 166 en período 14
+    - Disponible: 169 ↔ 166 en período 15
+    - Disponible: 169 ↔ 166 en período 16
+    - Disponible: 169 ↔ 166 en período 17
+    - Disponible: 169 ↔ 166 en período 18
+    - Disponible: 170 ↔ 163 en período 1
+    - Disponible: 170 ↔ 163 en período 2
+    - Disponible: 170 ↔ 163 en período 3
+    - Disponible: 170 ↔ 163 en período 4
+    - Disponible: 170 ↔ 163 en período 5
+    - Disponible: 170 ↔ 163 en período 6
+    - Disponible: 170 ↔ 163 en período 13
+    - Disponible: 170 ↔ 163 en período 14
+    - Disponible: 170 ↔ 163 en período 15
+    - Disponible: 170 ↔ 163 en período 16
+    - Disponible: 170 ↔ 163 en período 17
+    - Disponible: 170 ↔ 163 en período 18
+    - Disponible: 170 ↔ 171 en período 1
+    - Disponible: 170 ↔ 171 en período 2
+    - Disponible: 170 ↔ 171 en período 3
+    - Disponible: 170 ↔ 171 en período 4
+    - Disponible: 170 ↔ 171 en período 5
+    - Disponible: 170 ↔ 171 en período 6
+    - Disponible: 170 ↔ 171 en período 13
+    - Disponible: 170 ↔ 171 en período 14
+    - Disponible: 170 ↔ 171 en período 15
+    - Disponible: 170 ↔ 171 en período 16
+    - Disponible: 170 ↔ 171 en período 17
+    - Disponible: 170 ↔ 171 en período 18
+    - Disponible: 170 ↔ 158 en período 1
+    - Disponible: 170 ↔ 158 en período 2
+    - Disponible: 170 ↔ 158 en período 3
+    - Disponible: 170 ↔ 158 en período 4
+    - Disponible: 170 ↔ 158 en período 5
+    - Disponible: 170 ↔ 158 en período 6
+    - Disponible: 170 ↔ 158 en período 13
+    - Disponible: 170 ↔ 158 en período 14
+    - Disponible: 170 ↔ 158 en período 15
+    - Disponible: 170 ↔ 158 en período 16
+    - Disponible: 170 ↔ 158 en período 17
+    - Disponible: 170 ↔ 158 en período 18
+    - Disponible: 171 ↔ 170 en período 1
+    - Disponible: 171 ↔ 170 en período 2
+    - Disponible: 171 ↔ 170 en período 3
+    - Disponible: 171 ↔ 170 en período 4
+    - Disponible: 171 ↔ 170 en período 5
+    - Disponible: 171 ↔ 170 en período 6
+    - Disponible: 171 ↔ 170 en período 13
+    - Disponible: 171 ↔ 170 en período 14
+    - Disponible: 171 ↔ 170 en período 15
+    - Disponible: 171 ↔ 170 en período 16
+    - Disponible: 171 ↔ 170 en período 17
+    - Disponible: 171 ↔ 170 en período 18
+    - Disponible: 171 ↔ 172 en período 1
+    - Disponible: 171 ↔ 172 en período 2
+    - Disponible: 171 ↔ 172 en período 3
+    - Disponible: 171 ↔ 172 en período 4
+    - Disponible: 171 ↔ 172 en período 5
+    - Disponible: 171 ↔ 172 en período 6
+    - Disponible: 171 ↔ 172 en período 13
+    - Disponible: 171 ↔ 172 en período 14
+    - Disponible: 171 ↔ 172 en período 15
+    - Disponible: 171 ↔ 172 en período 16
+    - Disponible: 171 ↔ 172 en período 17
+    - Disponible: 171 ↔ 172 en período 18
+    - Disponible: 171 ↔ 115 en período 1
+    - Disponible: 171 ↔ 115 en período 2
+    - Disponible: 171 ↔ 115 en período 3
+    - Disponible: 171 ↔ 115 en período 4
+    - Disponible: 171 ↔ 115 en período 5
+    - Disponible: 171 ↔ 115 en período 6
+    - Disponible: 171 ↔ 115 en período 13
+    - Disponible: 171 ↔ 115 en período 14
+    - Disponible: 171 ↔ 115 en período 15
+    - Disponible: 171 ↔ 115 en período 16
+    - Disponible: 171 ↔ 115 en período 17
+    - Disponible: 171 ↔ 115 en período 18
+    - Disponible: 172 ↔ 167 en período 1
+    - Disponible: 172 ↔ 167 en período 2
+    - Disponible: 172 ↔ 167 en período 3
+    - Disponible: 172 ↔ 167 en período 4
+    - Disponible: 172 ↔ 167 en período 5
+    - Disponible: 172 ↔ 167 en período 6
+    - Disponible: 172 ↔ 167 en período 13
+    - Disponible: 172 ↔ 167 en período 14
+    - Disponible: 172 ↔ 167 en período 15
+    - Disponible: 172 ↔ 167 en período 16
+    - Disponible: 172 ↔ 167 en período 17
+    - Disponible: 172 ↔ 167 en período 18
+    - Disponible: 172 ↔ 163 en período 1
+    - Disponible: 172 ↔ 163 en período 2
+    - Disponible: 172 ↔ 163 en período 3
+    - Disponible: 172 ↔ 163 en período 4
+    - Disponible: 172 ↔ 163 en período 5
+    - Disponible: 172 ↔ 163 en período 6
+    - Disponible: 172 ↔ 163 en período 13
+    - Disponible: 172 ↔ 163 en período 14
+    - Disponible: 172 ↔ 163 en período 15
+    - Disponible: 172 ↔ 163 en período 16
+    - Disponible: 172 ↔ 163 en período 17
+    - Disponible: 172 ↔ 163 en período 18
+    - Disponible: 172 ↔ 174 en período 1
+    - Disponible: 172 ↔ 174 en período 2
+    - Disponible: 172 ↔ 174 en período 3
+    - Disponible: 172 ↔ 174 en período 4
+    - Disponible: 172 ↔ 174 en período 5
+    - Disponible: 172 ↔ 174 en período 6
+    - Disponible: 172 ↔ 174 en período 13
+    - Disponible: 172 ↔ 174 en período 14
+    - Disponible: 172 ↔ 174 en período 15
+    - Disponible: 172 ↔ 174 en período 16
+    - Disponible: 172 ↔ 174 en período 17
+    - Disponible: 172 ↔ 174 en período 18
+    - Disponible: 172 ↔ 171 en período 1
+    - Disponible: 172 ↔ 171 en período 2
+    - Disponible: 172 ↔ 171 en período 3
+    - Disponible: 172 ↔ 171 en período 4
+    - Disponible: 172 ↔ 171 en período 5
+    - Disponible: 172 ↔ 171 en período 6
+    - Disponible: 172 ↔ 171 en período 13
+    - Disponible: 172 ↔ 171 en período 14
+    - Disponible: 172 ↔ 171 en período 15
+    - Disponible: 172 ↔ 171 en período 16
+    - Disponible: 172 ↔ 171 en período 17
+    - Disponible: 172 ↔ 171 en período 18
+    - Disponible: 174 ↔ 179 en período 1
+    - Disponible: 174 ↔ 179 en período 2
+    - Disponible: 174 ↔ 179 en período 3
+    - Disponible: 174 ↔ 179 en período 4
+    - Disponible: 174 ↔ 179 en período 5
+    - Disponible: 174 ↔ 179 en período 6
+    - Disponible: 174 ↔ 179 en período 13
+    - Disponible: 174 ↔ 179 en período 14
+    - Disponible: 174 ↔ 179 en período 15
+    - Disponible: 174 ↔ 179 en período 16
+    - Disponible: 174 ↔ 179 en período 17
+    - Disponible: 174 ↔ 179 en período 18
+    - Disponible: 174 ↔ 172 en período 1
+    - Disponible: 174 ↔ 172 en período 2
+    - Disponible: 174 ↔ 172 en período 3
+    - Disponible: 174 ↔ 172 en período 4
+    - Disponible: 174 ↔ 172 en período 5
+    - Disponible: 174 ↔ 172 en período 6
+    - Disponible: 174 ↔ 172 en período 13
+    - Disponible: 174 ↔ 172 en período 14
+    - Disponible: 174 ↔ 172 en período 15
+    - Disponible: 174 ↔ 172 en período 16
+    - Disponible: 174 ↔ 172 en período 17
+    - Disponible: 174 ↔ 172 en período 18
+    - Disponible: 178 ↔ 179 en período 1
+    - Disponible: 178 ↔ 179 en período 2
+    - Disponible: 178 ↔ 179 en período 3
+    - Disponible: 178 ↔ 179 en período 4
+    - Disponible: 178 ↔ 179 en período 5
+    - Disponible: 178 ↔ 179 en período 6
+    - Disponible: 178 ↔ 179 en período 13
+    - Disponible: 178 ↔ 179 en período 14
+    - Disponible: 178 ↔ 179 en período 15
+    - Disponible: 178 ↔ 179 en período 16
+    - Disponible: 178 ↔ 179 en período 17
+    - Disponible: 178 ↔ 179 en período 18
+    - Disponible: 178 ↔ 183 en período 1
+    - Disponible: 178 ↔ 183 en período 2
+    - Disponible: 178 ↔ 183 en período 3
+    - Disponible: 178 ↔ 183 en período 4
+    - Disponible: 178 ↔ 183 en período 5
+    - Disponible: 178 ↔ 183 en período 6
+    - Disponible: 178 ↔ 183 en período 13
+    - Disponible: 178 ↔ 183 en período 14
+    - Disponible: 178 ↔ 183 en período 15
+    - Disponible: 178 ↔ 183 en período 16
+    - Disponible: 178 ↔ 183 en período 17
+    - Disponible: 178 ↔ 183 en período 18
+    - Disponible: 179 ↔ 184 en período 1
+    - Disponible: 179 ↔ 184 en período 2
+    - Disponible: 179 ↔ 184 en período 3
+    - Disponible: 179 ↔ 184 en período 4
+    - Disponible: 179 ↔ 184 en período 5
+    - Disponible: 179 ↔ 184 en período 6
+    - Disponible: 179 ↔ 184 en período 13
+    - Disponible: 179 ↔ 184 en período 14
+    - Disponible: 179 ↔ 184 en período 15
+    - Disponible: 179 ↔ 184 en período 16
+    - Disponible: 179 ↔ 184 en período 17
+    - Disponible: 179 ↔ 184 en período 18
+    - Disponible: 179 ↔ 178 en período 1
+    - Disponible: 179 ↔ 178 en período 2
+    - Disponible: 179 ↔ 178 en período 3
+    - Disponible: 179 ↔ 178 en período 4
+    - Disponible: 179 ↔ 178 en período 5
+    - Disponible: 179 ↔ 178 en período 6
+    - Disponible: 179 ↔ 178 en período 13
+    - Disponible: 179 ↔ 178 en período 14
+    - Disponible: 179 ↔ 178 en período 15
+    - Disponible: 179 ↔ 178 en período 16
+    - Disponible: 179 ↔ 178 en período 17
+    - Disponible: 179 ↔ 178 en período 18
+    - Disponible: 179 ↔ 174 en período 1
+    - Disponible: 179 ↔ 174 en período 2
+    - Disponible: 179 ↔ 174 en período 3
+    - Disponible: 179 ↔ 174 en período 4
+    - Disponible: 179 ↔ 174 en período 5
+    - Disponible: 179 ↔ 174 en período 6
+    - Disponible: 179 ↔ 174 en período 13
+    - Disponible: 179 ↔ 174 en período 14
+    - Disponible: 179 ↔ 174 en período 15
+    - Disponible: 179 ↔ 174 en período 16
+    - Disponible: 179 ↔ 174 en período 17
+    - Disponible: 179 ↔ 174 en período 18
+    - Disponible: 183 ↔ 184 en período 1
+    - Disponible: 183 ↔ 184 en período 2
+    - Disponible: 183 ↔ 184 en período 3
+    - Disponible: 183 ↔ 184 en período 4
+    - Disponible: 183 ↔ 184 en período 5
+    - Disponible: 183 ↔ 184 en período 6
+    - Disponible: 183 ↔ 184 en período 13
+    - Disponible: 183 ↔ 184 en período 14
+    - Disponible: 183 ↔ 184 en período 15
+    - Disponible: 183 ↔ 184 en período 16
+    - Disponible: 183 ↔ 184 en período 17
+    - Disponible: 183 ↔ 184 en período 18
+    - Disponible: 183 ↔ 178 en período 1
+    - Disponible: 183 ↔ 178 en período 2
+    - Disponible: 183 ↔ 178 en período 3
+    - Disponible: 183 ↔ 178 en período 4
+    - Disponible: 183 ↔ 178 en período 5
+    - Disponible: 183 ↔ 178 en período 6
+    - Disponible: 183 ↔ 178 en período 13
+    - Disponible: 183 ↔ 178 en período 14
+    - Disponible: 183 ↔ 178 en período 15
+    - Disponible: 183 ↔ 178 en período 16
+    - Disponible: 183 ↔ 178 en período 17
+    - Disponible: 183 ↔ 178 en período 18
+    - Disponible: 184 ↔ 183 en período 1
+    - Disponible: 184 ↔ 183 en período 2
+    - Disponible: 184 ↔ 183 en período 3
+    - Disponible: 184 ↔ 183 en período 4
+    - Disponible: 184 ↔ 183 en período 5
+    - Disponible: 184 ↔ 183 en período 6
+    - Disponible: 184 ↔ 183 en período 13
+    - Disponible: 184 ↔ 183 en período 14
+    - Disponible: 184 ↔ 183 en período 15
+    - Disponible: 184 ↔ 183 en período 16
+    - Disponible: 184 ↔ 183 en período 17
+    - Disponible: 184 ↔ 183 en período 18
+    - Disponible: 184 ↔ 179 en período 1
+    - Disponible: 184 ↔ 179 en período 2
+    - Disponible: 184 ↔ 179 en período 3
+    - Disponible: 184 ↔ 179 en período 4
+    - Disponible: 184 ↔ 179 en período 5
+    - Disponible: 184 ↔ 179 en período 6
+    - Disponible: 184 ↔ 179 en período 13
+    - Disponible: 184 ↔ 179 en período 14
+    - Disponible: 184 ↔ 179 en período 15
+    - Disponible: 184 ↔ 179 en período 16
+    - Disponible: 184 ↔ 179 en período 17
+    - Disponible: 184 ↔ 179 en período 18
+
+  🔸 Flujo de madera (z):
+    - Transportado: 637.60 m³ por 47 ↔ 99 en período 1
+    - Transportado: 2967.40 m³ por 47 ↔ 99 en período 3
+    - Transportado: 554.40 m³ por 63 ↔ 67 en período 13
+    - Transportado: 1137.50 m³ por 63 ↔ 67 en período 14
+    - Transportado: 1930.10 m³ por 63 ↔ 67 en período 17
+    - Transportado: 1192.90 m³ por 63 ↔ 67 en período 18
+    - Transportado: 554.40 m³ por 67 ↔ 68 en período 13
+    - Transportado: 1137.50 m³ por 67 ↔ 68 en período 14
+    - Transportado: 1930.10 m³ por 67 ↔ 68 en período 17
+    - Transportado: 1192.90 m³ por 67 ↔ 68 en período 18
+    - Transportado: 554.40 m³ por 68 ↔ 122 en período 13
+    - Transportado: 1137.50 m³ por 68 ↔ 122 en período 14
+    - Transportado: 1930.10 m³ por 68 ↔ 122 en período 17
+    - Transportado: 1192.90 m³ por 68 ↔ 122 en período 18
+    - Transportado: 637.60 m³ por 99 ↔ 100 en período 1
+    - Transportado: 2967.40 m³ por 99 ↔ 100 en período 3
+    - Transportado: 637.60 m³ por 100 ↔ 101 en período 1
+    - Transportado: 2967.40 m³ por 100 ↔ 104 en período 3
+    - Transportado: 637.60 m³ por 101 ↔ 102 en período 1
+    - Transportado: 637.60 m³ por 102 ↔ 106 en período 1
+    - Transportado: 2967.40 m³ por 104 ↔ 108 en período 3
+    - Transportado: 637.60 m³ por 106 ↔ 158 en período 1
+    - Transportado: 2967.40 m³ por 108 ↔ 109 en período 3
+    - Transportado: 2967.40 m³ por 109 ↔ 158 en período 3
+    - Transportado: 575.70 m³ por 114 ↔ 115 en período 14
+    - Transportado: 670.10 m³ por 114 ↔ 115 en período 15
+    - Transportado: 575.70 m³ por 115 ↔ 171 en período 14
+    - Transportado: 670.10 m³ por 115 ↔ 171 en período 15
+    - Transportado: 575.70 m³ por 117 ↔ 114 en período 14
+    - Transportado: 670.10 m³ por 117 ↔ 114 en período 15
+    - Transportado: 554.40 m³ por 122 ↔ 123 en período 13
+    - Transportado: 1137.50 m³ por 122 ↔ 123 en período 14
+    - Transportado: 1930.10 m³ por 122 ↔ 123 en período 17
+    - Transportado: 1192.90 m³ por 122 ↔ 123 en período 18
+    - Transportado: 554.40 m³ por 123 ↔ 126 en período 13
+    - Transportado: 1137.50 m³ por 123 ↔ 126 en período 14
+    - Transportado: 1930.10 m³ por 123 ↔ 126 en período 17
+    - Transportado: 1192.90 m³ por 123 ↔ 126 en período 18
+    - Transportado: 554.40 m³ por 126 ↔ 130 en período 13
+    - Transportado: 1137.50 m³ por 126 ↔ 130 en período 14
+    - Transportado: 1930.10 m³ por 126 ↔ 130 en período 17
+    - Transportado: 1192.90 m³ por 126 ↔ 130 en período 18
+    - Transportado: 554.40 m³ por 130 ↔ 134 en período 13
+    - Transportado: 1137.50 m³ por 130 ↔ 134 en período 14
+    - Transportado: 1930.10 m³ por 130 ↔ 134 en período 17
+    - Transportado: 1192.90 m³ por 130 ↔ 134 en período 18
+    - Transportado: 554.40 m³ por 134 ↔ 138 en período 13
+    - Transportado: 1137.50 m³ por 134 ↔ 138 en período 14
+    - Transportado: 1930.10 m³ por 134 ↔ 138 en período 17
+    - Transportado: 1192.90 m³ por 134 ↔ 138 en período 18
+    - Transportado: 554.40 m³ por 138 ↔ 141 en período 13
+    - Transportado: 1137.50 m³ por 138 ↔ 141 en período 14
+    - Transportado: 1930.10 m³ por 138 ↔ 141 en período 17
+    - Transportado: 1192.90 m³ por 138 ↔ 141 en período 18
+    - Transportado: 554.40 m³ por 141 ↔ 144 en período 13
+    - Transportado: 1137.50 m³ por 141 ↔ 144 en período 14
+    - Transportado: 1930.10 m³ por 141 ↔ 144 en período 17
+    - Transportado: 1192.90 m³ por 141 ↔ 144 en período 18
+    - Transportado: 554.40 m³ por 144 ↔ 147 en período 13
+    - Transportado: 1137.50 m³ por 144 ↔ 147 en período 14
+    - Transportado: 1930.10 m³ por 144 ↔ 147 en período 17
+    - Transportado: 1192.90 m³ por 144 ↔ 147 en período 18
+    - Transportado: 2494.30 m³ por 158 ↔ 159 en período 15
+    - Transportado: 637.60 m³ por 158 ↔ 170 en período 1
+    - Transportado: 2967.40 m³ por 158 ↔ 170 en período 3
+    - Transportado: 1727.20 m³ por 158 ↔ 170 en período 16
+    - Transportado: 2284.94 m³ por 158 ↔ 170 en período 17
+    - Transportado: 1808.46 m³ por 158 ↔ 170 en período 18
+    - Transportado: 2494.30 m³ por 159 ↔ 160 en período 15
+    - Transportado: 2494.30 m³ por 160 ↔ 161 en período 15
+    - Transportado: 1049.12 m³ por 161 ↔ 162 en período 16
+    - Transportado: 1714.74 m³ por 161 ↔ 162 en período 17
+    - Transportado: 2325.69 m³ por 161 ↔ 165 en período 14
+    - Transportado: 3091.60 m³ por 161 ↔ 165 en período 15
+    - Transportado: 192.90 m³ por 161 ↔ 165 en período 18
+    - Transportado: 1049.12 m³ por 162 ↔ 166 en período 16
+    - Transportado: 1714.74 m³ por 162 ↔ 166 en período 17
+    - Transportado: 2967.40 m³ por 163 ↔ 172 en período 3
+    - Transportado: 1727.20 m³ por 163 ↔ 172 en período 16
+    - Transportado: 2284.94 m³ por 163 ↔ 172 en período 17
+    - Transportado: 1808.46 m³ por 163 ↔ 172 en período 18
+    - Transportado: 2325.69 m³ por 165 ↔ 166 en período 14
+    - Transportado: 3091.60 m³ por 165 ↔ 166 en período 15
+    - Transportado: 192.90 m³ por 165 ↔ 166 en período 18
+    - Transportado: 2325.69 m³ por 166 ↔ 169 en período 14
+    - Transportado: 3091.60 m³ por 166 ↔ 169 en período 15
+    - Transportado: 1049.12 m³ por 166 ↔ 169 en período 16
+    - Transportado: 1714.74 m³ por 166 ↔ 169 en período 17
+    - Transportado: 192.90 m³ por 166 ↔ 169 en período 18
+    - Transportado: 637.60 m³ por 167 ↔ 168 en período 1
+    - Transportado: 2967.40 m³ por 167 ↔ 168 en período 3
+    - Transportado: 2272.40 m³ por 167 ↔ 168 en período 14
+    - Transportado: 1263.80 m³ por 167 ↔ 168 en período 15
+    - Transportado: 2939.30 m³ por 167 ↔ 168 en período 16
+    - Transportado: 3408.94 m³ por 167 ↔ 168 en período 17
+    - Transportado: 1808.46 m³ por 167 ↔ 168 en período 18
+    - Transportado: 637.60 m³ por 168 ↔ 169 en período 1
+    - Transportado: 2967.40 m³ por 168 ↔ 169 en período 3
+    - Transportado: 2272.40 m³ por 168 ↔ 169 en período 14
+    - Transportado: 1263.80 m³ por 168 ↔ 169 en período 15
+    - Transportado: 2939.30 m³ por 168 ↔ 169 en período 16
+    - Transportado: 3408.94 m³ por 168 ↔ 169 en período 17
+    - Transportado: 1808.46 m³ por 168 ↔ 169 en período 18
+    - Transportado: 2967.40 m³ por 170 ↔ 163 en período 3
+    - Transportado: 1727.20 m³ por 170 ↔ 163 en período 16
+    - Transportado: 2284.94 m³ por 170 ↔ 163 en período 17
+    - Transportado: 1808.46 m³ por 170 ↔ 163 en período 18
+    - Transportado: 637.60 m³ por 170 ↔ 171 en período 1
+    - Transportado: 637.60 m³ por 171 ↔ 172 en período 1
+    - Transportado: 575.70 m³ por 171 ↔ 172 en período 14
+    - Transportado: 670.10 m³ por 171 ↔ 172 en período 15
+    - Transportado: 637.60 m³ por 172 ↔ 167 en período 1
+    - Transportado: 2967.40 m³ por 172 ↔ 167 en período 3
+    - Transportado: 2272.40 m³ por 172 ↔ 167 en período 14
+    - Transportado: 1263.80 m³ por 172 ↔ 167 en período 15
+    - Transportado: 2939.30 m³ por 172 ↔ 167 en período 16
+    - Transportado: 3408.94 m³ por 172 ↔ 167 en período 17
+    - Transportado: 1808.46 m³ por 172 ↔ 167 en período 18
+    - Transportado: 1696.70 m³ por 174 ↔ 172 en período 14
+    - Transportado: 593.70 m³ por 174 ↔ 172 en período 15
+    - Transportado: 1212.10 m³ por 174 ↔ 172 en período 16
+    - Transportado: 1124.00 m³ por 174 ↔ 172 en período 17
+    - Transportado: 1696.70 m³ por 178 ↔ 179 en período 14
+    - Transportado: 593.70 m³ por 178 ↔ 179 en período 15
+    - Transportado: 1696.70 m³ por 179 ↔ 174 en período 14
+    - Transportado: 593.70 m³ por 179 ↔ 174 en período 15
+    - Transportado: 1212.10 m³ por 179 ↔ 174 en período 16
+    - Transportado: 1124.00 m³ por 179 ↔ 174 en período 17
+    - Transportado: 1212.10 m³ por 183 ↔ 184 en período 16
+    - Transportado: 1124.00 m³ por 183 ↔ 184 en período 17
+    - Transportado: 1696.70 m³ por 183 ↔ 178 en período 14
+    - Transportado: 593.70 m³ por 183 ↔ 178 en período 15
+    - Transportado: 1212.10 m³ por 184 ↔ 179 en período 16
+    - Transportado: 1124.00 m³ por 184 ↔ 179 en período 17
+
+✅ Resultados guardados correctamente
