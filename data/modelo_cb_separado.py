@@ -1,6 +1,7 @@
 from gurobipy import *
 from datos import *
 from grafos import *
+#from guardar_sol import *
 import pickle
 
 
@@ -149,13 +150,35 @@ def main():
                         modelo_1.addConstr(f[i, k, t] == f[i, k, t - 1] + mu[i, k, t], name=f'restriccion_5_{i}_{j}_{k}')
         
         # Asignacion de cosecha desde una hectarea faena a una hectarea no-faena
-        # 6.
+        # 6.    
         for i in N:
             for k in K:
-                    for t in T:
-                        if (i,k) in R_jk:
-                            for j in R_jk[(i,k)]['radio']:
+                for t in T:
+                    if (i,k) in R_jk:
+                        for j in R_jk[(i,k)]['radio']:
+                            if i == j:
+                                modelo_1.addConstr(x[i,j,k,t] == f[i,k,t], name=f"restriccion_6_{i}_{j}_{k}_{t}")
+                            else:
                                 modelo_1.addConstr(x[i,j,k,t] <= f[i,k,t], name=f"restriccion_6_{i}_{j}_{k}_{t}")
+
+        for i in N:
+            for t in T:
+                M = len(N)*len(T)*len(K)
+                indices_efectivos = []
+                for j in nodos_skidders:
+                    cobertura = R_jk[j,'skidder']
+                    if i in cobertura:
+                        indices_efectivos.append([j,'skidder'])
+                for j in nodos_torres:
+                    cobertura = R_jk[j,'torre']
+                    if i in cobertura:
+                        indices_efectivos.append([j,'torre'])
+                modelo_1.addConstr(quicksum(x[key[0],i,key[1],t_] 
+                                    for key in indices_efectivos 
+                                        if key[0] != i for t_ in range(t,19) 
+                                        if t_ not in list(range(7,13))) <= (1 - quicksum(mu[i,k,t] for k in K)) * M,
+                                        name="restriccion_nueva")
+
         
         # 7.
         for j in N:
@@ -240,6 +263,26 @@ def main():
                     name=f"restriccion_13_{i}_{j}"
                 )
 
+        #######
+
+        # Restricción extra1: y[i,j,t] >= y[i,j,t+1] para t en la temporada 1 (meses 1-6)
+        for (i,j) in G.edges():
+            for t in range(1, 6):
+                modelo_2.addConstr(
+                    y[i,j,t] >= y[i,j,t+1],
+                    name=f"restriccion_extra1_{i}_{j}_{t}"
+                )
+
+        # Restricción extra2: y[i,j,t] >= y[i,j,t+1] para t en la temporada 2 (meses 13-18)
+        for (i,j) in G.edges():
+            for t in range(13, 18): 
+                modelo_2.addConstr(
+                    y[i,j,t] >= y[i,j,t+1],
+                    name=f"restriccion_extra2_{i}_{j}_{t}"
+                )
+
+        # OJO piojo con el indice que suma 1 en el tiempo al momento de corregir 
+
         # Inicialización del camino en período 1
         # 14.
         for i, j in G.edges():
@@ -268,7 +311,7 @@ def main():
                 )
 
 
-        # 17.
+        # 16.
         for d in D:
             for t in T:
                 flow = 0
@@ -295,20 +338,9 @@ def main():
                     name=f"restriccion_17_{i}_{j}_{t}"
                 )
 
-        # RESTRICCION de prueba para evitar que hectareas 
-        # que no son faenas cosechen
-        """MMM = 10000
-
-        for (i, k), datos_faena in R_jk.items():
-            for j in datos_faena['radio']:
-                for t in T:
-                    modelo_1.addConstr(
-                        w[i,j,k,t] <= f[i,k,t] * MMM,
-                        name=f"restriccion_w_f_{i}_{j}_{k}_{t}"
-                    )"""
+    
         
-        
-        modelo_1.setParam('MIPGap', 0.001)
+        modelo_1.setParam('MIPGap', 0.10)
         modelo_1.optimize()
 
         dic_pit = {}
@@ -334,7 +366,8 @@ def main():
                         name=f"restriccion_18_{n}_{t}"
                     )
         
-        modelo_2.setParam('MIPGap', 0.001)
+
+        modelo_2.setParam('MIPGap', 0.24)
         modelo_2.optimize()
 
         print("costo transporte", costo_transporte_madera.getValue())
@@ -390,6 +423,9 @@ def main():
 
             with open('resultados_modelo.pkl', 'wb') as archivo:
                 pickle.dump(resultados, archivo)
+            
+            #guardar solucion en solucion_inicial.sol
+            #guardar_solucion_inicial(resultados)
 
             print("Resultados guardados en 'resultados_modelo.pkl'")
             visualizar_resultados()
@@ -436,14 +472,19 @@ def visualizar_resultados(archivo_pkl='resultados_modelo.pkl', archivo_txt='resu
             txt_file.write("\n🔧 VARIABLES RELEVANTES:\n")
             
             # Madera transportada (p)
-            txt_file.write("\n  🔸 Madera transportada (p):\n")
+            """txt_file.write("\n  🔸 Madera transportada (p):\n")
             for (nodo, periodo), cantidad in datos['variables']['p'].items():
                 if cantidad > 0:
-                    txt_file.write(f"    - Nodo {nodo}, período {periodo}: {cantidad:.2f} m3\n")
+                    txt_file.write(f"    - Nodo {nodo}, período {periodo}: {cantidad:.2f} m3\n")"""
             
             # Asignaciones de cosecha (w)
-            txt_file.write("\n  🔸 Madera Cosechada (x):\n")
+            txt_file.write("\n  🔸 Faena Cosechada (x):\n")
             for (i, j, k, t), cantidad in datos['variables']['x'].items():
+                if cantidad > 0:
+                    txt_file.write(f"    - Faena {i} → Hectarea {j}, máquina {k}, período {t}, cosecha: {cantidad:.2f} \n")
+            
+            txt_file.write("\n  🔸 Madera Cosechada (w):\n")
+            for (i, j, k, t), cantidad in datos['variables']['w'].items():
                 if cantidad > 0:
                     txt_file.write(f"    - Faena {i} → Hectarea {j}, máquina {k}, período {t}, cosecha: {cantidad:.2f} m3\n")
             
@@ -453,10 +494,10 @@ def visualizar_resultados(archivo_pkl='resultados_modelo.pkl', archivo_txt='resu
                 if valor == 1:
                     txt_file.write(f"    - Nodo {i}, máquina {k}, período {t}\n")
 
-            txt_file.write("\n  🔸 Faenas Existentes (f):\n")
+            """txt_file.write("\n  🔸 Faenas Existentes (f):\n")
             for (i, k, t), valor in datos['variables']['f'].items():
                 if valor == 1:
-                    txt_file.write(f"    - Nodo {i}, máquina {k}, período {t}\n")
+                    txt_file.write(f"    - Nodo {i}, máquina {k}, período {t}\n")"""
 
             txt_file.write("\n🛣️ INFRAESTRUCTURA DE CAMINOS:\n")
             
@@ -466,16 +507,16 @@ def visualizar_resultados(archivo_pkl='resultados_modelo.pkl', archivo_txt='resu
                 if valor == 1:
                     txt_file.write(f"    - Construido: {i} ↔ {j} en período {t}\n")
              
-            txt_file.write("\n  🔸 Caminos existentes (l):\n")
+            """txt_file.write("\n  🔸 Caminos existentes (l):\n")
             for (i, j, t), valor in datos['variables']['l'].items():
                 if valor == 1:
-                    txt_file.write(f"    - Disponible: {i} ↔ {j} en período {t}\n")
+                    txt_file.write(f"    - Disponible: {i} ↔ {j} en período {t}\n")"""
             
-            # Transporte de madera (z)
+            """# Transporte de madera (z)
             txt_file.write("\n  🔸 Flujo de madera (z):\n")
             for (i, j, t), cantidad in datos['variables']['z'].items():
                 if cantidad > 0:
-                    txt_file.write(f"    - Transportado: {cantidad:.2f} m³ por {i} ↔ {j} en período {t}\n")
+                    txt_file.write(f"    - Transportado: {cantidad:.2f} m³ por {i} ↔ {j} en período {t}\n")"""
             
             txt_file.write("\n✅ Resultados guardados correctamente\n")
 
