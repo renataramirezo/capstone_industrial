@@ -150,23 +150,38 @@ def main():
                         modelo_1.addConstr(f[i, k, t] == f[i, k, t - 1] + mu[i, k, t], name=f'restriccion_5_{i}_{j}_{k}')
         
         # Asignacion de cosecha desde una hectarea faena a una hectarea no-faena
-        # 6.
+        # 6.    
         for i in N:
             for k in K:
-                    for t in T:
-                        if (i,k) in R_jk:
-                            for j in R_jk[(i,k)]['radio']:
-                                modelo_1.addConstr(x[i,j,k,t] <= f[i,k,t], name=f"restriccion_6_{i}_{j}_{k}_{t}")
+                for t in T:
+                    if (i,k) in R_jk:
+                        for j in R_jk[(i,k)]['radio']:
+                            modelo_1.addConstr(x[i,j,k,t] <= f[i,k,t], name=f"restriccion_6_{i}_{j}_{k}_{t}")
+
+        for i in N:
+            for t in T:
+                M = len(N)*len(T)*len(K)
+                indices_efectivos = []
+                for j in nodos_skidders:
+                    cobertura = R_jk[j,'skidder']
+                    if i in cobertura:
+                        indices_efectivos.append([j,'skidder'])
+                for j in nodos_torres:
+                    cobertura = R_jk[j,'torre']
+                    if i in cobertura:
+                        indices_efectivos.append([j,'torre'])
+                modelo_1.addConstr(quicksum(x[key[0],i,key[1],t_] for key in indices_efectivos if key[0] != i for t_ in range(t,19) if t_ not in list(range(7,13))) <= (1 - quicksum(f[i,k,t] for k in K)) * M)
+
         
-        # 7.
+        # 7.                    
         for j in N:
             for t in T:
-                for k in K:
-                    modelo_1.addConstr(
-                    quicksum(x[i,j,k,t] for (i,b), datos_faena in R_jk.items()
-                                        if j in datos_faena['radio'] and b == k) <= 1,
-                    name=f"restriccion_7_{j}_{k}_{t}"
-                )
+                modelo_1.addConstr(
+                quicksum(x[i,j,k,t] for (i,b), datos_faena in R_jk.items() 
+                                    for k in K                    
+                                    if j in datos_faena['radio'] and b == k) <= 1,
+                name=f"restriccion_7_{j}_{t}"
+            )
 
         # 8.
         for j in N:
