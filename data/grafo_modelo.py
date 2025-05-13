@@ -5,11 +5,11 @@ import matplotlib.cm as cm
 import matplotlib.colors as mcolors
 import datos as dt
 import os
-plt.show()
+
 edge_colors = [
     "white" for u, v in gf.G.edges()]
 
-with open('resultados_modelo.pkl', 'rb') as f:
+with open('resultados_modelo_principal.pkl', 'rb') as f:
     resultados = pickle.load(f)
 #import modelo_cb_separado as mdc
 f = resultados['variables']['f']
@@ -22,7 +22,7 @@ T2=[13,14,15,16,17,18]
 node_colors_gris = ["white"] * len(gf.G.nodes())
 nodes_list = list(gf.G.nodes())
 node_colors_t_1 = node_colors_gris.copy()
-for t in T1:
+'''for t in T1:
     # --- Colorear nodos
     for i in gf.G.nodes():
         es_faena = any(f.get((i, k, t), 0) > 0.5 for k in dt.K)
@@ -59,7 +59,7 @@ gf.nx.draw_networkx_edges(
 )
 
 # --- (Opcional) Dibujar flechas de faena a hectáreas cosechadas
-'''for (i, j, k_, t_), val in x.items():
+for (i, j, k_, t_), val in x.items():
     if t_ == t and val > 0.5 and i in gf.G.nodes() and j in gf.G.nodes():
         gf.nx.draw_networkx_edges(
             gf.G, gf.pos,
@@ -69,11 +69,11 @@ gf.nx.draw_networkx_edges(
             arrowstyle='->',
             arrowsize=12,
             connectionstyle="arc3,rad=0.2"
-        )'''
+        )
 
 plt.title(f"Grafo de faenas y caminos presentes en temporada 1")
 plt.axis('off')
-output_path = os.path.join("data","grafos_faenas_modelo", f"grafo_resultado_modelo_en Temp 1.png")
+output_path = os.path.join("data","grafos_faenas_modelo_ppl", f"grafo_resultado_modelo_en Temp 1.png")
 plt.savefig(output_path, format="png", dpi=300, bbox_inches="tight")
 plt.close() 
 plt.show()
@@ -116,7 +116,7 @@ gf.nx.draw_networkx_edges(
     width=3.5
 )
 
-'''# --- (Opcional) Dibujar flechas de faena a hectáreas cosechadas
+# --- (Opcional) Dibujar flechas de faena a hectáreas cosechadas
 for (i, j, k_, t_), val in x.items():
     if t_ == t and val > 0.5 and i in gf.G.nodes() and j in gf.G.nodes():
         gf.nx.draw_networkx_edges(
@@ -127,14 +127,17 @@ for (i, j, k_, t_), val in x.items():
             arrowstyle='->',
             arrowsize=12,
             connectionstyle="arc3,rad=0.2"
-        )'''
+        )
 
 plt.title(f"Grafo de faenas y caminos presentes en temporada 2")
 plt.axis('off')
-output_path = os.path.join("data","grafos_faenas_modelo", f"grafo_resultado_modelo_en Temp 2.png")
+output_path = os.path.join("data","grafos_faenas_modelo_ppl", f"grafo_resultado_modelo_en Temp 2.png")
 plt.savefig(output_path, format="png", dpi=300, bbox_inches="tight")
 plt.close() 
-plt.show()
+plt.show()'''
+
+
+
 for t in T:
     node_colors_t = node_colors_gris.copy()
     #plt.figure(figsize=(6, 6))
@@ -193,7 +196,7 @@ for t in T:
 
     plt.title(f"Grafo de faenas y caminos presentes en t= {t}")
     plt.axis('off')
-    output_path = os.path.join("data","grafos_faenas_modelo", f"grafo_resultado_modelo_en t={t}.png")
+    output_path = os.path.join("data","grafos_faenas_modelo_ppl", f"grafo_resultado_modelo_en t={t}.png")
     plt.savefig(output_path, format="png", dpi=300, bbox_inches="tight")
     plt.close() 
     plt.show()
