@@ -145,8 +145,9 @@ def main():
                     if (i,k) in R_jk:
                         for j in R_jk[(i,k)]['radio']:
                             if i == j:
-                                continue
-                            modelo.addConstr(x[i,j,k,t] <= f[i,k,t], name=f"restriccion_6_{i}_{j}_{k}_{t}")
+                                modelo.addConstr(x[i,j,k,t] == f[i,k,t], name=f"restriccion_6_{i}_{j}_{k}_{t}")
+                            else:
+                                modelo.addConstr(x[i,j,k,t] <= f[i,k,t], name=f"restriccion_6_{i}_{j}_{k}_{t}")
 
 
         
@@ -162,8 +163,12 @@ def main():
                     cobertura = R_jk[j,'torre']
                     if i in cobertura:
                         indices_efectivos.append([j,'torre'])
-                modelo.addConstr(quicksum(x[key[0],i,key[1],t_] for key in indices_efectivos if key[0] != i for t_ in range(t,19) if t_ not in list(range(7,13))) <= (1 - quicksum(mu[i,k,t] for k in K)) * M)
-        
+                modelo.addConstr(quicksum(x[key[0],i,key[1],t_] 
+                                for key in indices_efectivos 
+                                    if key[0] != i for t_ in range(t,19) 
+                                    if t_ not in list(range(7,13))) <= (1 - quicksum(mu[i,k,t] for k in K)) * M,
+                                    name="restriccion_nueva")
+
 
         '''for i in N:
             for k in K:
@@ -187,12 +192,12 @@ def main():
         # 7.
         for j in N:
             for t in T:
-                modelo.addConstr(
-                quicksum(x[i,j,k,t] for (i,b), datos_faena in R_jk.items() 
-                                    for k in K                    
-                                    if j in datos_faena['radio'] and b == k) <= 1,
-                name=f"restriccion_7_{j}_{t}"
-            )
+                for k in K:
+                    modelo.addConstr(
+                    quicksum(x[i,j,k,t] for (i,b), datos_faena in R_jk.items()
+                                        if j in datos_faena['radio'] and b == k) <= 1,
+                    name=f"restriccion_7_{j}_{k}_{t}"
+                )
                 
         # 8.
         for j in N:
@@ -284,6 +289,22 @@ def main():
                     name=f"restriccion_15_{i}_{j}"
                 )
 
+         # Restricción extra1: y[i,j,t] >= y[i,j,t+1] para t en la temporada 1 (meses 1-6)
+        for (i,j) in G.edges():
+            for t in range(1, 6):
+                modelo.addConstr(
+                    y[i,j,t] >= y[i,j,t+1],
+                    name=f"restriccion_extra1_{i}_{j}_{t}"
+                )
+
+        # Restricción extra2: y[i,j,t] >= y[i,j,t+1] para t en la temporada 2 (meses 13-18)
+        for (i,j) in G.edges():
+            for t in range(13, 18): 
+                modelo.addConstr(
+                    y[i,j,t] >= y[i,j,t+1],
+                    name=f"restriccion_extra2_{i}_{j}_{t}"
+                )
+
         # R auxiliar direccion caminos
         for i,j in G.edges():
             for t in T:
@@ -331,21 +352,18 @@ def main():
                 )
 
         #cargar solucion de caso base
-        cargar_solucion_inicial(modelo)
+        #cargar_solucion_inicial(modelo)
 
-        '''solucion_inicial = cargar_solucion_desde_pkl('resultados_modelo.pkl')
-        modelo.read(solucion_inicial)'''
+        solucion_inicial = cargar_solucion_desde_pkl('resultados_modelo.pkl')
+        modelo.read(solucion_inicial)
 
         modelo.setParam('StartNodeLimit', 100)  # Explora más nodos desde la solución inicial
         modelo.setParam('MIPFocus', 1)  # Enfócate en mejorar la solución inicial
 
         
 
-        modelo.setParam('MIPGap', 0.01)
+        modelo.setParam('MIPGap', 0.11)
         modelo.optimize()
-
-        print("consto transporte", costo_transporte_madera.getValue())
-        print("costo construccion camino:", costo_construccion_caminos.getValue())
 
         ingreso_total = ingreso_venta - costos_cosechar - costos_instalacion - costo_construccion_caminos- costo_transporte_madera
 
