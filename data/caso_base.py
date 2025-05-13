@@ -71,7 +71,7 @@ node_colors_gris[gf.Posicion147] = "yellow"
 nx.draw(gf.G, gf.pos, with_labels=True, edge_color=gf.edge_colors,
          node_color=node_colors_gris, edgecolors= gf.nodo_bordes_faen, 
          linewidths= 1.5,node_size=150, font_weight='bold', font_size=5)
-gf.ax2.set_title("Grafo asignación cosecha primera temporada")
+gf.plt.title("Grafo asignación cosecha primera temporada")
 #plt.show()
 
 #sumar cantidad de madera en nodos a cosechar por faena
@@ -278,7 +278,7 @@ node_colors_rod_t2[gf.Posicion147] = "yellow"
 nx.draw(gf.G, gf.pos, with_labels=True, edge_color=gf.edge_colors,
          node_color=node_colors_rod_t2, edgecolors= gf.nodo_bordes_faen, 
          linewidths= 1.5,node_size=150, font_weight='bold', font_size=5)
-gf.ax2.set_title("Grafo asignación cosecha segunda temporada")
+gf.plt.title("Grafo asignación cosecha segunda temporada")
 #plt.show()
 
 #sumar cantidad de madera en nodos a cosechar por faena

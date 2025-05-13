@@ -53,7 +53,7 @@ for origen, destino in datos.A:
 for u, v in G.edges:
     G[u][v]["C"] = 200
     G[u][v]["ct"] = 2.6 
-    if (u,v) in datos.XA or (v, u) in datos.XA:
+    if (u,v) in datos.XA1 or (v, u) in datos.XA1:
         G[u][v]["XA"] = True      
     else:
         G[u][v]["XA"] = False
@@ -98,12 +98,18 @@ node_colors_rod[Posicion147] = "yellow"
 #node_colors_faen[Posicion147] = "yellow"
 #node_colors_faen[Posicion169] = "yellow"
 
-fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 5))
+#fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 5))
 # Dibujar nodos y aristas
-nx.draw(G, pos, ax=ax1, with_labels=True, edge_color=edge_colors,
+'''nx.draw(G, pos, with_labels=True, edge_color=edge_colors,
          node_color=node_colors_rod, edgecolors= nodo_bordes_faen, linewidths= 1.5,
          node_size=150, font_weight='bold', font_size=5)
-ax1.set_title("Grafo rodales")
+#ax1.set_title("Grafo rodales")
+plt.show()'''
+'''nx.draw(G, pos, with_labels=True, edge_color=edge_colors,
+         node_color="orange", 
+         node_size=150, font_weight='bold', font_size=5)
+#ax1.set_title("Grafo rodales")
+plt.show()'''
 # Mostrar los atributos de los arcos como etiquetas
 #edge_labels = nx.get_edge_attributes(G, 'XA')
 #nx.draw_networkx_edge_labels(G, pos)

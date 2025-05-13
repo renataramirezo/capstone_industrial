@@ -192,21 +192,22 @@ def main():
         # Control de cosecha en rodales con restricción de adyacencia
         # 10.
         for r in rodales:
-            
             for u in U:
                 # Obtener los periodos de la temporada u (asumiendo 6 meses por temporada)
                 T_u = T[(u-1)*6 : u*6] if u == 1 else T[6:]  # T1: meses 1-6, T2: meses 13-18
+
                 
                 N_R = rodales[r]
                 M_r = 2 * (len(N)) * (len(N_R)) *  (len(T_u))
                 
+
                 # Suma de todas las asignaciones de cosecha en el rodal r durante la temporada u
                 modelo_1.addConstr(
                     quicksum(x[i,j,k,t] for k in K
                                     for i in N
                                     for j in N_R
                                     for t in T_u
-                                    if (i,k) in R_jk and j in R_jk[(i,k)]['radio']) <= M_r * s[r,u],
+                                    if (i,k) in R_jk and j in R_jk[(i,k)]['radio']) <= Big_M * s[r,u],
                     name=f"restriccion_10_{r}_{u}"
                 )
 
