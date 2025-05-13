@@ -170,7 +170,7 @@ def main():
                     cobertura = R_jk[j,'torre']
                     if i in cobertura:
                         indices_efectivos.append([j,'torre'])
-                modelo_1.addConstr(quicksum(x[key[0],i,key[1],t_] for key in indices_efectivos if key[0] != i for t_ in range(t,19) if t_ not in list(range(7,13))) <= (1 - quicksum(f[i,k,t] for k in K)) * M)
+                modelo_1.addConstr(quicksum(x[key[0],i,key[1],t_] for key in indices_efectivos if key[0] != i for t_ in range(t,19) if t_ not in list(range(7,13))) <= (1 - quicksum(mu[i,k,t] for k in K)) * M)
 
         
         # 7.                    
