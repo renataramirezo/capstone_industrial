@@ -1,4 +1,5 @@
 from gurobipy import *
+import pickle
 
 def guardar_solucion_inicial(resultados, archivo='solucion_inicial.sol'):
     """Guarda la solución inicial en formato .sol para Gurobi"""
@@ -28,3 +29,17 @@ def cargar_solucion_inicial(modelo: Model, archivo='solucion_inicial.sol'):
         print(f"Solución inicial cargada desde {archivo}")
     except Exception as e:
         print(f"No se pudo cargar solución inicial: {str(e)}")
+
+def cargar_solucion_desde_pkl(archivo_pkl='resultados_modelo.pkl'):
+    """Carga la solución desde un archivo .pkl y la prepara para Gurobi"""
+    try:
+        with open(archivo_pkl, 'rb') as f:
+            datos = pickle.load(f)
+        
+        # Crear archivo .sol temporal
+        archivo_sol = 'solucion_inicial.sol'
+        guardar_solucion_inicial(datos, archivo_sol)
+        return archivo_sol
+    except Exception as e:
+        print(f"Error al cargar solución inicial: {str(e)}")
+        return None
