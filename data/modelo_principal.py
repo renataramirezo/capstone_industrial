@@ -183,8 +183,6 @@ def main():
                         indices_efectivos.append([j,'torre'])
                 modelo.addConstr(quicksum(x[key[0],i,key[1],t] for key in indices_efectivos if key[0] != i) <= (1 - r[i]) * (len(N)-1))'''
 
-        
-
 
         # 7.
         for j in N:
@@ -195,7 +193,7 @@ def main():
                                     if j in datos_faena['radio'] and b == k) <= 1,
                 name=f"restriccion_7_{j}_{t}"
             )
-
+                
         # 8.
         for j in N:
             modelo.addConstr(
