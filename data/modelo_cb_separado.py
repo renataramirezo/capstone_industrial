@@ -263,6 +263,35 @@ def main():
                 name=f"restriccion_14_{i}_{j}"
             )
 
+        #######
+
+        # Restricción extra1: y[i,j,t] >= y[i,j,t+1] para t en la temporada 1 (meses 1-6)
+        for (i,j) in G.edges():
+            for t in range(1, 6):
+                modelo_2.addConstr(
+                    y[i,j,t] >= y[i,j,t+1],
+                    name=f"restriccion_extra1_{i}_{j}_{t}"
+                )
+
+        # Restricción extra2: y[i,j,t] >= y[i,j,t+1] para t en la temporada 2 (meses 13-18)
+        for (i,j) in G.edges():
+            for t in range(13, 18): 
+                modelo_2.addConstr(
+                    y[i,j,t] >= y[i,j,t+1],
+                    name=f"restriccion_extra2_{i}_{j}_{t}"
+                )
+
+        # OJO piojo con el indice que suma 1 en el tiempo al momento de corregir 
+
+        #######
+
+        # 14.
+        for i, j in G.edges():
+            modelo_2.addConstr(
+                y[i,j,1] == l[i,j,1],
+                name=f"restriccion_14_{i}_{j}"
+            )
+
         # Camino en período 13 para arcos en XA
         # 15.
         for i, j in G.edges():
@@ -322,6 +351,8 @@ def main():
                         name=f"restriccion_w_f_{i}_{j}_{k}_{t}"
                     )"""
         
+
+
         
         modelo_1.setParam('MIPGap', 0.18)
         modelo_1.optimize()
