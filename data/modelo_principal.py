@@ -362,7 +362,7 @@ def main():
 
         
 
-        modelo.setParam('MIPGap', 0.11)
+        modelo.setParam('TimeLimit', 2615)
         modelo.optimize()
 
         ingreso_total = ingreso_venta - costos_cosechar - costos_instalacion - costo_construccion_caminos- costo_transporte_madera
@@ -371,7 +371,7 @@ def main():
 
         # Verificar el estado del modelo
         estado = modelo.Status
-        if estado == GRB.Status.OPTIMAL:
+        if estado == GRB.Status.OPTIMAL or modelo.Status == GRB.Status.TIME_LIMIT:
             print("ingresos:", ingreso_venta.getValue())
             print("costo cosechar:", costos_cosechar.getValue())
             print("costo instalacion:", costos_instalacion.getValue())

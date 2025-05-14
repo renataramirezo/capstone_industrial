@@ -230,7 +230,7 @@ def main():
                                     for i in N
                                     for j in N_R
                                     for t in T_u
-                                    if (i,k) in R_jk and j in R_jk[(i,k)]['radio']) <= Big_M * s[r,u],
+                                    if (i,k) in R_jk and j in R_jk[(i,k)]['radio']) <= M_r * s[r,u],
                     name=f"restriccion_10_{r}_{u}"
                 )
 
@@ -340,7 +340,7 @@ def main():
 
     
         
-        modelo_1.setParam('MIPGap', 0.10)
+        modelo_1.setParam('MIPGap', 0.0558)
         modelo_1.optimize()
 
         dic_pit = {}
@@ -367,7 +367,7 @@ def main():
                     )
         
 
-        modelo_2.setParam('MIPGap', 0.24)
+        modelo_2.setParam('MIPGap', 0.031)
         modelo_2.optimize()
 
         print("costo transporte", costo_transporte_madera.getValue())
