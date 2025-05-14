@@ -196,7 +196,7 @@ for t in T:
 
     plt.title(f"Grafo de faenas y caminos presentes en t= {t}")
     plt.axis('off')
-    output_path = os.path.join("data","grafos_faenas_modelo_ppl", f"grafo_resultado_modelo_en t={t}.png")
+    output_path = os.path.join("data","grafos_faenas_modelo_ppl", f"grafo_resultado_modelo_en t={t}sisi.png")
     plt.savefig(output_path, format="png", dpi=300, bbox_inches="tight")
     plt.close() 
     plt.show()
