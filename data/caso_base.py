@@ -70,7 +70,7 @@ Base Faena
 Salida
 Cosechados por faena K
 '''
-node_colors_gris = ["grey"] * len(gf.G.nodes())
+node_colors_gris = ["white"] * len(gf.G.nodes())
 #print(nodos_a_cosechar_t)
 Orden= list(gf.G.nodes())
 for nodo in nodos_a_cosechar_sk:
@@ -78,14 +78,16 @@ for nodo in nodos_a_cosechar_sk:
 for nodo in nodos_a_cosechar_t:
     node_colors_gris[Orden.index(nodo)] = "red"
 for nodo in bases_faena_s + bases_faena_t:
-    node_colors_gris[Orden.index(nodo)] = "white"
+    node_colors_gris[Orden.index(nodo)] = "blue"
 node_colors_gris[gf.Posicion169] = "yellow"
 node_colors_gris[gf.Posicion147] = "yellow"
 
 
 # Dibujar nodos y aristas
-nx.draw(gf.G, gf.pos, with_labels=True, edge_color=gf.edge_colors,
-         node_color=node_colors_gris, edgecolors= gf.nodo_bordes_faen, 
+nx.draw(gf.G, gf.pos, with_labels=True, 
+        #edge_color=gf.edge_colors,
+         node_color=node_colors_gris, 
+         #edgecolors= gf.nodo_bordes_faen, 
          linewidths= 1.5,node_size=150, font_weight='bold', font_size=5)
 gf.plt.title("Grafo asignación cosecha primera temporada")
 #plt.show()
@@ -208,7 +210,7 @@ nx.draw_networkx_edges(
     gf.G,
     gf.pos,
     edgelist=ruta_arcos,
-    edge_color="black",    # o el color que desees
+    edge_color="orange",    # o el color que desees
     width=10             # más grueso para que destaque
 )
 plt.title("Ruta más corta sobre grafo original")
@@ -244,14 +246,16 @@ for nodo in nodos_a_cosechar_t:
 for nodo in bases_faena_s + bases_faena_t:
     gf.node_colors_rod[Orden.index(nodo)] = "white"
 
-nx.draw(gf.G, gf.pos, with_labels=True, edge_color=gf.edge_colors,
-         node_color=gf.node_colors_rod, edgecolors= gf.nodo_bordes_faen, 
+nx.draw(gf.G, gf.pos, with_labels=True, 
+        edge_color= None,#gf.edge_colors,
+         node_color=gf.node_colors_rod, 
+         #edgecolors= gf.nodo_bordes_faen, 
          linewidths= 1.5,node_size=150, font_weight='bold', font_size=5)
 nx.draw_networkx_edges(
     gf.G,
     gf.pos,
     edgelist=ruta_arcos,
-    edge_color="black",    # o el color que desees
+    edge_color="orange",    # o el color que desees
     width=10             # más grueso para que destaque
 )
 #plt.show()
@@ -298,21 +302,23 @@ nodos_a_cosechar_t_t2 = [
 
 ###GRAFICAMOS
 #print(nodos_a_cosechar_t)'''
-node_colors_rod_t2 = ["grey"] * len(gf.G.nodes())
+node_colors_rod_t2 = ["white"] * len(gf.G.nodes())
 Orden= list(gf.G.nodes())
 for nodo in nodos_a_cosechar_sk_t2:
     node_colors_rod_t2[Orden.index(nodo)] = "deeppink"
 for nodo in nodos_a_cosechar_t_t2:
     node_colors_rod_t2[Orden.index(nodo)] = "red"
 for nodo in bases_faena_s_t2 + bases_faena_t_t2:
-    node_colors_rod_t2[Orden.index(nodo)] = "white"
+    node_colors_rod_t2[Orden.index(nodo)] = "blue"
 
 node_colors_rod_t2[gf.Posicion169] = "yellow"
 node_colors_rod_t2[gf.Posicion147] = "yellow"
 
 # Dibujar nodos y aristas
-nx.draw(gf.G, gf.pos, with_labels=True, edge_color=gf.edge_colors,
-         node_color=node_colors_rod_t2, edgecolors= gf.nodo_bordes_faen, 
+nx.draw(gf.G, gf.pos, with_labels=True, 
+        edge_color=None,#gf.edge_colors,
+         node_color=node_colors_rod_t2, 
+         #edgecolors= gf.nodo_bordes_faen, 
          linewidths= 1.5,node_size=150, font_weight='bold', font_size=5)
 gf.plt.title("Grafo asignación cosecha segunda temporada")
 #plt.show()
