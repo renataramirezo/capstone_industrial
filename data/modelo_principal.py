@@ -123,7 +123,7 @@ def main():
             for t in T:
                 modelo.addConstr(quicksum(f[i, k, t] for k in K) <= 1, name=f"restriccion_3_{i}_{j}_{k}")
 
-        # 4. Relación entre faena y faena instalada
+        # 4. Relación entre instalación de faena y faena instalada
         for i in N:
             for k in K:
                 for t in T:
@@ -146,28 +146,29 @@ def main():
                         for j in R_jk[(i,k)]['radio']:
                             if i == j:
                                 modelo.addConstr(x[i,j,k,t] == f[i,k,t], name=f"restriccion_6_{i}_{j}_{k}_{t}")
+        #7                    
                             else:
-                                modelo.addConstr(x[i,j,k,t] <= f[i,k,t], name=f"restriccion_6_{i}_{j}_{k}_{t}")
+                                modelo.addConstr(x[i,j,k,t] <= f[i,k,t], name=f"restriccion_7_{i}_{j}_{k}_{t}")
 
 
-        
+        #8
         for i in N:
             for t in T:
-                M = len(N)*len(T)*len(K)
-                indices_efectivos = []
+                M = len(N)*len(T)*len(K) #ojo esto está poco eficiente, se está multiplicando cada vez de nuevo
+                indices_efectivos = [] #todas las hectáreas que tienen una misma hectárea en su radio de operación
                 for j in nodos_skidders:
                     cobertura = R_jk[j,'skidder']
-                    if i in cobertura:
-                        indices_efectivos.append([j,'skidder'])
+                    if i in cobertura: #si la hectárea i está en el radio de j
+                        indices_efectivos.append([j,'skidder']) #agrego j a el listado
                 for j in nodos_torres:
                     cobertura = R_jk[j,'torre']
                     if i in cobertura:
                         indices_efectivos.append([j,'torre'])
                 modelo.addConstr(quicksum(x[key[0],i,key[1],t_] 
                                 for key in indices_efectivos 
-                                    if key[0] != i for t_ in range(t,19) 
-                                    if t_ not in list(range(7,13))) <= (1 - quicksum(mu[i,k,t] for k in K)) * M,
-                                    name="restriccion_nueva")
+                                    if key[0] != i for t_ in range(t,19) #si j!=i para los t sgtes y t en temporada
+                                    if t_ not in list(range(7,13))) <= (1 - quicksum(mu[i,k,t] for k in K)) * M, #es 1 cuando mu es 0, y 0 cuando mu es 1
+                                    name=f"restriccion_8_{i}_{t}")
 
 
         '''for i in N:
@@ -189,29 +190,29 @@ def main():
                 modelo.addConstr(quicksum(x[key[0],i,key[1],t] for key in indices_efectivos if key[0] != i) <= (1 - r[i]) * (len(N)-1))'''
 
 
-        # 7.
+        # 9.
         for j in N:
             for t in T:
                 for k in K:
                     modelo.addConstr(
                     quicksum(x[i,j,k,t] for (i,b), datos_faena in R_jk.items()
                                         if j in datos_faena['radio'] and b == k) <= 1,
-                    name=f"restriccion_7_{j}_{k}_{t}"
+                    name=f"restriccion_9_{j}_{k}_{t}"
                 )
                 
-        # 8.
+        # 10.
         for j in N:
             modelo.addConstr(
                 quicksum(w[i,j,k,t] for (i,k), datos_faena in R_jk.items()
                                     for t in T
                                     if j in datos_faena['radio']
                         ) <= N[j]['v'],
-                name=f"restriccion_8_{i}"
+                name=f"restriccion_10_{j}"
             )
 
 
         # No cosechar mas de la capacidad de cada faena
-        # 9.
+        # 11.
         for k in K:
             for i in N:
                 for t in T:
@@ -219,11 +220,11 @@ def main():
                                       # creo que no necesita revisar todas las posibles combinaciones, asi lo resuelve mas rapido.
                         modelo.addConstr(
                             quicksum(w[i,j,k,t] for j in R_jk[(i,k)]['radio']) <= K[k]['mcc'],
-                            name=f"restriccion_9_{i}__{j}_{k}_{t}"
+                            name=f"restriccion_11_{i}_{k}_{t}"
                         )
 
         # Control de cosecha en rodales con restricción de adyacencia
-        # 10.
+        # 12.
         for r in rodales:
             
             for u in U:
@@ -231,7 +232,7 @@ def main():
                 T_u = T[(u-1)*6 : u*6] if u == 1 else T[6:]  # T1: meses 1-6, T2: meses 13-18
                 
                 N_R = rodales[r]
-                M_r = 2 * (len(N)) * (len(N_R)) *  (len(T_u))
+                M_r = 2 * (len(N)) * (len(N_R)) *  (len(T_u)) #Ojo no es eficiente hacerlo dentro del for
                 
                 # Suma de todas las asignaciones de cosecha en el rodal r durante la temporada u
                 modelo.addConstr(
@@ -240,93 +241,82 @@ def main():
                                     for j in N_R
                                     for t in T_u
                                     if (i,k) in R_jk and j in R_jk[(i,k)]['radio']) <= M_r * s[r,u],
-                    name=f"restriccion_10_{r}_{u}"
+                    name=f"restriccion_12_{r}_{u}"
                 )
 
         # Rodales adyacentes no pueden cosecharse en la misma temporada
-        # 11.
+        # 13.
         for r in RA_r:  # RA_r contiene los rodales con restricciones de adyacencia
             for a in RA_r[r]: 
                 for u in U:
                     modelo.addConstr(
                         s[r,u] + s[a,u] <= 1,
-                        name=f"restriccion_11_{r}_{a}_{u}"
+                        name=f"restriccion_13_{r}_{a}_{u}"
                     )
 
         # Actualización del estado del camino para períodos normales
-        # 12.
+        # 14.
         for (i,j) in G.edges():
             for t in T:
                 if t != 1 and t != 13:  # T \ {1, 13}
                     modelo.addConstr(
                         l[i,j,t] == l[i,j,t-1] + y[i,j,t],
-                        name=f"restriccion_12_{i}_{j}_{t}"
+                        name=f"restriccion_14_{i}_{j}_{t}"
                     )
 
         # Actualización del estado del camino para período 13 (excluyendo XA)
-        # 13.
+        # 15.
         for i, j in G.edges():
             if G[i][j]["XA"] == False:  # A \ XA    
                 modelo.addConstr(
                     l[i,j,13] == l[i,j,6] + y[i,j,13],
-                    name=f"restriccion_13_{i}_{j}"
+                    name=f"restriccion_15_{i}_{j}"
                 )
 
         # Inicialización del camino en período 1
-        # 14.
+        # 16.
         for i, j in G.edges():
             modelo.addConstr(
                 y[i,j,1] == l[i,j,1],
-                name=f"restriccion_14_{i}_{j}"
+                name=f"restriccion_16_{i}_{j}"
             )
 
         # Camino en período 13 para arcos en XA
-        # 15.
+        # 17.
         for i, j in G.edges():
             if G[i][j]["XA"] == True:  
                 modelo.addConstr(
                     y[i,j,13] == l[i,j,13],
-                    name=f"restriccion_15_{i}_{j}"
+                    name=f"restriccion_17_{i}_{j}"
                 )
-
+        #18
          # Restricción extra1: y[i,j,t] >= y[i,j,t+1] para t en la temporada 1 (meses 1-6)
         for (i,j) in G.edges():
             for t in range(1, 6):
                 modelo.addConstr(
                     y[i,j,t] >= y[i,j,t+1],
-                    name=f"restriccion_extra1_{i}_{j}_{t}"
+                    name=f"restriccion_18_{i}_{j}_{t}"
                 )
 
+        #19
         # Restricción extra2: y[i,j,t] >= y[i,j,t+1] para t en la temporada 2 (meses 13-18)
         for (i,j) in G.edges():
             for t in range(13, 18): 
                 modelo.addConstr(
                     y[i,j,t] >= y[i,j,t+1],
-                    name=f"restriccion_extra2_{i}_{j}_{t}"
+                    name=f"restriccion_19_{i}_{j}_{t}"
                 )
-
+        #20
         # R auxiliar direccion caminos
         for i,j in G.edges():
             for t in T:
                 modelo.addConstr(
                     y[i,j,t] == y[j,i,t],
-                    name="Restriccion_direccion_caminos"
+                    name=f"restriccion_20_{i}_{j}_{t}"
                 )
 
-        # 16.
-        for d in D:
-            for t in T:
-                flow = 0
-                for i,j in G.edges():
-                    if d == i:
-                        flow += z[i,j,t]
-                    elif d == j:
-                        flow -= z[i,j,t]
-                modelo.addConstr(
-                    flow == -q[d,t],
-                    name=f"restriccion_16_{d}_{t}"
-                )
-        # 17.
+
+        # 21.
         for n in N:
             if n not in D:
                 for t in T:
@@ -338,17 +328,30 @@ def main():
                             flow -= z[i,j,t]
                     modelo.addConstr(
                         flow == p[n,t],
-                        name=f"restriccion_17_{n}_{t}"
+                        name=f"restriccion_21_{n}_{t}"
                     )
+        # 22.
+        for d in D:
+            for t in T:
+                flow = 0
+                for i,j in G.edges():
+                    if d == i:
+                        flow += z[i,j,t]
+                    elif d == j:
+                        flow -= z[i,j,t]
+                modelo.addConstr(
+                    flow == -q[d,t],
+                    name=f"restriccion_22_{d}_{t}"
+                )
         # Flujo de madera requiere camino construido, definimos M grande
-        # 18.
+        #23.
         M = sum(N[j]["v"] for j in N if 'v' in N[j])
         for i,j in G.edges():
-            M_ij = min(M,sum(4000 for i in nodos_skidders) + sum(5000 for i in nodos_torres))
+            M_ij = min(M,sum(4000 for i in nodos_skidders) + sum(5000 for i in nodos_torres)) #no es eficiente hacerlo dentro del for
             for t in T:
                 modelo.addConstr(
                     z[i,j,t] <= M_ij * l[i,j,t],  
-                    name=f"restriccion_18_{i}_{j}_{t}"
+                    name=f"restriccion_23_{i}_{j}_{t}"
                 )
 
         #cargar solucion de caso base
