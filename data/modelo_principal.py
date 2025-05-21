@@ -99,7 +99,7 @@ def main():
 
         # ========== RESTRICCIONES ==========
 
-        # 1.
+        # 1. Definir inventario
         for i in N:
             for t in T:
                 modelo.addConstr(
