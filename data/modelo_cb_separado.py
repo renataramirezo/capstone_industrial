@@ -23,15 +23,6 @@ def main():
                     f[i,k,t] = modelo_1.addVar(vtype=GRB.BINARY, name=f"f_{i}_{k}_{t}")
         
         # Variables asignacion de cosecha y cantidad de madera
-        # Estas variables son las que mas me generan dudas 
-        """x = {}
-        w = {}
-        for (i, k), datos_faena in R_jk.items():
-            for j in datos_faena['radio']:
-                for t in T:
-                    x[i,j,k,t] = modelo_1.addVar(vtype=GRB.BINARY, name=f"x_{i}_{j}_{k}_{t}")
-                    w[i,j,k,t] = modelo_1.addVar(vtype=GRB.CONTINUOUS, name=f"w_{i}_{j}_{k}_{t}")"""
-        
         x = {}
         w = {}
         for t in T:
@@ -126,7 +117,6 @@ def main():
         # 2. Cosechar hectáreas solo del radio de cosecha
         for (i, k), datos_faena in R_jk.items():
             for j in datos_faena['radio']:
-                #M_jk = min(N[j]['v'], K[k]['mcc'])
                 for t in T:
                     modelo_1.addConstr(w[i, j, k, t] <= N[j]['v'] * x[i, j, k, t], name=f'restriccion_2_{i}_{j}_{k}_{t}')
 
@@ -205,8 +195,7 @@ def main():
         for k in K:
             for i in N:
                 for t in T:
-                    if (i,k) in R_jk: # Con esta condicion lo hice mas eficiente, pero revisa solo en los que se puede cosechar,
-                                      # creo que no necesita revisar todas las posibles combinaciones, asi lo resuelve mas rapido.
+                    if (i,k) in R_jk: # Revisa solo en los que se puede cosechar
                         modelo_1.addConstr(
                             quicksum(w[i,j,k,t] for j in R_jk[(i,k)]['radio']) <= K[k]['mcc'],
                             name=f"restriccion_9_{i}__{j}_{k}_{t}"
@@ -218,12 +207,10 @@ def main():
             for u in U:
                 # Obtener los periodos de la temporada u (asumiendo 6 meses por temporada)
                 T_u = T[(u-1)*6 : u*6] if u == 1 else T[6:]  # T1: meses 1-6, T2: meses 13-18
-
-                
+           
                 N_R = rodales[r]
                 M_r = 2 * (len(N)) * (len(N_R)) *  (len(T_u))
                 
-
                 # Suma de todas las asignaciones de cosecha en el rodal r durante la temporada u
                 modelo_1.addConstr(
                     quicksum(x[i,j,k,t] for k in K
@@ -265,23 +252,21 @@ def main():
 
         #######
 
-        # Restricción extra1: y[i,j,t] >= y[i,j,t+1] para t en la temporada 1 (meses 1-6)
+        # Restricción de simetria 1: y[i,j,t] >= y[i,j,t+1] para t en la temporada 1 (meses 1-6)
         for (i,j) in G.edges():
             for t in range(1, 6):
                 modelo_2.addConstr(
                     y[i,j,t] >= y[i,j,t+1],
-                    name=f"restriccion_extra1_{i}_{j}_{t}"
+                    name=f"restriccion_simetria_1_{i}_{j}_{t}"
                 )
 
-        # Restricción extra2: y[i,j,t] >= y[i,j,t+1] para t en la temporada 2 (meses 13-18)
+        # Restricción de simetria 2: y[i,j,t] >= y[i,j,t+1] para t en la temporada 2 (meses 13-18)
         for (i,j) in G.edges():
             for t in range(13, 18): 
                 modelo_2.addConstr(
                     y[i,j,t] >= y[i,j,t+1],
-                    name=f"restriccion_extra2_{i}_{j}_{t}"
-                )
-
-        # OJO piojo con el indice que suma 1 en el tiempo al momento de corregir 
+                    name=f"restriccion_simetria_2_{i}_{j}_{t}"
+                ) 
 
         # Inicialización del camino en período 1
         # 14.
@@ -294,8 +279,7 @@ def main():
         # Camino en período 13 para arcos en XA
         # 15.
         for i, j in G.edges():
-            if G[i][j]["XA"] == True:  # XA    
-            #if (i,j) != (100,104):
+            if G[i][j]["XA"] == True:
                 modelo_2.addConstr(
                     y[i,j,13] == l[i,j,13],
                     name=f"restriccion_15_{i}_{j}"
@@ -334,7 +318,7 @@ def main():
             M_ij = min(M,sum(4000 for i in nodos_skidders) + sum(5000 for i in nodos_torres))
             for t in T:
                 modelo_2.addConstr(
-                    z[i,j,t] <= M_ij * l[i,j,t],  # Usamos l[i,j,t] que es la variable de existencia del camino
+                    z[i,j,t] <= M_ij * l[i,j,t],  
                     name=f"restriccion_17_{i}_{j}_{t}"
                 )
 
@@ -423,9 +407,6 @@ def main():
 
             with open('resultados_modelo.pkl', 'wb') as archivo:
                 pickle.dump(resultados, archivo)
-            
-            #guardar solucion en solucion_inicial.sol
-            #guardar_solucion_inicial(resultados)
 
             print("Resultados guardados en 'resultados_modelo.pkl'")
             visualizar_resultados()
@@ -433,7 +414,7 @@ def main():
         elif estado_1 == GRB.Status.INFEASIBLE:
             print("El modelo 1 es infactible.")
             modelo_1.computeIIS()
-            modelo_1.write("modelo_cb_infactible.ilp")  # Esto te genera un archivo con las restricciones conflictivas
+            modelo_1.write("modelo_cb_infactible.ilp") 
         elif estado_2 == GRB.Status.INFEASIBLE:
             print("El modelo 2 es infactible.")
             modelo_2.computeIIS()

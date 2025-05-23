@@ -60,7 +60,7 @@ def main():
 
 
         costos_cosechar = quicksum(
-            datos_faena['cv_rad'] * w[i,j,k,t]  # Falta mejorar aca logica costos variables skkider
+            datos_faena['cv_rad'] * w[i,j,k,t]  
             for (i, k), datos_faena in R_jk.items()  
             for j in datos_faena['radio']  
             for t in T  
@@ -153,8 +153,8 @@ def main():
         #8
         for i in N:
             for t in T:
-                M = len(N)*len(T)*len(K) #ojo esto está poco eficiente, se está multiplicando cada vez de nuevo
-                indices_efectivos = [] #todas las hectáreas que tienen una misma hectárea en su radio de operación
+                M = len(N)*len(T)*len(K) 
+                indices_efectivos = []
                 for j in nodos_skidders:
                     cobertura = R_jk[j,'skidder']
                     if i in cobertura: #si la hectárea i está en el radio de j
@@ -329,7 +329,7 @@ def main():
         #23.
         M = sum(N[j]["v"] for j in N if 'v' in N[j])
         for i,j in G.edges():
-            M_ij = min(M,sum(4000 for i in nodos_skidders) + sum(5000 for i in nodos_torres)) #no es eficiente hacerlo dentro del for
+            M_ij = min(M,sum(4000 for i in nodos_skidders) + sum(5000 for i in nodos_torres)) 
             for t in T:
                 modelo.addConstr(
                     z[i,j,t] <= M_ij * l[i,j,t],  
