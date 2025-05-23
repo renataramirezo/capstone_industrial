@@ -21,7 +21,6 @@ def main():
                     f[i,k,t] = modelo.addVar(vtype=GRB.BINARY, name=f"f_{i}_{k}_{t}")
         
         # Variables asignacion de cosecha y cantidad de madera
-        # Estas variables son las que mas me generan dudas 
         x = {}
         w = {}
         for t in T:
@@ -170,26 +169,6 @@ def main():
                                     if t_ not in list(range(7,13))) <= (1 - quicksum(mu[i,k,t] for k in K)) * M, #es 1 cuando mu es 0, y 0 cuando mu es 1
                                     name=f"restriccion_8_{i}_{t}")
 
-
-        '''for i in N:
-            for k in K:
-                for t in T:
-                    modelo.addConstr(r[i]>=f[i,k,t])
-
-        for i in N:
-            for t in T:
-                indices_efectivos = []
-                for j in nodos_skidders:
-                    cobertura = R_jk[j,'skidder']
-                    if i in cobertura:
-                        indices_efectivos.append([j,'skidder'])
-                for j in nodos_torres:
-                    cobertura = R_jk[j,'torre']
-                    if i in cobertura:
-                        indices_efectivos.append([j,'torre'])
-                modelo.addConstr(quicksum(x[key[0],i,key[1],t] for key in indices_efectivos if key[0] != i) <= (1 - r[i]) * (len(N)-1))'''
-
-
         # 9.
         for j in N:
             for t in T:
@@ -289,8 +268,9 @@ def main():
                     y[i,j,13] == l[i,j,13],
                     name=f"restriccion_17_{i}_{j}"
                 )
+
         #18
-         # Restricción extra1: y[i,j,t] >= y[i,j,t+1] para t en la temporada 1 (meses 1-6)
+        # Restricción de simetria 1: y[i,j,t] >= y[i,j,t+1] para t en la temporada 1 (meses 1-6)
         for (i,j) in G.edges():
             for t in range(1, 6):
                 modelo.addConstr(
@@ -299,13 +279,14 @@ def main():
                 )
 
         #19
-        # Restricción extra2: y[i,j,t] >= y[i,j,t+1] para t en la temporada 2 (meses 13-18)
+        # Restricción de simetria 2: y[i,j,t] >= y[i,j,t+1] para t en la temporada 2 (meses 13-18)
         for (i,j) in G.edges():
             for t in range(13, 18): 
                 modelo.addConstr(
                     y[i,j,t] >= y[i,j,t+1],
                     name=f"restriccion_19_{i}_{j}_{t}"
                 )
+
         #20
         # R auxiliar direccion caminos
         for i,j in G.edges():
@@ -316,7 +297,7 @@ def main():
                 )
 
 
-        # 21.
+        # 21. 
         for n in N:
             if n not in D:
                 for t in T:
@@ -343,6 +324,7 @@ def main():
                     flow == -q[d,t],
                     name=f"restriccion_22_{d}_{t}"
                 )
+
         # Flujo de madera requiere camino construido, definimos M grande
         #23.
         M = sum(N[j]["v"] for j in N if 'v' in N[j])
@@ -354,14 +336,12 @@ def main():
                     name=f"restriccion_23_{i}_{j}_{t}"
                 )
 
-        #cargar solucion de caso base
-        #cargar_solucion_inicial(modelo)
 
         solucion_inicial = cargar_solucion_desde_pkl('resultados_modelo.pkl')
         modelo.read(solucion_inicial)
 
-        modelo.setParam('StartNodeLimit', 100)  # Explora más nodos desde la solución inicial
-        modelo.setParam('MIPFocus', 1)  # Enfócate en mejorar la solución inicial
+        modelo.setParam('StartNodeLimit', 100)  
+        modelo.setParam('MIPFocus', 1)  
 
         
 
