@@ -153,7 +153,6 @@ def main():
 
         for i in N:
             for t in T:
-                M = len(N)*len(T)*len(K)
                 indices_efectivos = []
                 for j in nodos_skidders:
                     cobertura = R_jk[j,'skidder']
@@ -166,7 +165,7 @@ def main():
                 modelo_1.addConstr(quicksum(x[key[0],i,key[1],t_] 
                                     for key in indices_efectivos 
                                         if key[0] != i for t_ in range(t,19) 
-                                        if t_ not in list(range(7,13))) <= (1 - quicksum(mu[i,k,t] for k in K)) * M,
+                                        if t_ not in list(range(7,13))) <= (1 - quicksum(mu[i,k,t] for k in K)) * M_rnueva,
                                         name="restriccion_nueva")
 
         
@@ -209,7 +208,6 @@ def main():
                 T_u = T[(u-1)*6 : u*6] if u == 1 else T[6:]  # T1: meses 1-6, T2: meses 13-18
            
                 N_R = rodales[r]
-                M_r = 2 * (len(N)) * (len(N_R)) *  (len(T_u))
                 
                 # Suma de todas las asignaciones de cosecha en el rodal r durante la temporada u
                 modelo_1.addConstr(
@@ -217,19 +215,19 @@ def main():
                                     for i in N
                                     for j in N_R
                                     for t in T_u
-                                    if (i,k) in R_jk and j in R_jk[(i,k)]['radio']) <= M_r * s[r,u],
+                                    if (i,k) in R_jk and j in R_jk[(i,k)]['radio']) <= Big_M[r] * s[r,u],
                     name=f"restriccion_10_{r}_{u}"
                 )
 
         # Rodales adyacentes no pueden cosecharse en la misma temporada
         # 11.
-        for r in RA_r:  
+        """for r in RA_r:  
             for a in RA_r[r]: 
                 for u in U:
                     modelo_1.addConstr(
                         s[r,u] + s[a,u] <= 1,
                         name=f"restriccion_11_{r}_{a}_{u}"
-                    )
+                    )"""
 
         # Actualización del estado del camino para períodos normales
         # 12.
@@ -324,7 +322,7 @@ def main():
 
     
         
-        modelo_1.setParam('MIPGap', 0.0558)
+        modelo_1.setParam('MIPGap', 0.01)
         modelo_1.optimize()
 
         dic_pit = {}
@@ -351,7 +349,7 @@ def main():
                     )
         
 
-        modelo_2.setParam('MIPGap', 0.031)
+        modelo_2.setParam('MIPGap', 0.09)
         modelo_2.optimize()
 
         print("costo transporte", costo_transporte_madera.getValue())

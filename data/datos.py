@@ -87,14 +87,17 @@ rodales = {
     19: [200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210],
 }
 ##Cálculo de cantidad de nodos por rodal
-M_r = dict()
+cant_rodales = dict()
 for r in rodales:
-      M_r[r]= len(rodales[r])
+      cant_rodales[r]= len(rodales[r])
 
 #BIG M RESTRICCION 10 |M_r|^2*|T|*|K|
 Big_M = dict()
 for r in range(1,20):
-      Big_M[r] = M_r[r]**2*6
+      Big_M[r] = cant_rodales[r] * 2 * 6 * (len(N))
+
+
+M_rnueva = len(N)*len(T)*len(K)
 
 
 #Radio cosecha por Nodo y costo variable
