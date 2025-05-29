@@ -57,6 +57,8 @@ K = {"skidder":{"mcc":4000}, "torre":{"mcc":5500}}
 # Períodos de tiempo en meses de cosecha, corresponde a los meses 
 #T = ["dic 23","e24", "f24", "mar24", "ab24", "may24", "dic24", "e25", "f25","mar25","ab25","may25"]
 T = [1, 2, 3, 4, 5, 6, 13, 14, 15, 16, 17, 18]
+T_u = {1:[1, 2, 3, 4, 5, 6],
+       2: [13, 14, 15, 16, 17, 18]}
 
 # Temporadas
 U = [1, 2]
@@ -98,6 +100,13 @@ for r in range(1,20):
 
 
 M_rnueva = len(N)*len(T)*len(K)
+#
+
+
+
+# Restriccion 18.
+M = sum(N[j]["v"] for j in N if 'v' in N[j])
+M_ij = min(M,sum(4000 for i in nodos_skidders) + sum(5000 for i in nodos_torres))
 
 
 #Radio cosecha por Nodo y costo variable
