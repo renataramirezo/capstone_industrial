@@ -4,6 +4,7 @@ from grafos import *
 #from guardar_sol import *
 import pickle
 
+# Este modelo considera solo temporadas, no distingue por meses
 
 def main():
     try:
@@ -15,12 +16,10 @@ def main():
         
         # Variable Binaria Instalacion y existencia de maquinaria
         mu = {}
-        f = {}
         for k in K:
             for i in N:
-                for t in T:
-                    mu[i,k,t] = modelo_1.addVar(vtype=GRB.BINARY, name=f"mu_{i}_{k}_{t}")
-                    f[i,k,t] = modelo_1.addVar(vtype=GRB.BINARY, name=f"f_{i}_{k}_{t}")
+                for u in U:
+                    mu[i,k,u] = modelo_1.addVar(vtype=GRB.BINARY, name=f"mu_{i}_{k}_{u}")
         
         # Variables asignacion de cosecha y cantidad de madera
         x = {}
@@ -38,10 +37,7 @@ def main():
         s = modelo_1.addVars(list(range(1,20)), U, vtype=GRB.BINARY, name="s")
 
         # Variable construccion camino
-        y = modelo_2.addVars(G.edges(), T, vtype=GRB.BINARY, name="y")
-
-        # Variable existencia camino (Variable de estado)
-        l = modelo_2.addVars(G.edges(), T, vtype=GRB.BINARY, name="l")
+        y = modelo_2.addVars(G.edges(), U, vtype=GRB.BINARY, name="y")
 
         # Variables de transporte e inventario
         p = modelo_1.addVars(N, T, vtype=GRB.CONTINUOUS, name="p")
@@ -67,11 +63,11 @@ def main():
         )
 
         costos_instalacion = quicksum(
-            N[i]["cf"] * mu[i,k,t] 
+            N[i]["cf"] * mu[i,k,u] 
             for k in K 
             for i in N 
-            for t in T 
-            if (i,k,t) in mu and isinstance(N[i]["cf"], (int, float))
+            for u in U 
+            if (i,k,u) in mu and isinstance(N[i]["cf"], (int, float))
         )
 
         lista_recorrido = []
@@ -79,7 +75,8 @@ def main():
             if (j,i) not in lista_recorrido:
                 lista_recorrido.append((i,j))
 
-        costo_construccion_caminos = quicksum(C * y[i,j,t] for i, j in lista_recorrido for t in T)
+        costo_construccion_caminos = (quicksum(C * y[i,j,1] for i, j in lista_recorrido) 
+                                      + quicksum(C * y[i,j,2] for i, j in lista_recorrido if (i,j) in XA))
 
         costo_transporte_madera = quicksum(ct * z[i,j,t] for i, j in G.edges() for t in T)
 
@@ -122,37 +119,27 @@ def main():
 
         # 3. Que no exista más de una faena por hectárea
         for i in N:
-            for t in T:
-                modelo_1.addConstr(quicksum(f[i, k, t] for k in K) <= 1, name=f"restriccion_3_{i}_{j}_{k}")
+            for u in U:
+                modelo_1.addConstr(quicksum(mu[i, k, u] for k in K) <= 1, name=f"restriccion_3_{i}_{k}_{u}")
 
-        # 4. Relación entre faena y faena instalada
-        for i in N:
-            for k in K:
-                for t in T:
-                    if t in [1, 13]:
-                        modelo_1.addConstr(mu[i, k, t] == f[i, k, t], name=f"restriccion_4_{i}_{j}_{k}")
 
-        # 5. Continuidad de la faena
-        for i in N:
-            for k in K:
-                for t in T:
-                    if t not in [1, 13]:
-                        modelo_1.addConstr(f[i, k, t] == f[i, k, t - 1] + mu[i, k, t], name=f'restriccion_5_{i}_{j}_{k}')
-        
         # Asignacion de cosecha desde una hectarea faena a una hectarea no-faena
         # 6.    
         for i in N:
             for k in K:
-                for t in T:
-                    if (i,k) in R_jk:
-                        for j in R_jk[(i,k)]['radio']:
-                            if i == j:
-                                modelo_1.addConstr(x[i,j,k,t] == f[i,k,t], name=f"restriccion_6_{i}_{j}_{k}_{t}")
+                if (i,k) in R_jk:
+                    for j in R_jk[(i,k)]['radio']:
+                        if i == j:
+                            modelo_1.addConstr(x[i,j,k,1] == mu[i,k,1], name=f"restriccion_4.1_{i}_{j}_{k}_{t}")
+                            modelo_1.addConstr(x[i,j,k,13] == mu[i,k,2], name=f"restriccion_4.2_{i}_{j}_{k}_{t}")
+                        for t in T:
+                            if t <= 6:
+                                modelo_1.addConstr(x[i,j,k,t] <= mu[i,k,1], name=f"restriccion_4.3_{i}_{j}_{k}_{t}")
                             else:
-                                modelo_1.addConstr(x[i,j,k,t] <= f[i,k,t], name=f"restriccion_6_{i}_{j}_{k}_{t}")
+                                modelo_1.addConstr(x[i,j,k,t] <= mu[i,k,2], name=f"restriccion_4.4_{i}_{j}_{k}_{t}")
 
         for i in N:
-            for t in T:
+            for u in U:
                 indices_efectivos = []
                 for j in nodos_skidders:
                     cobertura = R_jk[j,'skidder']
@@ -162,11 +149,12 @@ def main():
                     cobertura = R_jk[j,'torre']
                     if i in cobertura:
                         indices_efectivos.append([j,'torre'])
+                Miu = len(cobertura) * 6 * 2
                 modelo_1.addConstr(quicksum(x[key[0],i,key[1],t_] 
                                     for key in indices_efectivos 
-                                        if key[0] != i for t_ in range(t,19) 
-                                        if t_ not in list(range(7,13))) <= (1 - quicksum(mu[i,k,t] for k in K)) * M_rnueva,
-                                        name="restriccion_nueva")
+                                    for k in K
+                                    if key[0] != i for t_ in T_u[u]) <= (1 - quicksum(mu[i,k,u] for k in K)) * Miu,
+                                        name="restriccion_miau")
 
         
         # 7.
@@ -176,7 +164,7 @@ def main():
                     modelo_1.addConstr(
                     quicksum(x[i,j,k,t] for (i,b), datos_faena in R_jk.items()
                                         if j in datos_faena['radio'] and b == k) <= 1,
-                    name=f"restriccion_7_{j}_{k}_{t}"
+                    name=f"restriccion_7_{i}_{j}_{k}_{t}"
                 )
 
         # 8.
@@ -202,7 +190,7 @@ def main():
 
         # Control de cosecha en rodales con restricción de adyacencia
         # 10.
-        for r in rodales:
+        """for r in rodales:
             for u in U:
                 # Obtener los periodos de la temporada u (asumiendo 6 meses por temporada)
                 T_u = T[(u-1)*6 : u*6] if u == 1 else T[6:]  # T1: meses 1-6, T2: meses 13-18
@@ -217,80 +205,26 @@ def main():
                                     for t in T_u
                                     if (i,k) in R_jk and j in R_jk[(i,k)]['radio']) <= Big_M[r] * s[r,u],
                     name=f"restriccion_10_{r}_{u}"
-                )
+                )"""
 
         # Rodales adyacentes no pueden cosecharse en la misma temporada
         # 11.
-        """for r in RA_r:  
+        for r in RA_r:  
             for a in RA_r[r]: 
                 for u in U:
                     modelo_1.addConstr(
                         s[r,u] + s[a,u] <= 1,
                         name=f"restriccion_11_{r}_{a}_{u}"
-                    )"""
-
-        # Actualización del estado del camino para períodos normales
-        # 12.
-        for (i,j) in G.edges():
-            for t in T:
-                if t != 1 and t != 13:  # T \ {1, 13}
-                    modelo_2.addConstr(
-                        l[i,j,t] == l[i,j,t-1] + y[i,j,t],
-                        name=f"restriccion_12_{i}_{j}_{t}"
                     )
 
-        # Actualización del estado del camino para período 13 (excluyendo XA)
-        # 13:
-        for i, j in G.edges():
-            if G[i][j]["XA"] == False:  # A \ XA    
-                modelo_2.addConstr(
-                    l[i,j,13] == l[i,j,6] + y[i,j,13],
-                    name=f"restriccion_13_{i}_{j}"
-                )
 
-        #######
-
-        # Restricción de simetria 1: y[i,j,t] >= y[i,j,t+1] para t en la temporada 1 (meses 1-6)
-        for (i,j) in G.edges():
-            for t in range(1, 6):
-                modelo_2.addConstr(
-                    y[i,j,t] >= y[i,j,t+1],
-                    name=f"restriccion_simetria_1_{i}_{j}_{t}"
-                )
-
-        # Restricción de simetria 2: y[i,j,t] >= y[i,j,t+1] para t en la temporada 2 (meses 13-18)
-        for (i,j) in G.edges():
-            for t in range(13, 18): 
-                modelo_2.addConstr(
-                    y[i,j,t] >= y[i,j,t+1],
-                    name=f"restriccion_simetria_2_{i}_{j}_{t}"
-                ) 
-
-        # Inicialización del camino en período 1
-        # 14.
-        for i, j in G.edges():
-            modelo_2.addConstr(
-                y[i,j,1] == l[i,j,1],
-                name=f"restriccion_14_{i}_{j}"
-            )
-
-        # Camino en período 13 para arcos en XA
-        # 15.
-        for i, j in G.edges():
-            if G[i][j]["XA"] == True:
-                modelo_2.addConstr(
-                    y[i,j,13] == l[i,j,13],
-                    name=f"restriccion_15_{i}_{j}"
-                )
-
-
-        # R auxiliar
-        for i,j in G.edges():
-            for t in T:
-                modelo_2.addConstr(
-                    y[i,j,t] == y[j,i,t],
-                    name="Restriccion_direccion_caminos"
-                )
+        for r in Rodales:
+            for u in U:
+                for (i,k), datos_faena in R_jk.items():
+                    for j in rodales[r]:
+                        if j in datos_faena['radio']:
+                            for t in T_u[u]:
+                                modelo_1.addConstr(x[i,j,k,t] <= s[r,u], name=f"restriccion_12.1_{i}_{j}_{t}")
 
 
         # 16.
@@ -312,15 +246,31 @@ def main():
         # 18.
 
         for i,j in G.edges():
-            for t in T:
+            for t in T_u[1]:
                 modelo_2.addConstr(
-                    z[i,j,t] <= M_ij * l[i,j,t],  
-                    name=f"restriccion_17_{i}_{j}_{t}"
+                    z[i,j,t] <= M_ij * y[i,j,1],  
+                    name=f"restriccion_17.1_{i}_{j}_{t}"
                 )
+
+        for i,j in G.edges():
+            if (i,j) not in XA:
+                for t in T_u[2]:
+                    modelo_2.addConstr(
+                        z[i,j,t] <= M_ij * y[i,j,1],  
+                        name=f"restriccion_17.2_{i}_{j}_{t}"
+                    )
+
+        for i,j in G.edges():
+            if (i,j) in XA:
+                for t in T_u[2]:
+                    modelo_2.addConstr(
+                        z[i,j,t] <= M_ij * y[i,j,2],  
+                        name=f"restriccion_17.2_{i}_{j}_{t}"
+                    )
 
     
         
-        modelo_1.setParam('MIPGap', 0.01)
+        modelo_1.setParam('MIPGap', 0.005)
         modelo_1.optimize()
 
         dic_pit = {}
@@ -347,7 +297,7 @@ def main():
                     )
         
 
-        modelo_2.setParam('MIPGap', 0.09)
+        modelo_2.setParam('MIPGap', 0.05)
         modelo_2.optimize()
 
         print("costo transporte", costo_transporte_madera.getValue())
@@ -388,23 +338,20 @@ def main():
                         for (i, k), datos_faena in R_jk.items() 
                         for j in datos_faena['radio'] 
                         for t in T },
-                    'mu': {(i, k, t): mu[i, k, t].X 
-                        for i in N for k in K for t in T},
-                    'f': {(i, k, t): f[i, k, t].X 
-                        for i in N for k in K for t in T},
+                    'mu': {(i, k, u): mu[i, k, u].X 
+                        for i in N for k in K for u in U},
                     'q': {(d, t): q[d, t].X for d in D for t in T},
-                    'y': {(i,j,t): y[i,j,t].X for (i,j) in G.edges() for t in T},
-                    'l': {(i,j,t): l[i,j,t].X for (i,j) in G.edges() for t in T},
+                    'y': {(i,j,u): y[i,j,u].X for (i,j) in G.edges() for u in U},
                     'z': {(i,j,t): z[i,j,t].X for (i,j) in G.edges() for t in T},
                     's': {(r, u): s[r,u].X for r in range(1,20) for u in U}
 
                 }
             }
 
-            with open('resultados_modelo.pkl', 'wb') as archivo:
+            with open('resultados_modelo_simple.pkl', 'wb') as archivo:
                 pickle.dump(resultados, archivo)
 
-            print("Resultados guardados en 'resultados_modelo.pkl'")
+            print("Resultados guardados en 'resultados_modelo_simple.pkl'")
             visualizar_resultados()
 
         elif estado_1 == GRB.Status.INFEASIBLE:
@@ -422,7 +369,7 @@ def main():
         modelo_1.write("modelo_cb_infactible.ilp")
         raise
 
-def visualizar_resultados(archivo_pkl='resultados_modelo.pkl', archivo_txt='resultados_modelo.txt'):
+def visualizar_resultados(archivo_pkl='resultados_modelo_simple.pkl', archivo_txt='resultados_modelo_simple.txt'):
 
     try:
         with open(archivo_pkl, 'rb') as archivo:

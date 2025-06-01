@@ -57,6 +57,8 @@ K = {"skidder":{"mcc":4000}, "torre":{"mcc":5500}}
 # Períodos de tiempo en meses de cosecha, corresponde a los meses 
 #T = ["dic 23","e24", "f24", "mar24", "ab24", "may24", "dic24", "e25", "f25","mar25","ab25","may25"]
 T = [1, 2, 3, 4, 5, 6, 13, 14, 15, 16, 17, 18]
+T_u = {1:[1, 2, 3, 4, 5, 6],
+       2: [13, 14, 15, 16, 17, 18]}
 
 # Temporadas
 U = [1, 2]
@@ -87,14 +89,24 @@ rodales = {
     19: [200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210],
 }
 ##Cálculo de cantidad de nodos por rodal
-M_r = dict()
+cant_rodales = dict()
 for r in rodales:
-      M_r[r]= len(rodales[r])
+      cant_rodales[r]= len(rodales[r])
 
 #BIG M RESTRICCION 10 |M_r|^2*|T|*|K|
 Big_M = dict()
 for r in range(1,20):
-      Big_M[r] = M_r[r]**2*6
+      Big_M[r] = cant_rodales[r] * 2 * 6 * (len(N))
+
+
+M_rnueva = len(N)*len(T)*len(K)
+#
+
+
+
+# Restriccion 18.
+M = sum(N[j]["v"] for j in N if 'v' in N[j])
+M_ij = min(M,sum(4000 for i in nodos_skidders) + sum(5000 for i in nodos_torres))
 
 
 #Radio cosecha por Nodo y costo variable
