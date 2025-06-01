@@ -11,7 +11,7 @@ def main():
         modelo_2 = Model("Camino_flujo_cosecha")
         #modelo.ModelSense = GRB.MAXIMIZE
 
-        #======= DEFINICION DE VARIABLES ==========
+        #======= DEFINICION DE VARIABLES ==========#
         
         # Variable Binaria Instalacion y existencia de maquinaria
         mu = {}
@@ -310,10 +310,8 @@ def main():
 
         # Flujo de madera requiere camino construido, definimos M grande
         # 18.
-        M = sum(N[j]["v"] for j in N if 'v' in N[j])
 
         for i,j in G.edges():
-            M_ij = min(M,sum(4000 for i in nodos_skidders) + sum(5000 for i in nodos_torres))
             for t in T:
                 modelo_2.addConstr(
                     z[i,j,t] <= M_ij * l[i,j,t],  

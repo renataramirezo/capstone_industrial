@@ -16,12 +16,10 @@ def main():
         
         # Variable Binaria Instalacion y existencia de maquinaria
         mu = {}
-        #f = {}
         for k in K:
             for i in N:
                 for u in U:
                     mu[i,k,u] = modelo_1.addVar(vtype=GRB.BINARY, name=f"mu_{i}_{k}_{u}")
-                    #f[i,k,t] = modelo_1.addVar(vtype=GRB.BINARY, name=f"f_{i}_{k}_{t}")
         
         # Variables asignacion de cosecha y cantidad de madera
         x = {}
@@ -40,9 +38,6 @@ def main():
 
         # Variable construccion camino
         y = modelo_2.addVars(G.edges(), U, vtype=GRB.BINARY, name="y")
-
-        # Variable existencia camino (Variable de estado)
-        #l = modelo_2.addVars(G.edges(), T, vtype=GRB.BINARY, name="l")
 
         # Variables de transporte e inventario
         p = modelo_1.addVars(N, T, vtype=GRB.CONTINUOUS, name="p")
@@ -275,7 +270,7 @@ def main():
 
     
         
-        modelo_1.setParam('MIPGap', 0.01)
+        modelo_1.setParam('MIPGap', 0.005)
         modelo_1.optimize()
 
         dic_pit = {}
@@ -302,7 +297,7 @@ def main():
                     )
         
 
-        modelo_2.setParam('MIPGap', 0.09)
+        modelo_2.setParam('MIPGap', 0.05)
         modelo_2.optimize()
 
         print("costo transporte", costo_transporte_madera.getValue())
@@ -343,23 +338,20 @@ def main():
                         for (i, k), datos_faena in R_jk.items() 
                         for j in datos_faena['radio'] 
                         for t in T },
-                    'mu': {(i, k, t): mu[i, k, t].X 
-                        for i in N for k in K for t in T},
-                    #'f': {(i, k, t): f[i, k, t].X 
-                        #for i in N for k in K for t in T},
+                    'mu': {(i, k, u): mu[i, k, u].X 
+                        for i in N for k in K for u in U},
                     'q': {(d, t): q[d, t].X for d in D for t in T},
-                    'y': {(i,j,t): y[i,j,u].X for (i,j) in G.edges() for t in T},
-                    #'l': {(i,j,t): l[i,j,t].X for (i,j) in G.edges() for t in T},
+                    'y': {(i,j,u): y[i,j,u].X for (i,j) in G.edges() for u in U},
                     'z': {(i,j,t): z[i,j,t].X for (i,j) in G.edges() for t in T},
                     's': {(r, u): s[r,u].X for r in range(1,20) for u in U}
 
                 }
             }
 
-            with open('resultados_modelo.pkl', 'wb') as archivo:
+            with open('resultados_modelo_simple.pkl', 'wb') as archivo:
                 pickle.dump(resultados, archivo)
 
-            print("Resultados guardados en 'resultados_modelo.pkl'")
+            print("Resultados guardados en 'resultados_modelo_simple.pkl'")
             visualizar_resultados()
 
         elif estado_1 == GRB.Status.INFEASIBLE:
@@ -377,7 +369,7 @@ def main():
         modelo_1.write("modelo_cb_infactible.ilp")
         raise
 
-def visualizar_resultados(archivo_pkl='resultados_modelo.pkl', archivo_txt='resultados_modelo.txt'):
+def visualizar_resultados(archivo_pkl='resultados_modelo_simple.pkl', archivo_txt='resultados_modelo_simple.txt'):
 
     try:
         with open(archivo_pkl, 'rb') as archivo:
