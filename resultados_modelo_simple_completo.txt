@@ -4,1084 +4,315 @@
 ============================================================
 
 🔵 Estado del modelo: OPTIMAL
-💰 Valor objetivo (ganancia neta): $2,182,299.23
+💰 Valor objetivo (ganancia neta): $2,173,763.59
 
 📈 DESGLOSE ECONÓMICO:
-  - Ingresos por venta: $4,075,341.30
-  - Costo de cosecha: $1,658,662.31
-  - Costo de instalacion: $219,999.97
-  - Costo de transporte: $8,379.80
-  - Costo de construccion_caminos: $6,000.00
+  - Ingresos por venta: $4,075,341.38
+  - Costo de cosecha: $1,658,662.35
+  - Costo de instalacion: $220,000.00
+  - Costo de transporte: $8,715.43
+  - Costo de construccion_caminos: $14,200.00
 
 🔧 VARIABLES RELEVANTES:
 
-  🔸 Faena Cosechada (x):
-    - Faena 2 → Hectarea 2, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 2 → Hectarea 2, máquina skidder, período 3, cosecha: 1.00 
-    - Faena 2 → Hectarea 1, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 2 → Hectarea 1, máquina skidder, período 3, cosecha: 1.00 
-    - Faena 2 → Hectarea 46, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 2 → Hectarea 46, máquina skidder, período 5, cosecha: 1.00 
-    - Faena 2 → Hectarea 47, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 2 → Hectarea 47, máquina skidder, período 3, cosecha: 1.00 
-    - Faena 2 → Hectarea 4, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 2 → Hectarea 4, máquina skidder, período 3, cosecha: 1.00 
-    - Faena 2 → Hectarea 5, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 2 → Hectarea 5, máquina skidder, período 4, cosecha: 1.00 
-    - Faena 2 → Hectarea 6, máquina skidder, período 2, cosecha: 1.00 
-    - Faena 2 → Hectarea 48, máquina skidder, período 4, cosecha: 1.00 
-    - Faena 2 → Hectarea 49, máquina skidder, período 4, cosecha: 1.00 
-    - Faena 2 → Hectarea 9, máquina skidder, período 6, cosecha: 1.00 
-    - Faena 2 → Hectarea 10, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 2 → Hectarea 10, máquina skidder, período 4, cosecha: 1.00 
-    - Faena 2 → Hectarea 50, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 2 → Hectarea 50, máquina skidder, período 6, cosecha: 1.00 
-    - Faena 100 → Hectarea 100, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 100 → Hectarea 100, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 100 → Hectarea 100, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 100 → Hectarea 100, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 100 → Hectarea 99, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 100 → Hectarea 99, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 100 → Hectarea 99, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 100 → Hectarea 99, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 100 → Hectarea 99, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 100 → Hectarea 99, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 100 → Hectarea 101, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 100 → Hectarea 101, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 100 → Hectarea 101, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 100 → Hectarea 101, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 100 → Hectarea 101, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 100 → Hectarea 101, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 100 → Hectarea 102, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 100 → Hectarea 102, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 100 → Hectarea 102, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 100 → Hectarea 102, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 100 → Hectarea 102, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 100 → Hectarea 102, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 100 → Hectarea 103, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 100 → Hectarea 103, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 100 → Hectarea 103, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 100 → Hectarea 103, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 100 → Hectarea 103, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 100 → Hectarea 103, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 100 → Hectarea 104, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 100 → Hectarea 104, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 100 → Hectarea 104, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 100 → Hectarea 104, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 100 → Hectarea 104, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 100 → Hectarea 104, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 100 → Hectarea 105, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 100 → Hectarea 105, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 100 → Hectarea 105, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 100 → Hectarea 105, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 100 → Hectarea 105, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 100 → Hectarea 105, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 100 → Hectarea 106, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 100 → Hectarea 106, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 100 → Hectarea 106, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 100 → Hectarea 106, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 100 → Hectarea 106, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 100 → Hectarea 106, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 100 → Hectarea 107, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 100 → Hectarea 107, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 100 → Hectarea 107, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 100 → Hectarea 107, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 100 → Hectarea 107, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 100 → Hectarea 107, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 100 → Hectarea 108, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 100 → Hectarea 108, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 100 → Hectarea 108, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 100 → Hectarea 108, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 100 → Hectarea 108, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 100 → Hectarea 108, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 100 → Hectarea 109, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 100 → Hectarea 109, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 100 → Hectarea 109, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 100 → Hectarea 109, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 100 → Hectarea 109, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 151 → Hectarea 151, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 151 → Hectarea 151, máquina skidder, período 2, cosecha: 1.00 
-    - Faena 151 → Hectarea 151, máquina skidder, período 6, cosecha: 1.00 
-    - Faena 151 → Hectarea 150, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 151 → Hectarea 150, máquina skidder, período 2, cosecha: 1.00 
-    - Faena 151 → Hectarea 150, máquina skidder, período 6, cosecha: 1.00 
-    - Faena 151 → Hectarea 152, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 151 → Hectarea 152, máquina skidder, período 2, cosecha: 1.00 
-    - Faena 151 → Hectarea 152, máquina skidder, período 6, cosecha: 1.00 
-    - Faena 151 → Hectarea 153, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 151 → Hectarea 153, máquina skidder, período 2, cosecha: 1.00 
-    - Faena 151 → Hectarea 153, máquina skidder, período 6, cosecha: 1.00 
-    - Faena 151 → Hectarea 154, máquina skidder, período 2, cosecha: 1.00 
-    - Faena 151 → Hectarea 154, máquina skidder, período 6, cosecha: 1.00 
-    - Faena 151 → Hectarea 155, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 151 → Hectarea 155, máquina skidder, período 6, cosecha: 1.00 
-    - Faena 151 → Hectarea 156, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 151 → Hectarea 156, máquina skidder, período 2, cosecha: 1.00 
-    - Faena 151 → Hectarea 156, máquina skidder, período 6, cosecha: 1.00 
-    - Faena 151 → Hectarea 157, máquina skidder, período 6, cosecha: 1.00 
-    - Faena 151 → Hectarea 159, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 151 → Hectarea 159, máquina skidder, período 2, cosecha: 1.00 
-    - Faena 151 → Hectarea 160, máquina skidder, período 6, cosecha: 1.00 
-    - Faena 151 → Hectarea 161, máquina skidder, período 6, cosecha: 1.00 
-    - Faena 12 → Hectarea 12, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 12 → Hectarea 12, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 12 → Hectarea 3, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 12 → Hectarea 3, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 12 → Hectarea 3, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 12 → Hectarea 3, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 12 → Hectarea 4, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 12 → Hectarea 4, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 12 → Hectarea 4, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 12 → Hectarea 4, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 12 → Hectarea 7, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 12 → Hectarea 7, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 12 → Hectarea 8, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 12 → Hectarea 8, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 12 → Hectarea 8, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 12 → Hectarea 8, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 12 → Hectarea 9, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 12 → Hectarea 9, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 12 → Hectarea 9, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 12 → Hectarea 9, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 12 → Hectarea 11, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 12 → Hectarea 11, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 12 → Hectarea 11, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 12 → Hectarea 13, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 12 → Hectarea 54, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 12 → Hectarea 54, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 12 → Hectarea 54, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 12 → Hectarea 14, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 12 → Hectarea 15, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 12 → Hectarea 16, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 12 → Hectarea 17, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 12 → Hectarea 55, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 12 → Hectarea 19, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 12 → Hectarea 20, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 12 → Hectarea 21, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 12 → Hectarea 21, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 12 → Hectarea 21, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 112 → Hectarea 112, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 112 → Hectarea 112, máquina skidder, período 3, cosecha: 1.00 
-    - Faena 112 → Hectarea 112, máquina skidder, período 4, cosecha: 1.00 
-    - Faena 112 → Hectarea 112, máquina skidder, período 5, cosecha: 1.00 
-    - Faena 112 → Hectarea 112, máquina skidder, período 6, cosecha: 1.00 
-    - Faena 112 → Hectarea 51, máquina skidder, período 1, cosecha: 0.00 
-    - Faena 112 → Hectarea 51, máquina skidder, período 5, cosecha: 1.00 
-    - Faena 112 → Hectarea 158, máquina skidder, período 2, cosecha: 1.00 
-    - Faena 112 → Hectarea 53, máquina skidder, período 6, cosecha: 1.00 
-    - Faena 112 → Hectarea 111, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 112 → Hectarea 111, máquina skidder, período 4, cosecha: 1.00 
-    - Faena 112 → Hectarea 111, máquina skidder, período 5, cosecha: 1.00 
-    - Faena 112 → Hectarea 111, máquina skidder, período 6, cosecha: 1.00 
-    - Faena 112 → Hectarea 113, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 112 → Hectarea 113, máquina skidder, período 2, cosecha: 1.00 
-    - Faena 112 → Hectarea 113, máquina skidder, período 4, cosecha: 1.00 
-    - Faena 112 → Hectarea 113, máquina skidder, período 5, cosecha: 1.00 
-    - Faena 112 → Hectarea 114, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 112 → Hectarea 114, máquina skidder, período 4, cosecha: 1.00 
-    - Faena 112 → Hectarea 114, máquina skidder, período 5, cosecha: 1.00 
-    - Faena 112 → Hectarea 114, máquina skidder, período 6, cosecha: 1.00 
-    - Faena 112 → Hectarea 115, máquina skidder, período 2, cosecha: 1.00 
-    - Faena 112 → Hectarea 115, máquina skidder, período 3, cosecha: 1.00 
-    - Faena 112 → Hectarea 115, máquina skidder, período 4, cosecha: 1.00 
-    - Faena 112 → Hectarea 115, máquina skidder, período 5, cosecha: 1.00 
-    - Faena 112 → Hectarea 115, máquina skidder, período 6, cosecha: 1.00 
-    - Faena 112 → Hectarea 116, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 112 → Hectarea 116, máquina skidder, período 2, cosecha: 1.00 
-    - Faena 112 → Hectarea 116, máquina skidder, período 3, cosecha: 1.00 
-    - Faena 112 → Hectarea 116, máquina skidder, período 4, cosecha: 1.00 
-    - Faena 112 → Hectarea 116, máquina skidder, período 5, cosecha: 1.00 
-    - Faena 112 → Hectarea 116, máquina skidder, período 6, cosecha: 1.00 
-    - Faena 112 → Hectarea 117, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 112 → Hectarea 117, máquina skidder, período 2, cosecha: 1.00 
-    - Faena 112 → Hectarea 117, máquina skidder, período 3, cosecha: 1.00 
-    - Faena 112 → Hectarea 117, máquina skidder, período 4, cosecha: 1.00 
-    - Faena 112 → Hectarea 117, máquina skidder, período 5, cosecha: 1.00 
-    - Faena 112 → Hectarea 118, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 112 → Hectarea 118, máquina skidder, período 2, cosecha: 1.00 
-    - Faena 112 → Hectarea 118, máquina skidder, período 3, cosecha: 1.00 
-    - Faena 112 → Hectarea 118, máquina skidder, período 4, cosecha: 1.00 
-    - Faena 112 → Hectarea 118, máquina skidder, período 6, cosecha: 1.00 
-    - Faena 168 → Hectarea 168, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 168 → Hectarea 168, máquina skidder, período 3, cosecha: 1.00 
-    - Faena 168 → Hectarea 168, máquina skidder, período 4, cosecha: 1.00 
-    - Faena 168 → Hectarea 168, máquina skidder, período 5, cosecha: 1.00 
-    - Faena 168 → Hectarea 160, máquina skidder, período 3, cosecha: 1.00 
-    - Faena 168 → Hectarea 160, máquina skidder, período 4, cosecha: 1.00 
-    - Faena 168 → Hectarea 161, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 168 → Hectarea 161, máquina skidder, período 2, cosecha: 1.00 
-    - Faena 168 → Hectarea 161, máquina skidder, período 3, cosecha: 1.00 
-    - Faena 168 → Hectarea 161, máquina skidder, período 5, cosecha: 1.00 
-    - Faena 168 → Hectarea 162, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 168 → Hectarea 162, máquina skidder, período 2, cosecha: 1.00 
-    - Faena 168 → Hectarea 162, máquina skidder, período 3, cosecha: 1.00 
-    - Faena 168 → Hectarea 162, máquina skidder, período 4, cosecha: 1.00 
-    - Faena 168 → Hectarea 162, máquina skidder, período 6, cosecha: 1.00 
-    - Faena 168 → Hectarea 163, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 168 → Hectarea 163, máquina skidder, período 2, cosecha: 1.00 
-    - Faena 168 → Hectarea 163, máquina skidder, período 4, cosecha: 1.00 
-    - Faena 168 → Hectarea 163, máquina skidder, período 5, cosecha: 1.00 
-    - Faena 168 → Hectarea 163, máquina skidder, período 6, cosecha: 1.00 
-    - Faena 168 → Hectarea 164, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 168 → Hectarea 164, máquina skidder, período 3, cosecha: 1.00 
-    - Faena 168 → Hectarea 164, máquina skidder, período 4, cosecha: 1.00 
-    - Faena 168 → Hectarea 164, máquina skidder, período 5, cosecha: 1.00 
-    - Faena 168 → Hectarea 164, máquina skidder, período 6, cosecha: 1.00 
-    - Faena 168 → Hectarea 165, máquina skidder, período 2, cosecha: 1.00 
-    - Faena 168 → Hectarea 165, máquina skidder, período 3, cosecha: 1.00 
-    - Faena 168 → Hectarea 165, máquina skidder, período 4, cosecha: 1.00 
-    - Faena 168 → Hectarea 165, máquina skidder, período 5, cosecha: 1.00 
-    - Faena 168 → Hectarea 165, máquina skidder, período 6, cosecha: 1.00 
-    - Faena 168 → Hectarea 166, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 168 → Hectarea 166, máquina skidder, período 4, cosecha: 1.00 
-    - Faena 168 → Hectarea 166, máquina skidder, período 5, cosecha: 1.00 
-    - Faena 168 → Hectarea 166, máquina skidder, período 6, cosecha: 1.00 
-    - Faena 168 → Hectarea 167, máquina skidder, período 3, cosecha: 1.00 
-    - Faena 168 → Hectarea 167, máquina skidder, período 4, cosecha: 1.00 
-    - Faena 168 → Hectarea 167, máquina skidder, período 6, cosecha: 1.00 
-    - Faena 168 → Hectarea 169, máquina skidder, período 2, cosecha: 1.00 
-    - Faena 168 → Hectarea 169, máquina skidder, período 3, cosecha: 1.00 
-    - Faena 168 → Hectarea 169, máquina skidder, período 5, cosecha: 1.00 
-    - Faena 168 → Hectarea 169, máquina skidder, período 6, cosecha: 1.00 
-    - Faena 18 → Hectarea 18, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 18 → Hectarea 18, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 18 → Hectarea 22, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 18 → Hectarea 23, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 18 → Hectarea 23, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 18 → Hectarea 23, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 58 → Hectarea 58, máquina torre, período 13, cosecha: 0.00 
-    - Faena 58 → Hectarea 58, máquina torre, período 14, cosecha: 0.00 
-    - Faena 58 → Hectarea 56, máquina torre, período 13, cosecha: 0.00 
-    - Faena 58 → Hectarea 57, máquina torre, período 14, cosecha: 0.00 
-    - Faena 58 → Hectarea 57, máquina torre, período 17, cosecha: 0.00 
-    - Faena 58 → Hectarea 59, máquina torre, período 13, cosecha: 0.00 
-    - Faena 58 → Hectarea 59, máquina torre, período 14, cosecha: 0.00 
-    - Faena 58 → Hectarea 59, máquina torre, período 15, cosecha: 0.00 
-    - Faena 58 → Hectarea 59, máquina torre, período 16, cosecha: 0.00 
-    - Faena 58 → Hectarea 59, máquina torre, período 17, cosecha: 0.00 
-    - Faena 58 → Hectarea 59, máquina torre, período 18, cosecha: 0.00 
-    - Faena 58 → Hectarea 60, máquina torre, período 15, cosecha: 0.00 
-    - Faena 58 → Hectarea 60, máquina torre, período 16, cosecha: 0.00 
-    - Faena 58 → Hectarea 61, máquina torre, período 14, cosecha: 0.00 
-    - Faena 58 → Hectarea 62, máquina torre, período 13, cosecha: 0.00 
-    - Faena 58 → Hectarea 62, máquina torre, período 14, cosecha: 0.00 
-    - Faena 58 → Hectarea 63, máquina torre, período 13, cosecha: 0.00 
-    - Faena 58 → Hectarea 63, máquina torre, período 14, cosecha: 0.00 
-    - Faena 58 → Hectarea 64, máquina torre, período 13, cosecha: 0.00 
-    - Faena 58 → Hectarea 64, máquina torre, período 14, cosecha: 0.00 
-    - Faena 58 → Hectarea 119, máquina torre, período 17, cosecha: 0.00 
-    - Faena 173 → Hectarea 173, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 173 → Hectarea 173, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 173 → Hectarea 173, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 173 → Hectarea 110, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 173 → Hectarea 110, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 173 → Hectarea 170, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 173 → Hectarea 170, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 173 → Hectarea 170, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 173 → Hectarea 170, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 173 → Hectarea 171, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 173 → Hectarea 171, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 173 → Hectarea 171, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 173 → Hectarea 172, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 173 → Hectarea 172, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 173 → Hectarea 172, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 173 → Hectarea 172, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 173 → Hectarea 172, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 173 → Hectarea 174, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 173 → Hectarea 174, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 173 → Hectarea 174, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 173 → Hectarea 175, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 173 → Hectarea 175, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 173 → Hectarea 175, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 173 → Hectarea 175, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 173 → Hectarea 175, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 173 → Hectarea 120, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 173 → Hectarea 120, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 173 → Hectarea 120, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 173 → Hectarea 120, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 173 → Hectarea 120, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 173 → Hectarea 121, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 173 → Hectarea 178, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 173 → Hectarea 178, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 173 → Hectarea 178, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 173 → Hectarea 178, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 173 → Hectarea 179, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 173 → Hectarea 179, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 173 → Hectarea 179, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 173 → Hectarea 180, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 173 → Hectarea 124, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 173 → Hectarea 183, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 173 → Hectarea 183, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 173 → Hectarea 183, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 173 → Hectarea 183, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 173 → Hectarea 184, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 173 → Hectarea 184, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 173 → Hectarea 184, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 173 → Hectarea 184, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 173 → Hectarea 184, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 63 → Hectarea 63, máquina torre, período 13, cosecha: 1.00 
-    - Faena 63 → Hectarea 56, máquina torre, período 13, cosecha: 1.00 
-    - Faena 63 → Hectarea 56, máquina torre, período 14, cosecha: 1.00 
-    - Faena 63 → Hectarea 56, máquina torre, período 18, cosecha: 0.00 
-    - Faena 63 → Hectarea 57, máquina torre, período 14, cosecha: 1.00 
-    - Faena 63 → Hectarea 58, máquina torre, período 13, cosecha: 1.00 
-    - Faena 63 → Hectarea 58, máquina torre, período 14, cosecha: 1.00 
-    - Faena 63 → Hectarea 59, máquina torre, período 14, cosecha: 1.00 
-    - Faena 63 → Hectarea 60, máquina torre, período 14, cosecha: 1.00 
-    - Faena 63 → Hectarea 61, máquina torre, período 13, cosecha: 1.00 
-    - Faena 63 → Hectarea 61, máquina torre, período 14, cosecha: 1.00 
-    - Faena 63 → Hectarea 62, máquina torre, período 13, cosecha: 1.00 
-    - Faena 63 → Hectarea 64, máquina torre, período 13, cosecha: 1.00 
-    - Faena 63 → Hectarea 119, máquina torre, período 18, cosecha: 1.00 
-    - Faena 63 → Hectarea 122, máquina torre, período 18, cosecha: 1.00 
-    - Faena 63 → Hectarea 123, máquina torre, período 18, cosecha: 1.00 
-    - Faena 25 → Hectarea 25, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 25 → Hectarea 25, máquina skidder, período 3, cosecha: 1.00 
-    - Faena 25 → Hectarea 25, máquina skidder, período 5, cosecha: 1.00 
-    - Faena 25 → Hectarea 24, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 25 → Hectarea 24, máquina skidder, período 2, cosecha: 1.00 
-    - Faena 25 → Hectarea 24, máquina skidder, período 3, cosecha: 1.00 
-    - Faena 25 → Hectarea 24, máquina skidder, período 4, cosecha: 1.00 
-    - Faena 25 → Hectarea 24, máquina skidder, período 5, cosecha: 1.00 
-    - Faena 25 → Hectarea 24, máquina skidder, período 6, cosecha: 1.00 
-    - Faena 25 → Hectarea 26, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 25 → Hectarea 26, máquina skidder, período 2, cosecha: 1.00 
-    - Faena 25 → Hectarea 26, máquina skidder, período 5, cosecha: 1.00 
-    - Faena 25 → Hectarea 27, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 25 → Hectarea 27, máquina skidder, período 2, cosecha: 1.00 
-    - Faena 25 → Hectarea 27, máquina skidder, período 5, cosecha: 1.00 
-    - Faena 25 → Hectarea 28, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 25 → Hectarea 28, máquina skidder, período 3, cosecha: 1.00 
-    - Faena 25 → Hectarea 28, máquina skidder, período 5, cosecha: 1.00 
-    - Faena 25 → Hectarea 29, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 25 → Hectarea 29, máquina skidder, período 5, cosecha: 1.00 
-    - Faena 25 → Hectarea 30, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 25 → Hectarea 30, máquina skidder, período 3, cosecha: 1.00 
-    - Faena 25 → Hectarea 31, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 25 → Hectarea 31, máquina skidder, período 5, cosecha: 1.00 
-    - Faena 25 → Hectarea 32, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 25 → Hectarea 32, máquina skidder, período 2, cosecha: 1.00 
-    - Faena 65 → Hectarea 65, máquina torre, período 1, cosecha: 1.00 
-    - Faena 65 → Hectarea 66, máquina torre, período 1, cosecha: 1.00 
-    - Faena 65 → Hectarea 66, máquina torre, período 2, cosecha: 1.00 
-    - Faena 65 → Hectarea 67, máquina torre, período 1, cosecha: 1.00 
-    - Faena 65 → Hectarea 68, máquina torre, período 2, cosecha: 1.00 
-    - Faena 65 → Hectarea 68, máquina torre, período 4, cosecha: 1.00 
-    - Faena 65 → Hectarea 69, máquina torre, período 1, cosecha: 1.00 
-    - Faena 65 → Hectarea 70, máquina torre, período 1, cosecha: 1.00 
-    - Faena 65 → Hectarea 71, máquina torre, período 1, cosecha: 1.00 
-    - Faena 65 → Hectarea 33, máquina torre, período 4, cosecha: 1.00 
-    - Faena 65 → Hectarea 73, máquina torre, período 1, cosecha: 1.00 
-    - Faena 65 → Hectarea 74, máquina torre, período 1, cosecha: 1.00 
-    - Faena 65 → Hectarea 74, máquina torre, período 6, cosecha: 1.00 
-    - Faena 65 → Hectarea 75, máquina torre, período 1, cosecha: 1.00 
-    - Faena 65 → Hectarea 36, máquina torre, período 1, cosecha: 1.00 
-    - Faena 187 → Hectarea 187, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 187 → Hectarea 187, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 187 → Hectarea 187, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 187 → Hectarea 187, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 187 → Hectarea 187, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 187 → Hectarea 187, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 187 → Hectarea 176, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 187 → Hectarea 176, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 187 → Hectarea 176, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 187 → Hectarea 176, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 187 → Hectarea 176, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 187 → Hectarea 176, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 187 → Hectarea 177, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 187 → Hectarea 177, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 187 → Hectarea 177, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 187 → Hectarea 177, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 187 → Hectarea 177, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 187 → Hectarea 177, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 187 → Hectarea 180, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 187 → Hectarea 180, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 187 → Hectarea 180, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 187 → Hectarea 180, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 187 → Hectarea 181, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 187 → Hectarea 181, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 187 → Hectarea 181, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 187 → Hectarea 181, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 187 → Hectarea 181, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 187 → Hectarea 182, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 187 → Hectarea 182, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 187 → Hectarea 182, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 187 → Hectarea 182, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 187 → Hectarea 182, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 187 → Hectarea 182, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 187 → Hectarea 185, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 187 → Hectarea 185, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 187 → Hectarea 185, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 187 → Hectarea 185, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 187 → Hectarea 185, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 187 → Hectarea 185, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 187 → Hectarea 186, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 187 → Hectarea 186, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 187 → Hectarea 186, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 187 → Hectarea 186, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 187 → Hectarea 186, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 187 → Hectarea 186, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 187 → Hectarea 189, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 187 → Hectarea 189, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 187 → Hectarea 189, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 187 → Hectarea 190, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 187 → Hectarea 191, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 187 → Hectarea 191, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 187 → Hectarea 194, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 187 → Hectarea 194, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 187 → Hectarea 195, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 187 → Hectarea 195, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 126 → Hectarea 126, máquina skidder, período 1, cosecha: 0.00 
-    - Faena 126 → Hectarea 126, máquina skidder, período 6, cosecha: 0.00 
-    - Faena 126 → Hectarea 119, máquina skidder, período 1, cosecha: 0.00 
-    - Faena 126 → Hectarea 119, máquina skidder, período 2, cosecha: 0.00 
-    - Faena 126 → Hectarea 119, máquina skidder, período 3, cosecha: 0.00 
-    - Faena 126 → Hectarea 119, máquina skidder, período 5, cosecha: 0.00 
-    - Faena 126 → Hectarea 68, máquina skidder, período 1, cosecha: 0.00 
-    - Faena 126 → Hectarea 68, máquina skidder, período 2, cosecha: 0.00 
-    - Faena 126 → Hectarea 122, máquina skidder, período 1, cosecha: 0.00 
-    - Faena 126 → Hectarea 122, máquina skidder, período 2, cosecha: 0.00 
-    - Faena 126 → Hectarea 122, máquina skidder, período 3, cosecha: 0.00 
-    - Faena 126 → Hectarea 122, máquina skidder, período 4, cosecha: 0.00 
-    - Faena 126 → Hectarea 122, máquina skidder, período 5, cosecha: 0.00 
-    - Faena 126 → Hectarea 123, máquina skidder, período 1, cosecha: 0.00 
-    - Faena 126 → Hectarea 123, máquina skidder, período 2, cosecha: 0.00 
-    - Faena 126 → Hectarea 123, máquina skidder, período 3, cosecha: 0.00 
-    - Faena 126 → Hectarea 123, máquina skidder, período 4, cosecha: 0.00 
-    - Faena 126 → Hectarea 123, máquina skidder, período 6, cosecha: 0.00 
-    - Faena 126 → Hectarea 72, máquina skidder, período 6, cosecha: 0.00 
-    - Faena 126 → Hectarea 125, máquina skidder, período 1, cosecha: 0.00 
-    - Faena 126 → Hectarea 125, máquina skidder, período 4, cosecha: 0.00 
-    - Faena 126 → Hectarea 127, máquina skidder, período 5, cosecha: 0.00 
-    - Faena 126 → Hectarea 128, máquina skidder, período 1, cosecha: 0.00 
-    - Faena 126 → Hectarea 128, máquina skidder, período 4, cosecha: 0.00 
-    - Faena 126 → Hectarea 76, máquina skidder, período 5, cosecha: 0.00 
-    - Faena 126 → Hectarea 129, máquina skidder, período 1, cosecha: 0.00 
-    - Faena 126 → Hectarea 129, máquina skidder, período 3, cosecha: 0.00 
-    - Faena 126 → Hectarea 130, máquina skidder, período 6, cosecha: 0.00 
-    - Faena 126 → Hectarea 131, máquina skidder, período 2, cosecha: 0.00 
-    - Faena 126 → Hectarea 132, máquina skidder, período 1, cosecha: 0.00 
-    - Faena 126 → Hectarea 132, máquina skidder, período 2, cosecha: 0.00 
-    - Faena 126 → Hectarea 133, máquina skidder, período 3, cosecha: 0.00 
-    - Faena 126 → Hectarea 134, máquina skidder, período 6, cosecha: 0.00 
-    - Faena 126 → Hectarea 135, máquina skidder, período 6, cosecha: 0.00 
-    - Faena 130 → Hectarea 130, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 130 → Hectarea 130, máquina skidder, período 2, cosecha: 1.00 
-    - Faena 130 → Hectarea 130, máquina skidder, período 5, cosecha: 1.00 
-    - Faena 130 → Hectarea 130, máquina skidder, período 6, cosecha: 1.00 
-    - Faena 130 → Hectarea 72, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 130 → Hectarea 125, máquina skidder, período 2, cosecha: 1.00 
-    - Faena 130 → Hectarea 125, máquina skidder, período 3, cosecha: 1.00 
-    - Faena 130 → Hectarea 125, máquina skidder, período 5, cosecha: 1.00 
-    - Faena 130 → Hectarea 126, máquina skidder, período 3, cosecha: 1.00 
-    - Faena 130 → Hectarea 127, máquina skidder, período 2, cosecha: 1.00 
-    - Faena 130 → Hectarea 127, máquina skidder, período 4, cosecha: 1.00 
-    - Faena 130 → Hectarea 128, máquina skidder, período 6, cosecha: 1.00 
-    - Faena 130 → Hectarea 76, máquina skidder, período 5, cosecha: 1.00 
-    - Faena 130 → Hectarea 76, máquina skidder, período 6, cosecha: 1.00 
-    - Faena 130 → Hectarea 129, máquina skidder, período 2, cosecha: 1.00 
-    - Faena 130 → Hectarea 129, máquina skidder, período 4, cosecha: 1.00 
-    - Faena 130 → Hectarea 131, máquina skidder, período 3, cosecha: 1.00 
-    - Faena 130 → Hectarea 131, máquina skidder, período 5, cosecha: 1.00 
-    - Faena 130 → Hectarea 132, máquina skidder, período 2, cosecha: 1.00 
-    - Faena 130 → Hectarea 132, máquina skidder, período 4, cosecha: 1.00 
-    - Faena 130 → Hectarea 133, máquina skidder, período 2, cosecha: 1.00 
-    - Faena 130 → Hectarea 133, máquina skidder, período 4, cosecha: 1.00 
-    - Faena 130 → Hectarea 133, máquina skidder, período 5, cosecha: 1.00 
-    - Faena 130 → Hectarea 133, máquina skidder, período 6, cosecha: 1.00 
-    - Faena 130 → Hectarea 134, máquina skidder, período 2, cosecha: 1.00 
-    - Faena 130 → Hectarea 134, máquina skidder, período 4, cosecha: 1.00 
-    - Faena 130 → Hectarea 135, máquina skidder, período 4, cosecha: 1.00 
-    - Faena 130 → Hectarea 136, máquina skidder, período 2, cosecha: 1.00 
-    - Faena 130 → Hectarea 136, máquina skidder, período 3, cosecha: 1.00 
-    - Faena 130 → Hectarea 136, máquina skidder, período 5, cosecha: 1.00 
-    - Faena 130 → Hectarea 136, máquina skidder, período 6, cosecha: 1.00 
-    - Faena 130 → Hectarea 137, máquina skidder, período 2, cosecha: 1.00 
-    - Faena 130 → Hectarea 137, máquina skidder, período 3, cosecha: 1.00 
-    - Faena 130 → Hectarea 138, máquina skidder, período 2, cosecha: 1.00 
-    - Faena 130 → Hectarea 138, máquina skidder, período 6, cosecha: 1.00 
-    - Faena 130 → Hectarea 139, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 197 → Hectarea 197, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 197 → Hectarea 197, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 197 → Hectarea 197, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 197 → Hectarea 197, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 197 → Hectarea 197, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 197 → Hectarea 197, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 197 → Hectarea 188, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 197 → Hectarea 188, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 197 → Hectarea 188, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 197 → Hectarea 188, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 197 → Hectarea 188, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 197 → Hectarea 188, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 197 → Hectarea 189, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 197 → Hectarea 190, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 197 → Hectarea 192, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 197 → Hectarea 192, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 197 → Hectarea 192, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 197 → Hectarea 192, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 197 → Hectarea 192, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 197 → Hectarea 192, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 197 → Hectarea 193, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 197 → Hectarea 193, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 197 → Hectarea 193, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 197 → Hectarea 193, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 197 → Hectarea 193, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 197 → Hectarea 195, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 197 → Hectarea 196, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 197 → Hectarea 196, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 197 → Hectarea 196, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 197 → Hectarea 196, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 197 → Hectarea 196, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 197 → Hectarea 196, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 197 → Hectarea 198, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 197 → Hectarea 198, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 197 → Hectarea 198, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 197 → Hectarea 198, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 197 → Hectarea 198, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 197 → Hectarea 198, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 197 → Hectarea 199, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 197 → Hectarea 199, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 197 → Hectarea 199, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 197 → Hectarea 199, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 197 → Hectarea 199, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 197 → Hectarea 199, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 197 → Hectarea 200, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 197 → Hectarea 200, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 197 → Hectarea 200, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 197 → Hectarea 200, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 197 → Hectarea 200, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 197 → Hectarea 200, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 197 → Hectarea 201, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 197 → Hectarea 201, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 197 → Hectarea 201, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 197 → Hectarea 201, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 197 → Hectarea 201, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 197 → Hectarea 201, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 197 → Hectarea 202, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 197 → Hectarea 202, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 197 → Hectarea 202, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 197 → Hectarea 202, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 197 → Hectarea 202, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 197 → Hectarea 202, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 197 → Hectarea 203, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 197 → Hectarea 203, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 197 → Hectarea 203, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 197 → Hectarea 203, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 197 → Hectarea 203, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 197 → Hectarea 203, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 197 → Hectarea 205, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 197 → Hectarea 205, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 197 → Hectarea 205, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 197 → Hectarea 205, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 197 → Hectarea 205, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 197 → Hectarea 205, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 197 → Hectarea 206, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 197 → Hectarea 206, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 197 → Hectarea 206, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 197 → Hectarea 206, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 197 → Hectarea 206, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 197 → Hectarea 206, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 197 → Hectarea 207, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 197 → Hectarea 207, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 197 → Hectarea 207, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 197 → Hectarea 207, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 197 → Hectarea 207, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 197 → Hectarea 207, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 40 → Hectarea 40, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 40 → Hectarea 40, máquina skidder, período 2, cosecha: 1.00 
-    - Faena 40 → Hectarea 40, máquina skidder, período 3, cosecha: 1.00 
-    - Faena 40 → Hectarea 40, máquina skidder, período 4, cosecha: 1.00 
-    - Faena 40 → Hectarea 40, máquina skidder, período 5, cosecha: 1.00 
-    - Faena 40 → Hectarea 40, máquina skidder, período 6, cosecha: 1.00 
-    - Faena 40 → Hectarea 34, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 40 → Hectarea 34, máquina skidder, período 2, cosecha: 1.00 
-    - Faena 40 → Hectarea 34, máquina skidder, período 3, cosecha: 1.00 
-    - Faena 40 → Hectarea 34, máquina skidder, período 4, cosecha: 1.00 
-    - Faena 40 → Hectarea 34, máquina skidder, período 5, cosecha: 1.00 
-    - Faena 40 → Hectarea 34, máquina skidder, período 6, cosecha: 1.00 
-    - Faena 40 → Hectarea 35, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 40 → Hectarea 35, máquina skidder, período 2, cosecha: 1.00 
-    - Faena 40 → Hectarea 35, máquina skidder, período 3, cosecha: 1.00 
-    - Faena 40 → Hectarea 35, máquina skidder, período 4, cosecha: 1.00 
-    - Faena 40 → Hectarea 35, máquina skidder, período 5, cosecha: 1.00 
-    - Faena 40 → Hectarea 35, máquina skidder, período 6, cosecha: 1.00 
-    - Faena 40 → Hectarea 37, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 40 → Hectarea 37, máquina skidder, período 2, cosecha: 1.00 
-    - Faena 40 → Hectarea 37, máquina skidder, período 3, cosecha: 1.00 
-    - Faena 40 → Hectarea 37, máquina skidder, período 4, cosecha: 1.00 
-    - Faena 40 → Hectarea 37, máquina skidder, período 5, cosecha: 1.00 
-    - Faena 40 → Hectarea 37, máquina skidder, período 6, cosecha: 1.00 
-    - Faena 40 → Hectarea 38, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 40 → Hectarea 38, máquina skidder, período 2, cosecha: 1.00 
-    - Faena 40 → Hectarea 38, máquina skidder, período 3, cosecha: 1.00 
-    - Faena 40 → Hectarea 38, máquina skidder, período 4, cosecha: 1.00 
-    - Faena 40 → Hectarea 38, máquina skidder, período 5, cosecha: 1.00 
-    - Faena 40 → Hectarea 38, máquina skidder, período 6, cosecha: 1.00 
-    - Faena 40 → Hectarea 39, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 40 → Hectarea 39, máquina skidder, período 2, cosecha: 1.00 
-    - Faena 40 → Hectarea 39, máquina skidder, período 3, cosecha: 1.00 
-    - Faena 40 → Hectarea 39, máquina skidder, período 4, cosecha: 1.00 
-    - Faena 40 → Hectarea 39, máquina skidder, período 5, cosecha: 1.00 
-    - Faena 40 → Hectarea 39, máquina skidder, período 6, cosecha: 1.00 
-    - Faena 40 → Hectarea 41, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 40 → Hectarea 41, máquina skidder, período 2, cosecha: 1.00 
-    - Faena 40 → Hectarea 41, máquina skidder, período 3, cosecha: 1.00 
-    - Faena 40 → Hectarea 41, máquina skidder, período 4, cosecha: 1.00 
-    - Faena 40 → Hectarea 41, máquina skidder, período 5, cosecha: 1.00 
-    - Faena 40 → Hectarea 41, máquina skidder, período 6, cosecha: 1.00 
-    - Faena 40 → Hectarea 42, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 40 → Hectarea 42, máquina skidder, período 2, cosecha: 1.00 
-    - Faena 40 → Hectarea 42, máquina skidder, período 3, cosecha: 1.00 
-    - Faena 40 → Hectarea 42, máquina skidder, período 4, cosecha: 1.00 
-    - Faena 40 → Hectarea 42, máquina skidder, período 5, cosecha: 1.00 
-    - Faena 40 → Hectarea 42, máquina skidder, período 6, cosecha: 1.00 
-    - Faena 40 → Hectarea 43, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 40 → Hectarea 43, máquina skidder, período 2, cosecha: 1.00 
-    - Faena 40 → Hectarea 43, máquina skidder, período 3, cosecha: 1.00 
-    - Faena 40 → Hectarea 43, máquina skidder, período 4, cosecha: 1.00 
-    - Faena 40 → Hectarea 43, máquina skidder, período 5, cosecha: 1.00 
-    - Faena 40 → Hectarea 43, máquina skidder, período 6, cosecha: 1.00 
-    - Faena 40 → Hectarea 44, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 40 → Hectarea 44, máquina skidder, período 2, cosecha: 1.00 
-    - Faena 40 → Hectarea 44, máquina skidder, período 3, cosecha: 1.00 
-    - Faena 40 → Hectarea 44, máquina skidder, período 4, cosecha: 1.00 
-    - Faena 40 → Hectarea 44, máquina skidder, período 5, cosecha: 1.00 
-    - Faena 40 → Hectarea 44, máquina skidder, período 6, cosecha: 1.00 
-    - Faena 40 → Hectarea 45, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 40 → Hectarea 45, máquina skidder, período 2, cosecha: 1.00 
-    - Faena 40 → Hectarea 45, máquina skidder, período 3, cosecha: 1.00 
-    - Faena 40 → Hectarea 45, máquina skidder, período 4, cosecha: 1.00 
-    - Faena 40 → Hectarea 45, máquina skidder, período 5, cosecha: 1.00 
-    - Faena 40 → Hectarea 45, máquina skidder, período 6, cosecha: 1.00 
-    - Faena 91 → Hectarea 91, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 91 → Hectarea 91, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 91 → Hectarea 91, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 91 → Hectarea 91, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 91 → Hectarea 91, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 91 → Hectarea 91, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 91 → Hectarea 78, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 91 → Hectarea 78, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 91 → Hectarea 78, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 91 → Hectarea 78, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 91 → Hectarea 78, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 91 → Hectarea 79, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 91 → Hectarea 79, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 91 → Hectarea 79, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 91 → Hectarea 79, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 91 → Hectarea 79, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 91 → Hectarea 80, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 91 → Hectarea 80, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 91 → Hectarea 80, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 91 → Hectarea 80, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 91 → Hectarea 81, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 91 → Hectarea 81, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 91 → Hectarea 81, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 91 → Hectarea 81, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 91 → Hectarea 81, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 91 → Hectarea 82, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 91 → Hectarea 82, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 91 → Hectarea 82, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 91 → Hectarea 82, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 91 → Hectarea 82, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 91 → Hectarea 83, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 91 → Hectarea 83, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 91 → Hectarea 83, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 91 → Hectarea 84, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 91 → Hectarea 84, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 91 → Hectarea 84, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 91 → Hectarea 84, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 91 → Hectarea 85, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 91 → Hectarea 85, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 91 → Hectarea 85, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 91 → Hectarea 85, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 91 → Hectarea 86, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 91 → Hectarea 86, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 91 → Hectarea 86, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 91 → Hectarea 86, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 91 → Hectarea 86, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 91 → Hectarea 92, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 91 → Hectarea 92, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 91 → Hectarea 92, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 91 → Hectarea 92, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 91 → Hectarea 92, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 91 → Hectarea 92, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 91 → Hectarea 88, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 91 → Hectarea 93, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 91 → Hectarea 93, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 91 → Hectarea 93, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 91 → Hectarea 93, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 91 → Hectarea 93, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 91 → Hectarea 93, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 91 → Hectarea 94, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 91 → Hectarea 94, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 91 → Hectarea 94, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 91 → Hectarea 94, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 91 → Hectarea 94, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 91 → Hectarea 95, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 91 → Hectarea 95, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 91 → Hectarea 95, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 91 → Hectarea 95, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 91 → Hectarea 95, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 91 → Hectarea 96, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 91 → Hectarea 96, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 91 → Hectarea 96, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 91 → Hectarea 96, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 91 → Hectarea 96, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 91 → Hectarea 97, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 91 → Hectarea 97, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 91 → Hectarea 97, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 91 → Hectarea 97, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 91 → Hectarea 97, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 91 → Hectarea 97, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 91 → Hectarea 98, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 91 → Hectarea 98, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 91 → Hectarea 98, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 91 → Hectarea 98, máquina skidder, período 16, cosecha: 1.00 
-    - Faena 91 → Hectarea 98, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 91 → Hectarea 98, máquina skidder, período 18, cosecha: 1.00 
-    - Faena 96 → Hectarea 96, máquina skidder, período 13, cosecha: 1.00 
-    - Faena 96 → Hectarea 87, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 96 → Hectarea 89, máquina skidder, período 15, cosecha: 1.00 
-    - Faena 96 → Hectarea 89, máquina skidder, período 17, cosecha: 1.00 
-    - Faena 96 → Hectarea 90, máquina skidder, período 14, cosecha: 1.00 
-    - Faena 147 → Hectarea 147, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 147 → Hectarea 140, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 147 → Hectarea 140, máquina skidder, período 6, cosecha: 1.00 
-    - Faena 147 → Hectarea 141, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 147 → Hectarea 141, máquina skidder, período 4, cosecha: 1.00 
-    - Faena 147 → Hectarea 142, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 147 → Hectarea 142, máquina skidder, período 2, cosecha: 1.00 
-    - Faena 147 → Hectarea 143, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 147 → Hectarea 143, máquina skidder, período 2, cosecha: 1.00 
-    - Faena 147 → Hectarea 144, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 147 → Hectarea 144, máquina skidder, período 5, cosecha: 1.00 
-    - Faena 147 → Hectarea 145, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 147 → Hectarea 208, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 147 → Hectarea 208, máquina skidder, período 2, cosecha: 1.00 
-    - Faena 147 → Hectarea 208, máquina skidder, período 4, cosecha: 1.00 
-    - Faena 147 → Hectarea 208, máquina skidder, período 6, cosecha: 1.00 
-    - Faena 147 → Hectarea 146, máquina skidder, período 2, cosecha: 1.00 
-    - Faena 147 → Hectarea 148, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 147 → Hectarea 148, máquina skidder, período 2, cosecha: 1.00 
-    - Faena 147 → Hectarea 148, máquina skidder, período 5, cosecha: 1.00 
-    - Faena 147 → Hectarea 149, máquina skidder, período 2, cosecha: 1.00 
-    - Faena 149 → Hectarea 149, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 149 → Hectarea 204, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 149 → Hectarea 204, máquina skidder, período 2, cosecha: 1.00 
-    - Faena 149 → Hectarea 204, máquina skidder, período 3, cosecha: 1.00 
-    - Faena 149 → Hectarea 204, máquina skidder, período 5, cosecha: 1.00 
-    - Faena 149 → Hectarea 205, máquina skidder, período 2, cosecha: 1.00 
-    - Faena 149 → Hectarea 205, máquina skidder, período 3, cosecha: 1.00 
-    - Faena 149 → Hectarea 205, máquina skidder, período 4, cosecha: 1.00 
-    - Faena 149 → Hectarea 209, máquina skidder, período 1, cosecha: 1.00 
-    - Faena 149 → Hectarea 209, máquina skidder, período 3, cosecha: 1.00 
-    - Faena 149 → Hectarea 209, máquina skidder, período 4, cosecha: 1.00 
-    - Faena 149 → Hectarea 209, máquina skidder, período 6, cosecha: 1.00 
-    - Faena 149 → Hectarea 210, máquina skidder, período 4, cosecha: 1.00 
-    - Faena 149 → Hectarea 210, máquina skidder, período 5, cosecha: 1.00 
-    - Faena 149 → Hectarea 210, máquina skidder, período 6, cosecha: 1.00 
-
   🔸 Madera Cosechada (w):
-    - Faena 2 → Hectarea 2, máquina skidder, período 3, cosecha: 378.30 m3
-    - Faena 2 → Hectarea 1, máquina skidder, período 3, cosecha: 124.94 m3
-    - Faena 2 → Hectarea 46, máquina skidder, período 1, cosecha: 357.60 m3
-    - Faena 2 → Hectarea 47, máquina skidder, período 3, cosecha: 416.70 m3
-    - Faena 2 → Hectarea 4, máquina skidder, período 3, cosecha: 606.70 m3
-    - Faena 2 → Hectarea 5, máquina skidder, período 4, cosecha: 624.90 m3
-    - Faena 2 → Hectarea 6, máquina skidder, período 2, cosecha: 591.70 m3
-    - Faena 2 → Hectarea 48, máquina skidder, período 4, cosecha: 620.80 m3
-    - Faena 2 → Hectarea 49, máquina skidder, período 4, cosecha: 654.90 m3
-    - Faena 2 → Hectarea 9, máquina skidder, período 6, cosecha: 572.50 m3
-    - Faena 2 → Hectarea 10, máquina skidder, período 4, cosecha: 592.00 m3
-    - Faena 2 → Hectarea 50, máquina skidder, período 6, cosecha: 602.30 m3
+    - Faena 46 → Hectarea 46, máquina skidder, período 6, cosecha: 357.60 m3
+    - Faena 46 → Hectarea 1, máquina skidder, período 6, cosecha: 124.94 m3
+    - Faena 46 → Hectarea 2, máquina skidder, período 6, cosecha: 378.30 m3
+    - Faena 46 → Hectarea 47, máquina skidder, período 6, cosecha: 416.70 m3
+    - Faena 46 → Hectarea 5, máquina skidder, período 3, cosecha: 624.90 m3
+    - Faena 46 → Hectarea 6, máquina skidder, período 6, cosecha: 591.70 m3
+    - Faena 46 → Hectarea 48, máquina skidder, período 1, cosecha: 620.80 m3
+    - Faena 46 → Hectarea 49, máquina skidder, período 6, cosecha: 654.90 m3
+    - Faena 46 → Hectarea 10, máquina skidder, período 1, cosecha: 328.50 m3
+    - Faena 46 → Hectarea 10, máquina skidder, período 6, cosecha: 263.50 m3
+    - Faena 46 → Hectarea 50, máquina skidder, período 5, cosecha: 378.30 m3
+    - Faena 46 → Hectarea 50, máquina skidder, período 6, cosecha: 224.00 m3
+    - Faena 46 → Hectarea 51, máquina skidder, período 3, cosecha: 416.70 m3
+    - Faena 46 → Hectarea 51, máquina skidder, período 6, cosecha: 220.90 m3
     - Faena 100 → Hectarea 100, máquina skidder, período 13, cosecha: 374.34 m3
-    - Faena 100 → Hectarea 99, máquina skidder, período 14, cosecha: 348.72 m3
-    - Faena 100 → Hectarea 101, máquina skidder, período 14, cosecha: 366.84 m3
-    - Faena 100 → Hectarea 102, máquina skidder, período 14, cosecha: 359.64 m3
-    - Faena 100 → Hectarea 103, máquina skidder, período 15, cosecha: 644.20 m3
-    - Faena 100 → Hectarea 104, máquina skidder, período 14, cosecha: 696.70 m3
-    - Faena 100 → Hectarea 105, máquina skidder, período 14, cosecha: 639.20 m3
-    - Faena 100 → Hectarea 106, máquina skidder, período 15, cosecha: 589.40 m3
-    - Faena 100 → Hectarea 107, máquina skidder, período 18, cosecha: 659.30 m3
+    - Faena 100 → Hectarea 99, máquina skidder, período 13, cosecha: 338.32 m3
+    - Faena 100 → Hectarea 99, máquina skidder, período 17, cosecha: 10.40 m3
+    - Faena 100 → Hectarea 101, máquina skidder, período 17, cosecha: 366.84 m3
+    - Faena 100 → Hectarea 102, máquina skidder, período 13, cosecha: 359.64 m3
+    - Faena 100 → Hectarea 103, máquina skidder, período 13, cosecha: 644.20 m3
+    - Faena 100 → Hectarea 104, máquina skidder, período 17, cosecha: 696.70 m3
+    - Faena 100 → Hectarea 105, máquina skidder, período 13, cosecha: 272.36 m3
+    - Faena 100 → Hectarea 105, máquina skidder, período 18, cosecha: 366.84 m3
+    - Faena 100 → Hectarea 106, máquina skidder, período 14, cosecha: 589.40 m3
+    - Faena 100 → Hectarea 107, máquina skidder, período 17, cosecha: 659.30 m3
     - Faena 100 → Hectarea 108, máquina skidder, período 14, cosecha: 569.10 m3
-    - Faena 100 → Hectarea 109, máquina skidder, período 13, cosecha: 557.80 m3
-    - Faena 151 → Hectarea 151, máquina skidder, período 6, cosecha: 252.64 m3
-    - Faena 151 → Hectarea 150, máquina skidder, período 1, cosecha: 335.52 m3
-    - Faena 151 → Hectarea 152, máquina skidder, período 1, cosecha: 192.90 m3
-    - Faena 151 → Hectarea 153, máquina skidder, período 6, cosecha: 550.29 m3
-    - Faena 151 → Hectarea 154, máquina skidder, período 6, cosecha: 564.10 m3
-    - Faena 151 → Hectarea 155, máquina skidder, período 1, cosecha: 623.30 m3
-    - Faena 151 → Hectarea 156, máquina skidder, período 6, cosecha: 621.50 m3
-    - Faena 151 → Hectarea 157, máquina skidder, período 6, cosecha: 505.92 m3
-    - Faena 151 → Hectarea 159, máquina skidder, período 1, cosecha: 548.30 m3
-    - Faena 12 → Hectarea 12, máquina skidder, período 18, cosecha: 602.40 m3
-    - Faena 12 → Hectarea 3, máquina skidder, período 13, cosecha: 550.29 m3
-    - Faena 12 → Hectarea 7, máquina skidder, período 13, cosecha: 580.10 m3
-    - Faena 12 → Hectarea 8, máquina skidder, período 13, cosecha: 583.50 m3
-    - Faena 12 → Hectarea 11, máquina skidder, período 13, cosecha: 354.71 m3
-    - Faena 12 → Hectarea 11, máquina skidder, período 14, cosecha: 308.99 m3
+    - Faena 100 → Hectarea 109, máquina skidder, período 14, cosecha: 75.10 m3
+    - Faena 100 → Hectarea 109, máquina skidder, período 17, cosecha: 482.70 m3
+    - Faena 151 → Hectarea 151, máquina skidder, período 5, cosecha: 252.64 m3
+    - Faena 151 → Hectarea 150, máquina skidder, período 2, cosecha: 335.52 m3
+    - Faena 151 → Hectarea 152, máquina skidder, período 2, cosecha: 192.90 m3
+    - Faena 151 → Hectarea 153, máquina skidder, período 3, cosecha: 550.29 m3
+    - Faena 151 → Hectarea 154, máquina skidder, período 3, cosecha: 564.10 m3
+    - Faena 151 → Hectarea 155, máquina skidder, período 2, cosecha: 153.06 m3
+    - Faena 151 → Hectarea 155, máquina skidder, período 6, cosecha: 470.24 m3
+    - Faena 151 → Hectarea 156, máquina skidder, período 3, cosecha: 541.44 m3
+    - Faena 151 → Hectarea 156, máquina skidder, período 6, cosecha: 80.06 m3
+    - Faena 151 → Hectarea 157, máquina skidder, período 5, cosecha: 505.92 m3
+    - Faena 151 → Hectarea 159, máquina skidder, período 2, cosecha: 548.30 m3
+    - Faena 151 → Hectarea 160, máquina skidder, período 2, cosecha: 439.21 m3
+    - Faena 151 → Hectarea 160, máquina skidder, período 5, cosecha: 86.09 m3
+    - Faena 151 → Hectarea 161, máquina skidder, período 2, cosecha: 296.35 m3
+    - Faena 12 → Hectarea 12, máquina skidder, período 16, cosecha: 451.89 m3
+    - Faena 12 → Hectarea 12, máquina skidder, período 18, cosecha: 150.51 m3
+    - Faena 12 → Hectarea 3, máquina skidder, período 18, cosecha: 550.29 m3
+    - Faena 12 → Hectarea 4, máquina skidder, período 13, cosecha: 576.80 m3
+    - Faena 12 → Hectarea 4, máquina skidder, período 15, cosecha: 29.90 m3
+    - Faena 12 → Hectarea 7, máquina skidder, período 14, cosecha: 580.10 m3
+    - Faena 12 → Hectarea 8, máquina skidder, período 14, cosecha: 583.50 m3
+    - Faena 12 → Hectarea 9, máquina skidder, período 15, cosecha: 572.50 m3
     - Faena 12 → Hectarea 13, máquina skidder, período 14, cosecha: 546.20 m3
-    - Faena 12 → Hectarea 54, máquina skidder, período 18, cosecha: 675.80 m3
-    - Faena 12 → Hectarea 14, máquina skidder, período 17, cosecha: 471.94 m3
-    - Faena 12 → Hectarea 15, máquina skidder, período 16, cosecha: 614.00 m3
-    - Faena 12 → Hectarea 16, máquina skidder, período 17, cosecha: 552.60 m3
+    - Faena 12 → Hectarea 54, máquina skidder, período 13, cosecha: 627.74 m3
+    - Faena 12 → Hectarea 54, máquina skidder, período 14, cosecha: 48.06 m3
+    - Faena 12 → Hectarea 14, máquina skidder, período 18, cosecha: 471.94 m3
+    - Faena 12 → Hectarea 15, máquina skidder, período 14, cosecha: 61.40 m3
+    - Faena 12 → Hectarea 16, máquina skidder, período 13, cosecha: 552.60 m3
     - Faena 12 → Hectarea 17, máquina skidder, período 18, cosecha: 617.40 m3
-    - Faena 12 → Hectarea 55, máquina skidder, período 13, cosecha: 587.70 m3
-    - Faena 12 → Hectarea 19, máquina skidder, período 13, cosecha: 638.60 m3
-    - Faena 12 → Hectarea 20, máquina skidder, período 17, cosecha: 509.80 m3
-    - Faena 12 → Hectarea 21, máquina skidder, período 13, cosecha: 705.10 m3
-    - Faena 112 → Hectarea 112, máquina skidder, período 1, cosecha: 693.00 m3
-    - Faena 112 → Hectarea 51, máquina skidder, período 1, cosecha: 0.00 m3
-    - Faena 112 → Hectarea 51, máquina skidder, período 5, cosecha: 637.60 m3
-    - Faena 112 → Hectarea 158, máquina skidder, período 2, cosecha: 639.10 m3
-    - Faena 112 → Hectarea 53, máquina skidder, período 6, cosecha: 617.20 m3
-    - Faena 112 → Hectarea 111, máquina skidder, período 1, cosecha: 0.00 m3
-    - Faena 112 → Hectarea 111, máquina skidder, período 5, cosecha: 539.50 m3
+    - Faena 12 → Hectarea 55, máquina skidder, período 14, cosecha: 546.04 m3
+    - Faena 12 → Hectarea 55, máquina skidder, período 18, cosecha: 41.66 m3
+    - Faena 12 → Hectarea 20, máquina skidder, período 13, cosecha: 509.80 m3
+    - Faena 12 → Hectarea 21, máquina skidder, período 16, cosecha: 154.81 m3
+    - Faena 12 → Hectarea 21, máquina skidder, período 17, cosecha: 550.29 m3
+    - Faena 112 → Hectarea 112, máquina skidder, período 1, cosecha: 572.80 m3
+    - Faena 112 → Hectarea 112, máquina skidder, período 5, cosecha: 120.20 m3
+    - Faena 112 → Hectarea 158, máquina skidder, período 2, cosecha: 88.90 m3
+    - Faena 112 → Hectarea 158, máquina skidder, período 5, cosecha: 550.20 m3
+    - Faena 112 → Hectarea 53, máquina skidder, período 4, cosecha: 617.20 m3
+    - Faena 112 → Hectarea 111, máquina skidder, período 1, cosecha: 539.50 m3
     - Faena 112 → Hectarea 113, máquina skidder, período 2, cosecha: 534.50 m3
-    - Faena 112 → Hectarea 114, máquina skidder, período 1, cosecha: 656.20 m3
-    - Faena 112 → Hectarea 115, máquina skidder, período 5, cosecha: 533.60 m3
-    - Faena 112 → Hectarea 116, máquina skidder, período 6, cosecha: 653.80 m3
-    - Faena 112 → Hectarea 117, máquina skidder, período 1, cosecha: 670.40 m3
-    - Faena 112 → Hectarea 117, máquina skidder, período 2, cosecha: 0.00 m3
-    - Faena 112 → Hectarea 118, máquina skidder, período 1, cosecha: 535.40 m3
-    - Faena 112 → Hectarea 118, máquina skidder, período 4, cosecha: 0.00 m3
-    - Faena 168 → Hectarea 168, máquina skidder, período 5, cosecha: 543.20 m3
-    - Faena 168 → Hectarea 160, máquina skidder, período 3, cosecha: 525.30 m3
-    - Faena 168 → Hectarea 161, máquina skidder, período 2, cosecha: 592.70 m3
-    - Faena 168 → Hectarea 162, máquina skidder, período 2, cosecha: 294.75 m3
-    - Faena 168 → Hectarea 163, máquina skidder, período 2, cosecha: 658.30 m3
-    - Faena 168 → Hectarea 164, máquina skidder, período 1, cosecha: 562.80 m3
-    - Faena 168 → Hectarea 165, máquina skidder, período 6, cosecha: 597.30 m3
+    - Faena 112 → Hectarea 114, máquina skidder, período 2, cosecha: 650.00 m3
+    - Faena 112 → Hectarea 114, máquina skidder, período 4, cosecha: 6.20 m3
+    - Faena 112 → Hectarea 115, máquina skidder, período 4, cosecha: 533.60 m3
+    - Faena 112 → Hectarea 116, máquina skidder, período 1, cosecha: 120.20 m3
+    - Faena 112 → Hectarea 116, máquina skidder, período 3, cosecha: 533.60 m3
+    - Faena 112 → Hectarea 117, máquina skidder, período 4, cosecha: 670.40 m3
+    - Faena 112 → Hectarea 118, máquina skidder, período 2, cosecha: 535.40 m3
+    - Faena 168 → Hectarea 168, máquina skidder, período 1, cosecha: 245.07 m3
+    - Faena 168 → Hectarea 168, máquina skidder, período 2, cosecha: 298.12 m3
+    - Faena 168 → Hectarea 161, máquina skidder, período 1, cosecha: 296.35 m3
+    - Faena 168 → Hectarea 162, máquina skidder, período 1, cosecha: 294.75 m3
+    - Faena 168 → Hectarea 163, máquina skidder, período 1, cosecha: 218.88 m3
+    - Faena 168 → Hectarea 163, máquina skidder, período 4, cosecha: 296.35 m3
+    - Faena 168 → Hectarea 163, máquina skidder, período 5, cosecha: 143.07 m3
+    - Faena 168 → Hectarea 164, máquina skidder, período 1, cosecha: 230.40 m3
+    - Faena 168 → Hectarea 164, máquina skidder, período 6, cosecha: 332.40 m3
+    - Faena 168 → Hectarea 165, máquina skidder, período 1, cosecha: 37.30 m3
+    - Faena 168 → Hectarea 165, máquina skidder, período 3, cosecha: 560.00 m3
     - Faena 168 → Hectarea 166, máquina skidder, período 1, cosecha: 286.15 m3
     - Faena 168 → Hectarea 167, máquina skidder, período 6, cosecha: 576.80 m3
-    - Faena 168 → Hectarea 169, máquina skidder, período 6, cosecha: 301.50 m3
-    - Faena 18 → Hectarea 18, máquina skidder, período 16, cosecha: 449.33 m3
-    - Faena 18 → Hectarea 22, máquina skidder, período 14, cosecha: 499.38 m3
-    - Faena 18 → Hectarea 23, máquina skidder, período 14, cosecha: 692.80 m3
-    - Faena 58 → Hectarea 58, máquina torre, período 14, cosecha: 0.00 m3
-    - Faena 58 → Hectarea 56, máquina torre, período 13, cosecha: 0.00 m3
-    - Faena 58 → Hectarea 57, máquina torre, período 14, cosecha: 0.00 m3
-    - Faena 58 → Hectarea 57, máquina torre, período 17, cosecha: 0.00 m3
-    - Faena 58 → Hectarea 59, máquina torre, período 13, cosecha: 0.00 m3
-    - Faena 58 → Hectarea 59, máquina torre, período 14, cosecha: 0.00 m3
-    - Faena 58 → Hectarea 59, máquina torre, período 15, cosecha: 0.00 m3
-    - Faena 58 → Hectarea 59, máquina torre, período 16, cosecha: 0.00 m3
-    - Faena 58 → Hectarea 59, máquina torre, período 17, cosecha: 0.00 m3
-    - Faena 58 → Hectarea 59, máquina torre, período 18, cosecha: 0.00 m3
-    - Faena 58 → Hectarea 60, máquina torre, período 15, cosecha: 0.00 m3
-    - Faena 58 → Hectarea 60, máquina torre, período 16, cosecha: 0.00 m3
-    - Faena 58 → Hectarea 61, máquina torre, período 14, cosecha: 0.00 m3
-    - Faena 58 → Hectarea 62, máquina torre, período 13, cosecha: 0.00 m3
-    - Faena 58 → Hectarea 62, máquina torre, período 14, cosecha: 0.00 m3
-    - Faena 58 → Hectarea 63, máquina torre, período 13, cosecha: 0.00 m3
-    - Faena 58 → Hectarea 63, máquina torre, período 14, cosecha: 0.00 m3
-    - Faena 58 → Hectarea 64, máquina torre, período 13, cosecha: 0.00 m3
-    - Faena 58 → Hectarea 64, máquina torre, período 14, cosecha: 0.00 m3
-    - Faena 58 → Hectarea 119, máquina torre, período 17, cosecha: 0.00 m3
-    - Faena 173 → Hectarea 173, máquina skidder, período 15, cosecha: 673.80 m3
-    - Faena 173 → Hectarea 110, máquina skidder, período 13, cosecha: 643.60 m3
-    - Faena 173 → Hectarea 170, máquina skidder, período 13, cosecha: 553.20 m3
-    - Faena 173 → Hectarea 171, máquina skidder, período 13, cosecha: 647.20 m3
-    - Faena 173 → Hectarea 172, máquina skidder, período 18, cosecha: 554.20 m3
-    - Faena 173 → Hectarea 174, máquina skidder, período 18, cosecha: 604.70 m3
+    - Faena 168 → Hectarea 169, máquina skidder, período 1, cosecha: 301.50 m3
+    - Faena 18 → Hectarea 18, máquina skidder, período 14, cosecha: 363.33 m3
+    - Faena 18 → Hectarea 18, máquina skidder, período 15, cosecha: 86.00 m3
+    - Faena 18 → Hectarea 11, máquina skidder, período 14, cosecha: 663.70 m3
+    - Faena 18 → Hectarea 15, máquina skidder, período 15, cosecha: 552.60 m3
+    - Faena 18 → Hectarea 19, máquina skidder, período 18, cosecha: 638.60 m3
+    - Faena 18 → Hectarea 22, máquina skidder, período 14, cosecha: 474.28 m3
+    - Faena 18 → Hectarea 22, máquina skidder, período 18, cosecha: 25.10 m3
+    - Faena 18 → Hectarea 23, máquina skidder, período 14, cosecha: 140.20 m3
+    - Faena 18 → Hectarea 23, máquina skidder, período 17, cosecha: 552.60 m3
+    - Faena 173 → Hectarea 173, máquina skidder, período 16, cosecha: 673.80 m3
+    - Faena 173 → Hectarea 110, máquina skidder, período 16, cosecha: 643.60 m3
+    - Faena 173 → Hectarea 170, máquina skidder, período 14, cosecha: 553.20 m3
+    - Faena 173 → Hectarea 171, máquina skidder, período 13, cosecha: 577.10 m3
+    - Faena 173 → Hectarea 171, máquina skidder, período 18, cosecha: 70.10 m3
+    - Faena 173 → Hectarea 172, máquina skidder, período 15, cosecha: 356.00 m3
+    - Faena 173 → Hectarea 172, máquina skidder, período 17, cosecha: 198.20 m3
+    - Faena 173 → Hectarea 174, máquina skidder, período 13, cosecha: 249.70 m3
+    - Faena 173 → Hectarea 174, máquina skidder, período 17, cosecha: 355.00 m3
     - Faena 173 → Hectarea 175, máquina skidder, período 13, cosecha: 657.40 m3
-    - Faena 173 → Hectarea 120, máquina skidder, período 16, cosecha: 495.70 m3
-    - Faena 173 → Hectarea 121, máquina skidder, período 16, cosecha: 557.60 m3
-    - Faena 173 → Hectarea 178, máquina skidder, período 13, cosecha: 569.40 m3
-    - Faena 173 → Hectarea 179, máquina skidder, período 18, cosecha: 544.70 m3
-    - Faena 173 → Hectarea 124, máquina skidder, período 16, cosecha: 575.70 m3
-    - Faena 173 → Hectarea 183, máquina skidder, período 13, cosecha: 363.90 m3
-    - Faena 173 → Hectarea 183, máquina skidder, período 15, cosecha: 275.60 m3
+    - Faena 173 → Hectarea 120, máquina skidder, período 13, cosecha: 391.50 m3
+    - Faena 173 → Hectarea 120, máquina skidder, período 14, cosecha: 104.20 m3
+    - Faena 173 → Hectarea 121, máquina skidder, período 15, cosecha: 557.60 m3
+    - Faena 173 → Hectarea 178, máquina skidder, período 18, cosecha: 569.40 m3
+    - Faena 173 → Hectarea 179, máquina skidder, período 16, cosecha: 544.70 m3
+    - Faena 173 → Hectarea 124, máquina skidder, período 18, cosecha: 575.70 m3
+    - Faena 173 → Hectarea 183, máquina skidder, período 15, cosecha: 235.80 m3
+    - Faena 173 → Hectarea 183, máquina skidder, período 16, cosecha: 403.70 m3
     - Faena 173 → Hectarea 184, máquina skidder, período 13, cosecha: 565.30 m3
-    - Faena 63 → Hectarea 63, máquina torre, período 13, cosecha: 643.80 m3
-    - Faena 63 → Hectarea 56, máquina torre, período 13, cosecha: 604.00 m3
-    - Faena 63 → Hectarea 56, máquina torre, período 18, cosecha: 0.00 m3
-    - Faena 63 → Hectarea 57, máquina torre, período 14, cosecha: 574.70 m3
-    - Faena 63 → Hectarea 58, máquina torre, período 13, cosecha: 0.00 m3
-    - Faena 63 → Hectarea 58, máquina torre, período 14, cosecha: 581.10 m3
-    - Faena 63 → Hectarea 59, máquina torre, período 14, cosecha: 641.10 m3
-    - Faena 63 → Hectarea 60, máquina torre, período 14, cosecha: 617.90 m3
-    - Faena 63 → Hectarea 61, máquina torre, período 13, cosecha: 0.00 m3
-    - Faena 63 → Hectarea 61, máquina torre, período 14, cosecha: 515.50 m3
-    - Faena 63 → Hectarea 62, máquina torre, período 13, cosecha: 692.30 m3
-    - Faena 63 → Hectarea 64, máquina torre, período 13, cosecha: 587.00 m3
-    - Faena 63 → Hectarea 119, máquina torre, período 18, cosecha: 670.10 m3
+    - Faena 63 → Hectarea 63, máquina torre, período 13, cosecha: 114.90 m3
+    - Faena 63 → Hectarea 63, máquina torre, período 14, cosecha: 465.80 m3
+    - Faena 63 → Hectarea 63, máquina torre, período 18, cosecha: 63.10 m3
+    - Faena 63 → Hectarea 56, máquina torre, período 17, cosecha: 604.00 m3
+    - Faena 63 → Hectarea 57, máquina torre, período 18, cosecha: 574.70 m3
+    - Faena 63 → Hectarea 58, máquina torre, período 13, cosecha: 581.10 m3
+    - Faena 63 → Hectarea 59, máquina torre, período 18, cosecha: 641.10 m3
+    - Faena 63 → Hectarea 60, máquina torre, período 13, cosecha: 617.90 m3
+    - Faena 63 → Hectarea 61, máquina torre, período 18, cosecha: 515.50 m3
+    - Faena 63 → Hectarea 62, máquina torre, período 17, cosecha: 692.30 m3
+    - Faena 63 → Hectarea 64, máquina torre, período 17, cosecha: 587.00 m3
+    - Faena 63 → Hectarea 119, máquina torre, período 14, cosecha: 115.30 m3
+    - Faena 63 → Hectarea 119, máquina torre, período 17, cosecha: 554.80 m3
     - Faena 63 → Hectarea 122, máquina torre, período 18, cosecha: 603.70 m3
-    - Faena 63 → Hectarea 123, máquina torre, período 18, cosecha: 618.30 m3
+    - Faena 63 → Hectarea 123, máquina torre, período 16, cosecha: 587.00 m3
+    - Faena 63 → Hectarea 123, máquina torre, período 18, cosecha: 31.30 m3
     - Faena 25 → Hectarea 25, máquina skidder, período 3, cosecha: 383.46 m3
-    - Faena 25 → Hectarea 24, máquina skidder, período 5, cosecha: 663.30 m3
-    - Faena 25 → Hectarea 26, máquina skidder, período 5, cosecha: 700.90 m3
-    - Faena 25 → Hectarea 27, máquina skidder, período 2, cosecha: 586.90 m3
-    - Faena 25 → Hectarea 28, máquina skidder, período 1, cosecha: 466.55 m3
-    - Faena 25 → Hectarea 29, máquina skidder, período 1, cosecha: 590.90 m3
+    - Faena 25 → Hectarea 24, máquina skidder, período 4, cosecha: 405.41 m3
+    - Faena 25 → Hectarea 24, máquina skidder, período 5, cosecha: 257.89 m3
+    - Faena 25 → Hectarea 26, máquina skidder, período 3, cosecha: 405.41 m3
+    - Faena 25 → Hectarea 26, máquina skidder, período 4, cosecha: 295.49 m3
+    - Faena 25 → Hectarea 27, máquina skidder, período 1, cosecha: 466.55 m3
+    - Faena 25 → Hectarea 27, máquina skidder, período 5, cosecha: 120.35 m3
+    - Faena 25 → Hectarea 28, máquina skidder, período 5, cosecha: 466.55 m3
+    - Faena 25 → Hectarea 29, máquina skidder, período 3, cosecha: 590.90 m3
     - Faena 25 → Hectarea 30, máquina skidder, período 3, cosecha: 699.80 m3
-    - Faena 25 → Hectarea 31, máquina skidder, período 1, cosecha: 441.91 m3
-    - Faena 25 → Hectarea 32, máquina skidder, período 2, cosecha: 672.80 m3
-    - Faena 65 → Hectarea 65, máquina torre, período 1, cosecha: 520.30 m3
-    - Faena 65 → Hectarea 66, máquina torre, período 2, cosecha: 603.80 m3
-    - Faena 65 → Hectarea 67, máquina torre, período 1, cosecha: 619.80 m3
-    - Faena 65 → Hectarea 68, máquina torre, período 4, cosecha: 641.80 m3
-    - Faena 65 → Hectarea 69, máquina torre, período 1, cosecha: 589.10 m3
-    - Faena 65 → Hectarea 70, máquina torre, período 1, cosecha: 637.60 m3
+    - Faena 25 → Hectarea 31, máquina skidder, período 5, cosecha: 441.91 m3
+    - Faena 25 → Hectarea 32, máquina skidder, período 5, cosecha: 672.80 m3
+    - Faena 65 → Hectarea 65, máquina torre, período 2, cosecha: 520.30 m3
+    - Faena 65 → Hectarea 66, máquina torre, período 2, cosecha: 89.60 m3
+    - Faena 65 → Hectarea 66, máquina torre, período 5, cosecha: 514.20 m3
+    - Faena 65 → Hectarea 67, máquina torre, período 2, cosecha: 554.00 m3
+    - Faena 65 → Hectarea 67, máquina torre, período 3, cosecha: 65.80 m3
+    - Faena 65 → Hectarea 68, máquina torre, período 2, cosecha: 541.10 m3
+    - Faena 65 → Hectarea 68, máquina torre, período 6, cosecha: 100.70 m3
+    - Faena 65 → Hectarea 69, máquina torre, período 5, cosecha: 589.10 m3
+    - Faena 65 → Hectarea 70, máquina torre, período 2, cosecha: 637.60 m3
     - Faena 65 → Hectarea 71, máquina torre, período 1, cosecha: 584.80 m3
-    - Faena 65 → Hectarea 33, máquina torre, período 4, cosecha: 514.90 m3
-    - Faena 65 → Hectarea 73, máquina torre, período 1, cosecha: 485.10 m3
+    - Faena 65 → Hectarea 33, máquina torre, período 1, cosecha: 40.60 m3
+    - Faena 65 → Hectarea 33, máquina torre, período 2, cosecha: 474.30 m3
+    - Faena 65 → Hectarea 73, máquina torre, período 6, cosecha: 485.10 m3
     - Faena 65 → Hectarea 74, máquina torre, período 1, cosecha: 554.40 m3
-    - Faena 65 → Hectarea 75, máquina torre, período 1, cosecha: 585.80 m3
-    - Faena 65 → Hectarea 36, máquina torre, período 1, cosecha: 576.00 m3
-    - Faena 187 → Hectarea 187, máquina skidder, período 13, cosecha: 307.75 m3
-    - Faena 187 → Hectarea 176, máquina skidder, período 13, cosecha: 601.20 m3
-    - Faena 187 → Hectarea 177, máquina skidder, período 13, cosecha: 265.00 m3
-    - Faena 187 → Hectarea 180, máquina skidder, período 18, cosecha: 574.40 m3
-    - Faena 187 → Hectarea 181, máquina skidder, período 13, cosecha: 519.10 m3
-    - Faena 187 → Hectarea 182, máquina skidder, período 13, cosecha: 295.60 m3
-    - Faena 187 → Hectarea 185, máquina skidder, período 13, cosecha: 673.20 m3
-    - Faena 187 → Hectarea 186, máquina skidder, período 13, cosecha: 551.30 m3
-    - Faena 187 → Hectarea 189, máquina skidder, período 18, cosecha: 606.60 m3
-    - Faena 187 → Hectarea 190, máquina skidder, período 17, cosecha: 625.90 m3
-    - Faena 187 → Hectarea 191, máquina skidder, período 17, cosecha: 333.25 m3
-    - Faena 187 → Hectarea 194, máquina skidder, período 18, cosecha: 531.20 m3
-    - Faena 187 → Hectarea 195, máquina skidder, período 17, cosecha: 321.45 m3
-    - Faena 126 → Hectarea 126, máquina skidder, período 1, cosecha: 0.00 m3
-    - Faena 126 → Hectarea 126, máquina skidder, período 6, cosecha: 0.00 m3
-    - Faena 126 → Hectarea 119, máquina skidder, período 1, cosecha: 0.00 m3
-    - Faena 126 → Hectarea 119, máquina skidder, período 2, cosecha: 0.00 m3
-    - Faena 126 → Hectarea 119, máquina skidder, período 3, cosecha: 0.00 m3
-    - Faena 126 → Hectarea 119, máquina skidder, período 5, cosecha: 0.00 m3
-    - Faena 126 → Hectarea 68, máquina skidder, período 1, cosecha: 0.00 m3
-    - Faena 126 → Hectarea 68, máquina skidder, período 2, cosecha: 0.00 m3
-    - Faena 126 → Hectarea 122, máquina skidder, período 1, cosecha: 0.00 m3
-    - Faena 126 → Hectarea 122, máquina skidder, período 2, cosecha: 0.00 m3
-    - Faena 126 → Hectarea 122, máquina skidder, período 3, cosecha: 0.00 m3
-    - Faena 126 → Hectarea 122, máquina skidder, período 4, cosecha: 0.00 m3
-    - Faena 126 → Hectarea 122, máquina skidder, período 5, cosecha: 0.00 m3
-    - Faena 126 → Hectarea 123, máquina skidder, período 1, cosecha: 0.00 m3
-    - Faena 126 → Hectarea 123, máquina skidder, período 2, cosecha: 0.00 m3
-    - Faena 126 → Hectarea 123, máquina skidder, período 3, cosecha: 0.00 m3
-    - Faena 126 → Hectarea 123, máquina skidder, período 4, cosecha: 0.00 m3
-    - Faena 126 → Hectarea 123, máquina skidder, período 6, cosecha: 0.00 m3
-    - Faena 126 → Hectarea 72, máquina skidder, período 6, cosecha: 0.00 m3
-    - Faena 126 → Hectarea 125, máquina skidder, período 1, cosecha: 0.00 m3
-    - Faena 126 → Hectarea 125, máquina skidder, período 4, cosecha: 0.00 m3
-    - Faena 126 → Hectarea 127, máquina skidder, período 5, cosecha: 0.00 m3
-    - Faena 126 → Hectarea 128, máquina skidder, período 1, cosecha: 0.00 m3
-    - Faena 126 → Hectarea 128, máquina skidder, período 4, cosecha: 0.00 m3
-    - Faena 126 → Hectarea 76, máquina skidder, período 5, cosecha: 0.00 m3
-    - Faena 126 → Hectarea 129, máquina skidder, período 1, cosecha: 0.00 m3
-    - Faena 126 → Hectarea 129, máquina skidder, período 3, cosecha: 0.00 m3
-    - Faena 126 → Hectarea 130, máquina skidder, período 6, cosecha: 0.00 m3
-    - Faena 126 → Hectarea 131, máquina skidder, período 2, cosecha: 0.00 m3
-    - Faena 126 → Hectarea 132, máquina skidder, período 1, cosecha: 0.00 m3
-    - Faena 126 → Hectarea 132, máquina skidder, período 2, cosecha: 0.00 m3
-    - Faena 126 → Hectarea 133, máquina skidder, período 3, cosecha: 0.00 m3
-    - Faena 126 → Hectarea 134, máquina skidder, período 6, cosecha: 0.00 m3
-    - Faena 126 → Hectarea 135, máquina skidder, período 6, cosecha: 0.00 m3
-    - Faena 130 → Hectarea 130, máquina skidder, período 6, cosecha: 466.30 m3
-    - Faena 130 → Hectarea 72, máquina skidder, período 1, cosecha: 541.60 m3
-    - Faena 130 → Hectarea 125, máquina skidder, período 2, cosecha: 612.20 m3
-    - Faena 130 → Hectarea 126, máquina skidder, período 3, cosecha: 566.40 m3
-    - Faena 130 → Hectarea 127, máquina skidder, período 2, cosecha: 574.00 m3
-    - Faena 130 → Hectarea 128, máquina skidder, período 6, cosecha: 593.70 m3
-    - Faena 130 → Hectarea 76, máquina skidder, período 5, cosecha: 648.10 m3
+    - Faena 65 → Hectarea 75, máquina torre, período 4, cosecha: 554.40 m3
+    - Faena 65 → Hectarea 75, máquina torre, período 5, cosecha: 31.40 m3
+    - Faena 65 → Hectarea 36, máquina torre, período 3, cosecha: 576.00 m3
+    - Faena 187 → Hectarea 187, máquina skidder, período 18, cosecha: 307.75 m3
+    - Faena 187 → Hectarea 176, máquina skidder, período 16, cosecha: 601.20 m3
+    - Faena 187 → Hectarea 177, máquina skidder, período 13, cosecha: 48.25 m3
+    - Faena 187 → Hectarea 177, máquina skidder, período 18, cosecha: 216.75 m3
+    - Faena 187 → Hectarea 180, máquina skidder, período 14, cosecha: 333.25 m3
+    - Faena 187 → Hectarea 180, máquina skidder, período 16, cosecha: 241.15 m3
+    - Faena 187 → Hectarea 181, máquina skidder, período 15, cosecha: 519.10 m3
+    - Faena 187 → Hectarea 182, máquina skidder, período 15, cosecha: 295.60 m3
+    - Faena 187 → Hectarea 185, máquina skidder, período 13, cosecha: 213.50 m3
+    - Faena 187 → Hectarea 185, máquina skidder, período 15, cosecha: 459.70 m3
+    - Faena 187 → Hectarea 186, máquina skidder, período 16, cosecha: 338.65 m3
+    - Faena 187 → Hectarea 186, máquina skidder, período 18, cosecha: 212.65 m3
+    - Faena 187 → Hectarea 189, máquina skidder, período 13, cosecha: 46.00 m3
+    - Faena 187 → Hectarea 189, máquina skidder, período 17, cosecha: 560.60 m3
+    - Faena 187 → Hectarea 190, máquina skidder, período 18, cosecha: 304.45 m3
+    - Faena 187 → Hectarea 191, máquina skidder, período 18, cosecha: 333.25 m3
+    - Faena 187 → Hectarea 195, máquina skidder, período 18, cosecha: 321.45 m3
+    - Faena 130 → Hectarea 130, máquina skidder, período 1, cosecha: 466.30 m3
+    - Faena 130 → Hectarea 72, máquina skidder, período 5, cosecha: 541.60 m3
+    - Faena 130 → Hectarea 125, máquina skidder, período 6, cosecha: 612.20 m3
+    - Faena 130 → Hectarea 126, máquina skidder, período 5, cosecha: 566.40 m3
+    - Faena 130 → Hectarea 127, máquina skidder, período 6, cosecha: 574.00 m3
+    - Faena 130 → Hectarea 128, máquina skidder, período 2, cosecha: 593.00 m3
+    - Faena 130 → Hectarea 128, máquina skidder, período 3, cosecha: 0.70 m3
+    - Faena 130 → Hectarea 76, máquina skidder, período 3, cosecha: 622.60 m3
+    - Faena 130 → Hectarea 76, máquina skidder, período 4, cosecha: 25.50 m3
     - Faena 130 → Hectarea 129, máquina skidder, período 2, cosecha: 636.30 m3
-    - Faena 130 → Hectarea 131, máquina skidder, período 5, cosecha: 638.10 m3
-    - Faena 130 → Hectarea 132, máquina skidder, período 2, cosecha: 582.70 m3
-    - Faena 130 → Hectarea 133, máquina skidder, período 2, cosecha: 615.80 m3
-    - Faena 130 → Hectarea 134, máquina skidder, período 4, cosecha: 552.40 m3
+    - Faena 130 → Hectarea 131, máquina skidder, período 3, cosecha: 638.10 m3
+    - Faena 130 → Hectarea 132, máquina skidder, período 6, cosecha: 582.70 m3
+    - Faena 130 → Hectarea 133, máquina skidder, período 3, cosecha: 615.80 m3
+    - Faena 130 → Hectarea 134, máquina skidder, período 2, cosecha: 552.40 m3
     - Faena 130 → Hectarea 135, máquina skidder, período 4, cosecha: 622.60 m3
-    - Faena 130 → Hectarea 136, máquina skidder, período 5, cosecha: 588.30 m3
-    - Faena 130 → Hectarea 137, máquina skidder, período 3, cosecha: 609.30 m3
-    - Faena 130 → Hectarea 138, máquina skidder, período 6, cosecha: 642.40 m3
-    - Faena 130 → Hectarea 139, máquina skidder, período 1, cosecha: 660.60 m3
-    - Faena 197 → Hectarea 197, máquina skidder, período 13, cosecha: 640.50 m3
-    - Faena 197 → Hectarea 188, máquina skidder, período 13, cosecha: 766.40 m3
-    - Faena 197 → Hectarea 192, máquina skidder, período 14, cosecha: 628.40 m3
-    - Faena 197 → Hectarea 193, máquina skidder, período 14, cosecha: 597.10 m3
+    - Faena 130 → Hectarea 136, máquina skidder, período 2, cosecha: 588.30 m3
+    - Faena 130 → Hectarea 137, máquina skidder, período 2, cosecha: 514.80 m3
+    - Faena 130 → Hectarea 137, máquina skidder, período 6, cosecha: 94.50 m3
+    - Faena 130 → Hectarea 138, máquina skidder, período 5, cosecha: 642.40 m3
+    - Faena 130 → Hectarea 139, máquina skidder, período 5, cosecha: 139.80 m3
+    - Faena 130 → Hectarea 139, máquina skidder, período 6, cosecha: 520.80 m3
+    - Faena 197 → Hectarea 197, máquina skidder, período 18, cosecha: 640.50 m3
+    - Faena 197 → Hectarea 188, máquina skidder, período 18, cosecha: 766.40 m3
+    - Faena 197 → Hectarea 190, máquina skidder, período 14, cosecha: 321.45 m3
+    - Faena 197 → Hectarea 192, máquina skidder, período 18, cosecha: 628.40 m3
+    - Faena 197 → Hectarea 193, máquina skidder, período 14, cosecha: 563.30 m3
+    - Faena 197 → Hectarea 193, máquina skidder, período 18, cosecha: 33.80 m3
+    - Faena 197 → Hectarea 194, máquina skidder, período 13, cosecha: 531.20 m3
     - Faena 197 → Hectarea 196, máquina skidder, período 13, cosecha: 559.90 m3
-    - Faena 197 → Hectarea 198, máquina skidder, período 13, cosecha: 661.50 m3
+    - Faena 197 → Hectarea 198, máquina skidder, período 13, cosecha: 469.45 m3
+    - Faena 197 → Hectarea 198, máquina skidder, período 17, cosecha: 118.45 m3
+    - Faena 197 → Hectarea 198, máquina skidder, período 18, cosecha: 73.60 m3
     - Faena 197 → Hectarea 199, máquina skidder, período 13, cosecha: 179.55 m3
-    - Faena 197 → Hectarea 200, máquina skidder, período 14, cosecha: 607.10 m3
-    - Faena 197 → Hectarea 201, máquina skidder, período 14, cosecha: 664.40 m3
-    - Faena 197 → Hectarea 202, máquina skidder, período 14, cosecha: 571.40 m3
+    - Faena 197 → Hectarea 200, máquina skidder, período 13, cosecha: 607.10 m3
+    - Faena 197 → Hectarea 201, máquina skidder, período 13, cosecha: 664.40 m3
+    - Faena 197 → Hectarea 202, máquina skidder, período 13, cosecha: 571.40 m3
     - Faena 197 → Hectarea 203, máquina skidder, período 14, cosecha: 672.20 m3
-    - Faena 197 → Hectarea 206, máquina skidder, período 13, cosecha: 581.60 m3
-    - Faena 197 → Hectarea 207, máquina skidder, período 13, cosecha: 172.50 m3
-    - Faena 197 → Hectarea 207, máquina skidder, período 14, cosecha: 259.40 m3
-    - Faena 40 → Hectarea 40, máquina skidder, período 3, cosecha: 382.34 m3
-    - Faena 40 → Hectarea 34, máquina skidder, período 2, cosecha: 424.13 m3
-    - Faena 40 → Hectarea 35, máquina skidder, período 2, cosecha: 274.01 m3
-    - Faena 40 → Hectarea 35, máquina skidder, período 5, cosecha: 169.44 m3
-    - Faena 40 → Hectarea 35, máquina skidder, período 6, cosecha: 169.44 m3
-    - Faena 40 → Hectarea 37, máquina skidder, período 1, cosecha: 172.54 m3
-    - Faena 40 → Hectarea 37, máquina skidder, período 4, cosecha: 135.81 m3
-    - Faena 40 → Hectarea 37, máquina skidder, período 6, cosecha: 117.82 m3
-    - Faena 40 → Hectarea 38, máquina skidder, período 1, cosecha: 346.81 m3
-    - Faena 40 → Hectarea 38, máquina skidder, período 3, cosecha: 104.03 m3
-    - Faena 40 → Hectarea 38, máquina skidder, período 6, cosecha: 172.26 m3
-    - Faena 40 → Hectarea 39, máquina skidder, período 1, cosecha: 299.81 m3
-    - Faena 40 → Hectarea 39, máquina skidder, período 2, cosecha: 185.40 m3
-    - Faena 40 → Hectarea 39, máquina skidder, período 6, cosecha: 185.40 m3
-    - Faena 40 → Hectarea 41, máquina skidder, período 3, cosecha: 457.87 m3
-    - Faena 40 → Hectarea 41, máquina skidder, período 5, cosecha: 184.04 m3
-    - Faena 40 → Hectarea 41, máquina skidder, período 6, cosecha: 23.79 m3
-    - Faena 40 → Hectarea 42, máquina skidder, período 1, cosecha: 272.49 m3
-    - Faena 40 → Hectarea 42, máquina skidder, período 5, cosecha: 168.50 m3
-    - Faena 40 → Hectarea 42, máquina skidder, período 6, cosecha: 168.50 m3
-    - Faena 40 → Hectarea 43, máquina skidder, período 1, cosecha: 14.22 m3
-    - Faena 40 → Hectarea 43, máquina skidder, período 2, cosecha: 222.32 m3
-    - Faena 40 → Hectarea 43, máquina skidder, período 3, cosecha: 161.62 m3
-    - Faena 40 → Hectarea 43, máquina skidder, período 4, cosecha: 152.14 m3
-    - Faena 40 → Hectarea 44, máquina skidder, período 4, cosecha: 267.62 m3
-    - Faena 40 → Hectarea 44, máquina skidder, período 5, cosecha: 165.49 m3
-    - Faena 40 → Hectarea 44, máquina skidder, período 6, cosecha: 165.49 m3
-    - Faena 40 → Hectarea 45, máquina skidder, período 4, cosecha: 550.29 m3
-    - Faena 91 → Hectarea 91, máquina skidder, período 16, cosecha: 638.60 m3
-    - Faena 91 → Hectarea 78, máquina skidder, período 14, cosecha: 632.50 m3
-    - Faena 91 → Hectarea 79, máquina skidder, período 17, cosecha: 562.40 m3
-    - Faena 91 → Hectarea 80, máquina skidder, período 13, cosecha: 510.40 m3
-    - Faena 91 → Hectarea 81, máquina skidder, período 16, cosecha: 637.20 m3
-    - Faena 91 → Hectarea 82, máquina skidder, período 13, cosecha: 649.50 m3
-    - Faena 91 → Hectarea 83, máquina skidder, período 17, cosecha: 644.60 m3
-    - Faena 91 → Hectarea 84, máquina skidder, período 13, cosecha: 660.40 m3
-    - Faena 91 → Hectarea 85, máquina skidder, período 15, cosecha: 570.80 m3
-    - Faena 91 → Hectarea 86, máquina skidder, período 13, cosecha: 574.40 m3
-    - Faena 91 → Hectarea 92, máquina skidder, período 15, cosecha: 553.70 m3
-    - Faena 91 → Hectarea 88, máquina skidder, período 17, cosecha: 655.10 m3
-    - Faena 91 → Hectarea 93, máquina skidder, período 13, cosecha: 614.00 m3
-    - Faena 91 → Hectarea 94, máquina skidder, período 15, cosecha: 560.70 m3
-    - Faena 91 → Hectarea 95, máquina skidder, período 16, cosecha: 536.30 m3
-    - Faena 91 → Hectarea 96, máquina skidder, período 18, cosecha: 509.55 m3
-    - Faena 91 → Hectarea 97, máquina skidder, período 13, cosecha: 509.55 m3
-    - Faena 91 → Hectarea 98, máquina skidder, período 16, cosecha: 437.93 m3
-    - Faena 96 → Hectarea 87, máquina skidder, período 14, cosecha: 532.80 m3
-    - Faena 96 → Hectarea 89, máquina skidder, período 15, cosecha: 473.62 m3
-    - Faena 96 → Hectarea 90, máquina skidder, período 14, cosecha: 502.57 m3
+    - Faena 197 → Hectarea 205, máquina skidder, período 17, cosecha: 592.30 m3
+    - Faena 197 → Hectarea 206, máquina skidder, período 18, cosecha: 581.60 m3
+    - Faena 197 → Hectarea 207, máquina skidder, período 18, cosecha: 431.90 m3
+    - Faena 40 → Hectarea 40, máquina skidder, período 2, cosecha: 382.34 m3
+    - Faena 40 → Hectarea 34, máquina skidder, período 2, cosecha: 352.13 m3
+    - Faena 40 → Hectarea 34, máquina skidder, período 4, cosecha: 72.00 m3
+    - Faena 40 → Hectarea 35, máquina skidder, período 1, cosecha: 382.34 m3
+    - Faena 40 → Hectarea 35, máquina skidder, período 6, cosecha: 230.56 m3
+    - Faena 40 → Hectarea 37, máquina skidder, período 2, cosecha: 426.16 m3
+    - Faena 40 → Hectarea 38, máquina skidder, período 3, cosecha: 623.10 m3
+    - Faena 40 → Hectarea 39, máquina skidder, período 3, cosecha: 670.60 m3
+    - Faena 40 → Hectarea 41, máquina skidder, período 2, cosecha: 253.55 m3
+    - Faena 40 → Hectarea 41, máquina skidder, período 3, cosecha: 412.15 m3
+    - Faena 40 → Hectarea 42, máquina skidder, período 2, cosecha: 609.50 m3
+    - Faena 40 → Hectarea 43, máquina skidder, período 2, cosecha: 550.29 m3
+    - Faena 40 → Hectarea 44, máquina skidder, período 4, cosecha: 598.60 m3
+    - Faena 40 → Hectarea 45, máquina skidder, período 3, cosecha: 171.35 m3
+    - Faena 40 → Hectarea 45, máquina skidder, período 6, cosecha: 378.94 m3
+    - Faena 91 → Hectarea 91, máquina skidder, período 15, cosecha: 638.60 m3
+    - Faena 91 → Hectarea 78, máquina skidder, período 13, cosecha: 632.50 m3
+    - Faena 91 → Hectarea 79, máquina skidder, período 14, cosecha: 562.40 m3
+    - Faena 91 → Hectarea 80, máquina skidder, período 17, cosecha: 510.40 m3
+    - Faena 91 → Hectarea 81, máquina skidder, período 15, cosecha: 433.35 m3
+    - Faena 91 → Hectarea 81, máquina skidder, período 17, cosecha: 116.80 m3
+    - Faena 91 → Hectarea 81, máquina skidder, período 18, cosecha: 87.05 m3
+    - Faena 91 → Hectarea 82, máquina skidder, período 13, cosecha: 98.50 m3
+    - Faena 91 → Hectarea 82, máquina skidder, período 18, cosecha: 551.00 m3
+    - Faena 91 → Hectarea 83, máquina skidder, período 13, cosecha: 16.00 m3
+    - Faena 91 → Hectarea 83, máquina skidder, período 14, cosecha: 628.60 m3
+    - Faena 91 → Hectarea 84, máquina skidder, período 16, cosecha: 660.40 m3
+    - Faena 91 → Hectarea 85, máquina skidder, período 13, cosecha: 10.10 m3
+    - Faena 91 → Hectarea 92, máquina skidder, período 17, cosecha: 553.70 m3
+    - Faena 91 → Hectarea 88, máquina skidder, período 13, cosecha: 655.10 m3
+    - Faena 91 → Hectarea 93, máquina skidder, período 14, cosecha: 533.30 m3
+    - Faena 91 → Hectarea 94, máquina skidder, período 16, cosecha: 560.70 m3
+    - Faena 91 → Hectarea 95, máquina skidder, período 13, cosecha: 536.30 m3
+    - Faena 91 → Hectarea 96, máquina skidder, período 17, cosecha: 509.55 m3
+    - Faena 91 → Hectarea 97, máquina skidder, período 18, cosecha: 509.55 m3
+    - Faena 91 → Hectarea 98, máquina skidder, período 14, cosecha: 75.90 m3
+    - Faena 91 → Hectarea 98, máquina skidder, período 16, cosecha: 362.03 m3
+    - Faena 90 → Hectarea 90, máquina skidder, período 15, cosecha: 502.57 m3
+    - Faena 90 → Hectarea 85, máquina skidder, período 14, cosecha: 560.70 m3
+    - Faena 90 → Hectarea 86, máquina skidder, período 15, cosecha: 152.53 m3
+    - Faena 90 → Hectarea 86, máquina skidder, período 18, cosecha: 421.87 m3
+    - Faena 90 → Hectarea 87, máquina skidder, período 13, cosecha: 28.95 m3
+    - Faena 90 → Hectarea 87, máquina skidder, período 16, cosecha: 473.62 m3
+    - Faena 90 → Hectarea 87, máquina skidder, período 18, cosecha: 30.23 m3
+    - Faena 90 → Hectarea 93, máquina skidder, período 18, cosecha: 80.70 m3
+    - Faena 90 → Hectarea 89, máquina skidder, período 13, cosecha: 473.62 m3
     - Faena 147 → Hectarea 147, máquina skidder, período 1, cosecha: 461.10 m3
-    - Faena 147 → Hectarea 140, máquina skidder, período 6, cosecha: 593.20 m3
-    - Faena 147 → Hectarea 141, máquina skidder, período 4, cosecha: 569.30 m3
-    - Faena 147 → Hectarea 142, máquina skidder, período 2, cosecha: 590.20 m3
-    - Faena 147 → Hectarea 143, máquina skidder, período 2, cosecha: 645.80 m3
-    - Faena 147 → Hectarea 144, máquina skidder, período 5, cosecha: 595.20 m3
-    - Faena 147 → Hectarea 145, máquina skidder, período 1, cosecha: 629.30 m3
-    - Faena 147 → Hectarea 208, máquina skidder, período 2, cosecha: 589.40 m3
-    - Faena 147 → Hectarea 146, máquina skidder, período 2, cosecha: 486.75 m3
-    - Faena 147 → Hectarea 148, máquina skidder, período 5, cosecha: 473.25 m3
-    - Faena 147 → Hectarea 149, máquina skidder, período 2, cosecha: 362.46 m3
-    - Faena 149 → Hectarea 204, máquina skidder, período 2, cosecha: 530.30 m3
-    - Faena 149 → Hectarea 205, máquina skidder, período 4, cosecha: 592.30 m3
-    - Faena 149 → Hectarea 209, máquina skidder, período 3, cosecha: 631.10 m3
-    - Faena 149 → Hectarea 210, máquina skidder, período 5, cosecha: 605.50 m3
+    - Faena 147 → Hectarea 140, máquina skidder, período 4, cosecha: 593.20 m3
+    - Faena 147 → Hectarea 141, máquina skidder, período 5, cosecha: 569.30 m3
+    - Faena 147 → Hectarea 142, máquina skidder, período 4, cosecha: 590.20 m3
+    - Faena 147 → Hectarea 143, máquina skidder, período 2, cosecha: 546.21 m3
+    - Faena 147 → Hectarea 143, máquina skidder, período 4, cosecha: 99.59 m3
+    - Faena 147 → Hectarea 144, máquina skidder, período 2, cosecha: 83.09 m3
+    - Faena 147 → Hectarea 144, máquina skidder, período 3, cosecha: 512.11 m3
+    - Faena 147 → Hectarea 145, máquina skidder, período 5, cosecha: 629.30 m3
+    - Faena 147 → Hectarea 208, máquina skidder, período 3, cosecha: 549.00 m3
+    - Faena 147 → Hectarea 208, máquina skidder, período 5, cosecha: 40.40 m3
+    - Faena 147 → Hectarea 146, máquina skidder, período 3, cosecha: 486.75 m3
+    - Faena 147 → Hectarea 148, máquina skidder, período 3, cosecha: 473.25 m3
+    - Faena 147 → Hectarea 149, máquina skidder, período 4, cosecha: 362.46 m3
+    - Faena 149 → Hectarea 204, máquina skidder, período 1, cosecha: 530.30 m3
+    - Faena 149 → Hectarea 209, máquina skidder, período 1, cosecha: 100.80 m3
+    - Faena 149 → Hectarea 209, máquina skidder, período 4, cosecha: 530.30 m3
+    - Faena 149 → Hectarea 210, máquina skidder, período 4, cosecha: 605.50 m3
 
   🔸 Faenas Instaladas (mu):
-    - Nodo 2, máquina skidder, período 1
     - Nodo 12, máquina skidder, período 2
     - Nodo 18, máquina skidder, período 2
     - Nodo 25, máquina skidder, período 1
     - Nodo 40, máquina skidder, período 1
+    - Nodo 46, máquina skidder, período 1
+    - Nodo 63, máquina torre, período 2
     - Nodo 65, máquina torre, período 1
+    - Nodo 90, máquina skidder, período 2
     - Nodo 91, máquina skidder, período 2
-    - Nodo 96, máquina skidder, período 2
     - Nodo 100, máquina skidder, período 2
+    - Nodo 112, máquina skidder, período 1
     - Nodo 130, máquina skidder, período 1
     - Nodo 147, máquina skidder, período 1
     - Nodo 149, máquina skidder, período 1
@@ -1095,318 +326,766 @@
 
   🔸 Construcción de caminos (y):
     - Construido: 2 ↔ 46 en período 1
-    - Construido: 2 ↔ 1 en período 1
-    - Construido: 4 ↔ 3 en período 1
     - Construido: 4 ↔ 5 en período 1
-    - Construido: 5 ↔ 4 en período 1
-    - Construido: 5 ↔ 1 en período 1
     - Construido: 5 ↔ 6 en período 1
     - Construido: 6 ↔ 2 en período 1
-    - Construido: 6 ↔ 5 en período 1
-    - Construido: 7 ↔ 3 en período 1
-    - Construido: 8 ↔ 7 en período 1
     - Construido: 8 ↔ 4 en período 1
     - Construido: 11 ↔ 12 en período 1
-    - Construido: 11 ↔ 7 en período 1
     - Construido: 12 ↔ 8 en período 1
-    - Construido: 12 ↔ 11 en período 1
-    - Construido: 15 ↔ 14 en período 1
+    - Construido: 14 ↔ 15 en período 1
     - Construido: 15 ↔ 11 en período 1
-    - Construido: 16 ↔ 12 en período 1
-    - Construido: 16 ↔ 15 en período 1
     - Construido: 18 ↔ 14 en período 1
-    - Construido: 18 ↔ 19 en período 1
-    - Construido: 19 ↔ 15 en período 1
-    - Construido: 19 ↔ 18 en período 1
     - Construido: 22 ↔ 18 en período 1
-    - Construido: 23 ↔ 22 en período 1
-    - Construido: 23 ↔ 19 en período 1
     - Construido: 25 ↔ 22 en período 1
-    - Construido: 28 ↔ 25 en período 1
-    - Construido: 31 ↔ 28 en período 1
-    - Construido: 34 ↔ 31 en período 1
-    - Construido: 37 ↔ 34 en período 1
-    - Construido: 38 ↔ 37 en período 1
-    - Construido: 39 ↔ 38 en período 1
-    - Construido: 39 ↔ 36 en período 1
+    - Construido: 27 ↔ 65 en período 2
+    - Construido: 36 ↔ 77 en período 2
+    - Construido: 36 ↔ 39 en período 2
+    - Construido: 38 ↔ 39 en período 2
+    - Construido: 39 ↔ 38 en período 2
+    - Construido: 39 ↔ 42 en período 2
+    - Construido: 39 ↔ 36 en período 2
     - Construido: 40 ↔ 41 en período 1
-    - Construido: 40 ↔ 37 en período 1
-    - Construido: 41 ↔ 40 en período 1
     - Construido: 41 ↔ 42 en período 1
-    - Construido: 41 ↔ 38 en período 1
-    - Construido: 42 ↔ 41 en período 1
-    - Construido: 42 ↔ 39 en período 1
+    - Construido: 42 ↔ 39 en período 2
     - Construido: 42 ↔ 85 en período 1
-    - Construido: 43 ↔ 40 en período 1
     - Construido: 44 ↔ 41 en período 1
-    - Construido: 44 ↔ 43 en período 1
     - Construido: 45 ↔ 44 en período 1
     - Construido: 46 ↔ 47 en período 1
-    - Construido: 46 ↔ 2 en período 1
     - Construido: 47 ↔ 99 en período 1
-    - Construido: 47 ↔ 46 en período 1
+    - Construido: 50 ↔ 52 en período 2
     - Construido: 52 ↔ 53 en período 1
-    - Construido: 52 ↔ 50 en período 1
-    - Construido: 53 ↔ 52 en período 1
+    - Construido: 52 ↔ 53 en período 2
+    - Construido: 52 ↔ 50 en período 2
+    - Construido: 52 ↔ 56 en período 2
+    - Construido: 53 ↔ 52 en período 2
     - Construido: 53 ↔ 111 en período 1
+    - Construido: 53 ↔ 111 en período 2
+    - Construido: 56 ↔ 59 en período 2
     - Construido: 56 ↔ 52 en período 1
-    - Construido: 59 ↔ 58 en período 1
+    - Construido: 56 ↔ 52 en período 2
+    - Construido: 58 ↔ 59 en período 2
+    - Construido: 58 ↔ 62 en período 2
+    - Construido: 59 ↔ 58 en período 2
     - Construido: 59 ↔ 56 en período 1
-    - Construido: 62 ↔ 58 en período 1
+    - Construido: 59 ↔ 56 en período 2
+    - Construido: 59 ↔ 63 en período 2
+    - Construido: 62 ↔ 66 en período 2
+    - Construido: 62 ↔ 63 en período 2
+    - Construido: 62 ↔ 58 en período 2
     - Construido: 63 ↔ 59 en período 1
-    - Construido: 63 ↔ 62 en período 1
+    - Construido: 63 ↔ 59 en período 2
+    - Construido: 63 ↔ 62 en período 2
+    - Construido: 63 ↔ 67 en período 2
     - Construido: 65 ↔ 66 en período 1
-    - Construido: 65 ↔ 27 en período 1
-    - Construido: 66 ↔ 62 en período 1
-    - Construido: 66 ↔ 65 en período 1
+    - Construido: 65 ↔ 66 en período 2
+    - Construido: 65 ↔ 27 en período 2
+    - Construido: 66 ↔ 62 en período 2
+    - Construido: 66 ↔ 65 en período 2
     - Construido: 66 ↔ 67 en período 1
+    - Construido: 66 ↔ 67 en período 2
+    - Construido: 67 ↔ 68 en período 2
     - Construido: 67 ↔ 63 en período 1
-    - Construido: 67 ↔ 66 en período 1
-    - Construido: 68 ↔ 67 en período 1
-    - Construido: 72 ↔ 68 en período 1
-    - Construido: 76 ↔ 75 en período 1
-    - Construido: 76 ↔ 72 en período 1
-    - Construido: 77 ↔ 36 en período 1
-    - Construido: 78 ↔ 77 en período 1
-    - Construido: 79 ↔ 78 en período 1
-    - Construido: 79 ↔ 75 en período 1
-    - Construido: 80 ↔ 76 en período 1
-    - Construido: 80 ↔ 79 en período 1
-    - Construido: 84 ↔ 80 en período 1
+    - Construido: 67 ↔ 63 en período 2
+    - Construido: 67 ↔ 66 en período 2
+    - Construido: 68 ↔ 67 en período 2
+    - Construido: 68 ↔ 122 en período 2
+    - Construido: 68 ↔ 72 en período 2
+    - Construido: 72 ↔ 125 en período 2
+    - Construido: 72 ↔ 76 en período 2
+    - Construido: 72 ↔ 68 en período 2
+    - Construido: 76 ↔ 80 en período 2
+    - Construido: 76 ↔ 72 en período 2
+    - Construido: 76 ↔ 129 en período 2
+    - Construido: 77 ↔ 36 en período 2
+    - Construido: 77 ↔ 78 en período 2
+    - Construido: 78 ↔ 77 en período 2
+    - Construido: 79 ↔ 80 en período 2
+    - Construido: 80 ↔ 84 en período 2
+    - Construido: 80 ↔ 76 en período 2
+    - Construido: 80 ↔ 133 en período 2
+    - Construido: 80 ↔ 79 en período 2
+    - Construido: 84 ↔ 92 en período 2
+    - Construido: 84 ↔ 80 en período 2
+    - Construido: 84 ↔ 137 en período 2
     - Construido: 85 ↔ 86 en período 1
-    - Construido: 85 ↔ 42 en período 1
-    - Construido: 86 ↔ 85 en período 1
     - Construido: 86 ↔ 91 en período 1
     - Construido: 89 ↔ 45 en período 1
     - Construido: 90 ↔ 89 en período 1
     - Construido: 91 ↔ 92 en período 1
-    - Construido: 91 ↔ 86 en período 1
-    - Construido: 92 ↔ 84 en período 1
-    - Construido: 92 ↔ 91 en período 1
+    - Construido: 92 ↔ 84 en período 2
+    - Construido: 92 ↔ 140 en período 2
     - Construido: 92 ↔ 95 en período 1
-    - Construido: 93 ↔ 86 en período 1
-    - Construido: 94 ↔ 93 en período 1
-    - Construido: 94 ↔ 91 en período 1
-    - Construido: 95 ↔ 94 en período 1
     - Construido: 95 ↔ 98 en período 1
-    - Construido: 95 ↔ 92 en período 1
-    - Construido: 96 ↔ 90 en período 1
-    - Construido: 96 ↔ 93 en período 1
-    - Construido: 97 ↔ 94 en período 1
-    - Construido: 97 ↔ 96 en período 1
     - Construido: 98 ↔ 146 en período 1
-    - Construido: 98 ↔ 95 en período 1
-    - Construido: 98 ↔ 97 en período 1
-    - Construido: 99 ↔ 47 en período 1
     - Construido: 99 ↔ 100 en período 1
-    - Construido: 100 ↔ 99 en período 1
+    - Construido: 99 ↔ 103 en período 2
     - Construido: 100 ↔ 104 en período 1
+    - Construido: 100 ↔ 104 en período 2
     - Construido: 101 ↔ 100 en período 1
     - Construido: 102 ↔ 101 en período 1
-    - Construido: 103 ↔ 99 en período 1
-    - Construido: 104 ↔ 103 en período 1
-    - Construido: 104 ↔ 100 en período 1
+    - Construido: 103 ↔ 104 en período 2
+    - Construido: 103 ↔ 99 en período 2
+    - Construido: 104 ↔ 103 en período 2
+    - Construido: 104 ↔ 100 en período 2
     - Construido: 104 ↔ 108 en período 1
-    - Construido: 105 ↔ 101 en período 1
-    - Construido: 105 ↔ 104 en período 1
-    - Construido: 106 ↔ 105 en período 1
-    - Construido: 106 ↔ 102 en período 1
+    - Construido: 104 ↔ 108 en período 2
+    - Construido: 104 ↔ 105 en período 2
+    - Construido: 105 ↔ 104 en período 2
+    - Construido: 108 ↔ 109 en período 2
     - Construido: 108 ↔ 112 en período 1
-    - Construido: 108 ↔ 104 en período 1
-    - Construido: 109 ↔ 108 en período 1
-    - Construido: 109 ↔ 105 en período 1
+    - Construido: 108 ↔ 104 en período 2
+    - Construido: 109 ↔ 108 en período 2
     - Construido: 110 ↔ 170 en período 1
-    - Construido: 110 ↔ 109 en período 1
+    - Construido: 110 ↔ 112 en período 2
     - Construido: 111 ↔ 112 en período 1
-    - Construido: 111 ↔ 53 en período 1
-    - Construido: 112 ↔ 111 en período 1
+    - Construido: 111 ↔ 112 en período 2
+    - Construido: 111 ↔ 53 en período 2
+    - Construido: 112 ↔ 111 en período 2
     - Construido: 112 ↔ 110 en período 1
-    - Construido: 112 ↔ 108 en período 1
+    - Construido: 112 ↔ 110 en período 2
+    - Construido: 112 ↔ 114 en período 2
+    - Construido: 114 ↔ 115 en período 2
     - Construido: 114 ↔ 112 en período 1
-    - Construido: 115 ↔ 114 en período 1
-    - Construido: 115 ↔ 110 en período 1
+    - Construido: 114 ↔ 112 en período 2
+    - Construido: 114 ↔ 117 en período 2
+    - Construido: 115 ↔ 114 en período 2
+    - Construido: 117 ↔ 120 en período 2
     - Construido: 117 ↔ 114 en período 1
-    - Construido: 118 ↔ 115 en período 1
-    - Construido: 118 ↔ 117 en período 1
+    - Construido: 117 ↔ 114 en período 2
+    - Construido: 117 ↔ 118 en período 2
+    - Construido: 118 ↔ 117 en período 2
+    - Construido: 120 ↔ 123 en período 2
     - Construido: 120 ↔ 117 en período 1
-    - Construido: 121 ↔ 118 en período 1
-    - Construido: 121 ↔ 120 en período 1
-    - Construido: 122 ↔ 68 en período 1
+    - Construido: 120 ↔ 117 en período 2
+    - Construido: 120 ↔ 121 en período 2
+    - Construido: 121 ↔ 120 en período 2
+    - Construido: 122 ↔ 68 en período 2
+    - Construido: 122 ↔ 125 en período 2
+    - Construido: 122 ↔ 123 en período 2
+    - Construido: 123 ↔ 126 en período 2
     - Construido: 123 ↔ 120 en período 1
-    - Construido: 123 ↔ 122 en período 1
-    - Construido: 124 ↔ 121 en período 1
-    - Construido: 124 ↔ 123 en período 1
-    - Construido: 125 ↔ 122 en período 1
-    - Construido: 125 ↔ 72 en período 1
+    - Construido: 123 ↔ 120 en período 2
+    - Construido: 123 ↔ 124 en período 2
+    - Construido: 123 ↔ 122 en período 2
+    - Construido: 124 ↔ 123 en período 2
+    - Construido: 125 ↔ 126 en período 2
+    - Construido: 125 ↔ 122 en período 2
+    - Construido: 125 ↔ 72 en período 2
+    - Construido: 125 ↔ 129 en período 2
     - Construido: 126 ↔ 123 en período 1
-    - Construido: 126 ↔ 125 en período 1
-    - Construido: 127 ↔ 124 en período 1
-    - Construido: 127 ↔ 126 en período 1
-    - Construido: 128 ↔ 127 en período 1
-    - Construido: 129 ↔ 76 en período 1
-    - Construido: 129 ↔ 125 en período 1
-    - Construido: 130 ↔ 129 en período 1
+    - Construido: 126 ↔ 123 en período 2
+    - Construido: 126 ↔ 125 en período 2
+    - Construido: 129 ↔ 133 en período 2
+    - Construido: 129 ↔ 130 en período 2
+    - Construido: 129 ↔ 76 en período 2
+    - Construido: 129 ↔ 125 en período 2
+    - Construido: 130 ↔ 129 en período 2
     - Construido: 130 ↔ 126 en período 1
-    - Construido: 131 ↔ 127 en período 1
-    - Construido: 131 ↔ 130 en período 1
-    - Construido: 132 ↔ 131 en período 1
-    - Construido: 132 ↔ 128 en período 1
-    - Construido: 133 ↔ 129 en período 1
-    - Construido: 133 ↔ 80 en período 1
-    - Construido: 134 ↔ 133 en período 1
-    - Construido: 134 ↔ 130 en período 1
-    - Construido: 135 ↔ 131 en período 1
-    - Construido: 135 ↔ 134 en período 1
-    - Construido: 136 ↔ 132 en período 1
-    - Construido: 136 ↔ 135 en período 1
-    - Construido: 137 ↔ 133 en período 1
-    - Construido: 137 ↔ 84 en período 1
-    - Construido: 138 ↔ 137 en período 1
-    - Construido: 138 ↔ 134 en período 1
-    - Construido: 139 ↔ 135 en período 1
-    - Construido: 139 ↔ 138 en período 1
-    - Construido: 140 ↔ 92 en período 1
-    - Construido: 140 ↔ 137 en período 1
-    - Construido: 141 ↔ 140 en período 1
-    - Construido: 141 ↔ 138 en período 1
-    - Construido: 142 ↔ 141 en período 1
-    - Construido: 142 ↔ 139 en período 1
-    - Construido: 143 ↔ 95 en período 1
-    - Construido: 143 ↔ 140 en período 1
-    - Construido: 144 ↔ 141 en período 1
-    - Construido: 144 ↔ 143 en período 1
-    - Construido: 145 ↔ 142 en período 1
-    - Construido: 145 ↔ 144 en período 1
+    - Construido: 133 ↔ 129 en período 2
+    - Construido: 133 ↔ 134 en período 2
+    - Construido: 133 ↔ 137 en período 2
+    - Construido: 133 ↔ 80 en período 2
+    - Construido: 134 ↔ 133 en período 2
+    - Construido: 137 ↔ 138 en período 2
+    - Construido: 137 ↔ 140 en período 2
+    - Construido: 137 ↔ 133 en período 2
+    - Construido: 137 ↔ 84 en período 2
+    - Construido: 138 ↔ 137 en período 2
+    - Construido: 140 ↔ 141 en período 2
+    - Construido: 140 ↔ 92 en período 2
+    - Construido: 140 ↔ 137 en período 2
+    - Construido: 140 ↔ 143 en período 2
+    - Construido: 141 ↔ 140 en período 2
+    - Construido: 143 ↔ 140 en período 2
     - Construido: 146 ↔ 147 en período 1
-    - Construido: 146 ↔ 98 en período 1
-    - Construido: 146 ↔ 143 en período 1
-    - Construido: 147 ↔ 146 en período 1
-    - Construido: 147 ↔ 144 en período 1
     - Construido: 148 ↔ 147 en período 1
-    - Construido: 148 ↔ 145 en período 1
     - Construido: 149 ↔ 148 en período 1
     - Construido: 150 ↔ 102 en período 1
     - Construido: 151 ↔ 150 en período 1
-    - Construido: 152 ↔ 151 en período 1
-    - Construido: 153 ↔ 152 en período 1
-    - Construido: 154 ↔ 106 en período 1
-    - Construido: 154 ↔ 150 en período 1
-    - Construido: 155 ↔ 154 en período 1
-    - Construido: 155 ↔ 151 en período 1
-    - Construido: 156 ↔ 152 en período 1
-    - Construido: 156 ↔ 155 en período 1
-    - Construido: 157 ↔ 153 en período 1
-    - Construido: 157 ↔ 156 en período 1
-    - Construido: 158 ↔ 106 en período 1
-    - Construido: 158 ↔ 109 en período 1
-    - Construido: 159 ↔ 158 en período 1
-    - Construido: 159 ↔ 154 en período 1
-    - Construido: 160 ↔ 155 en período 1
-    - Construido: 160 ↔ 159 en período 1
-    - Construido: 161 ↔ 156 en período 1
-    - Construido: 161 ↔ 160 en período 1
-    - Construido: 162 ↔ 161 en período 1
-    - Construido: 162 ↔ 157 en período 1
     - Construido: 163 ↔ 172 en período 1
-    - Construido: 163 ↔ 159 en período 1
-    - Construido: 164 ↔ 160 en período 1
-    - Construido: 164 ↔ 163 en período 1
-    - Construido: 165 ↔ 161 en período 1
-    - Construido: 165 ↔ 164 en período 1
-    - Construido: 166 ↔ 165 en período 1
-    - Construido: 166 ↔ 162 en período 1
-    - Construido: 167 ↔ 164 en período 1
     - Construido: 167 ↔ 168 en período 1
-    - Construido: 168 ↔ 167 en período 1
     - Construido: 168 ↔ 169 en período 1
-    - Construido: 168 ↔ 165 en período 1
-    - Construido: 169 ↔ 168 en período 1
-    - Construido: 169 ↔ 166 en período 1
-    - Construido: 170 ↔ 110 en período 1
     - Construido: 170 ↔ 163 en período 1
-    - Construido: 170 ↔ 158 en período 1
     - Construido: 171 ↔ 170 en período 1
-    - Construido: 171 ↔ 115 en período 1
     - Construido: 172 ↔ 167 en período 1
-    - Construido: 172 ↔ 163 en período 1
-    - Construido: 172 ↔ 171 en período 1
     - Construido: 173 ↔ 171 en período 1
-    - Construido: 173 ↔ 118 en período 1
-    - Construido: 174 ↔ 173 en período 1
-    - Construido: 174 ↔ 172 en período 1
     - Construido: 175 ↔ 167 en período 1
-    - Construido: 175 ↔ 174 en período 1
-    - Construido: 176 ↔ 168 en período 1
-    - Construido: 176 ↔ 175 en período 1
     - Construido: 177 ↔ 169 en período 1
-    - Construido: 177 ↔ 176 en período 1
-    - Construido: 178 ↔ 121 en período 1
-    - Construido: 178 ↔ 173 en período 1
-    - Construido: 179 ↔ 178 en período 1
-    - Construido: 179 ↔ 174 en período 1
-    - Construido: 180 ↔ 179 en período 1
     - Construido: 180 ↔ 175 en período 1
-    - Construido: 181 ↔ 180 en período 1
-    - Construido: 181 ↔ 176 en período 1
     - Construido: 182 ↔ 177 en período 1
-    - Construido: 182 ↔ 181 en período 1
-    - Construido: 183 ↔ 128 en período 1
-    - Construido: 183 ↔ 124 en período 1
-    - Construido: 183 ↔ 178 en período 1
-    - Construido: 184 ↔ 183 en período 1
-    - Construido: 184 ↔ 179 en período 1
     - Construido: 185 ↔ 180 en período 1
-    - Construido: 185 ↔ 184 en período 1
-    - Construido: 186 ↔ 181 en período 1
-    - Construido: 186 ↔ 185 en período 1
-    - Construido: 187 ↔ 186 en período 1
     - Construido: 187 ↔ 182 en período 1
-    - Construido: 188 ↔ 128 en período 1
-    - Construido: 188 ↔ 184 en período 1
-    - Construido: 189 ↔ 188 en período 1
     - Construido: 189 ↔ 185 en período 1
-    - Construido: 190 ↔ 189 en período 1
-    - Construido: 190 ↔ 186 en período 1
-    - Construido: 191 ↔ 187 en período 1
-    - Construido: 191 ↔ 190 en período 1
-    - Construido: 192 ↔ 132 en período 1
-    - Construido: 192 ↔ 188 en período 1
     - Construido: 193 ↔ 189 en período 1
-    - Construido: 193 ↔ 192 en período 1
-    - Construido: 194 ↔ 190 en período 1
-    - Construido: 194 ↔ 193 en período 1
-    - Construido: 195 ↔ 194 en período 1
-    - Construido: 195 ↔ 191 en período 1
-    - Construido: 196 ↔ 136 en período 1
-    - Construido: 196 ↔ 192 en período 1
-    - Construido: 197 ↔ 196 en período 1
     - Construido: 197 ↔ 193 en período 1
-    - Construido: 198 ↔ 197 en período 1
-    - Construido: 198 ↔ 194 en período 1
-    - Construido: 199 ↔ 198 en período 1
-    - Construido: 199 ↔ 195 en período 1
-    - Construido: 200 ↔ 139 en período 1
-    - Construido: 200 ↔ 136 en período 1
-    - Construido: 201 ↔ 196 en período 1
-    - Construido: 201 ↔ 200 en período 1
-    - Construido: 202 ↔ 201 en período 1
-    - Construido: 202 ↔ 197 en período 1
-    - Construido: 203 ↔ 198 en período 1
-    - Construido: 203 ↔ 202 en período 1
-    - Construido: 204 ↔ 142 en período 1
-    - Construido: 204 ↔ 200 en período 1
-    - Construido: 205 ↔ 204 en período 1
-    - Construido: 205 ↔ 201 en período 1
-    - Construido: 206 ↔ 205 en período 1
-    - Construido: 206 ↔ 202 en período 1
-    - Construido: 207 ↔ 206 en período 1
-    - Construido: 207 ↔ 203 en período 1
-    - Construido: 208 ↔ 145 en período 1
-    - Construido: 208 ↔ 149 en período 1
-    - Construido: 208 ↔ 204 en período 1
-    - Construido: 209 ↔ 208 en período 1
-    - Construido: 209 ↔ 205 en período 1
-    - Construido: 210 ↔ 209 en período 1
-    - Construido: 210 ↔ 206 en período 1
+
+  🔸 Flujo de madera (z):
+    - Transportado: 466.55 m³ por 2 ↔ 46 en período 1
+    - Transportado: 2079.57 m³ por 2 ↔ 46 en período 3
+    - Transportado: 700.90 m³ por 2 ↔ 46 en período 4
+    - Transportado: 1959.50 m³ por 2 ↔ 46 en período 5
+    - Transportado: 2266.94 m³ por 2 ↔ 46 en período 13
+    - Transportado: 4006.81 m³ por 2 ↔ 46 en período 14
+    - Transportado: 1241.00 m³ por 2 ↔ 46 en período 15
+    - Transportado: 606.70 m³ por 2 ↔ 46 en período 16
+    - Transportado: 1102.89 m³ por 2 ↔ 46 en período 17
+    - Transportado: 2495.50 m³ por 2 ↔ 46 en período 18
+    - Transportado: 466.55 m³ por 4 ↔ 5 en período 1
+    - Transportado: 2079.57 m³ por 4 ↔ 5 en período 3
+    - Transportado: 700.90 m³ por 4 ↔ 5 en período 4
+    - Transportado: 1959.50 m³ por 4 ↔ 5 en período 5
+    - Transportado: 2266.94 m³ por 4 ↔ 5 en período 13
+    - Transportado: 4006.81 m³ por 4 ↔ 5 en período 14
+    - Transportado: 1241.00 m³ por 4 ↔ 5 en período 15
+    - Transportado: 606.70 m³ por 4 ↔ 5 en período 16
+    - Transportado: 1102.89 m³ por 4 ↔ 5 en período 17
+    - Transportado: 2495.50 m³ por 4 ↔ 5 en período 18
+    - Transportado: 466.55 m³ por 5 ↔ 6 en período 1
+    - Transportado: 2079.57 m³ por 5 ↔ 6 en período 3
+    - Transportado: 700.90 m³ por 5 ↔ 6 en período 4
+    - Transportado: 1959.50 m³ por 5 ↔ 6 en período 5
+    - Transportado: 2266.94 m³ por 5 ↔ 6 en período 13
+    - Transportado: 4006.81 m³ por 5 ↔ 6 en período 14
+    - Transportado: 1241.00 m³ por 5 ↔ 6 en período 15
+    - Transportado: 606.70 m³ por 5 ↔ 6 en período 16
+    - Transportado: 1102.89 m³ por 5 ↔ 6 en período 17
+    - Transportado: 2495.50 m³ por 5 ↔ 6 en período 18
+    - Transportado: 466.55 m³ por 6 ↔ 2 en período 1
+    - Transportado: 2079.57 m³ por 6 ↔ 2 en período 3
+    - Transportado: 700.90 m³ por 6 ↔ 2 en período 4
+    - Transportado: 1959.50 m³ por 6 ↔ 2 en período 5
+    - Transportado: 2266.94 m³ por 6 ↔ 2 en período 13
+    - Transportado: 4006.81 m³ por 6 ↔ 2 en período 14
+    - Transportado: 1241.00 m³ por 6 ↔ 2 en período 15
+    - Transportado: 606.70 m³ por 6 ↔ 2 en período 16
+    - Transportado: 1102.89 m³ por 6 ↔ 2 en período 17
+    - Transportado: 2495.50 m³ por 6 ↔ 2 en período 18
+    - Transportado: 466.55 m³ por 8 ↔ 4 en período 1
+    - Transportado: 2079.57 m³ por 8 ↔ 4 en período 3
+    - Transportado: 700.90 m³ por 8 ↔ 4 en período 4
+    - Transportado: 1959.50 m³ por 8 ↔ 4 en período 5
+    - Transportado: 2266.94 m³ por 8 ↔ 4 en período 13
+    - Transportado: 4006.81 m³ por 8 ↔ 4 en período 14
+    - Transportado: 1241.00 m³ por 8 ↔ 4 en período 15
+    - Transportado: 606.70 m³ por 8 ↔ 4 en período 16
+    - Transportado: 1102.89 m³ por 8 ↔ 4 en período 17
+    - Transportado: 2495.50 m³ por 8 ↔ 4 en período 18
+    - Transportado: 466.55 m³ por 11 ↔ 12 en período 1
+    - Transportado: 2079.57 m³ por 11 ↔ 12 en período 3
+    - Transportado: 700.90 m³ por 11 ↔ 12 en período 4
+    - Transportado: 1959.50 m³ por 11 ↔ 12 en período 5
+    - Transportado: 1641.51 m³ por 11 ↔ 12 en período 14
+    - Transportado: 638.60 m³ por 11 ↔ 12 en período 15
+    - Transportado: 552.60 m³ por 11 ↔ 12 en período 17
+    - Transportado: 663.70 m³ por 11 ↔ 12 en período 18
+    - Transportado: 466.55 m³ por 12 ↔ 8 en período 1
+    - Transportado: 2079.57 m³ por 12 ↔ 8 en período 3
+    - Transportado: 700.90 m³ por 12 ↔ 8 en período 4
+    - Transportado: 1959.50 m³ por 12 ↔ 8 en período 5
+    - Transportado: 2266.94 m³ por 12 ↔ 8 en período 13
+    - Transportado: 4006.81 m³ por 12 ↔ 8 en período 14
+    - Transportado: 1241.00 m³ por 12 ↔ 8 en período 15
+    - Transportado: 606.70 m³ por 12 ↔ 8 en período 16
+    - Transportado: 1102.89 m³ por 12 ↔ 8 en período 17
+    - Transportado: 2495.50 m³ por 12 ↔ 8 en período 18
+    - Transportado: 466.55 m³ por 14 ↔ 15 en período 1
+    - Transportado: 2079.57 m³ por 14 ↔ 15 en período 3
+    - Transportado: 700.90 m³ por 14 ↔ 15 en período 4
+    - Transportado: 1959.50 m³ por 14 ↔ 15 en período 5
+    - Transportado: 1641.51 m³ por 14 ↔ 15 en período 14
+    - Transportado: 638.60 m³ por 14 ↔ 15 en período 15
+    - Transportado: 552.60 m³ por 14 ↔ 15 en período 17
+    - Transportado: 663.70 m³ por 14 ↔ 15 en período 18
+    - Transportado: 466.55 m³ por 15 ↔ 11 en período 1
+    - Transportado: 2079.57 m³ por 15 ↔ 11 en período 3
+    - Transportado: 700.90 m³ por 15 ↔ 11 en período 4
+    - Transportado: 1959.50 m³ por 15 ↔ 11 en período 5
+    - Transportado: 1641.51 m³ por 15 ↔ 11 en período 14
+    - Transportado: 638.60 m³ por 15 ↔ 11 en período 15
+    - Transportado: 552.60 m³ por 15 ↔ 11 en período 17
+    - Transportado: 663.70 m³ por 15 ↔ 11 en período 18
+    - Transportado: 466.55 m³ por 18 ↔ 14 en período 1
+    - Transportado: 2079.57 m³ por 18 ↔ 14 en período 3
+    - Transportado: 700.90 m³ por 18 ↔ 14 en período 4
+    - Transportado: 1959.50 m³ por 18 ↔ 14 en período 5
+    - Transportado: 1641.51 m³ por 18 ↔ 14 en período 14
+    - Transportado: 638.60 m³ por 18 ↔ 14 en período 15
+    - Transportado: 552.60 m³ por 18 ↔ 14 en período 17
+    - Transportado: 663.70 m³ por 18 ↔ 14 en período 18
+    - Transportado: 466.55 m³ por 22 ↔ 18 en período 1
+    - Transportado: 2079.57 m³ por 22 ↔ 18 en período 3
+    - Transportado: 700.90 m³ por 22 ↔ 18 en período 4
+    - Transportado: 1959.50 m³ por 22 ↔ 18 en período 5
+    - Transportado: 466.55 m³ por 25 ↔ 22 en período 1
+    - Transportado: 2079.57 m³ por 25 ↔ 22 en período 3
+    - Transportado: 700.90 m³ por 25 ↔ 22 en período 4
+    - Transportado: 1959.50 m³ por 25 ↔ 22 en período 5
+    - Transportado: 382.34 m³ por 40 ↔ 41 en período 1
+    - Transportado: 2573.98 m³ por 40 ↔ 41 en período 2
+    - Transportado: 1877.20 m³ por 40 ↔ 41 en período 3
+    - Transportado: 670.60 m³ por 40 ↔ 41 en período 4
+    - Transportado: 609.50 m³ por 40 ↔ 41 en período 6
+    - Transportado: 382.34 m³ por 41 ↔ 42 en período 1
+    - Transportado: 2573.98 m³ por 41 ↔ 42 en período 2
+    - Transportado: 1877.20 m³ por 41 ↔ 42 en período 3
+    - Transportado: 670.60 m³ por 41 ↔ 42 en período 4
+    - Transportado: 609.50 m³ por 41 ↔ 42 en período 6
+    - Transportado: 502.57 m³ por 41 ↔ 42 en período 13
+    - Transportado: 560.70 m³ por 41 ↔ 42 en período 14
+    - Transportado: 655.10 m³ por 41 ↔ 42 en período 15
+    - Transportado: 473.62 m³ por 41 ↔ 42 en período 16
+    - Transportado: 532.80 m³ por 41 ↔ 42 en período 18
+    - Transportado: 382.34 m³ por 42 ↔ 85 en período 1
+    - Transportado: 2573.98 m³ por 42 ↔ 85 en período 2
+    - Transportado: 1877.20 m³ por 42 ↔ 85 en período 3
+    - Transportado: 670.60 m³ por 42 ↔ 85 en período 4
+    - Transportado: 609.50 m³ por 42 ↔ 85 en período 6
+    - Transportado: 502.57 m³ por 42 ↔ 85 en período 13
+    - Transportado: 560.70 m³ por 42 ↔ 85 en período 14
+    - Transportado: 655.10 m³ por 42 ↔ 85 en período 15
+    - Transportado: 473.62 m³ por 42 ↔ 85 en período 16
+    - Transportado: 532.80 m³ por 42 ↔ 85 en período 18
+    - Transportado: 502.57 m³ por 44 ↔ 41 en período 13
+    - Transportado: 560.70 m³ por 44 ↔ 41 en período 14
+    - Transportado: 655.10 m³ por 44 ↔ 41 en período 15
+    - Transportado: 473.62 m³ por 44 ↔ 41 en período 16
+    - Transportado: 532.80 m³ por 44 ↔ 41 en período 18
+    - Transportado: 502.57 m³ por 45 ↔ 44 en período 13
+    - Transportado: 560.70 m³ por 45 ↔ 44 en período 14
+    - Transportado: 655.10 m³ por 45 ↔ 44 en período 15
+    - Transportado: 473.62 m³ por 45 ↔ 44 en período 16
+    - Transportado: 532.80 m³ por 45 ↔ 44 en período 18
+    - Transportado: 1415.85 m³ por 46 ↔ 47 en período 1
+    - Transportado: 3121.17 m³ por 46 ↔ 47 en período 3
+    - Transportado: 700.90 m³ por 46 ↔ 47 en período 4
+    - Transportado: 2337.80 m³ por 46 ↔ 47 en período 5
+    - Transportado: 3232.54 m³ por 46 ↔ 47 en período 6
+    - Transportado: 2266.94 m³ por 46 ↔ 47 en período 13
+    - Transportado: 4006.81 m³ por 46 ↔ 47 en período 14
+    - Transportado: 1241.00 m³ por 46 ↔ 47 en período 15
+    - Transportado: 606.70 m³ por 46 ↔ 47 en período 16
+    - Transportado: 1102.89 m³ por 46 ↔ 47 en período 17
+    - Transportado: 2495.50 m³ por 46 ↔ 47 en período 18
+    - Transportado: 1415.85 m³ por 47 ↔ 99 en período 1
+    - Transportado: 3121.17 m³ por 47 ↔ 99 en período 3
+    - Transportado: 700.90 m³ por 47 ↔ 99 en período 4
+    - Transportado: 2337.80 m³ por 47 ↔ 99 en período 5
+    - Transportado: 3232.54 m³ por 47 ↔ 99 en período 6
+    - Transportado: 2266.94 m³ por 47 ↔ 99 en período 13
+    - Transportado: 4006.81 m³ por 47 ↔ 99 en período 14
+    - Transportado: 1241.00 m³ por 47 ↔ 99 en período 15
+    - Transportado: 606.70 m³ por 47 ↔ 99 en período 16
+    - Transportado: 1102.89 m³ por 47 ↔ 99 en período 17
+    - Transportado: 2495.50 m³ por 47 ↔ 99 en período 18
+    - Transportado: 1179.80 m³ por 52 ↔ 53 en período 1
+    - Transportado: 2816.90 m³ por 52 ↔ 53 en período 2
+    - Transportado: 641.80 m³ por 52 ↔ 53 en período 3
+    - Transportado: 554.40 m³ por 52 ↔ 53 en período 4
+    - Transportado: 1134.70 m³ por 52 ↔ 53 en período 5
+    - Transportado: 585.80 m³ por 52 ↔ 53 en período 6
+    - Transportado: 1313.90 m³ por 52 ↔ 53 en período 13
+    - Transportado: 581.10 m³ por 52 ↔ 53 en período 14
+    - Transportado: 587.00 m³ por 52 ↔ 53 en período 16
+    - Transportado: 2438.10 m³ por 52 ↔ 53 en período 17
+    - Transportado: 2429.40 m³ por 52 ↔ 53 en período 18
+    - Transportado: 1179.80 m³ por 53 ↔ 111 en período 1
+    - Transportado: 2816.90 m³ por 53 ↔ 111 en período 2
+    - Transportado: 641.80 m³ por 53 ↔ 111 en período 3
+    - Transportado: 554.40 m³ por 53 ↔ 111 en período 4
+    - Transportado: 1134.70 m³ por 53 ↔ 111 en período 5
+    - Transportado: 585.80 m³ por 53 ↔ 111 en período 6
+    - Transportado: 1313.90 m³ por 53 ↔ 111 en período 13
+    - Transportado: 581.10 m³ por 53 ↔ 111 en período 14
+    - Transportado: 587.00 m³ por 53 ↔ 111 en período 16
+    - Transportado: 2438.10 m³ por 53 ↔ 111 en período 17
+    - Transportado: 2429.40 m³ por 53 ↔ 111 en período 18
+    - Transportado: 1179.80 m³ por 56 ↔ 52 en período 1
+    - Transportado: 2816.90 m³ por 56 ↔ 52 en período 2
+    - Transportado: 641.80 m³ por 56 ↔ 52 en período 3
+    - Transportado: 554.40 m³ por 56 ↔ 52 en período 4
+    - Transportado: 1134.70 m³ por 56 ↔ 52 en período 5
+    - Transportado: 585.80 m³ por 56 ↔ 52 en período 6
+    - Transportado: 1313.90 m³ por 56 ↔ 52 en período 13
+    - Transportado: 581.10 m³ por 56 ↔ 52 en período 14
+    - Transportado: 587.00 m³ por 56 ↔ 52 en período 16
+    - Transportado: 2438.10 m³ por 56 ↔ 52 en período 17
+    - Transportado: 2429.40 m³ por 56 ↔ 52 en período 18
+    - Transportado: 1179.80 m³ por 59 ↔ 56 en período 1
+    - Transportado: 2816.90 m³ por 59 ↔ 56 en período 2
+    - Transportado: 641.80 m³ por 59 ↔ 56 en período 3
+    - Transportado: 554.40 m³ por 59 ↔ 56 en período 4
+    - Transportado: 1134.70 m³ por 59 ↔ 56 en período 5
+    - Transportado: 585.80 m³ por 59 ↔ 56 en período 6
+    - Transportado: 1313.90 m³ por 59 ↔ 56 en período 13
+    - Transportado: 581.10 m³ por 59 ↔ 56 en período 14
+    - Transportado: 587.00 m³ por 59 ↔ 56 en período 16
+    - Transportado: 2438.10 m³ por 59 ↔ 56 en período 17
+    - Transportado: 2429.40 m³ por 59 ↔ 56 en período 18
+    - Transportado: 1179.80 m³ por 63 ↔ 59 en período 1
+    - Transportado: 2816.90 m³ por 63 ↔ 59 en período 2
+    - Transportado: 641.80 m³ por 63 ↔ 59 en período 3
+    - Transportado: 554.40 m³ por 63 ↔ 59 en período 4
+    - Transportado: 1134.70 m³ por 63 ↔ 59 en período 5
+    - Transportado: 585.80 m³ por 63 ↔ 59 en período 6
+    - Transportado: 1313.90 m³ por 63 ↔ 59 en período 13
+    - Transportado: 581.10 m³ por 63 ↔ 59 en período 14
+    - Transportado: 587.00 m³ por 63 ↔ 59 en período 16
+    - Transportado: 2438.10 m³ por 63 ↔ 59 en período 17
+    - Transportado: 2429.40 m³ por 63 ↔ 59 en período 18
+    - Transportado: 1179.80 m³ por 65 ↔ 66 en período 1
+    - Transportado: 2816.90 m³ por 65 ↔ 66 en período 2
+    - Transportado: 641.80 m³ por 65 ↔ 66 en período 3
+    - Transportado: 554.40 m³ por 65 ↔ 66 en período 4
+    - Transportado: 1134.70 m³ por 65 ↔ 66 en período 5
+    - Transportado: 585.80 m³ por 65 ↔ 66 en período 6
+    - Transportado: 1179.80 m³ por 66 ↔ 67 en período 1
+    - Transportado: 2816.90 m³ por 66 ↔ 67 en período 2
+    - Transportado: 641.80 m³ por 66 ↔ 67 en período 3
+    - Transportado: 554.40 m³ por 66 ↔ 67 en período 4
+    - Transportado: 1134.70 m³ por 66 ↔ 67 en período 5
+    - Transportado: 585.80 m³ por 66 ↔ 67 en período 6
+    - Transportado: 1179.80 m³ por 67 ↔ 63 en período 1
+    - Transportado: 2816.90 m³ por 67 ↔ 63 en período 2
+    - Transportado: 641.80 m³ por 67 ↔ 63 en período 3
+    - Transportado: 554.40 m³ por 67 ↔ 63 en período 4
+    - Transportado: 1134.70 m³ por 67 ↔ 63 en período 5
+    - Transportado: 585.80 m³ por 67 ↔ 63 en período 6
+    - Transportado: 382.34 m³ por 85 ↔ 86 en período 1
+    - Transportado: 2573.98 m³ por 85 ↔ 86 en período 2
+    - Transportado: 1877.20 m³ por 85 ↔ 86 en período 3
+    - Transportado: 670.60 m³ por 85 ↔ 86 en período 4
+    - Transportado: 609.50 m³ por 85 ↔ 86 en período 6
+    - Transportado: 502.57 m³ por 85 ↔ 86 en período 13
+    - Transportado: 560.70 m³ por 85 ↔ 86 en período 14
+    - Transportado: 655.10 m³ por 85 ↔ 86 en período 15
+    - Transportado: 473.62 m³ por 85 ↔ 86 en período 16
+    - Transportado: 532.80 m³ por 85 ↔ 86 en período 18
+    - Transportado: 382.34 m³ por 86 ↔ 91 en período 1
+    - Transportado: 2573.98 m³ por 86 ↔ 91 en período 2
+    - Transportado: 1877.20 m³ por 86 ↔ 91 en período 3
+    - Transportado: 670.60 m³ por 86 ↔ 91 en período 4
+    - Transportado: 609.50 m³ por 86 ↔ 91 en período 6
+    - Transportado: 502.57 m³ por 86 ↔ 91 en período 13
+    - Transportado: 560.70 m³ por 86 ↔ 91 en período 14
+    - Transportado: 655.10 m³ por 86 ↔ 91 en período 15
+    - Transportado: 473.62 m³ por 86 ↔ 91 en período 16
+    - Transportado: 532.80 m³ por 86 ↔ 91 en período 18
+    - Transportado: 502.57 m³ por 89 ↔ 45 en período 13
+    - Transportado: 560.70 m³ por 89 ↔ 45 en período 14
+    - Transportado: 655.10 m³ por 89 ↔ 45 en período 15
+    - Transportado: 473.62 m³ por 89 ↔ 45 en período 16
+    - Transportado: 532.80 m³ por 89 ↔ 45 en período 18
+    - Transportado: 502.57 m³ por 90 ↔ 89 en período 13
+    - Transportado: 560.70 m³ por 90 ↔ 89 en período 14
+    - Transportado: 655.10 m³ por 90 ↔ 89 en período 15
+    - Transportado: 473.62 m³ por 90 ↔ 89 en período 16
+    - Transportado: 532.80 m³ por 90 ↔ 89 en período 18
+    - Transportado: 382.34 m³ por 91 ↔ 92 en período 1
+    - Transportado: 2573.98 m³ por 91 ↔ 92 en período 2
+    - Transportado: 1877.20 m³ por 91 ↔ 92 en período 3
+    - Transportado: 670.60 m³ por 91 ↔ 92 en período 4
+    - Transportado: 609.50 m³ por 91 ↔ 92 en período 6
+    - Transportado: 2451.07 m³ por 91 ↔ 92 en período 13
+    - Transportado: 2360.90 m³ por 91 ↔ 92 en período 14
+    - Transportado: 1727.05 m³ por 91 ↔ 92 en período 15
+    - Transportado: 2056.75 m³ por 91 ↔ 92 en período 16
+    - Transportado: 1690.45 m³ por 91 ↔ 92 en período 17
+    - Transportado: 1680.40 m³ por 91 ↔ 92 en período 18
+    - Transportado: 382.34 m³ por 92 ↔ 95 en período 1
+    - Transportado: 2573.98 m³ por 92 ↔ 95 en período 2
+    - Transportado: 1877.20 m³ por 92 ↔ 95 en período 3
+    - Transportado: 670.60 m³ por 92 ↔ 95 en período 4
+    - Transportado: 609.50 m³ por 92 ↔ 95 en período 6
+    - Transportado: 2451.07 m³ por 92 ↔ 95 en período 13
+    - Transportado: 2360.90 m³ por 92 ↔ 95 en período 14
+    - Transportado: 1727.05 m³ por 92 ↔ 95 en período 15
+    - Transportado: 2056.75 m³ por 92 ↔ 95 en período 16
+    - Transportado: 1690.45 m³ por 92 ↔ 95 en período 17
+    - Transportado: 1680.40 m³ por 92 ↔ 95 en período 18
+    - Transportado: 382.34 m³ por 95 ↔ 98 en período 1
+    - Transportado: 2573.98 m³ por 95 ↔ 98 en período 2
+    - Transportado: 1877.20 m³ por 95 ↔ 98 en período 3
+    - Transportado: 670.60 m³ por 95 ↔ 98 en período 4
+    - Transportado: 609.50 m³ por 95 ↔ 98 en período 6
+    - Transportado: 2451.07 m³ por 95 ↔ 98 en período 13
+    - Transportado: 2360.90 m³ por 95 ↔ 98 en período 14
+    - Transportado: 1727.05 m³ por 95 ↔ 98 en período 15
+    - Transportado: 2056.75 m³ por 95 ↔ 98 en período 16
+    - Transportado: 1690.45 m³ por 95 ↔ 98 en período 17
+    - Transportado: 1680.40 m³ por 95 ↔ 98 en período 18
+    - Transportado: 382.34 m³ por 98 ↔ 146 en período 1
+    - Transportado: 2573.98 m³ por 98 ↔ 146 en período 2
+    - Transportado: 1877.20 m³ por 98 ↔ 146 en período 3
+    - Transportado: 670.60 m³ por 98 ↔ 146 en período 4
+    - Transportado: 609.50 m³ por 98 ↔ 146 en período 6
+    - Transportado: 2451.07 m³ por 98 ↔ 146 en período 13
+    - Transportado: 2360.90 m³ por 98 ↔ 146 en período 14
+    - Transportado: 1727.05 m³ por 98 ↔ 146 en período 15
+    - Transportado: 2056.75 m³ por 98 ↔ 146 en período 16
+    - Transportado: 1690.45 m³ por 98 ↔ 146 en período 17
+    - Transportado: 1680.40 m³ por 98 ↔ 146 en período 18
+    - Transportado: 1415.85 m³ por 99 ↔ 100 en período 1
+    - Transportado: 3121.17 m³ por 99 ↔ 100 en período 3
+    - Transportado: 700.90 m³ por 99 ↔ 100 en período 4
+    - Transportado: 2337.80 m³ por 99 ↔ 100 en período 5
+    - Transportado: 3232.54 m³ por 99 ↔ 100 en período 6
+    - Transportado: 2266.94 m³ por 99 ↔ 100 en período 13
+    - Transportado: 4006.81 m³ por 99 ↔ 100 en período 14
+    - Transportado: 1241.00 m³ por 99 ↔ 100 en período 15
+    - Transportado: 606.70 m³ por 99 ↔ 100 en período 16
+    - Transportado: 1102.89 m³ por 99 ↔ 100 en período 17
+    - Transportado: 2495.50 m³ por 99 ↔ 100 en período 18
+    - Transportado: 1415.85 m³ por 100 ↔ 104 en período 1
+    - Transportado: 1965.34 m³ por 100 ↔ 104 en período 2
+    - Transportado: 4777.01 m³ por 100 ↔ 104 en período 3
+    - Transportado: 700.90 m³ por 100 ↔ 104 en período 4
+    - Transportado: 3182.45 m³ por 100 ↔ 104 en período 5
+    - Transportado: 3782.83 m³ por 100 ↔ 104 en período 6
+    - Transportado: 4255.80 m³ por 100 ↔ 104 en período 13
+    - Transportado: 5240.41 m³ por 100 ↔ 104 en período 14
+    - Transportado: 1241.00 m³ por 100 ↔ 104 en período 15
+    - Transportado: 606.70 m³ por 100 ↔ 104 en período 16
+    - Transportado: 3318.83 m³ por 100 ↔ 104 en período 17
+    - Transportado: 2862.34 m³ por 100 ↔ 104 en período 18
+    - Transportado: 1965.34 m³ por 101 ↔ 100 en período 2
+    - Transportado: 1655.84 m³ por 101 ↔ 100 en período 3
+    - Transportado: 844.65 m³ por 101 ↔ 100 en período 5
+    - Transportado: 550.29 m³ por 101 ↔ 100 en período 6
+    - Transportado: 1965.34 m³ por 102 ↔ 101 en período 2
+    - Transportado: 1655.84 m³ por 102 ↔ 101 en período 3
+    - Transportado: 844.65 m³ por 102 ↔ 101 en período 5
+    - Transportado: 550.29 m³ por 102 ↔ 101 en período 6
+    - Transportado: 1415.85 m³ por 104 ↔ 108 en período 1
+    - Transportado: 1965.34 m³ por 104 ↔ 108 en período 2
+    - Transportado: 4777.01 m³ por 104 ↔ 108 en período 3
+    - Transportado: 700.90 m³ por 104 ↔ 108 en período 4
+    - Transportado: 3182.45 m³ por 104 ↔ 108 en período 5
+    - Transportado: 3782.83 m³ por 104 ↔ 108 en período 6
+    - Transportado: 4255.80 m³ por 104 ↔ 108 en período 13
+    - Transportado: 5240.41 m³ por 104 ↔ 108 en período 14
+    - Transportado: 1241.00 m³ por 104 ↔ 108 en período 15
+    - Transportado: 606.70 m³ por 104 ↔ 108 en período 16
+    - Transportado: 3318.83 m³ por 104 ↔ 108 en período 17
+    - Transportado: 2862.34 m³ por 104 ↔ 108 en período 18
+    - Transportado: 1415.85 m³ por 108 ↔ 112 en período 1
+    - Transportado: 1965.34 m³ por 108 ↔ 112 en período 2
+    - Transportado: 4777.01 m³ por 108 ↔ 112 en período 3
+    - Transportado: 700.90 m³ por 108 ↔ 112 en período 4
+    - Transportado: 3182.45 m³ por 108 ↔ 112 en período 5
+    - Transportado: 3782.83 m³ por 108 ↔ 112 en período 6
+    - Transportado: 4255.80 m³ por 108 ↔ 112 en período 13
+    - Transportado: 5240.41 m³ por 108 ↔ 112 en período 14
+    - Transportado: 1241.00 m³ por 108 ↔ 112 en período 15
+    - Transportado: 606.70 m³ por 108 ↔ 112 en período 16
+    - Transportado: 3318.83 m³ por 108 ↔ 112 en período 17
+    - Transportado: 2862.34 m³ por 108 ↔ 112 en período 18
+    - Transportado: 4294.45 m³ por 110 ↔ 170 en período 1
+    - Transportado: 9475.84 m³ por 110 ↔ 170 en período 2
+    - Transportado: 7829.61 m³ por 110 ↔ 170 en período 3
+    - Transportado: 3730.80 m³ por 110 ↔ 170 en período 4
+    - Transportado: 6877.75 m³ por 110 ↔ 170 en período 5
+    - Transportado: 6752.83 m³ por 110 ↔ 170 en período 6
+    - Transportado: 5569.70 m³ por 110 ↔ 170 en período 13
+    - Transportado: 5821.51 m³ por 110 ↔ 170 en período 14
+    - Transportado: 1241.00 m³ por 110 ↔ 170 en período 15
+    - Transportado: 1193.70 m³ por 110 ↔ 170 en período 16
+    - Transportado: 5756.93 m³ por 110 ↔ 170 en período 17
+    - Transportado: 5291.74 m³ por 110 ↔ 170 en período 18
+    - Transportado: 1179.80 m³ por 111 ↔ 112 en período 1
+    - Transportado: 2816.90 m³ por 111 ↔ 112 en período 2
+    - Transportado: 641.80 m³ por 111 ↔ 112 en período 3
+    - Transportado: 554.40 m³ por 111 ↔ 112 en período 4
+    - Transportado: 1134.70 m³ por 111 ↔ 112 en período 5
+    - Transportado: 585.80 m³ por 111 ↔ 112 en período 6
+    - Transportado: 1313.90 m³ por 111 ↔ 112 en período 13
+    - Transportado: 581.10 m³ por 111 ↔ 112 en período 14
+    - Transportado: 587.00 m³ por 111 ↔ 112 en período 16
+    - Transportado: 2438.10 m³ por 111 ↔ 112 en período 17
+    - Transportado: 2429.40 m³ por 111 ↔ 112 en período 18
+    - Transportado: 4294.45 m³ por 112 ↔ 110 en período 1
+    - Transportado: 9475.84 m³ por 112 ↔ 110 en período 2
+    - Transportado: 7829.61 m³ por 112 ↔ 110 en período 3
+    - Transportado: 3730.80 m³ por 112 ↔ 110 en período 4
+    - Transportado: 6877.75 m³ por 112 ↔ 110 en período 5
+    - Transportado: 6752.83 m³ por 112 ↔ 110 en período 6
+    - Transportado: 5569.70 m³ por 112 ↔ 110 en período 13
+    - Transportado: 5821.51 m³ por 112 ↔ 110 en período 14
+    - Transportado: 1241.00 m³ por 112 ↔ 110 en período 15
+    - Transportado: 1193.70 m³ por 112 ↔ 110 en período 16
+    - Transportado: 5756.93 m³ por 112 ↔ 110 en período 17
+    - Transportado: 5291.74 m³ por 112 ↔ 110 en período 18
+    - Transportado: 466.30 m³ por 114 ↔ 112 en período 1
+    - Transportado: 2884.80 m³ por 114 ↔ 112 en período 2
+    - Transportado: 1877.20 m³ por 114 ↔ 112 en período 3
+    - Transportado: 648.10 m³ por 114 ↔ 112 en período 4
+    - Transportado: 1890.20 m³ por 114 ↔ 112 en período 5
+    - Transportado: 2384.20 m³ por 114 ↔ 112 en período 6
+    - Transportado: 466.30 m³ por 117 ↔ 114 en período 1
+    - Transportado: 2884.80 m³ por 117 ↔ 114 en período 2
+    - Transportado: 1877.20 m³ por 117 ↔ 114 en período 3
+    - Transportado: 648.10 m³ por 117 ↔ 114 en período 4
+    - Transportado: 1890.20 m³ por 117 ↔ 114 en período 5
+    - Transportado: 2384.20 m³ por 117 ↔ 114 en período 6
+    - Transportado: 466.30 m³ por 120 ↔ 117 en período 1
+    - Transportado: 2884.80 m³ por 120 ↔ 117 en período 2
+    - Transportado: 1877.20 m³ por 120 ↔ 117 en período 3
+    - Transportado: 648.10 m³ por 120 ↔ 117 en período 4
+    - Transportado: 1890.20 m³ por 120 ↔ 117 en período 5
+    - Transportado: 2384.20 m³ por 120 ↔ 117 en período 6
+    - Transportado: 466.30 m³ por 123 ↔ 120 en período 1
+    - Transportado: 2884.80 m³ por 123 ↔ 120 en período 2
+    - Transportado: 1877.20 m³ por 123 ↔ 120 en período 3
+    - Transportado: 648.10 m³ por 123 ↔ 120 en período 4
+    - Transportado: 1890.20 m³ por 123 ↔ 120 en período 5
+    - Transportado: 2384.20 m³ por 123 ↔ 120 en período 6
+    - Transportado: 466.30 m³ por 126 ↔ 123 en período 1
+    - Transportado: 2884.80 m³ por 126 ↔ 123 en período 2
+    - Transportado: 1877.20 m³ por 126 ↔ 123 en período 3
+    - Transportado: 648.10 m³ por 126 ↔ 123 en período 4
+    - Transportado: 1890.20 m³ por 126 ↔ 123 en período 5
+    - Transportado: 2384.20 m³ por 126 ↔ 123 en período 6
+    - Transportado: 466.30 m³ por 130 ↔ 126 en período 1
+    - Transportado: 2884.80 m³ por 130 ↔ 126 en período 2
+    - Transportado: 1877.20 m³ por 130 ↔ 126 en período 3
+    - Transportado: 648.10 m³ por 130 ↔ 126 en período 4
+    - Transportado: 1890.20 m³ por 130 ↔ 126 en período 5
+    - Transportado: 2384.20 m³ por 130 ↔ 126 en período 6
+    - Transportado: 382.34 m³ por 146 ↔ 147 en período 1
+    - Transportado: 2573.98 m³ por 146 ↔ 147 en período 2
+    - Transportado: 1877.20 m³ por 146 ↔ 147 en período 3
+    - Transportado: 670.60 m³ por 146 ↔ 147 en período 4
+    - Transportado: 609.50 m³ por 146 ↔ 147 en período 6
+    - Transportado: 2451.07 m³ por 146 ↔ 147 en período 13
+    - Transportado: 2360.90 m³ por 146 ↔ 147 en período 14
+    - Transportado: 1727.05 m³ por 146 ↔ 147 en período 15
+    - Transportado: 2056.75 m³ por 146 ↔ 147 en período 16
+    - Transportado: 1690.45 m³ por 146 ↔ 147 en período 17
+    - Transportado: 1680.40 m³ por 146 ↔ 147 en período 18
+    - Transportado: 631.10 m³ por 148 ↔ 147 en período 1
+    - Transportado: 1135.80 m³ por 148 ↔ 147 en período 4
+    - Transportado: 631.10 m³ por 149 ↔ 148 en período 1
+    - Transportado: 1135.80 m³ por 149 ↔ 148 en período 4
+    - Transportado: 1965.34 m³ por 150 ↔ 102 en período 2
+    - Transportado: 1655.84 m³ por 150 ↔ 102 en período 3
+    - Transportado: 844.65 m³ por 150 ↔ 102 en período 5
+    - Transportado: 550.29 m³ por 150 ↔ 102 en período 6
+    - Transportado: 1965.34 m³ por 151 ↔ 150 en período 2
+    - Transportado: 1655.84 m³ por 151 ↔ 150 en período 3
+    - Transportado: 844.65 m³ por 151 ↔ 150 en período 5
+    - Transportado: 550.29 m³ por 151 ↔ 150 en período 6
+    - Transportado: 4294.45 m³ por 163 ↔ 172 en período 1
+    - Transportado: 9475.84 m³ por 163 ↔ 172 en período 2
+    - Transportado: 7829.61 m³ por 163 ↔ 172 en período 3
+    - Transportado: 3730.80 m³ por 163 ↔ 172 en período 4
+    - Transportado: 6877.75 m³ por 163 ↔ 172 en período 5
+    - Transportado: 6752.83 m³ por 163 ↔ 172 en período 6
+    - Transportado: 8010.70 m³ por 163 ↔ 172 en período 13
+    - Transportado: 6478.91 m³ por 163 ↔ 172 en período 14
+    - Transportado: 2390.40 m³ por 163 ↔ 172 en período 15
+    - Transportado: 3459.50 m³ por 163 ↔ 172 en período 16
+    - Transportado: 6310.13 m³ por 163 ↔ 172 en período 17
+    - Transportado: 6506.94 m³ por 163 ↔ 172 en período 18
+    - Transportado: 4294.45 m³ por 167 ↔ 168 en período 1
+    - Transportado: 9475.84 m³ por 167 ↔ 168 en período 2
+    - Transportado: 7829.61 m³ por 167 ↔ 168 en período 3
+    - Transportado: 3730.80 m³ por 167 ↔ 168 en período 4
+    - Transportado: 6877.75 m³ por 167 ↔ 168 en período 5
+    - Transportado: 6752.83 m³ por 167 ↔ 168 en período 6
+    - Transportado: 11593.70 m³ por 167 ↔ 168 en período 13
+    - Transportado: 8035.86 m³ por 167 ↔ 168 en período 14
+    - Transportado: 2390.40 m³ por 167 ↔ 168 en período 15
+    - Transportado: 3459.50 m³ por 167 ↔ 168 en período 16
+    - Transportado: 7020.88 m³ por 167 ↔ 168 en período 17
+    - Transportado: 9663.14 m³ por 167 ↔ 168 en período 18
+    - Transportado: 6204.85 m³ por 168 ↔ 169 en período 1
+    - Transportado: 9773.96 m³ por 168 ↔ 169 en período 2
+    - Transportado: 8389.61 m³ por 168 ↔ 169 en período 3
+    - Transportado: 4027.15 m³ por 168 ↔ 169 en período 4
+    - Transportado: 7020.82 m³ por 168 ↔ 169 en período 5
+    - Transportado: 7662.03 m³ por 168 ↔ 169 en período 6
+    - Transportado: 11593.70 m³ por 168 ↔ 169 en período 13
+    - Transportado: 8035.86 m³ por 168 ↔ 169 en período 14
+    - Transportado: 2390.40 m³ por 168 ↔ 169 en período 15
+    - Transportado: 3459.50 m³ por 168 ↔ 169 en período 16
+    - Transportado: 7020.88 m³ por 168 ↔ 169 en período 17
+    - Transportado: 9663.14 m³ por 168 ↔ 169 en período 18
+    - Transportado: 4294.45 m³ por 170 ↔ 163 en período 1
+    - Transportado: 9475.84 m³ por 170 ↔ 163 en período 2
+    - Transportado: 7829.61 m³ por 170 ↔ 163 en período 3
+    - Transportado: 3730.80 m³ por 170 ↔ 163 en período 4
+    - Transportado: 6877.75 m³ por 170 ↔ 163 en período 5
+    - Transportado: 6752.83 m³ por 170 ↔ 163 en período 6
+    - Transportado: 8010.70 m³ por 170 ↔ 163 en período 13
+    - Transportado: 6478.91 m³ por 170 ↔ 163 en período 14
+    - Transportado: 2390.40 m³ por 170 ↔ 163 en período 15
+    - Transportado: 3459.50 m³ por 170 ↔ 163 en período 16
+    - Transportado: 6310.13 m³ por 170 ↔ 163 en período 17
+    - Transportado: 6506.94 m³ por 170 ↔ 163 en período 18
+    - Transportado: 2441.00 m³ por 171 ↔ 170 en período 13
+    - Transportado: 657.40 m³ por 171 ↔ 170 en período 14
+    - Transportado: 1149.40 m³ por 171 ↔ 170 en período 15
+    - Transportado: 2265.80 m³ por 171 ↔ 170 en período 16
+    - Transportado: 553.20 m³ por 171 ↔ 170 en período 17
+    - Transportado: 1215.20 m³ por 171 ↔ 170 en período 18
+    - Transportado: 4294.45 m³ por 172 ↔ 167 en período 1
+    - Transportado: 9475.84 m³ por 172 ↔ 167 en período 2
+    - Transportado: 7829.61 m³ por 172 ↔ 167 en período 3
+    - Transportado: 3730.80 m³ por 172 ↔ 167 en período 4
+    - Transportado: 6877.75 m³ por 172 ↔ 167 en período 5
+    - Transportado: 6752.83 m³ por 172 ↔ 167 en período 6
+    - Transportado: 8010.70 m³ por 172 ↔ 167 en período 13
+    - Transportado: 6478.91 m³ por 172 ↔ 167 en período 14
+    - Transportado: 2390.40 m³ por 172 ↔ 167 en período 15
+    - Transportado: 3459.50 m³ por 172 ↔ 167 en período 16
+    - Transportado: 6310.13 m³ por 172 ↔ 167 en período 17
+    - Transportado: 6506.94 m³ por 172 ↔ 167 en período 18
+    - Transportado: 2441.00 m³ por 173 ↔ 171 en período 13
+    - Transportado: 657.40 m³ por 173 ↔ 171 en período 14
+    - Transportado: 1149.40 m³ por 173 ↔ 171 en período 15
+    - Transportado: 2265.80 m³ por 173 ↔ 171 en período 16
+    - Transportado: 553.20 m³ por 173 ↔ 171 en período 17
+    - Transportado: 1215.20 m³ por 173 ↔ 171 en período 18
+    - Transportado: 3583.00 m³ por 175 ↔ 167 en período 13
+    - Transportado: 1556.95 m³ por 175 ↔ 167 en período 14
+    - Transportado: 710.75 m³ por 175 ↔ 167 en período 17
+    - Transportado: 3156.20 m³ por 175 ↔ 167 en período 18
+    - Transportado: 307.75 m³ por 177 ↔ 169 en período 13
+    - Transportado: 333.25 m³ por 177 ↔ 169 en período 14
+    - Transportado: 1274.40 m³ por 177 ↔ 169 en período 15
+    - Transportado: 1181.00 m³ por 177 ↔ 169 en período 16
+    - Transportado: 560.60 m³ por 177 ↔ 169 en período 17
+    - Transportado: 1696.30 m³ por 177 ↔ 169 en período 18
+    - Transportado: 3583.00 m³ por 180 ↔ 175 en período 13
+    - Transportado: 1556.95 m³ por 180 ↔ 175 en período 14
+    - Transportado: 710.75 m³ por 180 ↔ 175 en período 17
+    - Transportado: 3156.20 m³ por 180 ↔ 175 en período 18
+    - Transportado: 307.75 m³ por 182 ↔ 177 en período 13
+    - Transportado: 333.25 m³ por 182 ↔ 177 en período 14
+    - Transportado: 1274.40 m³ por 182 ↔ 177 en período 15
+    - Transportado: 1181.00 m³ por 182 ↔ 177 en período 16
+    - Transportado: 560.60 m³ por 182 ↔ 177 en período 17
+    - Transportado: 1696.30 m³ por 182 ↔ 177 en período 18
+    - Transportado: 3583.00 m³ por 185 ↔ 180 en período 13
+    - Transportado: 1556.95 m³ por 185 ↔ 180 en período 14
+    - Transportado: 710.75 m³ por 185 ↔ 180 en período 17
+    - Transportado: 3156.20 m³ por 185 ↔ 180 en período 18
+    - Transportado: 307.75 m³ por 187 ↔ 182 en período 13
+    - Transportado: 333.25 m³ por 187 ↔ 182 en período 14
+    - Transportado: 1274.40 m³ por 187 ↔ 182 en período 15
+    - Transportado: 1181.00 m³ por 187 ↔ 182 en período 16
+    - Transportado: 560.60 m³ por 187 ↔ 182 en período 17
+    - Transportado: 1696.30 m³ por 187 ↔ 182 en período 18
+    - Transportado: 3583.00 m³ por 189 ↔ 185 en período 13
+    - Transportado: 1556.95 m³ por 189 ↔ 185 en período 14
+    - Transportado: 710.75 m³ por 189 ↔ 185 en período 17
+    - Transportado: 3156.20 m³ por 189 ↔ 185 en período 18
+    - Transportado: 3583.00 m³ por 193 ↔ 189 en período 13
+    - Transportado: 1556.95 m³ por 193 ↔ 189 en período 14
+    - Transportado: 710.75 m³ por 193 ↔ 189 en período 17
+    - Transportado: 3156.20 m³ por 193 ↔ 189 en período 18
+    - Transportado: 3583.00 m³ por 197 ↔ 193 en período 13
+    - Transportado: 1556.95 m³ por 197 ↔ 193 en período 14
+    - Transportado: 710.75 m³ por 197 ↔ 193 en período 17
+    - Transportado: 3156.20 m³ por 197 ↔ 193 en período 18
 
 ✅ Resultados guardados correctamente

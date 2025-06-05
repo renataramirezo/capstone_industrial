@@ -265,15 +265,16 @@ def main():
                 )
 
         for i,j in G.edges():
-            if (i,j) not in XA:
+            if G[i][j]["XA"] == False:
                 for t in T_u[2]:
                     modelo_2.addConstr(
                         z[i,j,t] <= M_ij * y[i,j,1],  
                         name=f"restriccion_17.2_{i}_{j}_{t}"
                     )
+                    
 
         for i,j in G.edges():
-            if (i,j) in XA:
+            if G[i][j]["XA"] == True:
                 for t in T_u[2]:
                     modelo_2.addConstr(
                         z[i,j,t] <= M_ij * y[i,j,2],  
