@@ -75,8 +75,7 @@ def main():
             if (j,i) not in lista_recorrido:
                 lista_recorrido.append((i,j))
 
-        costo_construccion_caminos = (quicksum(C * y[i,j,1] for i, j in lista_recorrido) 
-                                      + quicksum(C * y[i,j,2] for i, j in lista_recorrido if (i,j) in XA))
+        costo_construccion_caminos = (quicksum(C * y[i,j,u] for i, j in G.edges() for u in U))
 
         costo_transporte_madera = quicksum(ct * z[i,j,t] for i, j in G.edges() for t in T)
 
@@ -129,9 +128,9 @@ def main():
             for k in K:
                 if (i,k) in R_jk:
                     for j in R_jk[(i,k)]['radio']:
-                        if i == j:
-                            modelo_1.addConstr(x[i,j,k,1] == mu[i,k,1], name=f"restriccion_4.1_{i}_{j}_{k}_{t}")
-                            modelo_1.addConstr(x[i,j,k,13] == mu[i,k,2], name=f"restriccion_4.2_{i}_{j}_{k}_{t}")
+                        #if i == j:
+                        #    modelo_1.addConstr(x[i,j,k,1] == mu[i,k,1], name=f"restriccion_4.1_{i}_{j}_{k}_{t}")
+                        #    modelo_1.addConstr(x[i,j,k,13] == mu[i,k,2], name=f"restriccion_4.2_{i}_{j}_{k}_{t}")
                         for t in T:
                             if t <= 6:
                                 modelo_1.addConstr(x[i,j,k,t] <= mu[i,k,1], name=f"restriccion_4.3_{i}_{j}_{k}_{t}")
@@ -226,6 +225,19 @@ def main():
                             for t in T_u[u]:
                                 modelo_1.addConstr(x[i,j,k,t] <= s[r,u], name=f"restriccion_12.1_{i}_{j}_{t}")
 
+    
+        
+        modelo_1.setParam('MIPGap', 0.1)
+        modelo_1.optimize()
+
+        dic_pit = {}
+        for i in N:
+            for t in T:
+                dic_pit[i,t] = p[i,t].X
+
+        print("ingresos:", ingreso_venta.getValue())
+        print("costo cosechar:", costos_cosechar.getValue())
+        print("costo instalacion:", costos_instalacion.getValue())
 
         # 16.
         for d in D:
@@ -267,20 +279,6 @@ def main():
                         z[i,j,t] <= M_ij * y[i,j,2],  
                         name=f"restriccion_17.2_{i}_{j}_{t}"
                     )
-
-    
-        
-        modelo_1.setParam('MIPGap', 0.005)
-        modelo_1.optimize()
-
-        dic_pit = {}
-        for i in N:
-            for t in T:
-                dic_pit[i,t] = p[i,t].X
-
-        print("ingresos:", ingreso_venta.getValue())
-        print("costo cosechar:", costos_cosechar.getValue())
-        print("costo instalacion:", costos_instalacion.getValue())
 
         for n in N:
             if n not in D:
@@ -348,10 +346,10 @@ def main():
                 }
             }
 
-            with open('resultados_modelo_simple.pkl', 'wb') as archivo:
+            with open('resultados_modelo_simple_p.pkl', 'wb') as archivo:
                 pickle.dump(resultados, archivo)
 
-            print("Resultados guardados en 'resultados_modelo_simple.pkl'")
+            print("Resultados guardados en 'resultados_modelo_simple_p.pkl'")
             visualizar_resultados()
 
         elif estado_1 == GRB.Status.INFEASIBLE:
@@ -369,7 +367,7 @@ def main():
         modelo_1.write("modelo_cb_infactible.ilp")
         raise
 
-def visualizar_resultados(archivo_pkl='resultados_modelo_simple.pkl', archivo_txt='resultados_modelo_simple.txt'):
+def visualizar_resultados(archivo_pkl='resultados_modelo_simple_p.pkl', archivo_txt='resultados_modelo_simple_p.txt'):
 
     try:
         with open(archivo_pkl, 'rb') as archivo:
@@ -418,11 +416,6 @@ def visualizar_resultados(archivo_pkl='resultados_modelo_simple.pkl', archivo_tx
                 if valor == 1:
                     txt_file.write(f"    - Nodo {i}, máquina {k}, período {t}\n")
 
-            """txt_file.write("\n  🔸 Faenas Existentes (f):\n")
-            for (i, k, t), valor in datos['variables']['f'].items():
-                if valor == 1:
-                    txt_file.write(f"    - Nodo {i}, máquina {k}, período {t}\n")"""
-
             txt_file.write("\n🛣️ INFRAESTRUCTURA DE CAMINOS:\n")
             
             # Caminos construidos (y) y existentes (l)
@@ -430,17 +423,7 @@ def visualizar_resultados(archivo_pkl='resultados_modelo_simple.pkl', archivo_tx
             for (i, j, t), valor in datos['variables']['y'].items():
                 if valor == 1:
                     txt_file.write(f"    - Construido: {i} ↔ {j} en período {t}\n")
-             
-            """txt_file.write("\n  🔸 Caminos existentes (l):\n")
-            for (i, j, t), valor in datos['variables']['l'].items():
-                if valor == 1:
-                    txt_file.write(f"    - Disponible: {i} ↔ {j} en período {t}\n")"""
             
-            """# Transporte de madera (z)
-            txt_file.write("\n  🔸 Flujo de madera (z):\n")
-            for (i, j, t), cantidad in datos['variables']['z'].items():
-                if cantidad > 0:
-                    txt_file.write(f"    - Transportado: {cantidad:.2f} m³ por {i} ↔ {j} en período {t}\n")"""
             
             txt_file.write("\n✅ Resultados guardados correctamente\n")
 
