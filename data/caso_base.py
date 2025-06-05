@@ -18,13 +18,14 @@ for rodal in range(1, 20):
         cap_rodales[rodal] = volumen_rodal
 #print(cap_rodales)
 ordenado = sorted(cap_rodales.items(), key=lambda x: x[1], reverse=True)
+#print(ordenado)
 
 '''dado este orden, y las restricciones de adyacencia decidimos
  instalar las faenas skider en los nodos: 37 142	180
  y las faenas torres en: 58'''
 
-bases_faena_s = [37, 142, 180]#se ingresa a mano
-bases_faena_t = [58]#se ingresa a mano
+bases_faena_s = [8, 104, 180, 130, 141, 202]#[37, 142, 180]#se ingresa a mano
+bases_faena_t = [62, 39]#[58]#se ingresa a mano
 
 '''comenzamos la cosechar con bases SKIDDERS
 y hacemos lista de los nodos que serán cosechados 
@@ -46,12 +47,12 @@ for nodo in nodos_a_cosechar_sk + nodos_a_cosechar_t:
 '''
  Por las restricciones de adyacencia, decidimos manualmente cosehar
   en la primera temporada los siguientes
-    rodales: 17	18	15	19	4	7	1	2	12
+    rodales: 17	15	14	7	1	4	19 11 3 13 9
 no cosecho las hectáreas que pertenecen a los rodales
-16, 14, 8, 6 a pesar de que sí están en el radio.
+2, 6, 8, 5, 10, 12, 16, 18 a pesar de que sí están en el radio.
 Por lo tanto se quitan del listado de nodos a cosechar los que están 
 en un rodal con restricción de adyacencia'''
-rodal_excluido = {16, 14, 8, 6} #se ingresa a mano
+rodal_excluido = {2, 6, 8, 5, 10, 12, 16, 18} #se ingresa a mano
 nodos_a_cosechar_sk = [
     nodo for nodo in nodos_a_cosechar_sk
     if gf.G.nodes[nodo]["r"] not in rodal_excluido
@@ -187,8 +188,12 @@ for base in mejores_rutas:
 '''al ver el gráfico, como hay un camino que pasa por una parte que se destruye y es igual si 
 lo hacemos por otro que no se destruye editamos manualemnte la construcción de caminos, 
 tambien para que sea eficiente la segunda temporada'''
-ruta_arcos.update({(142,141)}) 
-elementos_a_eliminar_t1 = {(145,148), (148,147), (142,145)}
+#AQUI
+ruta_arcos.update({(129,130), (139,138), (175, 167), (180, 175), (100, 104)}) 
+elementos_a_eliminar_t1 = {(143,146), (140,143), (137,140), (133, 137), 
+                           (129, 133), (148,147), (139, 142), (142, 145), 
+                           (145, 148), (180, 181), (181, 176), (176, 177), 
+                           (177, 169), (100, 101), (101, 105), (105, 109)}
 ruta_arcos.difference_update(elementos_a_eliminar_t1)
 #print(ruta_arcos)
 
@@ -236,7 +241,7 @@ for rodal in range(1, 20):
 ordenado = sorted(cap_rodales.items(), key=lambda x: x[1], reverse=True)
 #print(ordenado)
 '''orden de prioridad rodales temporada 2: 
-16,14,8,11,9,6,18,10,12,1,19,13,3,2,17,5,15,4,7
+16 18 8 6 2 12 5 10 17 13 3 1 15 4 7 9 11 14 19 
 '''
 Orden= list(gf.G.nodes())
 for nodo in nodos_a_cosechar_sk:
@@ -259,14 +264,14 @@ nx.draw_networkx_edges(
     width=10             # más grueso para que destaque
 )
 #plt.show()
-'''Por lo tanto pondremos 3 skidders y una torre
-skidders: 103, 160, 130
-torres: 33
+'''Por lo tanto pondremos 6 skidders y 2 torre
+skidders: 160, 194, 118, 92, 18, 90
+torres: 52, 66
 Por otro lado los nodos que estén en los rodales:
 12, 9, 17,  7, 2, 4, 15 no serán cosechados
 '''
-bases_faena_s_t2 = [103, 160, 130]#se ingresa a mano
-bases_faena_t_t2 = [36]#se ingresa a mano
+bases_faena_s_t2 = [160, 194, 118, 92, 18, 90]#se ingresa a mano
+bases_faena_t_t2 = [52, 66]#se ingresa a mano
 nodos_a_cosechar_sk_t2 = []
 
 '''SKIDDER: Vemos los nodos que serán cosechados'''
@@ -286,10 +291,10 @@ for nodo in nodos_a_cosechar_sk_t2 + nodos_a_cosechar_t_t2:
 '''
  Por las restricciones de adyacencia, decidimos manualmente cosehar
   en la segunda temporada los siguientes
-    rodales: 16, 14,8,11,13,3,6
+    rodales: 16 18 8 6 2 12 5 10 1 19
 por lo tanto no cosecho las hectáreas que pertenecen a los rodales
-12, 9, 17,  7, 2, 5, 4, 15 a pesar de que sí están en el radio'''
-rodal_excluido_t2 = {12, 9, 5, 17, 7, 2, 4, 15} #se ingresa a mano
+17 13 3 15 4 7 9 11 14 a pesar de que sí están en el radio'''
+rodal_excluido_t2 = {17, 13, 11, 15, 9, 14, 4, 7, 3} #se ingresa a mano
 nodos_a_cosechar_sk_t2 = [
     nodo for nodo in nodos_a_cosechar_sk_t2
     if gf.G.nodes[nodo]["r"] not in rodal_excluido_t2
@@ -431,8 +436,13 @@ for base in mejores_rutas_t2:
     camino_t2 = set(zip(inicio_t2,fin_t2))
     ruta_arcos_t2.update(camino_t2)
 '''eliminamos y agregamos los arcos que son innecesarios porque ya estaban la primera temporada'''
-ruta_arcos_t2.update({(38,39)})
-elementos_a_eliminar = {(160,161), (161,165), (165,168), (39,42), (42,85), (85,86), (86,93), (93,94), (94,95), (95,96)}
+ruta_arcos_t2.update({(41, 42), (96, 93), (92, 95), (129, 130), (160, 164), (110, 115)})
+elementos_a_eliminar = {(160,161), (161,165), (165,168), (39,42), 
+                        (110, 170), (170, 163), (163, 164), (108, 104), 
+                        (104, 108), (100, 104), (41, 44), (44, 45), (45, 89),
+                        (89, 90), (96, 97), (97, 98), (62, 66), (129, 133), 
+                        (133, 137), (137, 140), (140, 143), (92, 140), (143, 146), 
+                        (98, 146), (146, 147), (160, 164), (164, 167), (167, 168), (168, 169)}
 
 ruta_arcos_t2.difference_update(elementos_a_eliminar)
 
@@ -457,6 +467,14 @@ nx.draw_networkx_edges(
     gf.pos,
     edgelist=ruta_arcos_t2,
     edge_color="black",    # o el color que desees
+    width=10             # más grueso para que destaque
+)
+
+nx.draw_networkx_edges(
+    gf.G,
+    gf.pos,
+    edgelist=[(100, 104), (104, 108), (108, 109), (62, 66), (39, 42)],
+    edge_color="white",    # o el color que desees
     width=10             # más grueso para que destaque
 )
 
