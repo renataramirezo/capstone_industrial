@@ -116,7 +116,7 @@ for base in bases_faena_t:
         if gf.G.nodes[nodo]["r"] not in rodal_excluido:
             suma_madera += gf.G.nodes[nodo]["v"] #se suma el volumen de los nodes cosechados del radio
         base_cant_madera_t[base] = suma_madera
-print(f"cantidad madera cosechada por faena de torre: {base_cant_madera_t}, cantidda madera cosechada por faena de skidder:{base_cant_madera_s}")
+#print(f"cantidad madera cosechada por faena de torre: {base_cant_madera_t}, cantidda madera cosechada por faena de skidder:{base_cant_madera_s}")
 
 '''sumamos el total del volumen cosechado'''
 total_volumen_cosechado = 0
@@ -135,7 +135,7 @@ for base in base_cant_madera_s:
     else:
         print(f"queda {base_cant_madera_s[base]-6*dt.K['skidder']['mcc']} madera")
         #print(f"se cosechó todo en la temporada{total_volumen_cosechado}")
-'''En las cuatro faenas instaladas se cosechó todo por lo tanto
+'''En las 8 faenas instaladas se cosechó todo por lo tanto
  procedamos a los cálculos costos variables de cosecha'''
 
 #TORRE COSTO VARIABLE
@@ -148,12 +148,12 @@ costo_var_cosecha_s = 0
 for base in base_cant_madera_s:
     #vol_base = gf.G.nodes[base]["v"]
     costo_var_cosecha_s +=  gf.G.nodes[base]["cv_rad"]*base_cant_madera_s[base]
-print(f"costo_variable cosecha skidder: {costo_var_cosecha_s}")
+'''print(f"costo_variable cosecha skidder: {costo_var_cosecha_s}")
 print(f"costo_variable cosecha torre: {costo_var_cosecha_t}")
-print(f"costo instalación faena: {costo_instalacion_faenas}")
+print(f"costo instalación faena: {costo_instalacion_faenas}")'''
 #resultado asignación aún sin caminos
 utilidad_neta_asignacion = total_volumen_cosechado * dt.P - costo_instalacion_faenas - costo_var_cosecha_s - costo_var_cosecha_t
-print (f"la utilidad neta de asignación de la temporada 1 fue: {utilidad_neta_asignacion}")
+#print (f"la utilidad neta de asignación de la temporada 1 fue: {utilidad_neta_asignacion}")
 
 '''Construímos los caminos'''
 # Almacenar las mejores rutas y sus costos
@@ -203,11 +203,11 @@ for camino in ruta_arcos:
     costo_construccion += dt.C
 costo_transporte = dt.ct * total_volumen_cosechado #esto es una simplificación, 
 #se está transportando toda la madera por todos los caminos por lo tanto el costo saldrá más alto que la realidad
-print(f"costo_transporte: {costo_transporte}")
-print(f"costo construcción: {costo_construccion}")
+'''print(f"costo_transporte: {costo_transporte}")
+print(f"costo construcción: {costo_construccion}")'''
 
 Utilidad_primera_temporada = utilidad_neta_asignacion - costo_construccion - costo_transporte
-print(f"La utilidad total de la primera temporada fue: {Utilidad_primera_temporada}")
+#print(f"La utilidad total de la primera temporada fue: {Utilidad_primera_temporada}")
 
 ######GRAFO CON CAMINOS PRIMERA TEMPORADA#####
 # 3. Dibujar encima esos arcos con mayor grosor y color llamativo
@@ -221,7 +221,27 @@ nx.draw_networkx_edges(
 plt.title("Ruta más corta sobre grafo original")
 plt.show()
 
+set_nodos_sk_1=set(nodos_a_cosechar_sk)
+set_nodos_tr_1 =set(nodos_a_cosechar_t)
+set_faenas_sk_1=set(bases_faena_s)
+set_faenas_tr_1=set(bases_faena_t)
 
+cantidad_cosechada_temporada_1 = 0
+setcosechadostemp1=set(nodos_a_cosechar_sk + nodos_a_cosechar_t + bases_faena_s + bases_faena_t)
+for nodo in setcosechadostemp1:
+    cantidad_cosechada_temporada_1+=gf.G.nodes[nodo]["v"]
+
+costo_variable_cosecha_sk_temp1 = 0
+for nodo in set_nodos_sk_1-set_faenas_sk_1:
+    costo_variable_cosecha_sk_temp1+=gf.G.nodes[nodo]["v"]*14
+for nodo in set_faenas_sk_1:
+    costo_variable_cosecha_sk_temp1+=gf.G.nodes[nodo]["v"]*10
+
+costo_variable_cosecha_tr_temp1 = 0
+for nodo in set_nodos_tr_1-set_faenas_tr_1-set_nodos_sk_1-set_faenas_sk_1:
+    costo_variable_cosecha_tr_temp1+=gf.G.nodes[nodo]["v"]*16
+for nodo in set_faenas_tr_1:
+    costo_variable_cosecha_tr_temp1+=gf.G.nodes[nodo]["v"]*16
 #######################################################
 ###########----- SEGUNDA TEMPORADA-----################
 #######################################################
@@ -230,6 +250,8 @@ plt.show()
 por eso vaciamos de contenido los rodales cosechados 
 y volvemos a ver dónde conviene instalar las bases faenas.
 Atención si hay caminos que se destruyen, deben ser eliminados'''
+
+
 for nodo in nodos_a_cosechar_sk+nodos_a_cosechar_t+bases_faena_s+bases_faena_t:
     gf.G.nodes[nodo]["v"] = 0
 for rodal in range(1, 20):
@@ -372,16 +394,16 @@ for base in base_cant_madera_s_t2:
     else:
         print(f"queda {base_cant_madera_s_t2[base]-6*dt.K['skidder']['mcc']} madera")
         #print(f"se cosechó todo en la temporada{total_volumen_cosechado}")
-'''En las cuatro faenas instaladas se cosechó todo por lo tanto
+'''En las 8 faenas instaladas se cosechó todo por lo tanto
  procedamos a los cálculos de cosecha'''
-print(f"el total cosechado por las faenas fue en t2: {total_volumen_cosechado_t2}")
+
 
 '''COSTO VARIABLE DE COSECHA TORRE'''
 costo_var_cosecha_t_t2 = 0
 for base in base_cant_madera_t_t2:
     costo_var_cosecha_t_t2 += gf.G.nodes[base]["cv_rad"]*base_cant_madera_t_t2[base]
 
-'''COSTO VARIABLE DE COSECHA TORRE'''
+'''COSTO VARIABLE DE COSECHA SKIDER'''
 costo_var_cosecha_s_t2 = 0
 for base in base_cant_madera_s_t2:
     #vol_base_t2 = gf.G.nodes[base]["v"]
@@ -393,14 +415,6 @@ for base in base_cant_madera_s_t2:
 
 #resultado asignación aún sin caminos
 utilidad_neta_asignacion_t2 = total_volumen_cosechado_t2 * dt.P - costo_instalacion_faenas_t2 - costo_var_cosecha_s_t2 - costo_var_cosecha_t_t2
-print(f"la utilidad neta de asignación de la temporada 2 fue: {utilidad_neta_asignacion_t2}")
-
-print(f"El costo variable total de cosecha para ambas temporadas fue de {-costo_var_cosecha_s + costo_var_cosecha_t - costo_var_cosecha_s_t2 + costo_var_cosecha_t_t2}")
-print(f"El costo variable de cosecha por bases skidders en Temp 1: {costo_var_cosecha_s}")
-print(f"El costo variable de cosecha por bases torrer en Temo 1:{costo_var_cosecha_t}")
-print(f"El costo variable de cosecha por bases skidder en Temo 2: {costo_var_cosecha_s_t2}")
-print(f"El costo variable de cosecha por bases torre en Temo 2: {costo_var_cosecha_t_t2}")
-print(f"El costo total de instalación de faenas fue de {costo_instalacion_faenas_t2 + costo_instalacion_faenas }")
 
 
 '''vemos los caminos de la segunda temporada'''
@@ -455,12 +469,7 @@ for camino in ruta_arcos_t2:
 costo_transporte_t2 = dt.ct * total_volumen_cosechado_t2 #esto es una simplificación del cálculo, queda un costo más alto del real
 
 Utilidad_segunda_temporada = utilidad_neta_asignacion_t2 - costo_construccion_t2 - costo_transporte_t2
-print(f"La utilidad total de la segunda temporada fue: {Utilidad_segunda_temporada}")
-print(f"La utilidad total de la ambas temporadas fue: {Utilidad_primera_temporada+Utilidad_segunda_temporada}")
-print(f"El costo de instalación de faenas en ambas fue de {costo_instalacion_faenas + costo_instalacion_faenas_t2}")
-print(f"El costo de construcción de caminos en ambas fue de {costo_construccion + costo_construccion_t2}")
-print(f"El costo variable de cosecha en ambas fue de {costo_var_cosecha_s + costo_var_cosecha_t + costo_var_cosecha_s_t2 + costo_var_cosecha_t_t2}")
-print(f"El costo de transporte en ambas de madera fue de {costo_transporte + costo_transporte_t2}")
+
 # 3. Dibujar encima esos arcos con mayor grosor y color llamativo
 nx.draw_networkx_edges(
     gf.G,
@@ -482,7 +491,7 @@ nx.draw_networkx_edges(
 plt.title("Ruta más corta sobre grafo original")
 plt.show()
 plt.show()
-print(f"arcos que construye la primera temporada: {ruta_arcos}")
+'''print(f"arcos que construye la primera temporada: {ruta_arcos}")
 print(f"arcos que construye la segunda temporada: {ruta_arcos_t2}")
 print(f"faenas skideer instaladas la primera temporada: {bases_faena_s}")
 print(f"faenas torre instaladas la primera temporada: {bases_faena_t}")
@@ -493,4 +502,90 @@ print(f"nodos cosechados primera temporada por bases torre: {nodos_a_cosechar_t}
 print(f"nodos cosechados segunda temporada por bases skidder: {nodos_a_cosechar_sk_t2} en todos ellos se cosechó toda la madera")
 print(f"nodos cosechados segunda temporada por bases torre: {nodos_a_cosechar_t_t2} en todos ellos se cosechó toda la madera")
 print(f"total de madera cosechada {total_volumen_cosechado_t2 + total_volumen_cosechado}")
-print(f"Costos totales: {costo_construccion+costo_construccion_t2+costo_instalacion_faenas+costo_instalacion_faenas_t2+costo_transporte+costo_transporte_t2+costo_var_cosecha_s+costo_var_cosecha_t+costo_var_cosecha_t_t2+costo_var_cosecha_s_t2}")
+print(f"Costos totales: {costo_construccion+costo_construccion_t2+costo_instalacion_faenas+costo_instalacion_faenas_t2+costo_transporte+costo_transporte_t2+costo_var_cosecha_s+costo_var_cosecha_t+costo_var_cosecha_t_t2+costo_var_cosecha_s_t2}")'''
+
+
+
+##############################################################
+#################calculos ajustados###########################
+##############################################################
+print("##############################################################")
+print("#################calculos ajustados###########################")
+print("##############################################################")
+
+cantidad_cosechada_temporada_2=0
+setcosechadostemp2=set(nodos_a_cosechar_sk_t2+nodos_a_cosechar_t_t2+bases_faena_s_t2+bases_faena_t_t2)
+for nodo in setcosechadostemp2-setcosechadostemp1:
+    cantidad_cosechada_temporada_2+=gf.G.nodes[nodo]["v"]
+
+set_nodos_sk_2=set(nodos_a_cosechar_sk_t2)-setcosechadostemp1
+set_nodos_tr_2 =set(nodos_a_cosechar_t_t2)-setcosechadostemp1
+set_faenas_sk_2=set(bases_faena_s_t2)-setcosechadostemp1
+set_faenas_tr_2=set(bases_faena_t_t2)-setcosechadostemp1
+
+costo_variable_cosecha_sk_temp2 = 0
+for nodo in set_nodos_sk_2-set_faenas_sk_2:
+    costo_variable_cosecha_sk_temp2+=gf.G.nodes[nodo]["v"]*14
+for nodo in set_faenas_sk_2:
+    costo_variable_cosecha_sk_temp2+=gf.G.nodes[nodo]["v"]*10
+
+costo_variable_cosecha_tr_temp2 = 0
+for nodo in set_nodos_tr_2-set_faenas_tr_2-set_nodos_sk_2-set_faenas_sk_2:
+    costo_variable_cosecha_tr_temp2+=gf.G.nodes[nodo]["v"]*16
+for nodo in set_faenas_tr_2:
+    costo_variable_cosecha_tr_temp2+=gf.G.nodes[nodo]["v"]*16
+
+
+
+print("#########################################################")
+print("################# Temporada 1 ###########################")
+print("#########################################################")
+
+print(F"CANTIDAD COSECHADA EN TEMP 1 FUE {cantidad_cosechada_temporada_1}")
+print(f"El COSTO de INSTALACIÓN de faenas TEMP 1 {costo_instalacion_faenas}")
+print(f"COSTO VARIABLE COSECHA TEMP 1{costo_variable_cosecha_sk_temp1+costo_variable_cosecha_tr_temp1}")
+print(f"COSTO CONSTRUCCIÓN de CAMINOS TEMP 1: {costo_construccion}")
+print(f"COSTO de TRANSPORTE sobrevalorado TEMP 1: {costo_transporte}")
+Utilidad_primera_temporada= cantidad_cosechada_temporada_1*dt.P-costo_instalacion_faenas-(costo_variable_cosecha_sk_temp1+costo_variable_cosecha_tr_temp1)-costo_construccion-costo_transporte
+print(f"UTILIDAD temporada 1: {Utilidad_primera_temporada}")
+
+print("#########################################################")
+print("################# Temporada 2 ###########################")
+print("#########################################################")
+print(F"CANTIDAD COSECHADA EN TEMP 2 FUE {cantidad_cosechada_temporada_2}")
+print(f"El COSTO de INSTALACIÓN de faenas TEMP 2 {costo_instalacion_faenas_t2}")
+print(f"COSTO VARIABLE COSECHA TEMP 2{costo_variable_cosecha_sk_temp2+costo_variable_cosecha_tr_temp2}")
+print(f"COSTO CONSTRUCCIÓN de CAMINOS TEMP 2: {costo_construccion_t2}")
+print(f"COSTO de TRANSPORTE sobrevalorado TEMP 2: {costo_transporte_t2}")
+Utilidad_segunda_temporada= cantidad_cosechada_temporada_2*dt.P-costo_instalacion_faenas_t2-(costo_variable_cosecha_sk_temp2+costo_variable_cosecha_tr_temp2)-costo_construccion_t2-costo_transporte_t2
+print(f"UTILIDAD temporada 1: {Utilidad_segunda_temporada}")
+
+
+
+print("#########################################################")
+print("################# TOTALES ###########################")
+print("#########################################################")
+
+print(f"CANTIDAD TOTAL COSECHADA: {cantidad_cosechada_temporada_1+cantidad_cosechada_temporada_2}")
+print(f"UTILIDAD TOTAL: {Utilidad_primera_temporada+Utilidad_segunda_temporada}")
+print(f"El costo de instalación de faenas en ambas fue de {costo_instalacion_faenas+costo_instalacion_faenas_t2}")
+print(f"El costo variable de cosecha en ambas fue de {costo_variable_cosecha_sk_temp1+costo_variable_cosecha_tr_temp1+costo_variable_cosecha_sk_temp2+costo_variable_cosecha_tr_temp2}")
+print(f"El costo de construcción de caminos en ambas fue de {costo_construccion+costo_construccion_t2}")
+print(f"El costo de transporte en ambas de madera fue de {costo_transporte+costo_transporte_t2}")
+
+
+node_colors_blanco = ["white"] * len(gf.G.nodes())
+#print(nodos_a_cosechar_t)
+Orden= list(gf.G.nodes())
+for nodo in setcosechadostemp1|setcosechadostemp2:
+    node_colors_blanco[Orden.index(nodo)] = "blue"
+
+
+# Dibujar nodos y aristas
+nx.draw(gf.G, gf.pos, with_labels=True, 
+        #edge_color=gf.edge_colors,
+         node_color=node_colors_blanco, 
+         #edgecolors= gf.nodo_bordes_faen, 
+         linewidths= 1.5,node_size=150, font_weight='bold', font_size=5)
+gf.plt.title("Grafo asignación ambas temporadas")
+plt.show()
