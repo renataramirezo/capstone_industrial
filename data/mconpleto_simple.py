@@ -73,7 +73,7 @@ def main():
                 lista_recorrido.append((i,j))
 
         costo_construccion_caminos = (quicksum(C * y[i,j,1] for i, j in G.edges()) 
-                                      + quicksum(C * y[i,j,2] for i, j in G.edges() if (i,j) in XA))
+                                      + quicksum(C * y[i,j,2] for i, j in G.edges() if G[i][j]["XA"] == True))
 
         costo_transporte_madera = quicksum(ct * z[i,j,t] for i, j in G.edges() for t in T)
 
@@ -274,6 +274,8 @@ def main():
                         z[i,j,t] <= M_ij * y[i,j,2],  
                         name=f"restriccion_18.3_{i}_{j}_{t}"
                     )
+
+        
 
         solucion_inicial = cargar_solucion_desde_pkl('resultados_modelo_simple.pkl')
         modelo.read(solucion_inicial)

@@ -268,10 +268,9 @@ def main():
             if G[i][j]["XA"] == False:
                 for t in T_u[2]:
                     modelo_2.addConstr(
-                        z[i,j,t] <= M_ij * y[i,j,1],  
+                        z[i,j,t] <= M_ij * (y[i,j,1] + y[i,j,2]),  
                         name=f"restriccion_17.2_{i}_{j}_{t}"
-                    )
-                    
+                    )       
 
         for i,j in G.edges():
             if G[i][j]["XA"] == True:
