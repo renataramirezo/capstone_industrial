@@ -72,8 +72,8 @@ def main():
             if (j,i) not in lista_recorrido:
                 lista_recorrido.append((i,j))
 
-        costo_construccion_caminos = (quicksum(C * y[i,j,1] for i, j in lista_recorrido) 
-                                      + quicksum(C * y[i,j,2] for i, j in lista_recorrido if (i,j) in XA))
+        costo_construccion_caminos = (quicksum(C * y[i,j,1] for i, j in G.edges()) 
+                                      + quicksum(C * y[i,j,2] for i, j in G.edges() if G[i][j]["XA"] == True))
 
         costo_transporte_madera = quicksum(ct * z[i,j,t] for i, j in G.edges() for t in T)
 
@@ -260,7 +260,7 @@ def main():
                 )
 
         for i,j in G.edges():
-            if (i,j) not in XA:
+            if G[i][j]["XA"] == False:
                 for t in T_u[2]:
                     modelo.addConstr(
                         z[i,j,t] <= M_ij * y[i,j,1],  
@@ -268,17 +268,19 @@ def main():
                     )
 
         for i,j in G.edges():
-            if (i,j) in XA:
+            if G[i][j]["XA"] == True:
                 for t in T_u[2]:
                     modelo.addConstr(
                         z[i,j,t] <= M_ij * y[i,j,2],  
                         name=f"restriccion_18.3_{i}_{j}_{t}"
                     )
 
+        
+
         solucion_inicial = cargar_solucion_desde_pkl('resultados_modelo_simple.pkl')
         modelo.read(solucion_inicial)
 
-        modelo.setParam('MIPGap', 0.01)
+        modelo.setParam('MIPGap', 0.11)
         modelo.setParam('TimeLimit', 2615)
         modelo.optimize()
 
@@ -382,10 +384,10 @@ def visualizar_resultados(archivo_pkl='resultados_modelo_simple_completo.pkl', a
                     txt_file.write(f"    - Nodo {nodo}, período {periodo}: {cantidad:.2f} m3\n")"""
             
             # Asignaciones de cosecha (w)
-            txt_file.write("\n  🔸 Faena Cosechada (x):\n")
+            """txt_file.write("\n  🔸 Faena Cosechada (x):\n")
             for (i, j, k, t), cantidad in datos['variables']['x'].items():
                 if cantidad > 0:
-                    txt_file.write(f"    - Faena {i} → Hectarea {j}, máquina {k}, período {t}, cosecha: {cantidad:.2f} \n")
+                    txt_file.write(f"    - Faena {i} → Hectarea {j}, máquina {k}, período {t}, cosecha: {cantidad:.2f} \n")"""
             
             txt_file.write("\n  🔸 Madera Cosechada (w):\n")
             for (i, j, k, t), cantidad in datos['variables']['w'].items():
@@ -398,11 +400,6 @@ def visualizar_resultados(archivo_pkl='resultados_modelo_simple_completo.pkl', a
                 if valor == 1:
                     txt_file.write(f"    - Nodo {i}, máquina {k}, período {t}\n")
 
-            """txt_file.write("\n  🔸 Faenas Existentes (f):\n")
-            for (i, k, t), valor in datos['variables']['f'].items():
-                if valor == 1:
-                    txt_file.write(f"    - Nodo {i}, máquina {k}, período {t}\n")"""
-
             txt_file.write("\n🛣️ INFRAESTRUCTURA DE CAMINOS:\n")
             
             # Caminos construidos (y) y existentes (l)
@@ -411,16 +408,11 @@ def visualizar_resultados(archivo_pkl='resultados_modelo_simple_completo.pkl', a
                 if valor == 1:
                     txt_file.write(f"    - Construido: {i} ↔ {j} en período {t}\n")
              
-            """txt_file.write("\n  🔸 Caminos existentes (l):\n")
-            for (i, j, t), valor in datos['variables']['l'].items():
-                if valor == 1:
-                    txt_file.write(f"    - Disponible: {i} ↔ {j} en período {t}\n")"""
-            
-            """# Transporte de madera (z)
+            # Transporte de madera (z)
             txt_file.write("\n  🔸 Flujo de madera (z):\n")
             for (i, j, t), cantidad in datos['variables']['z'].items():
                 if cantidad > 0:
-                    txt_file.write(f"    - Transportado: {cantidad:.2f} m³ por {i} ↔ {j} en período {t}\n")"""
+                    txt_file.write(f"    - Transportado: {cantidad:.2f} m³ por {i} ↔ {j} en período {t}\n")
             
             txt_file.write("\n✅ Resultados guardados correctamente\n")
 
