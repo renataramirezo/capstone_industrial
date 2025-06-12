@@ -227,7 +227,7 @@ def main():
 
     
         
-        modelo_1.setParam('MIPGap', 0.1)
+        modelo_1.setParam('MIPGap', 0.05)
         modelo_1.optimize()
 
         dic_pit = {}
@@ -295,7 +295,7 @@ def main():
                     )
         
 
-        modelo_2.setParam('MIPGap', 0.05)
+        modelo_2.setParam('MIPGap', 0.1)
         modelo_2.optimize()
 
         print("costo transporte", costo_transporte_madera.getValue())
