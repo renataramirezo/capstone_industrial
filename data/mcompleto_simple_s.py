@@ -97,6 +97,14 @@ def main():
 
         # ========== RESTRICCIONES ==========
 
+
+        #RESTRICCIÓN SENSIBILIDAD minimo de cosecha
+
+        for (i, k), datos_faena in R_jk.items():
+            for j in datos_faena['radio']:
+                for t in T:
+                    modelo_1.addConstr(w[i, j, k, t] >= 40 * x[i, j, k, t])
+
         # 1.
         for i in N:
             for t in T:
