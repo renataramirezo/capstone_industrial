@@ -281,7 +281,8 @@ def main():
         modelo.read(solucion_inicial)
 
         modelo.setParam('MIPGap', 0.11)
-        modelo.setParam('TimeLimit', 2615)
+        modelo.setParam('TimeLimit', 60)
+        modelo.setParam("LogFile", "gurobi_log.txt")
         modelo.optimize()
 
         print("ingresos:", ingreso_venta.getValue())
