@@ -201,7 +201,7 @@ ruta_arcos.difference_update(elementos_a_eliminar_t1)
 costo_construccion = 0
 for camino in ruta_arcos:
     costo_construccion += dt.C
-costo_transporte = dt.ct * total_volumen_cosechado #esto es una simplificación, 
+costo_transporte = dt.ct * total_volumen_cosechado * len(ruta_arcos)/5 #esto es una simplificación, 
 #se está transportando toda la madera por todos los caminos por lo tanto el costo saldrá más alto que la realidad
 '''print(f"costo_transporte: {costo_transporte}")
 print(f"costo construcción: {costo_construccion}")'''
@@ -466,7 +466,7 @@ ruta_arcos_t2.difference_update(elementos_a_eliminar)
 costo_construccion_t2 = 0
 for camino in ruta_arcos_t2:
     costo_construccion_t2 += dt.C
-costo_transporte_t2 = dt.ct * total_volumen_cosechado_t2 #esto es una simplificación del cálculo, queda un costo más alto del real
+costo_transporte_t2 = dt.ct * total_volumen_cosechado_t2 *len(ruta_arcos_t2)/5 #esto es una simplificación del cálculo, queda un costo más alto del real
 
 Utilidad_segunda_temporada = utilidad_neta_asignacion_t2 - costo_construccion_t2 - costo_transporte_t2
 
